@@ -25,20 +25,4 @@
     <changefreq>weekly</changefreq>
   </url>
 
-  <url>
-    <loc>https://lohrasbi.info/profile.jpg</loc>
-  </url>
-
-  <url>
-    <loc>https://lohrasbi.info/pub1.jpg</loc>
-  </url>
-
-  <url>
-    <loc>https://lohrasbi.info/pub2.jpg</loc>
-  </url>
-
-  <url>
-    <loc>https://lohrasbi.info/pub3.jpg</loc>
-  </url>
-
 </urlset>
