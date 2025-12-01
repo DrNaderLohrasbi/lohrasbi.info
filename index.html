@@ -2,50 +2,234 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lohrasbi Architecture Lab</title>
+  <title>Dr. Nader Lohrasbi | Healthcare Transformation Architect & AI Strategist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Dr. Nader Lohrasbi – Healthcare Transformation Architect & AI Strategist. Founder of the Architecture-Over-Repair Doctrine. Architecting Symbiotic Intelligence and antifragile healthcare systems. Based in London.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr. Nader Lohrasbi",
+    "alternateName": "Nader Lohrasbi",
+    "jobTitle": "Healthcare Transformation Architect & AI Strategist",
+    "url": "https://lohrasbi.info/",
+    "image": "https://i.ibb.co/wFvcVQNZ/nader-lohrasbi.jpg",
+    "description": "Dual-doctorate Healthcare Transformation Architect & AI Strategist, architecting Symbiotic Intelligence and antifragile healthcare systems.",
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Harvard Medical School"
+      }
+    ],
+    "affiliation": [{
+      "@type": "Organization",
+      "name": "Lohrasbi Strategy & Architecture"
+    }],
+    "sameAs": [
+      "https://about.me/dr.naderlohrasbi",
+      "https://www.linkedin.com/in/nader-lohrasbi/",
+      "https://orcid.org/0009-0004-4232-2953",
+      "https://scholar.google.com/citations?user=sz_EXuAAAAAJ&hl=en",
+      "https://zenodo.org/search?q=Nader%20Lohrasbi",
+      "https://hms-harvard.academia.edu/NaderLohrasbi",
+      "https://figshare.com/authors/Nader_Lohrasbi/22668938",
+      "https://www.slideshare.net/DrNaderLohrasbi",
+      "https://medium.com/@info.dr.lohrasbi",
+      "https://drlohrasbi.substack.com",
+      "https://issuu.com/drnaderlohrasbi",
+      "https://github.com/DrNaderLohrasbi"
+    ]
+  }
+  </script>
+
   <style>
+    :root {
+      --bg: #020617;
+      --card-bg: #0b1120;
+      --accent: #0ea5e9;
+      --accent-soft: rgba(14,165,233,0.1);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #1e293b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0d1117;
-      color: white;
-      text-align: center;
-      padding-top: 80px;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, black 100%);
+      color: var(--text);
+      padding: 32px 16px;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
     }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      font-weight: bold;
+
+    .shell {
+      width: 100%;
+      max-width: 1100px;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.7);
     }
-    p {
-      font-size: 18px;
-      margin-bottom: 40px;
-      color: #c9d1d9;
+
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 24px;
+      gap: 16px;
     }
-    .button {
-      display: inline-block;
-      padding: 14px 28px;
-      background-color: #238636;
-      color: white;
+
+    .top-nav a {
+      color: var(--muted);
       text-decoration: none;
-      font-size: 18px;
-      border-radius: 8px;
-      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
-    .button:hover {
-      background-color: #2ea043;
+    .top-nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .hero img {
+      width: 200px;
+      height: 200px;
+      border-radius: 24px;
+      border: 2px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .hero h2 {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .hero .tagline {
+      font-size: 14px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .section {
+      margin-top: 42px;
+    }
+    .section h3 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .link-list {
+      list-style: none;
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+    }
+    .link-list li a {
+      display: block;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 12px 16px;
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+    .link-list li a:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
     }
   </style>
 </head>
-
 <body>
-  <h1>Lohrasbi Architecture Lab</h1>
-  <p>
-    Symbiotic Intelligence, Healthcare Systems Redesign, and Health Nation OS.<br />
-    This is the public gateway for Dr. Lohrasbi’s digital architecture ecosystem.
-  </p>
+  <main class="shell">
 
-  <a class="button" href="architecture.html">Enter the Lab →</a>
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <section class="hero">
+      <img src="https://i.ibb.co/wFvcVQNZ/nader-lohrasbi.jpg" alt="Dr. Nader Lohrasbi">
+      <h1>Dr. Nader Lohrasbi</h1>
+      <h2>Healthcare Transformation Architect & AI Strategist</h2>
+      <div class="tagline">Architecting Symbiotic Intelligence & Antifragile Health Systems</div>
+    </section>
+
+    <section class="section">
+      <h3>Identity Core</h3>
+      <ul class="link-list">
+        <li><a href="https://about.me/dr.naderlohrasbi" target="_blank">About.me (Central Hub)</a></li>
+        <li><a href="https://www.linkedin.com/in/nader-lohrasbi/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://orcid.org/0009-0004-4232-2953" target="_blank">ORCID</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h3>Scientific Authority</h3>
+      <ul class="link-list">
+        <li><a href="https://hms-harvard.academia.edu/NaderLohrasbi" target="_blank">Academia.edu (Harvard)</a></li>
+        <li><a href="https://scholar.google.com/citations?user=sz_EXuAAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+        <li><a href="https://zenodo.org/search?q=Nader%20Lohrasbi" target="_blank">Zenodo (DOI Repository)</a></li>
+        <li><a href="https://figshare.com/authors/Nader_Lohrasbi/22668938" target="_blank">Figshare</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h3>Executive Authority</h3>
+      <ul class="link-list">
+        <li><a href="https://www.slideshare.net/DrNaderLohrasbi" target="_blank">SlideShare</a></li>
+        </ul>
+    </section>
+
+    <section class="section">
+      <h3>Thought Leadership</h3>
+      <ul class="link-list">
+        <li><a href="https://medium.com/@info.dr.lohrasbi" target="_blank">Medium</a></li>
+        <li><a href="https://drlohrasbi.substack.com" target="_blank">Substack</a></li>
+        <li><a href="https://issuu.com/drnaderlohrasbi" target="_blank">Issuu</a></li>
+        <li><a href="https://github.com/DrNaderLohrasbi" target="_blank">GitHub (AI Architecture)</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      © 2025 Dr. Nader Lohrasbi — Lohrasbi Strategy & Architecture
+    </div>
+
+  </main>
 </body>
 </html>
