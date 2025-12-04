@@ -1,121 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Contact – Dr. Nader Lohrasbi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Contact Dr. Nader Lohrasbi – Healthcare Transformation Architect & AI Strategist. Strategic advisory, system architecture, and high-level consultation.">
+  <meta charset="UTF-8" />
+  <title>Contact – Lohrasbi Architecture Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-<style>
-body{margin:0;font-family:Inter,system-ui;background:#020617;color:#e5e7eb;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.shell{max-width:900px;margin:auto;padding:22px}
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, system-ui;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
 
-/* HEADER */
-header{position:sticky;top:0;background:rgba(2,6,23,.85);backdrop-filter:blur(12px);z-index:40}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
-.nav-links a{margin-left:20px;color:#9ca3af;font-size:.9rem}
-.nav-links a:hover{color:#fff}
-.nav-links .cta{padding:6px 14px;background:#10b981;border-radius:20px;color:#021}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* HERO */
-.hero{margin-top:20px;background:linear-gradient(to right,#0f172a,#020617);border:1px solid #1f2937;padding:40px;border-radius:28px;text-align:center}
-.hero h1{font-size:2.2rem;margin:0}
-.hero p{color:#9ca3af;font-size:1rem;margin-top:12px}
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 50;
+    }
 
-/* CONTACT CARD */
-.contact-card{margin-top:40px;background:#0b1220;border:1px solid #1f2937;padding:28px;border-radius:26px;text-align:center}
-.contact-card h2{margin-top:0}
-.contact-item{margin:14px 0;font-size:1rem;color:#e2e8f0}
-.contact-item i{margin-right:8px;color:#38bdf8}
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-/* CTA */
-.cta{margin-top:32px;background:#064e3b;padding:20px;border-radius:22px;border:1px solid #065f46;text-align:center}
-.cta p{color:#ccfbf1;margin:8px 0}
+    .nav-links a {
+      margin-left: 20px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
 
-/* FOOTER */
-footer{text-align:center;margin-top:55px;padding:20px 0;border-top:1px solid #1f2937}
-.icons a{display:inline-flex;width:38px;height:38px;border-radius:50%;border:1px solid #334155;align-items:center;justify-content:center;margin:4px;color:#e5e7eb}
-.icons a:hover{border-color:#38bdf8;background:#1e40af}
-</style>
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links .cta {
+      background: #10b981;
+      color: #021;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .shell {
+      max-width: 1150px;
+      margin: auto;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* TITLE */
+    .title-box {
+      background: #0b1220;
+      padding: 40px;
+      border-radius: 26px;
+      text-align: center;
+      border: 1px solid #1f2937;
+    }
+
+    .title-box h1 {
+      margin: 0;
+      font-size: 2.3rem;
+      font-weight: 700;
+    }
+
+    .title-box p {
+      color: #9ca3af;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    /* CONTACT GRID */
+    .contact-grid {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .contact-card {
+      background: #0b1220;
+      border: 1px solid #1f2937;
+      padding: 26px;
+      border-radius: 22px;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .contact-item {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .contact-item i {
+      margin-right: 10px;
+      font-size: 1rem;
+      width: 20px;
+      text-align: center;
+      color: #38bdf8;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* FULL WIDTH BOX */
+    .wide {
+      grid-column: span 2;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 25px 0;
+      border-top: 1px solid #1f2937;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .wide {
+        grid-column: span 1;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<div class="shell nav">
-<div><strong>Lohrasbi Architecture Lab</strong></div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="architecture.html">Architecture Lab</a>
-<a href="contact.html" class="cta">Contact</a>
-</div>
-</div>
+  <div class="nav">
+    <div><strong>Lohrasbi Architecture Lab</strong></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="architecture.html">Architecture Lab</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html" class="cta">Contact</a>
+    </div>
+  </div>
 </header>
 
 <div class="shell">
 
-<!-- HERO -->
-<section class="hero">
-<h1>Contact</h1>
-<p>For strategic advisory, architectural consultations, or collaboration requests.</p>
-</section>
+  <!-- TITLE -->
+  <div class="title-box">
+    <h1>Contact</h1>
+    <p>Strategic advisory, executive communication, research collaborations, and media engagement.</p>
+  </div>
 
-<!-- CONTACT CARD -->
-<section class="contact-card">
-<h2>Get in Touch</h2>
+  <!-- CONTACT GRID -->
+  <div class="contact-grid">
 
-<div class="contact-item">
-<i class="fa-solid fa-envelope"></i>  
-Email: <a href="mailto:info.dr.lohrasbi@gmail.com">info.dr.lohrasbi@gmail.com</a>
-</div>
+    <!-- GENERAL -->
+    <div class="contact-card">
+      <h3>General Inquiries</h3>
 
-<div class="contact-item">
-<i class="fab fa-linkedin"></i>
-LinkedIn: <a href="https://www.linkedin.com/in/nader-lohrasbi" target="_blank">linkedin.com/in/nader-lohrasbi</a>
-</div>
+      <div class="contact-item">
+        <i class="fa-regular fa-envelope"></i>
+        <a href="mailto:info@lohrasbi.info">info@lohrasbi.info</a>
+      </div>
 
-<div class="contact-item">
-<i class="fa-solid fa-globe"></i>
-Website: <a href="https://lohrasbi.info" target="_blank">lohrasbi.info</a>
-</div>
+      <div class="contact-item">
+        <i class="fa-brands fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/nader-lohrasbi" target="_blank">linkedin.com/in/nader-lohrasbi</a>
+      </div>
 
-<div class="contact-item">
-<i class="fab fa-github"></i>
-GitHub: <a href="https://github.com/DrNaderLohrasbi" target="_blank">DrNaderLohrasbi</a>
-</div>
+      <div class="contact-item">
+        <i class="fa-solid fa-globe"></i>
+        <a href="https://lohrasbi.info" target="_blank">lohrasbi.info</a>
+      </div>
+    </div>
 
-</section>
+    <!-- CEO OFFICE -->
+    <div class="contact-card">
+      <h3>Executive Office (CEO)</h3>
 
-<!-- CTA -->
-<section class="cta">
-<h3>Strategic Consultation</h3>
-<p>If you require architecture review, AI strategy assessment, or system redesign, reach out directly.</p>
-<a href="mailto:info.dr.lohrasbi@gmail.com" class="link-pill" style="padding:6px 14px;background:#10b981;color:#021;border-radius:20px;border:none;">Send Email</a>
-</section>
+      <div class="contact-item">
+        <i class="fa-solid fa-user-tie"></i>
+        <a href="mailto:executive.office@lohrasbi.info">executive.office@lohrasbi.info</a>
+      </div>
 
+      <div class="contact-item">
+        <i class="fa-solid fa-briefcase"></i>
+        <a href="mailto:executive@lohrasbi.info">executive@lohrasbi.info</a>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div class="contact-card">
+      <h3>Research Division</h3>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-flask"></i>
+        <a href="mailto:research@lohrasbi.info">research@lohrasbi.info</a>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-brands fa-orcid"></i>
+        <a href="https://orcid.org/0009-0004-4232-2953" target="_blank">ORCID Profile</a>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-database"></i>
+        <a href="https://zenodo.org/search?q=Nader%20Lohrasbi" target="_blank">Zenodo Repository</a>
+      </div>
+    </div>
+
+    <!-- PRESS -->
+    <div class="contact-card">
+      <h3>Media & Press</h3>
+
+      <div class="contact-item">
+        <i class="fa-regular fa-newspaper"></i>
+        <a href="mailto:press@lohrasbi.info">press@lohrasbi.info</a>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-brands fa-medium"></i>
+        <a href="https://medium.com/@info.dr.lohrasbi" target="_blank">Medium Articles</a>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-radio"></i>
+        Media requests, interviews, editorial inquiries
+      </div>
+    </div>
+
+    <!-- STRATEGY -->
+    <div class="contact-card wide">
+      <h3>Strategy & System Architecture</h3>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-sitemap"></i>
+        <a href="mailto:strategy@lohrasbi.info">strategy@lohrasbi.info</a>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-diagram-project"></i>
+        Symbiotic Intelligence, Health Nation OS, Crisis Architecture
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <footer>
-<div>© 2025 Dr. Nader Lohrasbi · Lohrasbi Strategy & Architecture</div>
-
-<div class="icons" style="margin-top:10px">
-<a href="https://www.linkedin.com/in/nader-lohrasbi" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=sz_EXuAAAAAJ" target="_blank"><i class="fa-solid fa-flask"></i></a>
-<a href="https://orcid.org/0009-0004-4232-2953" target="_blank"><i class="fa-solid fa-circle-nodes"></i></a>
-<a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=9241472" target="_blank"><i class="fa-solid fa-scroll"></i></a>
-<a href="https://zenodo.org/search?q=Nader%20Lohrasbi" target="_blank"><i class="fa-solid fa-dna"></i></a>
-<a href="https://figshare.com/authors/Nader_Lohrasbi/22668938" target="_blank"><i class="fa-solid fa-database"></i></a>
-<a href="https://hms-harvard.academia.edu/NaderLohrasbi" target="_blank"><i class="fa-solid fa-university"></i></a>
-<a href="https://medium.com/@info.dr.lohrasbi" target="_blank"><i class="fab fa-medium-m"></i></a>
-<a href="https://drlohrasbi.substack.com" target="_blank"><i class="fa-solid fa-newspaper"></i></a>
-<a href="https://github.com/DrNaderLohrasbi" target="_blank"><i class="fab fa-github"></i></a>
-<a href="https://issuu.com/drnaderlohrasbi" target="_blank"><i class="fa-solid fa-book-open"></i></a>
-</div>
-
+  © 2025 Dr. Nader Lohrasbi · Lohrasbi Strategy & Architecture
 </footer>
 
 </body>
