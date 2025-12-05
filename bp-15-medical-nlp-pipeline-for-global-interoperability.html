@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical NLP Pipeline for Global Interoperability — Blueprint 15</title>
+    <meta name="description" content="A sovereign medical NLP pipeline enabling cross-language interoperability, clinical text normalization, ontology mapping, and multinational healthcare alignment." />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: #020617;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+        a { color: inherit; text-decoration: none; }
+        header {
+            padding: 40px 20px;
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+        }
+        .breadcrumb {
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            color: #64748b;
+        }
+        .breadcrumb a { color: #94a3b8; }
+
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #e0f2fe;
+            margin-bottom: 10px;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+        .hero-image {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-top: 25px;
+            box-shadow: 0 8px 26px rgba(0,0,0,0.45);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto 70px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 26px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+        }
+        .section-title {
+            color: #22c55e;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        ul.usecases {
+            list-style: none;
+            padding: 0;
+        }
+        ul.usecases li::before {
+            content: "• ";
+            color: #22c55e;
+        }
+
+        .diagram-box {
+            border: 1px dashed #38bdf8;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 12px;
+            background: rgba(56,189,248,0.06);
+            color: #38bdf8;
+        }
+
+        .download-buttons a {
+            display: inline-block;
+            margin-right: 12px;
+            margin-top: 10px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: #22c55e;
+            color: #000;
+        }
+        .btn-outline {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .qa-item {
+            margin-bottom: 22px;
+        }
+        .qa-item h3 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px;
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> › 
+        <a href="blueprints.html">Blueprints</a> › 
+        bp-15
+    </div>
+
+    <h1 class="hero-title">Medical NLP Pipeline for Global Interoperability</h1>
+    <div class="hero-subtitle">Global Medical Interoperability through AI-NLP Architecture</div>
+
+    <img src="bp-15.png" alt="Medical NLP Pipeline for Global Interoperability" class="hero-image">
+</header>
+
+<div class="container">
+
+    <!-- Executive Summary -->
+    <div class="card">
+        <div class="section-title">Executive Summary</div>
+        <p>
+            This blueprint defines a sovereign medical NLP pipeline enabling global interoperability 
+            across languages, taxonomies, and national health documentation standards.  
+            Free-text clinical narratives are ingested, normalized, mapped to ontologies,  
+            and translated into unified structured representations.  
+            Through this architecture, multinational research, telemedicine,  
+            cross-border care, and global EHR alignment become operationally feasible.
+        </p>
+    </div>
+
+    <!-- Strategic Rationale -->
+    <div class="card">
+        <div class="section-title">Strategic Rationale</div>
+        <p>
+            Healthcare operates globally, but medical language remains fragmented,  
+            informal, and incompatible across regions.  
+            Without AI-driven normalization and ontology mapping,  
+            no nation can achieve interoperable health intelligence,  
+            shared analytics, or coordinated policy response.  
+            This blueprint establishes the linguistic backbone for a unified health ecosystem.
+        </p>
+    </div>
+
+    <!-- System Architecture -->
+    <div class="card">
+        <div class="section-title">System Architecture</div>
+
+        <p><strong>1. Ingestion Layer</strong> — Captures multilingual clinical text, reports, imaging notes, claims, and EHR fields.</p>
+        <p><strong>2. Language Normalization</strong> — Converts raw text into structured linguistic units using domain-tuned NLP.</p>
+        <p><strong>3. Ontology Mapping</strong> — Aligns terminology with SNOMED CT, ICD-10, CPT, LOINC, and FHIR semantics.</p>
+        <p><strong>4. Clinical Interpretation Layer</strong> — Generates structured medical meaning, risk signals, and care pathways.</p>
+    </div>
+
+    <!-- Key Use Cases -->
+    <div class="card">
+        <div class="section-title">Key Use Cases</div>
+        <ul class="usecases">
+            <li>Cross-border telemedicine</li>
+            <li>International EHR synchronization</li>
+            <li>Global health tourism workflows</li>
+            <li>Multi-national clinical trials</li>
+            <li>Unified research datasets</li>
+        </ul>
+    </div>
+
+    <!-- Diagram -->
+    <div class="card">
+        <div class="section-title">Technical Blueprint Diagram</div>
+        <div class="diagram-box">
+            Placeholder for the architecture diagram (you will embed manually)
+        </div>
+    </div>
+
+    <!-- Downloads -->
+    <div class="card">
+        <div class="section-title">Downloads & Actions</div>
+        <div class="download-buttons">
+            <a class="btn-primary" href="#">Download Full PDF</a>
+            <a class="btn-outline" href="https://github.com/DrNaderLohrasbi/lohrasbi.info">View on GitHub</a>
+            <a class="btn-outline" href="#">Cite This Blueprint</a>
+        </div>
+    </div>
+
+    <!-- Q&A -->
+    <div class="card">
+        <div class="section-title">Q&A</div>
+
+        <div class="qa-item">
+            <h3>Core Problem</h3>
+            <p>
+                Global healthcare lacks a unified medical language infrastructure,  
+                preventing shared analytics, interoperability, and coordinated care.
+            </p>
+        </div>
+
+        <div class="qa-item">
+            <h3>Architectural Solution</h3>
+            <p>
+                A sovereign NLP pipeline that normalizes, maps, and interprets medical text  
+                across any language, producing unified semantic structures.
+            </p>
+        </div>
+
+        <div class="qa-item">
+            <h3>Impact on Health Systems</h3>
+            <p>
+                Enables international care continuity, global surveillance,  
+                multi-regional research, and harmonized digital health governance.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2025 Dr. Nader Lohrasbi — All Rights Reserved.
+</footer>
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Medical NLP Pipeline for Global Interoperability — Blueprint 15",
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Nader Lohrasbi",
+    "url": "https://lohrasbi.info"
+  },
+  "image": "https://lohrasbi.info/bp-15.png",
+  "description": "A sovereign medical NLP pipeline enabling cross-language interoperability and unified ontology mapping.",
+  "url": "https://lohrasbi.info/bp-15-medical-nlp-pipeline-for-global-interoperability.html"
+}
+</script>
+
+</body>
+</html>
