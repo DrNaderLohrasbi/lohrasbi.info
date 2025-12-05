@@ -1,338 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Architecture Lab – Lohrasbi Strategy & AI Architecture</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Architecture Lab – Symbiotic Intelligence, Health Nation OS, Crisis Architecture, System-of-Systems Design, and AI-enabled national transformation.">
+  <meta charset="UTF-8"/>
+  <title>Architecture Lab – Lohrasbi Architecture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Architecture Lab of Dr. Nader Lohrasbi – National Health OS, Symbiotic Intelligence, Crisis Architecture, and system-level design for ministries and healthcare networks."/>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
-<style>
-body{
-  margin:0;
-  font-family:Inter,system-ui;
-  background:#020617;
-  color:#e5e7eb;
-  line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
-.shell{max-width:1180px;margin:auto;padding:22px}
+  <style>
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:#020617;
+      color:#e5e7eb;
+    }
+    .shell{
+      max-width:1180px;
+      margin:0 auto;
+      padding:20px 22px 60px;
+    }
+    a{text-decoration:none;color:inherit}
 
-/* HEADER */
-header{
-  position:sticky;top:0;
-  background:rgba(2,6,23,.85);
-  backdrop-filter:blur(12px);
-  z-index:40;
-}
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 0;
-}
-.nav-links a{margin-left:20px;color:#9ca3af;font-size:.9rem}
-.nav-links a:hover{color:#fff}
-.nav-links .cta{
-  padding:6px 14px;
-  background:#10b981;
-  border-radius:20px;
-  color:#021;
-  font-weight:600;
-}
+    header{
+      position:sticky;top:0;z-index:40;
+      background:rgba(2,6,23,.95);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      max-width:1180px;margin:0 auto;padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .nav-left{font-weight:600;font-size:.95rem;}
+    .nav-left span{opacity:.7;font-size:.78rem;margin-left:6px;}
 
-/* HERO */
-.hero{
-  margin-top:25px;
-  background:radial-gradient(circle at top left,#0f172a,#020617);
-  border:1px solid #1f2937;
-  padding:45px;
-  border-radius:28px;
-}
-.hero h1{
-  font-size:2.55rem;
-  margin:0;
-  font-weight:700;
-}
-.hero p{
-  color:#9ca3af;
-  font-size:1.12rem;
-  max-width:850px;
-  margin-top:14px;
-}
+    .nav-links{display:flex;gap:18px;font-size:.88rem;}
+    .nav-links a{
+      padding:6px 10px;border-radius:999px;color:#94a3b8;
+    }
+    .nav-links a:hover{
+      background:rgba(255,255,255,.06);color:#fff;
+    }
+    .nav-links .active{
+      background:#22c55e;color:#022c22;font-weight:600;
+    }
 
-/* SECTIONS */
-.sec-title{
-  font-size:1.55rem;
-  font-weight:600;
-  margin-bottom:8px;
-  color:#e2e8f0;
-}
-.sec-sub{
-  color:#9ca3af;
-  font-size:.9rem;
-  margin-bottom:15px;
-}
+    /* HERO */
+    .hero{
+      margin-top:30px;padding:44px 38px;
+      background:radial-gradient(circle at top,#0b1120,#020617 70%);
+      border-radius:34px;
+      border:1px solid rgba(34,197,94,.35);
+      box-shadow:0 24px 80px rgba(0,0,0,.55);
+    }
+    .hero h1{
+      font-size:2.5rem;color:#f9fafb;margin:0 0 10px;
+      font-weight:700;
+    }
+    .hero p{
+      font-size:1.1rem;color:#a5f3fc;max-width:740px;
+    }
 
-/* GRID */
-.grid-2{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:22px;
-}
-.card{
-  background:#0b1220;
-  border:1px solid #1f2937;
-  padding:26px;
-  border-radius:22px;
-}
-.card h3{
-  margin:0;
-  font-size:1.15rem;
-  color:#93c5fd;
-}
-.card p{
-  font-size:.92rem;
-  color:#9ca3af;
-  margin-top:8px;
-}
-.card ul{margin-top:10px}
-.card li{margin-bottom:6px;color:#cbd5e1}
+    /* SECTION */
+    .sec-label{font-size:.75rem;letter-spacing:.16em;color:#64748b;margin-bottom:4px;text-transform:uppercase;}
+    .sec-title{font-size:1.8rem;font-weight:600;color:#f9fafb;margin-bottom:6px;}
+    .sec-sub{font-size:1rem;color:#94a3b8;max-width:780px;margin-bottom:22px;}
 
-/* LARGE BLUEPRINT BLOCK */
-.blueprint{
-  margin-top:55px;
-  background:#0b1220;
-  border:1px solid #1f2937;
-  padding:32px;
-  border-radius:26px;
-}
-.blue-box{
-  background:#111827;
-  border-radius:18px;
-  border:1px solid #1f2937;
-  padding:22px;
-  margin-top:18px;
-}
-.blue-box h4{
-  margin:0 0 8px 0;
-  color:#a5b4fc;
-  font-size:1.07rem;
-}
-.blue-box p{font-size:.88rem;color:#9ca3af}
+    /* NATIONAL OS GRID */
+    .os-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;margin-top:18px;
+    }
+    .os-card{
+      background:#0f172a;border-radius:22px;padding:20px;
+      border:1px solid rgba(255,255,255,.05);
+      box-shadow:0 12px 34px rgba(0,0,0,.45);
+    }
+    .os-card h3{margin:0 0 6px;font-size:1.1rem;color:#e5e7eb;}
+    .os-card p{margin:0;color:#94a3b8;font-size:.9rem;}
 
-/* CTA */
-.cta{
-  margin-top:50px;
-  background:linear-gradient(to right,#064e3b,#020617);
-  padding:26px;
-  border-radius:26px;
-  border:1px solid #065f46;
-}
-.cta p{color:#ccfbf1;margin-top:8px}
+    /* SI GRID */
+    .si-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;margin-top:18px;
+    }
+    .si-card{
+      background:#0f172a;border-radius:22px;padding:20px;
+      border:1px solid rgba(255,255,255,.05);
+      box-shadow:0 12px 34px rgba(0,0,0,.45);
+    }
+    .si-card h3{margin:0 0 6px;font-size:1.1rem;}
+    .si-card p{margin:0;color:#94a3b8;font-size:.88rem;}
 
-/* FOOTER */
-footer{
-  text-align:center;
-  margin-top:55px;
-  padding:20px 0;
-  border-top:1px solid #1f2937;
-}
-.icons a{
-  display:inline-flex;
-  width:38px;height:38px;
-  border-radius:50%;
-  border:1px solid #334155;
-  align-items:center;justify-content:center;
-  margin:4px;color:#e5e7eb;
-}
-.icons a:hover{
-  border-color:#38bdf8;
-  background:#1e40af;
-}
+    /* BLUEPRINTS */
+    .bp-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;margin-top:18px;
+    }
+    .bp-card{
+      background:#0f172a;border-radius:22px;
+      border:1px solid rgba(255,255,255,.05);
+      overflow:hidden;
+      box-shadow:0 12px 38px rgba(0,0,0,.5);
+    }
+    .bp-card img{
+      width:100%;height:180px;object-fit:cover;
+    }
+    .bp-card .bp-body{
+      padding:16px;
+    }
+    .bp-card .bp-title{
+      font-size:1rem;font-weight:600;margin-bottom:6px;color:#e5e7eb;
+    }
+    .bp-card p{
+      margin:0;color:#94a3b8;font-size:.85rem;
+    }
 
-</style>
+    .cta{
+      margin-top:50px;padding:28px 22px;
+      background:linear-gradient(to right,#064e3b,#020617);
+      border-radius:26px;border:1px solid #065f46;
+      box-shadow:0 14px 42px rgba(0,0,0,.55);
+    }
+    .cta p{color:#ccfbf1;font-size:1.05rem;}
+    .btn{
+      background:#22c55e;color:#022c22;
+      padding:10px 18px;border-radius:999px;
+      font-weight:600;font-size:.95rem;display:inline-flex;
+      align-items:center;gap:10px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<div class="shell nav">
-<div><strong>Lohrasbi Architecture Lab</strong></div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="architecture.html">Architecture Lab</a>
-<a href="research.html">Research</a>
-<a href="contact.html" class="cta">Contact</a>
-</div>
-</div>
+  <div class="nav">
+    <div class="nav-left">
+      Lohrasbi Architecture Lab
+      <span>National OS · AI Systems · Crisis Architecture</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a class="active" href="architecture.html">Architecture Lab</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </header>
 
 <div class="shell">
 
 <!-- HERO -->
 <section class="hero">
-<h1>Architecture Lab</h1>
-<p>
-A high-resolution architecture environment for Symbiotic Intelligence, Health Nation OS,
-Crisis Architecture, and System-of-Systems design — enabling governments, health networks,
-and enterprises to architect antifragile, intelligence-driven systems for the AI era.
-</p>
+  <h1>Architecture Lab</h1>
+  <p>
+    Designing national-scale operating systems for healthcare, intelligence governance, and crisis-ready infrastructures.
+    This lab develops models used by ministries, health networks, and executive boards.
+  </p>
 </section>
 
-<!-- STRATEGIC ARCHITECTURE -->
-<section style="margin-top:55px">
-<div class="sec-title">Strategic Architecture</div>
-<div class="sec-sub">Macro-level frameworks shaping national intelligence, governance, and crisis readiness.</div>
+<!-- NATIONAL HEALTH OS -->
+<section>
+  <div class="sec-label">Health Nation OS</div>
+  <div class="sec-title">National Operating System Architecture</div>
+  <div class="sec-sub">
+    A multilayer architecture connecting ministries, networks, hospitals, and bedspaces into one intelligent system.
+  </div>
 
-<div class="grid-2">
+  <div class="os-grid">
+    <div class="os-card">
+      <h3>Nation Layer</h3>
+      <p>Macro governance, regulatory intelligence, national crisis coordination.</p>
+    </div>
 
-<div class="card">
-<h3>Symbiotic Intelligence Model</h3>
-<p>An architectural engine integrating human governance, system signals, and AI inference.</p>
-<ul>
-<li>Human–AI co-decision loops</li>
-<li>Governance-driven intelligence</li>
-<li>Multi-layer risk and sensemaking</li>
-</ul>
-</div>
+    <div class="os-card">
+      <h3>Network Layer</h3>
+      <p>Regional load-balancing, referral intelligence, population-level observability.</p>
+    </div>
 
-<div class="card">
-<h3>Health Nation OS</h3>
-<p>A national operating system linking ministries, networks, hospitals, and unit-level workflows.</p>
-<ul>
-<li>Nation → Network → Hospital → Unit → Bedspace</li>
-<li>Unified intelligence backbone</li>
-<li>Resilience-by-design infrastructure</li>
-</ul>
-</div>
+    <div class="os-card">
+      <h3>Hospital OS</h3>
+      <p>Unified clinical–operational OS integrating pathways, resources, and signals.</p>
+    </div>
 
-<div class="card">
-<h3>Crisis Architecture</h3>
-<p>An operational architecture enabling early detection, escalation routing, and adaptive recovery loops.</p>
-<ul>
-<li>Signal → Detection → Escalation → Containment</li>
-<li>Crisis governance structures</li>
-<li>Distributed decision architecture</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Antifragile Operating Models</h3>
-<p>Systems that strengthen under volatility through adaptive workflows and feedback-driven correction.</p>
-<ul>
-<li>Failure mode scanning</li>
-<li>Adaptive decision cycles</li>
-<li>Systemic immunity patterns</li>
-</ul>
-</div>
-
-</div>
-</section>
-
-<!-- SYSTEM-OF-SYSTEMS -->
-<section class="blueprint">
-<div class="sec-title">System-of-Systems Blueprint</div>
-<div class="sec-sub">A structural view of layered intelligence and operational orchestration.</div>
-
-<div class="blue-box">
-<h4>1. Data & Intelligence Backbone</h4>
-<p>Real-time streams, inference engines, and predictive risk signals powering national oversight.</p>
-</div>
-
-<div class="blue-box">
-<h4>2. Operating Model Layers</h4>
-<p>Tiered orchestration from national strategy down to unit-level execution.</p>
-</div>
-
-<div class="blue-box">
-<h4>3. Governance & Safety Architecture</h4>
-<p>Guardrails, audits, escalation maps, and safe AI envelopes.</p>
-</div>
+    <div class="os-card">
+      <h3>Unit & Bedspace OS</h3>
+      <p>Point-of-care intelligence, micro-flow automation, safety loops.</p>
+    </div>
+  </div>
 </section>
 
 <!-- SYMBIOTIC INTELLIGENCE -->
-<section class="blueprint">
-<div class="sec-title">Symbiotic Intelligence Architecture</div>
-<div class="sec-sub">The intelligence engine of AI-enabled healthcare transformation.</div>
+<section>
+  <div class="sec-label">Symbiotic Intelligence</div>
+  <div class="sec-title">Decision Fabrics & Intelligence Mesh</div>
+  <div class="sec-sub">
+    The cognitive backbone of Health Nation OS — merging human judgment with AI decision engines.
+  </div>
 
-<div class="blue-box">
-<h4>Human Judgment Layer</h4>
-<p>Contextual reasoning, ethics, governance, and high-stakes decision arbitration.</p>
-</div>
+  <div class="si-grid">
+    <div class="si-card">
+      <h3>Decision Fabrics</h3>
+      <p>Governance-driven co-decision structures with escalation pathways.</p>
+    </div>
 
-<div class="blue-box">
-<h4>Machine Inference Layer</h4>
-<p>Predictive pipelines, anomaly detection, simulation outputs, and AI-driven recommendations.</p>
-</div>
+    <div class="si-card">
+      <h3>Intelligence Mesh</h3>
+      <p>Cross-system semantic fabric linking all nodes of the health system.</p>
+    </div>
 
-<div class="blue-box">
-<h4>System Feedback Layer</h4>
-<p>Closed-loop monitoring for continuous learning, adaptation, and improvement.</p>
-</div>
+    <div class="si-card">
+      <h3>Crisis & Antifragile Loops</h3>
+      <p>Detection → Escalation → Absorption → Reinforcement loops.</p>
+    </div>
+  </div>
 </section>
 
-<!-- HEALTH NATION OS -->
-<section class="blueprint">
-<div class="sec-title">Health Nation OS</div>
-<div class="sec-sub">A unified OS enabling national-scale transformation.</div>
+<!-- BLUEPRINT GALLERY -->
+<section>
+  <div class="sec-label">Blueprints</div>
+  <div class="sec-title">System Architecture Models</div>
+  <div class="sec-sub">
+    High-level architectural diagrams used in advisory, national design, and executive briefings.
+  </div>
 
-<div class="blue-box">
-<h4>Nation Layer</h4>
-<p>Intelligence oversight, resource orchestration, crisis routing, and strategic governance.</p>
-</div>
+  <div class="bp-grid">
 
-<div class="blue-box">
-<h4>Network Layer</h4>
-<p>Load balancing, escalation pathways, and intelligence sharing across regions.</p>
-</div>
+    <div class="bp-card">
+      <img src="pub1.jpg"/>
+      <div class="bp-body">
+        <div class="bp-title">Health Nation OS – High-Level Stack</div>
+        <p>Nation → Network → Hospital → Unit → Bedspace.</p>
+      </div>
+    </div>
 
-<div class="blue-box">
-<h4>Hospital Layer</h4>
-<p>Hospital OS integrating AI, logistics, workflows, and operational command.</p>
-</div>
+    <div class="bp-card">
+      <img src="pub2.jpg"/>
+      <div class="bp-body">
+        <div class="bp-title">Symbiotic Intelligence – Decision Loop</div>
+        <p>Human–AI decision orchestration with governance pathways.</p>
+      </div>
+    </div>
 
-<div class="blue-box">
-<h4>Bedspace Layer</h4>
-<p>Patient-level monitoring, prediction, early warning systems, and triage automation.</p>
-</div>
+    <div class="bp-card">
+      <img src="pub3.jpg"/>
+      <div class="bp-body">
+        <div class="bp-title">Crisis Architecture Loop</div>
+        <p>Detection → Escalation → Stabilization → Reinforcement.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-<div class="sec-title">Strategic Engagement</div>
-<p>
-For ministries, boards, and systems designing national-scale AI architectures or crisis-ready
-operating models — request a confidential strategic briefing via the Executive Office.
-</p>
-<a href="contact.html"
-style="margin-top:12px;background:#10b981;color:#021;border:none;padding:6px 14px;border-radius:20px;font-weight:600">
-Open Contact Page
-</a>
+  <div class="sec-label" style="color:#bbf7d0;">Engagement</div>
+  <div class="sec-title">National & System-Level Architecture</div>
+  <p>
+    Supporting ministries, networks, and boards in designing crisis-ready, AI-enabled national health operating systems.
+  </p>
+  <a class="btn" href="contact.html">
+    <i class="fa-solid fa-calendar-check"></i> Request strategic engagement
+  </a>
 </section>
 
 </div>
-
-<footer>
-<div>© 2025 Dr. Nader Lohrasbi · Lohrasbi Strategy & Architecture</div>
-
-<div class="icons" style="margin-top:10px">
-<a href="https://www.linkedin.com/in/nader-lohrasbi" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=sz_EXuAAAAAJ" target="_blank"><i class="fa-solid fa-flask"></i></a>
-<a href="https://orcid.org/0009-0004-4232-2953" target="_blank"><i class="fa-solid fa-circle-nodes"></i></a>
-<a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=9241472" target="_blank"><i class="fa-solid fa-scroll"></i></a>
-<a href="https://zenodo.org/search?q=Nader%20Lohrasbi" target="_blank"><i class="fa-solid fa-dna"></i></a>
-<a href="https://figshare.com/authors/Nader_Lohrasbi/22668938" target="_blank"><i class="fa-solid fa-database"></i></a>
-<a href="https://hms-harvard.academia.edu/NaderLohrasbi" target="_blank"><i class="fa-solid fa-university"></i></a>
-<a href="https://medium.com/@info.dr.lohrasbi" target="_blank"><i class="fab fa-medium-m"></i></a>
-<a href="https://drlohrasbi.substack.com" target="_blank"><i class="fa-solid fa-newspaper"></i></a>
-<a href="https://github.com/DrNaderLohrasbi" target="_blank"><i class="fab fa-github"></i></a>
-<a href="https://issuu.com/drnaderlohrasbi" target="_blank"><i class="fa-solid fa-book-open"></i></a>
-</div>
-
-</footer>
-
 </body>
 </html>
