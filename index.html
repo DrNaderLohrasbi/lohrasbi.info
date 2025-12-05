@@ -4,13 +4,13 @@
   <meta charset="UTF-8"/>
   <title>Dr. Nader Lohrasbi – Healthcare Transformation Architect & AI Strategist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Healthcare Transformation Architect & AI Strategist. Symbiotic Intelligence, Health Nation OS, Crisis Architecture, antifragile hospitals, and national health operating systems."/>
+  <meta name="description" content="Healthcare Transformation Architect & AI Strategist. Creator of Symbiotic Intelligence, Health Nation OS, Crisis Architecture, and antifragile healthcare operating systems serving ministries, boards, and national infrastructures."/>
   <meta name="theme-color" content="#020617"/>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Dr. Nader Lohrasbi – Healthcare Transformation Architect & AI Strategist"/>
-  <meta property="og:description" content="Designing Symbiotic Intelligence, Health Nation OS, Crisis Architecture, and antifragile healthcare systems for next-generation national infrastructures."/>
+  <meta property="og:description" content="Architecting AI-enabled, crisis-ready national health operating systems. Symbiotic Intelligence · Health Nation OS · Antifragile Systems."/>
   <meta property="og:url" content="https://lohrasbi.info/"/>
   <meta property="og:image" content="https://lohrasbi.info/profile.jpg"/>
 
@@ -46,236 +46,290 @@
       "https://medium.com/@info.dr.lohrasbi",
       "https://drlohrasbi.substack.com",
       "https://www.slideshare.net/DrNaderLohrasbi",
-      "https://github.com/DrNaderLohrasbi",
       "https://issuu.com/drnaderlohrasbi",
-      "https://about.me/dr.naderlohrasbi"
+      "https://github.com/DrNaderLohrasbi"
     ]
   }
   </script>
 
-  <!-- Schema.org – Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Lohrasbi Architecture Lab",
-    "url": "https://lohrasbi.info",
-    "logo": "https://lohrasbi.info/profile-main.jpg",
-    "founder": {
-      "@type": "Person",
-      "name": "Dr. Nader Lohrasbi",
-      "url": "https://lohrasbi.info"
-    }
-  }
-  </script>
+<style>
+/* ROOT COLORS */
+:root{
+  --bg:#020617;
+  --panel:#0b1120;
+  --accent:#22c55e;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --headline:#f9fafb;
+}
 
-  <style>
-    :root{
-      --bg:#020617;
-      --panel:#020617;
-      --accent:#22c55e;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --headline:#f9fafb;
-    }
+/* GLOBAL */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#020617;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+.shell{
+  max-width:1180px;
+  margin:0 auto;
+  padding:18px 20px 60px;
+}
+a{text-decoration:none;color:inherit;}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:#020617;
-      color:var(--text);
-    }
-    a{text-decoration:none;color:inherit}
+/* NAVBAR */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(2,6,23,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav{
+  max-width:1180px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-left{font-weight:600;font-size:.95rem;}
+.nav-left span{opacity:.7;font-size:.78rem;margin-left:6px;}
+.nav-links{display:flex;gap:18px;font-size:.88rem;}
+.nav-links a{padding:6px 10px;border-radius:999px;color:var(--muted);}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06);}
+.nav-links .active{
+  background:var(--accent);color:#033;
+  font-weight:600;
+}
+.nav-links .cta{
+  background:var(--accent);color:#033;font-weight:600;padding:8px 14px;
+}
 
-    .shell{
-      max-width:1180px;
-      margin:0 auto;
-      padding:18px 20px 60px;
-    }
+/* HERO — EXECUTIVE */
+.hero-wrap{
+  margin-top:28px;
+  background:radial-gradient(circle at top left,#071225,#020617 65%);
+  border-radius:34px;
+  padding:42px 38px;
+  border:1px solid rgba(56,189,248,.4);
+  box-shadow:0 22px 80px rgba(0,0,0,.55);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:42px;
+  align-items:center;
+}
+.hero-title{
+  font-size:2.8rem;
+  font-weight:700;
+  color:var(--headline);
+  margin:0 0 10px 0;
+}
+.hero-sub{
+  color:#93c5fd;
+  font-weight:500;
+  font-size:1.05rem;
+  margin-bottom:14px;
+}
+.hero-text{
+  color:var(--muted);
+  font-size:.98rem;
+  max-width:620px;
+}
+.hero-meta{margin-top:14px;font-size:.88rem;color:#cbd5f5;}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.badge{
+  font-size:.78rem;
+  padding:5px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.4);
+}
+.hero-actions{margin-top:26px;display:flex;gap:12px;}
+.btn{
+  padding:10px 20px;border-radius:999px;display:flex;
+  align-items:center;gap:10px;font-size:.9rem;cursor:pointer;
+}
+.btn-primary{
+  background:var(--accent);color:#022c22;font-weight:600;
+  box-shadow:0 10px 32px rgba(34,197,94,.35);
+}
+.btn-ghost{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(148,163,184,.4);
+  color:var(--muted);
+}
 
-    /* NAVIGATION */
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:rgba(2,6,23,.92);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(15,23,42,.7);
-    }
-    .nav{
-      max-width:1180px;
-      margin:0 auto;
-      padding:12px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .nav-left{
-      font-weight:600;
-      font-size:.95rem;
-      letter-spacing:.03em;
-    }
-    .nav-left span{
-      opacity:.7;
-      font-size:.8rem;
-      margin-left:6px;
-      color:var(--muted);
-    }
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      font-size:.88rem;
-    }
-    .nav-links a{
-      color:var(--muted);
-      padding:6px 10px;
-      border-radius:999px;
-      transition:.18s ease;
-    }
-    .nav-links a:hover{
-      color:#fff;
-      background:rgba(255,255,255,.06);
-    }
-    .nav-links a.active{
-      color:#0b1120;
-      background:var(--accent);
-      font-weight:600;
-    }
-    .nav-links a.cta{
-      background:var(--accent);
-      color:#022c22;
-      font-weight:600;
-      padding:7px 14px;
-    }
+.hero-photo-wrap{
+  border-radius:28px;
+  border:1px solid rgba(56,189,248,.4);
+  padding:10px;
+  background:linear-gradient(to bottom,#0b1120,#020617);
+  max-width:350px;
+  margin-left:auto;position:relative;
+}
+.hero-tag{
+  position:absolute;top:16px;left:20px;font-size:.75rem;
+  padding:5px 12px;border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(148,163,184,.4);
+  display:flex;gap:6px;align-items:center;
+}
+.hero-photo-inner{
+  border-radius:22px;
+  overflow:hidden;
+  height:420px;
+  border:1px solid rgba(255,255,255,.08);
+}
+.hero-photo-inner img{
+  width:100%;height:100%;object-fit:cover;
+}
 
-    /* HERO SECTION — FIXED VERSION */
-    .hero-wrap{
-      margin-top:28px;
-      background:radial-gradient(circle at top left,#020617,#020617 55%,#000 95%);
-      border-radius:34px;
-      padding:38px 34px;
-      border:1px solid rgba(30,64,175,.55);
-      box-shadow:0 26px 80px rgba(15,23,42,.85);
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.7fr 0.9fr;
-      gap:32px;
-      align-items:center;
-    }
+/* SYMBIOTIC INTELLIGENCE */
+.si-wrap{margin-top:60px;}
+.sec-label{font-size:.75rem;letter-spacing:.14em;color:#64748b;margin-bottom:4px;}
+.sec-title{font-size:1.7rem;color:var(--headline);font-weight:600;margin-bottom:6px;}
+.sec-sub{font-size:.95rem;color:var(--muted);max-width:760px;margin-bottom:22px;}
 
-    /* TEXT SIDE */
-    .hero-title{
-      font-size:2.55rem;
-      font-weight:700;
-      color:var(--headline);
-      margin:0 0 10px 0;
-    }
-    .hero-sub{
-      color:#93c5fd;
-      font-weight:500;
-      font-size:1.05rem;
-      margin-bottom:14px;
-    }
-    .hero-text{
-      color:var(--muted);
-      font-size:.96rem;
-      max-width:640px;
-    }
-    .hero-meta{
-      margin-top:14px;
-      font-size:.84rem;
-      color:#cbd5f5;
-    }
-    .hero-badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:18px;
-    }
-    .badge{
-      font-size:.75rem;
-      padding:5px 10px;
-      border-radius:999px;
-      border:1px solid rgba(148,163,184,.7);
-      background:rgba(15,23,42,.9);
-    }
+.si-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.si-card{
+  background:rgba(15,23,42,.96);
+  border-radius:22px;
+  padding:18px 20px 24px;
+  border:1px solid rgba(148,163,184,.25);
+  box-shadow:0 12px 32px rgba(0,0,0,.4);
+}
+.si-tag{font-size:.75rem;color:#7dd3fc;margin-bottom:6px;}
+.si-title{font-size:1.1rem;font-weight:600;margin-bottom:6px;color:#e5e7eb;}
+.si-card p{margin:0;color:#9ca3af;font-size:.9rem;}
+.si-list{margin-top:10px;padding-left:18px;color:#cbd5e1;font-size:.85rem;}
+.si-list li{margin-bottom:4px;}
 
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:22px;
-    }
-    .btn{
-      font-size:.86rem;
-      padding:8px 18px;
-      border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      cursor:pointer;
-      transition:.18s ease;
-    }
-    .btn-primary{
-      background:var(--accent);
-      color:#022c22;
-      font-weight:600;
-    }
-    .btn-ghost{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(148,163,184,.5);
-      color:var(--muted);
-    }
+/* PILLARS */
+section{margin-top:60px;}
+.pillars-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.pillar-card{
+  background:#0f172a;
+  padding:20px 22px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.04);
+  box-shadow:0 12px 32px rgba(0,0,0,.45);
+}
+.pillar-title{font-size:1.05rem;font-weight:600;color:#e5e7eb;margin-bottom:6px;}
+.pillar-tag{font-size:.78rem;color:#a5b4fc;margin-bottom:8px;}
+.pillar-card p{color:#9ca3af;font-size:.9rem;margin:0;}
+.pill-list{margin-top:10px;padding-left:18px;color:#cbd5e1;font-size:.85rem;}
+.pill-list li{margin-bottom:4px;}
 
-    /* IMAGE SIDE — FIXED */
-    .hero-photo-wrap{
-      border-radius:26px;
-      border:1px solid rgba(56,189,248,.8);
-      padding:10px;
-      background:linear-gradient(to bottom,#0b1120,#020617);
-      max-width:350px;
-      margin-left:auto;
-      margin-right:auto;
-      position:relative;
-    }
-    .hero-photo-inner{
-      border-radius:20px;
-      overflow:hidden;
-      border:1px solid rgba(15,23,42,.9);
-      background:#020617;
-      height:420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .hero-photo-inner img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .hero-tag{
-      position:absolute;
-      top:12px;
-      left:14px;
-      font-size:.72rem;
-      padding:4px 9px;
-      border-radius:999px;
-      background:rgba(15,23,42,.9);
-      border:1px solid rgba(148,163,184,.8);
-      color:#e5e7eb;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      z-index:5;
-    }
+/* WORKSTREAMS */
+.workstreams{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.work-card{
+  background:#0f172a;
+  padding:20px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.05);
+  box-shadow:0 10px 28px rgba(0,0,0,.4);
+}
+.work-badge{
+  font-size:.75rem;padding:4px 10px;border-radius:999px;
+  border:1px solid #38bdf8;color:#7dd3fc;margin-bottom:8px;
+}
+.work-title{font-size:1rem;font-weight:600;margin-bottom:6px;color:#e5e7eb;}
+.work-card p{color:#9ca3af;font-size:.88rem;margin:0;}
 
-    /* ... EVERYTHING BELOW REMAINS SAME (Strategic Pillars, Workstreams, Digital Fortress, Publications, CTA, Footer) ... */
-    /* Due to ChatGPT message size limits, بخش پایینی را دقیقاً با همان ساختار نسخه‌ی قبلی، بدون تغییر، ادامه می‌دهم. */
-  </style>
+/* DIGITAL FORTRESS */
+.df-grid{
+  display:grid;
+  grid-template-columns:2fr 1.2fr;
+  gap:22px;
+}
+.df-panel{
+  background:#0f172a;
+  padding:22px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.05);
+  box-shadow:0 14px 42px rgba(0,0,0,.4);
+}
+.df-panel h3{margin:0;color:#e5e7eb;font-size:1.1rem;margin-bottom:6px;}
+.df-panel p{margin:0 0 12px;color:#9ca3af;font-size:.9rem;}
+.df-columns{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;font-size:.82rem;
+}
+.link-pill{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(148,163,184,.35);
+  padding:5px 10px;
+  border-radius:999px;
+  display:inline-flex;gap:6px;align-items:center;
+  font-size:.8rem;color:#cbd5e1;
+}
+.link-pill:hover{
+  background:rgba(255,255,255,.1);
+  border-color:#38bdf8;
+}
+
+/* PUBLICATIONS */
+.pub-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.pub-card{
+  background:#0f172a;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.05);
+  box-shadow:0 14px 42px rgba(0,0,0,.4);
+}
+.pub-card img{width:100%;height:160px;object-fit:cover;}
+.pub-body{padding:16px;display:flex;flex-direction:column;gap:6px;}
+.pub-title{font-size:1rem;font-weight:600;color:#e5e7eb;}
+.pub-body p{margin:0;font-size:.85rem;color:#9ca3af;}
+.pub-cta{color:#38bdf8;font-size:.82rem;}
+
+/* CTA */
+.cta{
+  margin-top:60px;
+  padding:32px 28px;
+  border-radius:26px;
+  background:linear-gradient(to right,#064e3b,#020617);
+  border:1px solid #065f46;
+  box-shadow:0 14px 42px rgba(0,0,0,.5);
+}
+.cta .sec-title{margin-bottom:6px;}
+.cta p{color:#ccfbf1;font-size:.95rem;margin-bottom:14px;}
+.cta a{display:inline-flex;align-items:center;gap:10px;}
+
+/* FOOTER */
+footer{
+  margin-top:60px;
+  padding:20px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  text-align:center;
+  color:#64748b;
+  font-size:.82rem;
+}
+.icons a{
+  display:inline-flex;width:32px;height:32px;border-radius:50%;
+  align-items:center;justify-content:center;margin:3px;
+  border:1px solid rgba(255,255,255,.1);
+  background:#0f172a;color:#cbd5e1;
+}
+#visitor-counter{margin-top:10px;font-size:.78rem;color:#94a3b8;}
+</style>
 </head>
 
 <body>
@@ -292,79 +346,305 @@
       <a href="research.html">Research</a>
       <a href="#digital-fortress">Digital Fortress</a>
       <a href="#publications">Publications</a>
-      <a href="contact.html" class="cta">Contact</a>
+      <a class="cta" href="contact.html">Contact</a>
     </div>
   </div>
 </header>
 
-
 <div class="shell">
 
-  <!-- HERO — FINAL FIXED -->
-  <section class="hero-wrap">
-    <div class="hero-grid">
+<!-- HERO -->
+<section class="hero-wrap">
+  <div class="hero-grid">
 
-      <div>
-        <h1 class="hero-title">Dr. Nader Lohrasbi</h1>
-        <div class="hero-sub">Healthcare Transformation Architect &amp; AI Strategist</div>
-        <p class="hero-text">
-          Designing Symbiotic Intelligence, Health Nation OS, Crisis Architecture, and antifragile hospital operating systems
-          for national health infrastructures across Europe and the Middle East.
-        </p>
-        <div class="hero-meta">
-          <span>Post-DBA (Harvard Medical School, Crisis Management &amp; AI) · DBA (Strategic Management) · PhD (Medical Physics)</span>
-        </div>
-
-        <div class="hero-badges">
-          <div class="badge"><strong>20+ years</strong> in healthcare systems</div>
-          <div class="badge">Hospital OS &amp; workflow redesign</div>
-          <div class="badge">National-scale architecture &amp; governance</div>
-        </div>
-
-        <div class="hero-actions">
-          <a href="contact.html" class="btn btn-primary">
-            <i class="fa-solid fa-paper-plane"></i>
-            Request strategic consultation
-          </a>
-          <a href="architecture.html" class="btn btn-ghost">
-            <i class="fa-solid fa-diagram-project"></i>
-            View Architecture Lab
-          </a>
-        </div>
+    <div>
+      <h1 class="hero-title">Dr. Nader Lohrasbi</h1>
+      <div class="hero-sub">
+        Healthcare Transformation Architect · National Health OS Designer · AI Systems Strategist
+      </div>
+      <p class="hero-text">
+        Architecting Symbiotic Intelligence, Health Nation OS, Crisis Architecture, and antifragile
+        operating systems for ministries, national networks, and healthcare infrastructures.
+      </p>
+      <div class="hero-meta">
+        Post-DBA (Harvard Medical School – Crisis & AI) · DBA (Strategic Management) · PhD (Medical Physics)
       </div>
 
-      <div class="hero-photo-wrap">
-        <div class="hero-tag">
-          <i class="fa-solid fa-shield-heart"></i>
-          Healthcare Systems Architect
-        </div>
-        <div class="hero-photo-inner">
-          <img src="profile.jpg" alt="Dr. Nader Lohrasbi" loading="eager">
-        </div>
+      <div class="hero-badges">
+        <div class="badge"><strong>20+ years</strong> in healthcare architecture</div>
+        <div class="badge">Nation → Network → Hospital OS</div>
+        <div class="badge">AI governance & decision fabrics</div>
+        <div class="badge">Antifragile crisis models</div>
       </div>
 
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="contact.html">
+          <i class="fa-solid fa-landmark-flag"></i>
+          Advisory for Ministries & Boards
+        </a>
+        <a class="btn btn-ghost" href="architecture.html">
+          <i class="fa-solid fa-diagram-project"></i>
+          Explore Architectural Models
+        </a>
+      </div>
     </div>
-  </section>
 
+    <div class="hero-photo-wrap">
+      <div class="hero-tag">
+        <i class="fa-solid fa-cubes"></i> Architecture · Intelligence · Crisis
+      </div>
+      <div class="hero-photo-inner">
+        <img src="profile.jpg" alt="Dr. Nader Lohrasbi">
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- REST OF PAGE ... -->
-  <!-- Strategic Pillars -->
-  <!-- Workstreams -->
-  <!-- Digital Fortress -->
-  <!-- Publications -->
-  <!-- CTA -->
-  <!-- Footer -->
-  <!-- (تمام سکشن‌های پایین عین نسخه قبلی هستند و بدون هیچ نقص کار می‌کنند؛ طولانی بودن باعث محدودیت ارسال کامل می‌شود.) -->
+<!-- SYMBIOTIC INTELLIGENCE -->
+<section class="si-wrap">
+  <div class="sec-label">Symbiotic Intelligence</div>
+  <div class="sec-title">Human–AI Co-Architecture for National Health Systems</div>
+  <div class="sec-sub">
+    A multi-layered intelligence framework combining human judgment, autonomous reasoning,
+    crisis-aware decision fabrics, and real-time feedback loops — foundation of Health Nation OS.
+  </div>
+
+  <div class="si-grid">
+
+    <div class="si-card">
+      <div class="si-tag">Layer 01</div>
+      <div class="si-title">Decision Fabrics</div>
+      <p>Distributed structures integrating clinical expertise, operational intelligence, and escalation pathways.</p>
+      <ul class="si-list">
+        <li>Human-in-the-loop supervisory channels</li>
+        <li>AI-assisted reasoning & contextual validation</li>
+        <li>Governance-bound decision routing</li>
+      </ul>
+    </div>
+
+    <div class="si-card">
+      <div class="si-tag">Layer 02</div>
+      <div class="si-title">Intelligence Mesh</div>
+      <p>Cross-system intelligence backbone linking Nation → Network → Hospital → Unit → Bedspace.</p>
+      <ul class="si-list">
+        <li>Semantic interoperability fabric</li>
+        <li>System-wide observability</li>
+        <li>Coordinated intelligence flows</li>
+      </ul>
+    </div>
+
+    <div class="si-card">
+      <div class="si-tag">Layer 03</div>
+      <div class="si-title">Crisis & Antifragile Loops</div>
+      <p>Loops that detect stress, escalate intelligently, and strengthen systems under volatility.</p>
+      <ul class="si-list">
+        <li>Early signal detection engines</li>
+        <li>Loop-based escalation controllers</li>
+        <li>Recovery & adaptation dynamics</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- STRATEGIC PILLARS -->
+<section>
+  <div class="sec-label">Strategic Pillars</div>
+  <div class="sec-title">AI-enabled, antifragile healthcare architectures</div>
+  <div class="sec-sub">
+    Core domains shaping national-scale transformation — linking systems, intelligence, crisis readiness, and governance.
+  </div>
+
+  <div class="pillars-grid">
+
+    <div class="pillar-card">
+      <div class="pillar-tag">Pillar 01</div>
+      <div class="pillar-title">Symbiotic Intelligence</div>
+      <p>Human–AI co-decision engines integrating judgment, automation, and feedback loops.</p>
+      <ul class="pill-list">
+        <li>Decision fabrics</li>
+        <li>Governance-bound AI orchestration</li>
+        <li>Risk signal architecture</li>
+      </ul>
+    </div>
+
+    <div class="pillar-card">
+      <div class="pillar-tag">Pillar 02</div>
+      <div class="pillar-title">Health Nation OS</div>
+      <p>A multilayer national operating system linking ministries, networks, hospitals, and patients.</p>
+      <ul class="pill-list">
+        <li>Nation → Network → Hospital → Unit → Bedspace</li>
+        <li>Unified data backbone</li>
+        <li>System-wide resilience</li>
+      </ul>
+    </div>
+
+    <div class="pillar-card">
+      <div class="pillar-tag">Pillar 03</div>
+      <div class="pillar-title">Crisis & Antifragile Architecture</div>
+      <p>Systems that detect stress early, absorb shocks, and emerge stronger.</p>
+      <ul class="pill-list">
+        <li>Crisis detection loops</li>
+        <li>Failure-mode mapping</li>
+        <li>Adaptive operating models</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- WORKSTREAMS -->
+<section>
+  <div class="sec-label">Current Workstreams</div>
+  <div class="sec-title">Where architecture meets execution</div>
+  <div class="sec-sub">
+    Active themes across hospitals, health systems, and innovators building AI-enabled care.
+  </div>
+
+  <div class="workstreams">
+
+    <div class="work-card">
+      <div class="work-badge">Hospital OS</div>
+      <div class="work-title">AI-ready hospital operating systems</div>
+      <p>Architecting integrated clinical, operational, and financial OS flows.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-badge">Crisis Architecture</div>
+      <div class="work-title">Loop-based crisis management</div>
+      <p>Embedding detection, escalation, and mitigation loops into core operations.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-badge">Financial Nervous System</div>
+      <div class="work-title">Real-time financial OS</div>
+      <p>Unifying insurance, payments, and workforce economics into one architecture.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DIGITAL FORTRESS -->
+<section id="digital-fortress">
+  <div class="sec-label">Digital Fortress</div>
+  <div class="sec-title">One architecture, many surfaces</div>
+  <div class="sec-sub">
+    A coordinated presence across scientific, executive, and architectural platforms — each mirroring your core doctrine.
+  </div>
+
+  <div class="df-grid">
+
+    <div class="df-panel">
+      <h3>Identity & Executive Presence</h3>
+      <p>Strategic channels for advisory, board engagement, and architectural dialogue.</p>
+
+      <div class="df-columns">
+
+        <div>
+          <h4>Identity Core</h4>
+          <a class="link-pill" href="https://about.me/dr.naderlohrasbi" target="_blank"><i class="fa-solid fa-id-card"></i>About.me</a>
+          <a class="link-pill" href="https://linkedin.com/in/nader-lohrasbi" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+          <a class="link-pill" href="https://orcid.org/0009-0004-4232-2953" target="_blank"><i class="fa-solid fa-circle-nodes"></i>ORCID</a>
+        </div>
+
+        <div>
+          <h4>Scientific Authority</h4>
+          <a class="link-pill" href="https://hms-harvard.academia.edu/NaderLohrasbi" target="_blank"><i class="fa-solid fa-university"></i>Academia.edu</a>
+          <a class="link-pill" href="https://scholar.google.com/citations?user=sz_EXuAAAAAJ" target="_blank"><i class="fa-solid fa-flask"></i>Google Scholar</a>
+          <a class="link-pill" href="https://zenodo.org/search?q=Nader%20Lohrasbi" target="_blank"><i class="fa-solid fa-dna"></i>Zenodo</a>
+          <a class="link-pill" href="https://figshare.com/authors/Nader_Lohrasbi/22668938" target="_blank"><i class="fa-solid fa-database"></i>Figshare</a>
+          <a class="link-pill" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=9241472" target="_blank"><i class="fa-solid fa-scroll"></i>SSRN</a>
+        </div>
+
+        <div>
+          <h4>Narrative & Executive</h4>
+          <a class="link-pill" href="https://medium.com/@info.dr.lohrasbi" target="_blank"><i class="fab fa-medium-m"></i>Medium</a>
+          <a class="link-pill" href="https://drlohrasbi.substack.com" target="_blank"><i class="fa-solid fa-newspaper"></i>Substack</a>
+          <a class="link-pill" href="https://slideshare.net/DrNaderLohrasbi" target="_blank"><i class="fab fa-slideshare"></i>SlideShare</a>
+          <a class="link-pill" href="https://issuu.com/drnaderlohrasbi" target="_blank"><i class="fa-solid fa-book-open"></i>Issuu</a>
+          <a class="link-pill" href="https://github.com/DrNaderLohrasbi" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+        </div>
+
+      </div>
+
+      <div class="df-note" style="margin-top:8px;font-size:.8rem;color:#64748b;">
+        All platforms mirror the core doctrine — this site is the primary source of truth.
+      </div>
+    </div>
+
+    <div class="df-panel">
+      <h3>System View</h3>
+      <p>Each platform acts as a node in a unified architecture — not an isolated profile.</p>
+      <ul class="pill-list" style="margin-top:6px;">
+        <li>Every artifact originates here.</li>
+        <li>External platforms mirror this OS.</li>
+        <li>Search dominance through coherent structure.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="sec-label">Selected Work</div>
+  <div class="sec-title">Blueprints & Working Papers</div>
+  <div class="sec-sub">
+    Architectural diagrams and working papers used for advisory, system design, and executive education.
+  </div>
+
+  <div class="pub-grid">
+
+    <div class="pub-card">
+      <img src="pub1.jpg">
+      <div class="pub-body">
+        <div class="pub-title">AI-Powered Adherence & Recovery Loop</div>
+        <p>Transforming post-visit care into a continuous recovery architecture.</p>
+        <a class="pub-cta" href="#" target="_blank">View blueprint →</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <img src="pub2.jpg">
+      <div class="pub-body">
+        <div class="pub-title">AI-Augmented Referrals & Confidence Scores</div>
+        <p>Decision models balancing machine confidence with clinical judgment.</p>
+        <a class="pub-cta" href="#" target="_blank">Explore model →</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <img src="pub3.jpg">
+      <div class="pub-body">
+        <div class="pub-title">Architecture of Trust in Health AI</div>
+        <p>Security, privacy, encryption, RBAC, and audit layers.</p>
+        <a class="pub-cta" href="#" target="_blank">View architecture →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="sec-label" style="color:#bbf7d0;">Engagement</div>
+  <div class="sec-title">Strategic advisory & national architecture</div>
+  <p>
+    Supporting ministries, boards, and health systems in designing crisis-ready, AI-enabled operating systems.
+  </p>
+  <a class="btn btn-primary" href="contact.html">
+    <i class="fa-solid fa-calendar-check"></i> Open Contact Page
+  </a>
+</section>
 
 </div>
 
-
 <footer>
-  <div>© 2025 Dr. Nader Lohrasbi · Lohrasbi Strategy &amp; Architecture</div>
+  <div>© 2025 Dr. Nader Lohrasbi · Lohrasbi Strategy & Architecture</div>
 
   <div class="icons">
     <a href="https://about.me/dr.naderlohrasbi" target="_blank"><i class="fa-solid fa-id-card"></i></a>
-    <a href="https://www.linkedin.com/in/nader-lohrasbi" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://linkedin.com/in/nader-lohrasbi" target="_blank"><i class="fab fa-linkedin"></i></a>
     <a href="https://orcid.org/0009-0004-4232-2953" target="_blank"><i class="fa-solid fa-circle-nodes"></i></a>
     <a href="https://hms-harvard.academia.edu/NaderLohrasbi" target="_blank"><i class="fa-solid fa-university"></i></a>
     <a href="https://scholar.google.com/citations?user=sz_EXuAAAAAJ" target="_blank"><i class="fa-solid fa-flask"></i></a>
@@ -373,7 +653,7 @@
     <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=9241472" target="_blank"><i class="fa-solid fa-scroll"></i></a>
     <a href="https://medium.com/@info.dr.lohrasbi" target="_blank"><i class="fab fa-medium-m"></i></a>
     <a href="https://drlohrasbi.substack.com" target="_blank"><i class="fa-solid fa-newspaper"></i></a>
-    <a href="https://www.slideshare.net/DrNaderLohrasbi" target="_blank"><i class="fab fa-slideshare"></i></a>
+    <a href="https://slideshare.net/DrNaderLohrasbi" target="_blank"><i class="fab fa-slideshare"></i></a>
     <a href="https://github.com/DrNaderLohrasbi" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://issuu.com/drnaderlohrasbi" target="_blank"><i class="fa-solid fa-book-open"></i></a>
   </div>
@@ -389,7 +669,8 @@
       document.getElementById("visitor-counter").innerText =
         "Total visits (all time): " + data.visits;
     } catch (e) {
-      document.getElementById("visitor-counter").innerText = "Visitor count unavailable";
+      document.getElementById("visitor-counter").innerText =
+        "Visitor count unavailable";
     }
   }
   loadVisitorCount();
