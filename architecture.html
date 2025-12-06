@@ -1,278 +1,3 @@
-<!-- ============================================================
-     FEEDBACK MODAL (Part 1)
-=============================================================== -->
-
-<style>
-#feedback-modal-overlay{
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,.65);
-  backdrop-filter:blur(6px);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:99999;
-}
-
-#feedback-modal{
-  background:rgba(3,10,22,.95);
-  border:1px solid rgba(56,189,248,.35);
-  border-radius:18px;
-  padding:28px;
-  width:420px;
-  box-shadow:0 0 28px rgba(56,189,248,.25);
-}
-
-#feedback-modal h3{
-  font-size:1.4rem;
-  color:#7dd3fc;
-  margin-bottom:12px;
-}
-
-.modal-label{
-  display:block;
-  margin:6px 0 4px;
-  font-size:.9rem;
-  color:#9cc3e2;
-}
-
-.modal-input, .modal-textarea{
-  width:100%;
-  background:#0a1a2f;
-  border:1px solid rgba(56,189,248,.25);
-  color:#dbeafe;
-  padding:10px;
-  border-radius:8px;
-  margin-bottom:10px;
-  font-size:.9rem;
-}
-
-.modal-textarea{
-  resize:none;
-  height:120px;
-}
-
-.modal-btn{
-  width:100%;
-  padding:10px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:600;
-  font-size:1rem;
-  margin-top:6px;
-  background:#38bdf8;
-  color:#031e29;
-  transition:.25s;
-}
-
-.modal-btn:hover{
-  background:#7dd3fc;
-}
-
-#modal-close{
-  margin-top:10px;
-  background:rgba(56,189,248,.18);
-  color:#9cd9ff;
-}
-</style>
-
-<div id="feedback-modal-overlay">
-  <div id="feedback-modal">
-    <h3>Send Feedback</h3>
-
-    <input type="hidden" id="fb-arch-id"/>
-
-    <label class="modal-label">Name</label>
-    <input class="modal-input" id="fb-name" placeholder="Your name"/>
-
-    <label class="modal-label">Email</label>
-    <input class="modal-input" id="fb-email" placeholder="you@example.com"/>
-
-    <label class="modal-label">Message</label>
-    <textarea class="modal-textarea" id="fb-message" maxlength="600"
-              placeholder="Your feedback… (max 600 chars)">
-    </textarea>
-
-    <button class="modal-btn" onclick="submitFeedback()">Submit</button>
-    <button class="modal-btn" id="modal-close" onclick="closeFeedbackModal()">Close</button>
-  </div>
-</div>
-
-<script>
-function openFeedbackModal(archID){
-  document.getElementById("fb-arch-id").value = archID;
-  document.getElementById("feedback-modal-overlay").style.display = "flex";
-}
-
-function closeFeedbackModal(){
-  document.getElementById("feedback-modal-overlay").style.display = "none";
-}
-</script>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-01')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-02')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-03')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-04')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-05')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-06')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-07')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-08')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-09')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-10')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-11')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-12')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-13')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-14')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-15')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-16')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-17')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-18')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-19')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-20')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-21')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-22')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-23')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-24')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-25')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-26')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-27')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-28')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-29')">Send Feedback</button>
-<button class="feedback-btn" onclick="openFeedbackModal('BP-30')">Send Feedback</button>
-<!-- ============================================================
-     FEEDBACK FORM SUBMISSION (Part 3)
-=============================================================== -->
-
-<script>
-const FEEDBACK_API = "https://script.google.com/macros/s/AKfycbzB246HYidcBhME9rY9mUAC7gQXC2BnIXIxAOdY8Q1fAV9UEDGbqULWhC5KS0owGxIl/exec";
-
-async function submitFeedback(){
-    const archID = document.getElementById("fb-arch-id").value.trim();
-    const name   = document.getElementById("fb-name").value.trim();
-    const email  = document.getElementById("fb-email").value.trim();
-    const msg    = document.getElementById("fb-message").value.trim();
-
-    if(!msg || msg.length < 3){
-        alert("Message must be at least 3 characters.");
-        return;
-    }
-
-    const payload = {
-        architecture_id: archID,
-        name: name,
-        email: email,
-        message: msg,
-        user_ip: "browser"   // IP توسط Google Script گرفته می‌شود
-    };
-
-    try{
-        const res = await fetch(FEEDBACK_API, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        });
-
-        alert("Your feedback has been sent successfully.");
-        closeFeedbackModal();
-        clearFeedbackForm();
-
-    } catch(err){
-        alert("Error sending feedback. Please try again.");
-        console.error(err);
-    }
-}
-
-function clearFeedbackForm(){
-    document.getElementById("fb-name").value = "";
-    document.getElementById("fb-email").value = "";
-    document.getElementById("fb-message").value = "";
-}
-</script>
-<!-- ============================================================
-     PART 4 — Toast Notifications (Success & Error)
-=============================================================== -->
-
-<style>
-#toast-box{
-  position:fixed;
-  bottom:24px;
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(3,15,32,.95);
-  padding:14px 22px;
-  border-radius:12px;
-  border:1px solid rgba(56,189,248,.35);
-  color:#dff3ff;
-  font-size:.9rem;
-  display:none;
-  z-index:999999;
-  box-shadow:0 0 20px rgba(56,189,248,.25);
-}
-.toast-success{
-  border-color:#38bdf8;
-  color:#b3e8ff;
-}
-.toast-error{
-  border-color:#f87171;
-  color:#fecaca;
-}
-</style>
-
-<div id="toast-box"></div>
-
-<script>
-function showToast(msg, type="success"){
-    const box = document.getElementById("toast-box");
-    box.innerText = msg;
-    box.className = "";
-    box.classList.add(type === "success" ? "toast-success" : "toast-error");
-    box.style.display = "block";
-
-    setTimeout(()=>{ box.style.display="none"; }, 3000);
-}
-</script>
-
-<script>
-// Upgrade submitFeedback() to use Toast UI
-async function submitFeedback(){
-    const archID = document.getElementById("fb-arch-id").value.trim();
-    const name   = document.getElementById("fb-name").value.trim();
-    const email  = document.getElementById("fb-email").value.trim();
-    const msg    = document.getElementById("fb-message").value.trim();
-
-    if(!msg || msg.length < 3){
-        showToast("Message too short.", "error");
-        return;
-    }
-
-    const payload = {
-        architecture_id: archID,
-        name: name,
-        email: email,
-        message: msg,
-        user_ip: "browser"
-    };
-
-    try{
-        await fetch(FEEDBACK_API, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        });
-
-        showToast("Feedback sent successfully.", "success");
-        closeFeedbackModal();
-        clearFeedbackForm();
-
-    } catch(err){
-        console.error(err);
-        showToast("Error sending feedback.", "error");
-    }
-}
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -281,7 +6,7 @@ async function submitFeedback(){
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <meta name="description"
-        content="Official Architecture Lab of Dr. Nader Lohrasbi — featuring 30 integrated system blueprints for national healthcare operating systems, AI-native infrastructures, crisis architecture, and Symbiotic Intelligence frameworks."/>
+        content="Lohrasbi Architecture Lab — 30 modular national healthcare architectures integrating AI, logistics, cognition, OS kernels, crisis systems, and Symbiotic Intelligence." />
 
   <meta name="theme-color" content="#020617"/>
 
@@ -292,45 +17,28 @@ async function submitFeedback(){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-
-    /* -------------------------------------------------------
-       GLOBAL RESET
-    ------------------------------------------------------- */
     *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+      margin:0; padding:0; box-sizing:border-box;
     }
 
     body{
-      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family:Inter, system-ui, sans-serif;
       background:#00060f;
       color:#e5e7eb;
-      line-height:1.65;
       -webkit-font-smoothing:antialiased;
     }
 
-    a{text-decoration:none;color:inherit;}
+    a{ color:inherit; text-decoration:none; }
 
-    .shell{
-      max-width:1320px;
-      margin:auto;
-      padding:24px 24px 140px;
-    }
-
-    /* -------------------------------------------------------
-       NAVIGATION (Unified Executive Style)
-    ------------------------------------------------------- */
-
+    /* ------------------------- NAV ------------------------- */
     header{
       position:sticky;
       top:0;
-      z-index:100;
+      z-index:200;
       background:rgba(2,6,23,0.92);
       backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(56,189,248,.18);
     }
-
     .nav{
       max-width:1320px;
       margin:auto;
@@ -339,20 +47,16 @@ async function submitFeedback(){
       justify-content:space-between;
       align-items:center;
     }
-
     .nav-left{
-      font-size:1.05rem;
-      font-weight:600;
+      font-size:1.1rem;
+      font-weight:700;
       color:#7dd3fc;
-      letter-spacing:.02em;
     }
-
     .nav-links{
       display:flex;
       gap:22px;
       align-items:center;
     }
-
     .nav-links a{
       padding:8px 16px;
       border-radius:999px;
@@ -360,46 +64,38 @@ async function submitFeedback(){
       font-size:.92rem;
       transition:.25s;
     }
-
     .nav-links a:hover{
       background:#1e293b;
       color:#fff;
     }
-
     .nav-links .active{
       background:#38bdf8;
       color:#031e29;
       font-weight:600;
     }
 
-    /* -------------------------------------------------------
-       HERO SECTION (Executive)
-    ------------------------------------------------------- */
-
+    /* ------------------------- HERO ------------------------- */
     .hero{
-      background:linear-gradient(to bottom right, rgba(3,16,32,.9), rgba(2,6,23,.9));
+      max-width:1320px;
+      margin:40px auto 50px;
+      background:rgba(3,16,32,.9);
       border:1px solid rgba(56,189,248,.28);
-      border-radius:32px;
-      padding:58px;
-      margin-top:40px;
-      box-shadow:0 0 42px rgba(0,140,255,.15);
+      border-radius:28px;
+      padding:48px;
+      box-shadow:0 0 36px rgba(0,140,255,.15);
     }
-
     .hero h1{
-      font-size:3rem;
+      font-size:2.8rem;
       font-weight:800;
       color:#f8fafc;
       margin-bottom:18px;
-      text-shadow:0 0 18px rgba(56,189,248,.28);
     }
-
     .hero-sub{
       font-size:1.2rem;
       font-weight:400;
       color:#93c5fd;
-      margin-bottom:24px;
+      margin-bottom:22px;
     }
-
     .hero p{
       max-width:980px;
       font-size:1.05rem;
@@ -407,90 +103,102 @@ async function submitFeedback(){
       line-height:1.75;
     }
 
-    /* -------------------------------------------------------
-       COMMAND BAR (Executive)
-    ------------------------------------------------------- */
-
-    .cmd-bar{
-      margin-top:36px;
-      padding:22px;
-      background:rgba(10,21,42,.5);
-      border:1px solid rgba(56,189,248,.25);
-      border-radius:22px;
+    /* ------------------------- MODULE ROW ------------------------- */
+    .module-row{
+      max-width:1320px;
+      margin:50px auto;
+      padding:26px;
+      border-radius:24px;
+      background:rgba(10,21,42,.55);
+      border:1px solid rgba(56,189,248,.22);
       display:flex;
-      flex-wrap:wrap;
-      gap:16px;
+      gap:26px;
+      align-items:flex-start;
+      transition:.3s;
     }
-
-    .cmd-btn{
-      padding:10px 20px;
-      background:rgba(30,41,59,.6);
-      border:1px solid rgba(56,189,248,.34);
-      border-radius:14px;
-      color:#d1e9ff;
-      cursor:pointer;
-      font-size:.9rem;
-      transition:.25s;
-    }
-
-    .cmd-btn:hover{
-      background:rgba(56,189,248,.2);
+    .module-row:hover{
+      box-shadow:0 0 32px rgba(56,189,248,.25);
       transform:translateY(-3px);
     }
 
-    /* -------------------------------------------------------
-       TITLES & SECTIONS
-    ------------------------------------------------------- */
-
-    .section{
-      margin-top:90px;
-      margin-bottom:70px;
-    }
-
-    .section-title{
-      font-size:2.2rem;
-      font-weight:700;
-      color:#7dd3fc;
-      text-shadow:0 0 18px rgba(56,189,248,.35);
-      margin-bottom:26px;
-    }
-
-    /* -------------------------------------------------------
-       LAYER BLOCKS
-    ------------------------------------------------------- */
-
-    .layer-block{
-      background:rgba(10,21,42,.55);
+    .mod-img{
+      width:260px;
+      height:165px;
+      object-fit:cover;
+      border-radius:16px;
       border:1px solid rgba(56,189,248,.25);
-      border-radius:26px;
-      padding:30px;
-      margin-bottom:34px;
+      flex-shrink:0;
     }
 
-    .layer-block h3{
-      font-size:1.5rem;
-      color:#93c5fd;
-      margin-bottom:14px;
+    .mod-content{
+      flex:1;
     }
 
-    .layer-block p{
-      max-width:1000px;
+    .mod-title{
+      font-size:1.45rem;
+      font-weight:700;
+      color:#e2e8f0;
+      margin-bottom:10px;
+    }
+
+    .mod-desc{
       font-size:1rem;
-      color:#cbd5e1;
-      line-height:1.7;
+      color:#94a3b8;
+      line-height:1.6;
+      margin-bottom:16px;
+      max-width:880px;
     }
 
-    /* -------------------------------------------------------
-       DIVIDERS
-    ------------------------------------------------------- */
+    .mod-actions{
+      margin-top:12px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .view-btn{
+      padding:10px 20px;
+      background:#38bdf8;
+      color:#031e29;
+      border-radius:12px;
+      font-weight:600;
+      font-size:.9rem;
+      border:none;
+    }
+
+    .feedback-btn{
+      padding:9px 18px;
+      border-radius:12px;
+      border:1px solid #38bdf8;
+      background:transparent;
+      color:#38bdf8;
+      font-size:.88rem;
+      transition:.25s;
+    }
+    .feedback-btn:hover{
+      background:#38bdf8;
+      color:#031e29;
+    }
+
+    .counter{
+      margin-left:auto;
+      font-size:.78rem;
+      color:#7dd3fc;
+      opacity:.85;
+      font-family:monospace;
+      padding:6px 10px;
+      border-radius:8px;
+      border:1px solid rgba(56,189,248,.3);
+      background:rgba(3,16,32,.65);
+    }
 
     .divider{
-      width:100%;
+      max-width:1320px;
       height:1px;
+      margin:60px auto;
       background:linear-gradient(to right, transparent, #38bdf8, transparent);
-      margin:80px 0;
     }
-
   </style>
 </head>
 
@@ -510,1055 +218,1129 @@ async function submitFeedback(){
   </div>
 </header>
 
-<div class="shell">
+<section class="hero">
+  <h1>Architecture Lab — National Health OS</h1>
+  <div class="hero-sub">30 Modular Architectures · Strategic Layer · AI Layer · Infrastructure Layer</div>
 
-  <!-- ============================================================
-       HERO
-  =============================================================== -->
-  <section class="hero">
-    <h1>Architecture Lab — National Health OS</h1>
-    <div class="hero-sub">30 System Architectures · Strategic Layer · AI Cognitive Layer · Infrastructure Layer</div>
-
-    <p>
-      The Architecture Lab defines the structural, cognitive, and infrastructural blueprints that compose the
-      National Health Operating System. These 30 architectures operate as modular components that interlock
-      under one unified systemic logic — enabling predictability, intelligence, crisis resilience, and coherent
-      national-scale health transformation.
-    </p>
-  </section>
-
-  <!-- ============================================================
-       COMMAND BAR
-  =============================================================== -->
-  <div class="cmd-bar">
-    <div class="cmd-btn">Overview</div>
-    <div class="cmd-btn">Strategic Layer</div>
-    <div class="cmd-btn">AI Layer</div>
-    <div class="cmd-btn">Infrastructure Layer</div>
-    <div class="cmd-btn">Module Index</div>
-    <div class="cmd-btn">Download Pack</div>
-  </div>
-
-  <!-- ============================================================
-       INTRO — THREE-LAYER SYSTEM OVERVIEW
-  =============================================================== -->
-  <section class="section">
-    <h2 class="section-title">Three-Layer System Framework</h2>
-
-    <div class="layer-block">
-      <h3>1. Strategic Architecture Layer</h3>
-      <p>
-        The structural and governance backbone of the National Health OS — defining macro–micro alignment,
-        resilience logic, policy kernels, crisis envelopes, and national operating principles.
-      </p>
-    </div>
-
-    <div class="layer-block">
-      <h3>2. AI Cognitive Layer</h3>
-      <p>
-        The intelligence substrate governing predictive reasoning, multi-agent orchestration, NLP
-        interoperability, reinforcement models, and autonomous decision loops.
-      </p>
-    </div>
-
-    <div class="layer-block">
-      <h3>3. Urban, Logistic & Infrastructure Layer</h3>
-      <p>
-        The physical operating environment — mobility networks, diagnostic load balancing, national supply-chain
-        orchestration, telehealth security, and capacity marketplaces.
-      </p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-<!-- ============================================================
-     STRATEGIC LAYER (MODULES 01–10)
-=============================================================== -->
-<section class="section" id="strategic-layer">
-  <h2 class="section-title">Strategic Architecture Layer</h2>
-
-  <div class="module-grid">
-
-    <!-- MODULE 01 -->
-    <div class="arch-card">
-      <img src="bp-01.jpg" class="arch-img"/>
-      <h3 class="arch-title">Symbiotic Intelligence Command Center</h3>
-      <p class="arch-desc">
-        The national decision fusion layer where human and machine cognition operate jointly.
-      </p>
-      <a class="arch-btn" href="bp-01-health-nation-os.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-01')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 02 -->
-    <div class="arch-card">
-      <img src="bp-02.jpg" class="arch-img"/>
-      <h3 class="arch-title">Architecture Over Repair Doctrine</h3>
-      <p class="arch-desc">
-        A doctrine replacing incremental fixes with foundational redesign.
-      </p>
-      <a class="arch-btn" href="bp-02-architecture-over-repair.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-02')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 03 -->
-    <div class="arch-card">
-      <img src="bp-03.jpg" class="arch-img"/>
-      <h3 class="arch-title">System Integrity Dome</h3>
-      <p class="arch-desc">
-        A national structural shield ensuring operational continuity and anomaly suppression.
-      </p>
-      <a class="arch-btn" href="bp-03-crisis-architecture-framework.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-03')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 04 -->
-    <div class="arch-card">
-      <img src="bp-04.jpg" class="arch-img"/>
-      <h3 class="arch-title">Predictive Emergency Mobility Network</h3>
-      <p class="arch-desc">
-        Forecasting crisis surges and optimizing cross-city emergency flows.
-      </p>
-      <a class="arch-btn" href="bp-04-strategic-control-tower.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-04')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 05 -->
-    <div class="arch-card">
-      <img src="bp-05.jpg" class="arch-img"/>
-      <h3 class="arch-title">Clinical Efficiency Paradox</h3>
-      <p class="arch-desc">
-        Revealing friction points where workflow logic collapses under load.
-      </p>
-      <a class="arch-btn" href="bp-05-clinical-efficiency-paradox.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-05')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 06 -->
-    <div class="arch-card">
-      <img src="bp-06.jpg" class="arch-img"/>
-      <h3 class="arch-title">12-Layer AI Governance Model</h3>
-      <p class="arch-desc">
-        A national governance stack ensuring safe and auditable AI adoption.
-      </p>
-      <a class="arch-btn" href="bp-06-ai-governance-model.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-06')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 07 -->
-    <div class="arch-card">
-      <img src="bp-07.jpg" class="arch-img"/>
-      <h3 class="arch-title">Macro–Micro Alignment Model</h3>
-      <p class="arch-desc">
-        Aligning national policies with frontline clinical realities.
-      </p>
-      <a class="arch-btn" href="bp-07-macro-micro-alignment.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-07')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 08 -->
-    <div class="arch-card">
-      <img src="bp-08.jpg" class="arch-img"/>
-      <h3 class="arch-title">Financial Nervous System</h3>
-      <p class="arch-desc">
-        Real-time financial intelligence embedded in clinical operations.
-      </p>
-      <a class="arch-btn" href="bp-08-financial-nervous-system.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-08')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 09 -->
-    <div class="arch-card">
-      <img src="bp-09.jpg" class="arch-img"/>
-      <h3 class="arch-title">Distributed Diagnostic Grid</h3>
-      <p class="arch-desc">
-        A nationwide load-balancing diagnostic mesh across thousands of nodes.
-      </p>
-      <a class="arch-btn" href="bp-09-distributed-care-city.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-09')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 10 -->
-    <div class="arch-card">
-      <img src="bp-10.jpg" class="arch-img"/>
-      <h3 class="arch-title">Intelligent Workforce Orchestration</h3>
-      <p class="arch-desc">
-        AI-powered modeling of staff behavior, workload prediction, and optimal task routing.
-      </p>
-      <a class="arch-btn" href="bp-10-intelligent-workforce-orchestration.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-10')">Send Feedback</button>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-<!-- ============================================================
-     AI COGNITIVE LAYER (MODULES 11–20)
-=============================================================== -->
-<section class="section" id="ai-layer">
-  <h2 class="section-title">AI Cognitive Layer</h2>
-
-  <div class="module-grid">
-
-    <!-- MODULE 11 -->
-    <div class="arch-card">
-      <img src="bp-11.jpg" class="arch-img"/>
-      <h3 class="arch-title">Artificial Soul Framework</h3>
-      <p class="arch-desc">
-        The cognitive substrate enabling continuity, intentional reasoning,
-        and persistent intelligence across all clinical and operational loops.
-      </p>
-      <a class="arch-btn" href="bp-11-artificial-soul-framework.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-11')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 12 -->
-    <div class="arch-card">
-      <img src="bp-12.jpg" class="arch-img"/>
-      <h3 class="arch-title">Bespoke AI Assistant</h3>
-      <p class="arch-desc">
-        Personalized AI augmentation engine for clinicians, executives,
-        and policy architects — a cognitive exoskeleton.
-      </p>
-      <a class="arch-btn" href="bp-12-bespoke-ai-assistant.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-12')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 13 -->
-    <div class="arch-card">
-      <img src="bp-13.jpg" class="arch-img"/>
-      <h3 class="arch-title">Federated Clinical Reasoning Engine</h3>
-      <p class="arch-desc">
-        Distributed reasoning across hospitals without exposing raw data—
-        enabling safe national-scale analytics.
-      </p>
-      <a class="arch-btn" href="bp-13-federated-clinical-reasoning-engine.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-13')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 14 -->
-    <div class="arch-card">
-      <img src="bp-14.jpg" class="arch-img"/>
-      <h3 class="arch-title">Multi-Agent Care Workflow AI</h3>
-      <p class="arch-desc">
-        Coordinated AI agents governing diagnostics, logistics, staffing,
-        and patient flow through real-time orchestration.
-      </p>
-      <a class="arch-btn" href="bp-14-multi-agent-care-workflow-ai.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-14')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 15 -->
-    <div class="arch-card">
-      <img src="bp-15.jpg" class="arch-img"/>
-      <h3 class="arch-title">Medical NLP Interoperability Pipeline</h3>
-      <p class="arch-desc">
-        A universal translation layer converting clinical text into
-        computable, interoperable intelligence.
-      </p>
-      <a class="arch-btn" href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-15')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 16 -->
-    <div class="arch-card">
-      <img src="bp-16.jpg" class="arch-img"/>
-      <h3 class="arch-title">AI-Empowered Clinical Simulation Lab</h3>
-      <p class="arch-desc">
-        National-scale simulation environment predicting patient trajectories,
-        resource stress points, and emerging clinical risks.
-      </p>
-      <a class="arch-btn" href="bp-16-ai-empowered-clinical-simulation-lab.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-16')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 17 -->
-    <div class="arch-card">
-      <img src="bp-17.jpg" class="arch-img"/>
-      <h3 class="arch-title">National Digital Twin for Healthcare</h3>
-      <p class="arch-desc">
-        A dynamic computational replica of the entire healthcare system enabling
-        proactive decision-making.
-      </p>
-      <a class="arch-btn" href="bp-17-national-digital-twin-for-healthcare.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-17')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 18 -->
-    <div class="arch-card">
-      <img src="bp-18.jpg" class="arch-img"/>
-      <h3 class="arch-title">Real-Time AI Risk Envelope Engine</h3>
-      <p class="arch-desc">
-        Predictive risk identification and automated safety thresholds for
-        clinical and operational anomalies.
-      </p>
-      <a class="arch-btn" href="bp-18.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-18')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 19 -->
-    <div class="arch-card">
-      <img src="bp-19.jpg" class="arch-img"/>
-      <h3 class="arch-title">Clinical Cognition AI Layer</h3>
-      <p class="arch-desc">
-        A reasoning layer modeling clinician behavior, cognitive drift,
-        and decision logic for workflow alignment.
-      </p>
-      <a class="arch-btn" href="bp-19-clinical-cognition-ai-layer.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-19')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 20 -->
-    <div class="arch-card">
-      <img src="bp-20.jpg" class="arch-img"/>
-      <h3 class="arch-title">Continuous National Learning Health Model</hh3>
-      <p class="arch-desc">
-        A self-learning structure enabling perpetual national-scale
-        improvement using real-time feedback loops.
-      </p>
-      <a class="arch-btn" href="bp-20-continuous-national-learning-health-model.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-20')">Send Feedback</button>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-
-<!-- ============================================================
-     INFRASTRUCTURE LAYER (MODULES 21–30)
-=============================================================== -->
-<section class="section" id="infrastructure-layer">
-  <h2 class="section-title">Urban, Logistic & Infrastructure Layer</h2>
-
-  <div class="module-grid">
-
-    <!-- MODULE 21 -->
-    <div class="arch-card">
-      <img src="bp-21.jpg" class="arch-img"/>
-      <h3 class="arch-title">Self-Healing Health Infrastructure</h3>
-      <p class="arch-desc">
-        Autonomous detection and correction of system failures in real time.
-      </p>
-      <a class="arch-btn" href="bp-21-self-healing-health-infrastructure.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-21')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 22 -->
-    <div class="arch-card">
-      <img src="bp-22.jpg" class="arch-img"/>
-      <h3 class="arch-title">Operational Neural Mesh</h3>
-      <p class="arch-desc">
-        A logistics intelligence mesh coordinating diagnostic, mobility,
-        and supply-chain nodes.
-      </p>
-      <a class="arch-btn" href="bp-22-health-system-operational-neural-mesh.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-22')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 23 -->
-    <div class="arch-card">
-      <img src="bp-23.jpg" class="arch-img"/>
-      <h3 class="arch-title">Autonomous Health Supply Chain Grid</h3>
-      <p class="arch-desc">
-        Predictive and automated distribution of resources nationwide.
-      </p>
-      <a class="arch-btn" href="bp-23-autonomous-health-supply-chain-grid.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-23')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 24 -->
-    <div class="arch-card">
-      <img src="bp-24.jpg" class="arch-img"/>
-      <h3 class="arch-title">Intelligent Health Transportation Network</h3>
-      <p class="arch-desc">
-        Predictive routing, mobility compression, and rapid patient redistribution.
-      </p>
-      <a class="arch-btn" href="bp-24-intelligent-health-transportation-network.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-24')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 25 -->
-    <div class="arch-card">
-      <img src="bp-25.jpg" class="arch-img"/>
-      <h3 class="arch-title">National Health Resilience Index</h3>
-      <p class="arch-desc">
-        A real-time resilience scoring model for infrastructure and hospitals.
-      </p>
-      <a class="arch-btn" href="bp-25-national-health-resilience-index.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-25')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 26 -->
-    <div class="arch-card">
-      <img src="bp-26.jpg" class="arch-img"/>
-      <h3 class="arch-title">Dynamic Waiting Room Elimination System</h3>
-      <p class="arch-desc">
-        Eliminating queues through predictive intake and distributed routing.
-      </p>
-      <a class="arch-btn" href="bp-26-dynamic-waiting-room-elimination-system.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-26')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 27 -->
-    <div class="arch-card">
-      <img src="bp-27.jpg" class="arch-img"/>
-      <h3 class="arch-title">Clinical Capacity Forecasting Grid</h3>
-      <p class="arch-desc">
-        National-scale modeling of surgical, ICU, imaging, and workforce capacity.
-      </p>
-      <a class="arch-btn" href="bp-27-clinical-capacity-forecasting-grid.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-27')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 28 -->
-    <div class="arch-card">
-      <img src="bp-28.jpg" class="arch-img"/>
-      <h3 class="arch-title">National Health Mission Control</h3>
-      <p class="arch-desc">
-        A unified command interface integrating mobility, diagnostics,
-        workforce, and resilience telemetry.
-      </p>
-      <a class="arch-btn" href="bp-28-national-health-mission-control.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-28')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 29 -->
-    <div class="arch-card">
-      <img src="bp-29.jpg" class="arch-img"/>
-      <h3 class="arch-title">National Health OS Kernel</h3>
-      <p class="arch-desc">
-        The foundational computational kernel unifying all national health modules.
-      </p>
-      <a class="arch-btn" href="bp-29-national-health-operating-system-kernel.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-29')">Send Feedback</button>
-    </div>
-
-    <!-- MODULE 30 -->
-    <div class="arch-card">
-      <img src="bp-30.jpg" class="arch-img"/>
-      <h3 class="arch-title">Health Nation Digital Twin</h3>
-      <p class="arch-desc">
-        A sovereign-scale predictive engine simulating national health dynamics.
-      </p>
-      <a class="arch-btn" href="bp-30-health-nation-digital-twin.html">View Module</a>
-      <button class="feedback-btn" onclick="openFeedbackModal('BP-30')">Send Feedback</button>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-<!-- ============================================================
-     META-ARCHITECTURE DIAGRAM
-=============================================================== -->
-<section class="section" id="meta-architecture">
-  <h2 class="section-title">Meta-Architecture Integration Diagram</h2>
-
-  <p class="subtext">
-    The following conceptual structure illustrates how all 30 modules form a unified,
-    interoperable National Health OS. Interactive SVG mode will be added in the next release.
+  <p>
+    Each architecture represents a foundational component of the National Health Operating System — integrating cognition,
+    logistics, crisis integrity, AI governance, predictive mobility, and national-scale computational health intelligence.
   </p>
-
-  <div class="meta-box" style="
-      border:1px solid rgba(56,189,248,.25);
-      padding:32px;
-      border-radius:20px;
-      text-align:center;
-      color:#7dd3fc;
-      background:rgba(3,13,26,.55);
-  ">
-    Unified National Health OS — Meta Architecture Diagram (SVG Placeholder)
-  </div>
 </section>
+
+<!-- =============================================
+     START OF MODULE LIST (Rows will be added here)
+============================================= -->
+
+<div id="module-container">
+<!-- ============================
+     MODULE 01 — BP-01
+============================= -->
+<div class="module-row">
+  <img src="bp-01.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Symbiotic Intelligence Command Center</div>
+
+    <div class="mod-desc">
+      The national cognitive command layer where human and AI intelligence fuse into one
+      decision substrate — enabling macro-micro alignment, crisis prediction, and unified operational logic.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-01-health-nation-os.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-01')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp01">loading…</span>
+    </div>
+  </div>
+</div>
 
 <div class="divider"></div>
 
 
-<!-- ============================================================
-     NATIONAL HEALTH OS MAP
-=============================================================== -->
-<section class="section" id="os-map-section">
-  <h2 class="section-title">National Health OS Map</h2>
+<!-- ============================
+     MODULE 02 — BP-02
+============================= -->
+<div class="module-row">
+  <img src="bp-02.jpg" class="mod-img"/>
 
-  <p class="subtext">
-    The OS Map establishes directional flow across all system components — governance →
-    intelligence → logistics — ensuring full-system coherence.
-  </p>
+  <div class="mod-content">
+    <div class="mod-title">Architecture Over Repair Doctrine</div>
 
-  <div class="osmap-box" style="
-      border:1px solid rgba(56,189,248,.25);
-      padding:26px;
-      border-radius:20px;
-      background:rgba(4,18,36,.55);
-  ">
-    <ul class="osmap-list" style="line-height:1.85; color:#cbd5e1;">
-      <li>Strategic Layer sets governance, structure, risk envelopes, and macro–micro logic.</li>
-      <li>AI Layer drives predictions, continuous learning, multi-agent orchestration, and control loops.</li>
-      <li>Infrastructure Layer operationalizes mobility, diagnostics, logistics, and resilience.</li>
-    </ul>
+    <div class="mod-desc">
+      A systemic doctrine replacing repair-based thinking with structural redesign — ensuring
+      national health systems behave as coherent architectures rather than fragmented institutions.
+    </div>
 
-    <p class="osmap-note" style="margin-top:14px; color:#7dd3fc;">Upcoming: Interactive OS Blueprint (SVG)</p>
+    <div class="mod-actions">
+      <a href="bp-02-architecture-over-repair.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-02')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp02">loading…</span>
+    </div>
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
 
-<!-- ============================================================
-     DEEP-LAYER SYSTEM BLUEPRINT
-=============================================================== -->
-<section class="section" id="deep-layer-blueprint">
-  <h2 class="section-title">Deep-Layer System Blueprint</h2>
+<!-- ============================
+     MODULE 03 — BP-03
+============================= -->
+<div class="module-row">
+  <img src="bp-03.jpg" class="mod-img"/>
 
-  <p class="subtext">
-    Sub-architectures enabling the National Health OS to behave as a coherent computational organism.
-  </p>
+  <div class="mod-content">
+    <div class="mod-title">System Integrity Dome</div>
 
-  <div class="deep-grid" style="
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:26px;
-  ">
-
-    <div class="deep-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Policy Kernel</h3>
-      <p>
-        Encodes regulatory logic, incentives, cross-border compliance, and national risk envelopes.
-        Synchronizes ministries, insurers, hospitals, and AI systems into one governance plane.
-      </p>
+    <div class="mod-desc">
+      A national structural shield protecting hospitals, diagnostics, logistics, and AI systems
+      from operational drift — maintaining integrity under crisis load.
     </div>
 
-    <div class="deep-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Structural Memory</h3>
-      <p>
-        Stores historic workflow friction, demographic drift, utilization schemas, and resource signatures.
-        Enables predictive governance and long-horizon policy calibration.
-      </p>
-    </div>
+    <div class="mod-actions">
+      <a href="bp-03-crisis-architecture-framework.html" class="view-btn">View Module</a>
 
-    <div class="deep-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Intelligence Spine</h3>
-      <p>
-        The unified substrate for predictive engines: reasoning, risk forecasting, causal graphs,
-        and cross-institution learning.
-      </p>
-    </div>
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-03')">
+         Send Feedback
+      </a>
 
-    <div class="deep-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Workflow Mesh</h3>
-      <p>
-        Interlocks micro-workflows across hospitals, diagnostics, logistics, financial operations,
-        clinical teams, and emergency nodes.
-      </p>
+      <span class="counter" id="counter-bp03">loading…</span>
     </div>
-
-    <div class="deep-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Logistics Skeleton</h3>
-      <p>
-        Governs mobility networks, cold-chain integrity, surgical marketplaces, and national routing.
-      </p>
-    </div>
-
-    <div class="deep-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Security Envelope</h3>
-      <p>
-        Zero-trust perimeter combined with sovereign data enclaves and multi-jurisdiction privacy controls.
-      </p>
-    </div>
-
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
 
-<!-- ============================================================
-     CROSS-LINKING STRUCTURAL BRIDGES
-=============================================================== -->
-<section class="section" id="cross-bridges">
-  <h2 class="section-title">Cross-Linking Structural Bridges</h2>
+<!-- ============================
+     MODULE 04 — BP-04
+============================= -->
+<div class="module-row">
+  <img src="bp-04.jpg" class="mod-img"/>
 
-  <p class="subtext">
-    Bridges ensure interoperability and eliminate entropy between Strategic, AI, and Infrastructure layers.
-  </p>
+  <div class="mod-content">
+    <div class="mod-title">Predictive Emergency Mobility Network</div>
 
-  <div class="bridge-grid" style="
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:26px;
-  ">
-
-    <div class="bridge-card" style="
-        background:rgba(11,25,44,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Governance ⇄ Intelligence</h3>
-      <p>
-        Converts political directives into executable system logic while feeding predictive intelligence
-        back into policy loops.
-      </p>
+    <div class="mod-desc">
+      A forecasting engine synchronizing national ambulance fleets, cross-city emergency load,
+      and predictive mobility compression — reducing response time and saving lives at scale.
     </div>
 
-    <div class="bridge-card" style="
-        background:rgba(11,25,44,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Intelligence ⇄ Workforce</h3>
-      <p>
-        Aligns staffing with acuity, burnout predictions, and workflow priority in real time.
-      </p>
-    </div>
+    <div class="mod-actions">
+      <a href="bp-04-strategic-control-tower.html" class="view-btn">View Module</a>
 
-    <div class="bridge-card" style="
-        background:rgba(11,25,44,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Diagnostics ⇄ Mobility</h3>
-      <p>
-        Uses diagnostic load signals to optimize emergency routing and resource distribution.
-      </p>
-    </div>
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-04')">
+         Send Feedback
+      </a>
 
-    <div class="bridge-card" style="
-        background:rgba(11,25,44,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Financial ⇄ Clinical</h3>
-      <p>
-        Connects true cost signatures with care quality envelopes to eliminate financial blind drift.
-      </p>
+      <span class="counter" id="counter-bp04">loading…</span>
     </div>
-
-    <div class="bridge-card" style="
-        background:rgba(11,25,44,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Infrastructure ⇄ Equity</h3>
-      <p>
-        Ensures equitable national coverage by linking physical capacity to geospatial inequity signals.
-      </p>
-    </div>
-
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
 
-<!-- ============================================================
-     STAKEHOLDER INTERACTION LAYER
-=============================================================== -->
-<section class="section" id="stakeholder-layer">
-  <h2 class="section-title">Stakeholder Interaction Layer</h2>
+<!-- ============================
+     MODULE 05 — BP-05
+============================= -->
+<div class="module-row">
+  <img src="bp-05.jpg" class="mod-img"/>
 
-  <p class="subtext">
-    The execution plane where clinicians, patients, regulators, logistics networks,
-    and insurers interact with the National Health OS.
-  </p>
+  <div class="mod-content">
+    <div class="mod-title">Clinical Efficiency Paradox</div>
 
-  <div class="stakeholder-grid" style="
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:26px;
-  ">
-
-    <div class="stakeholder-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Clinicians</h3>
-      <p>
-        Receive contextual recommendations, priority-adjusted workflows,
-        predictive risk envelopes, and real-time coordination signals.
-      </p>
+    <div class="mod-desc">
+      Reveals the hidden collapse points where clinical workflows fail under load —
+      enabling redesign of diagnostic, surgical, and emergency care pathways.
     </div>
 
-    <div class="stakeholder-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Patients</h3>
-      <p>
-        Benefit from transparent journeys, preference-aligned decisions,
-        and personalized care navigation.
-      </p>
-    </div>
+    <div class="mod-actions">
+      <a href="bp-05-clinical-efficiency-paradox.html" class="view-btn">View Module</a>
 
-    <div class="stakeholder-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Regulators</h3>
-      <p>
-        Monitor compliance, audit decision lineage, observe drift,
-        and deploy policy-as-code directly into operational layers.
-      </p>
-    </div>
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-05')">
+         Send Feedback
+      </a>
 
-    <div class="stakeholder-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Logistics Networks</h3>
-      <p>
-        Operate based on predictive routing, cold-chain verification,
-        and guaranteed SLA integrity.
-      </p>
+      <span class="counter" id="counter-bp05">loading…</span>
     </div>
-
-    <div class="stakeholder-card" style="
-        background:rgba(10,23,42,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Payers & Insurers</h3>
-      <p>
-        Integrate into Financial Nervous System for real-time approvals,
-        fraud detection, liquidity forecasting, and event-based billing.
-      </p>
-    </div>
-
   </div>
-</section>
+</div>
+
+<div class="divider"></div>
+<!-- ============================
+     MODULE 06 — BP-06
+============================= -->
+<div class="module-row">
+  <img src="bp-06.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">12-Layer AI Governance Model</div>
+
+    <div class="mod-desc">
+      A comprehensive governance architecture ensuring safe, auditable, and ethically aligned
+      national AI deployment — embedding oversight into every computational and clinical layer.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-06-ai-governance-model.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-06')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp06">loading…</span>
+    </div>
+  </div>
+</div>
 
 <div class="divider"></div>
 
 
-<!-- ============================================================
-     AI COMMAND SURFACES
-=============================================================== -->
-<section class="section" id="command-surfaces">
-  <h2 class="section-title">AI Command Surfaces</h2>
+<!-- ============================
+     MODULE 07 — BP-07
+============================= -->
+<div class="module-row">
+  <img src="bp-07.jpg" class="mod-img"/>
 
-  <p class="subtext">
-    Executive-level interfaces where national leaders, hospital directors,
-    and operational commanders interact with the intelligence substrate.
-  </p>
+  <div class="mod-content">
+    <div class="mod-title">Macro–Micro Alignment Model</div>
 
-  <div class="command-grid" style="
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:26px;
-  ">
-
-    <div class="command-card" style="
-        background:rgba(11,28,46,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>National Control Tower</h3>
-      <p>
-        Aggregates live national telemetry, forecasting, and scenario simulations
-        with the ability to issue adaptive directives across provinces and institutions.
-      </p>
+    <div class="mod-desc">
+      Aligns national-level policy logic with frontline clinical realities — eliminating divergence
+      between governance intent and operational execution across hospitals and regions.
     </div>
 
-    <div class="command-card" style="
-        background:rgba(11,28,46,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Hospital Command Loop</h3>
-      <p>
-        A closed-loop regulation engine that supervises staffing, OR flow,
-        waiting room dynamics, bed turnover, diagnostics throughput,
-        and clinical risk envelopes.
-      </p>
-    </div>
+    <div class="mod-actions">
+      <a href="bp-07-macro-micro-alignment.html" class="view-btn">View Module</a>
 
-    <div class="command-card" style="
-        background:rgba(11,28,46,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Urban Mobility Console</h3>
-      <p>
-        Predictive routing for ambulances, emergency fleets, and patient mobility,
-        reducing friction and compressing median response times nationwide.
-      </p>
-    </div>
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-07')">
+         Send Feedback
+      </a>
 
-    <div class="command-card" style="
-        background:rgba(11,28,46,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Risk & Equity Interface</h3>
-      <p>
-        Detects inequity gradients, risk clusters, and structural blindspots,
-        generating targeted intervention logic in real time.
-      </p>
+      <span class="counter" id="counter-bp07">loading…</span>
     </div>
-
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
 
-<!-- ============================================================
-     FRAGMENTATION → COHESION FRAMEWORK
-=============================================================== -->
-<section class="section" id="cohesion">
-  <h2 class="section-title">Fragmentation → Cohesion Framework</h2>
+<!-- ============================
+     MODULE 08 — BP-08
+============================= -->
+<div class="module-row">
+  <img src="bp-08.jpg" class="mod-img"/>
 
-  <p class="subtext">
-    A national unification framework replacing fragmented institutional behavior
-    with synchronized, systemic coherence.
-  </p>
+  <div class="mod-content">
+    <div class="mod-title">Financial Nervous System</div>
 
-  <div class="cohesion-block" style="
-      border:1px solid rgba(56,189,248,.25);
-      background:rgba(3,14,26,.55);
-      padding:24px;
-      border-radius:18px;
-      line-height:1.9;
-      color:#cbd5e1;
-  ">
-    <ul>
-      <li>Eliminates data silos that generate systemic blindspots.</li>
-      <li>Unifies intelligence across clinical, diagnostic, financial, and logistic flows.</li>
-      <li>Synchronizes operational intent across institutions and regions.</li>
-      <li>Creates a shared structural memory governing long-term resilience.</li>
-      <li>Prevents drift during demographic, financial, or geopolitical stress.</li>
-    </ul>
+    <div class="mod-desc">
+      A real-time financial intelligence grid that synchronizes costs, reimbursements, approvals,
+      and liquidity signals — embedding economic logic directly into clinical workflows.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-08-financial-nervous-system.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-08')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp08">loading…</span>
+    </div>
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
 
-<!-- ============================================================
-     NATIONAL OS CONVERGENCE RULES
-=============================================================== -->
-<section class="section" id="convergence-rules">
-  <h2 class="section-title">National OS Convergence Rules</h2>
+<!-- ============================
+     MODULE 09 — BP-09
+============================= -->
+<div class="module-row">
+  <img src="bp-09.jpg" class="mod-img"/>
 
-  <p class="subtext">
-    Core operating laws ensuring all modules behave as one computational organism.
-  </p>
+  <div class="mod-content">
+    <div class="mod-title">Distributed Diagnostic Grid</div>
 
-  <div class="rules-grid" style="
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:26px;
-  ">
-
-    <div class="rule-card" style="
-        background:rgba(10,21,38,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Rule 1 — Unified State Space</h3>
-      <p>
-        All components share a synchronized temporal and structural state map,
-        eliminating contradictory system interpretations.
-      </p>
+    <div class="mod-desc">
+      A nationwide diagnostic load-balancing system that redistributes imaging, lab, and specialty
+      requests across thousands of nodes — increasing throughput and reducing bottlenecks.
     </div>
 
-    <div class="rule-card" style="
-        background:rgba(10,21,38,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Rule 2 — Predictive Priority</h3>
-      <p>
-        Future states outrank present states when allocating resources,
-        ensuring proactive system behavior.
-      </p>
-    </div>
+    <div class="mod-actions">
+      <a href="bp-09-distributed-care-city.html" class="view-btn">View Module</a>
 
-    <div class="rule-card" style="
-        background:rgba(10,21,38,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Rule 3 — Zero Drift Tolerance</h3>
-      <p>
-        Modules may not diverge from national operating logic beyond a defined threshold.
-      </p>
-    </div>
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-09')">
+         Send Feedback
+      </a>
 
-    <div class="rule-card" style="
-        background:rgba(10,21,38,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Rule 4 — Cognitive Symbiosis</h3>
-      <p>
-        Human and AI decision loops remain tightly coupled under all operational loads.
-      </p>
+      <span class="counter" id="counter-bp09">loading…</span>
     </div>
-
-    <div class="rule-card" style="
-        background:rgba(10,21,38,.55);
-        border:1px solid rgba(56,189,248,.25);
-        padding:22px;
-        border-radius:16px;
-    ">
-      <h3>Rule 5 — Distributed Sovereignty</h3>
-      <p>
-        Authority dynamically shifts to wherever the highest local intelligence resides.
-      </p>
-    </div>
-
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
 
-<!-- ============================================================
-     SYSTEM INTERACTION DIAGRAM
-=============================================================== -->
-<section class="section" id="second-diagram">
-  <h2 class="section-title">System Interaction Diagram</h2>
+<!-- ============================
+     MODULE 10 — BP-10
+============================= -->
+<div class="module-row">
+  <img src="bp-10.jpg" class="mod-img"/>
 
-  <p class="subtext">
-    Multi-layer interaction map visualizing signal flow, cross-layer dependencies,
-    and cognitive routing within the National Health OS.
-  </p>
+  <div class="mod-content">
+    <div class="mod-title">Intelligent Workforce Orchestration</div>
 
-  <div class="diagram-box" style="
-      border:1px solid rgba(56,189,248,.25);
-      padding:32px;
-      border-radius:20px;
-      text-align:center;
-      background:rgba(2,12,22,.55);
-      color:#7dd3fc;
-  ">
-    Secondary Interaction Diagram Placeholder (SVG Mode — Coming Soon)
-  </div>
-</section>
-
-<div class="divider"></div>
-
-
-<!-- ============================================================
-     FINAL CALL-TO-ACTIONS
-=============================================================== -->
-<section class="section" id="cta">
-  <h2 class="section-title">Advance Your Nation’s Health Architecture</h2>
-
-  <p class="subtext">
-    For national-scale transformations, institutional redesign, AI governance,
-    and executive advisory collaborations:
-  </p>
-
-  <div class="cta-buttons" style="margin-top:20px;">
-    <a href="contact.html"
-       class="cta-btn-primary"
-       style="
-         padding:12px 22px;
-         background:#38bdf8;
-         color:#032026;
-         border-radius:14px;
-         font-weight:600;
-         margin-right:14px;
-       ">Contact Dr. Lohrasbi</a>
-
-    <a href="research.html"
-       class="cta-btn-secondary"
-       style="
-         padding:12px 22px;
-         background:rgba(56,189,248,.25);
-         border-radius:14px;
-         color:#7dd3fc;
-       ">Explore Research Pipeline</a>
-  </div>
-</section>
-
-<div class="divider"></div>
-<!-- ============================================================
-     ENTERPRISE FOOTER
-=============================================================== -->
-<footer id="footer">
-  <div class="footer-grid" style="
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:32px;
-      padding:40px 0;
-  ">
-
-    <div class="footer-col">
-      <h3>Lohrasbi Architecture Lab</h3>
-      <p>
-        Defining structural, cognitive, and infrastructural systems for future health nations.
-        Architecting Symbiotic Intelligence, crisis frameworks, multi-agent ecosystems,
-        and AI-native national health infrastructure.
-      </p>
-
-      <div class="footer-social" style="margin-top:14px; display:flex; gap:18px;">
-        <a href="https://www.linkedin.com/in/nader-lohrasbi" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://orcid.org/0009-0004-4232-2953" target="_blank"><i class="fa-brands fa-orcid"></i></a>
-        <a href="https://github.com/DrNaderLohrasbi" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://drlohrasbi.substack.com" target="_blank"><i class="fa-solid fa-newspaper"></i></a>
-      </div>
+    <div class="mod-desc">
+      AI-powered modeling of clinical staffing, workload prediction, burnout detection, and optimal
+      task routing — enabling real-time workforce equilibrium across institutions.
     </div>
 
-    <div class="footer-col">
-      <h4>Navigation</h4>
-      <ul style="margin-top:12px; line-height:1.8;">
+    <div class="mod-actions">
+      <a href="bp-10-intelligent-workforce-orchestration.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-10')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp10">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<!-- ============================
+     MODULE 11 — BP-11
+============================= -->
+<div class="module-row">
+  <img src="bp-11.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Artificial Soul Framework</div>
+
+    <div class="mod-desc">
+      The cognitive substrate enabling persistent memory, intentional reasoning, and longitudinal
+      intelligence — allowing the National Health OS to maintain continuity across clinical, financial,
+      and operational domains.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-11-artificial-soul-framework.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-11')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp11">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ============================
+     MODULE 12 — BP-12
+============================= -->
+<div class="module-row">
+  <img src="bp-12.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Bespoke AI Assistant</div>
+
+    <div class="mod-desc">
+      A personalized intelligence layer augmenting clinicians, executives, and policymakers —
+      delivering tailored recommendations, contextual reasoning, and real-time workflow assistance.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-12-bespoke-ai-assistant.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-12')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp12">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ============================
+     MODULE 13 — BP-13
+============================= -->
+<div class="module-row">
+  <img src="bp-13.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Federated Clinical Reasoning Engine</div>
+
+    <div class="mod-desc">
+      A distributed reasoning system enabling hospitals to collaborate on intelligence without
+      sharing raw data — ensuring privacy while unlocking national-scale insight.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-13-federated-clinical-reasoning-engine.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-13')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp13">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ============================
+     MODULE 14 — BP-14
+============================= -->
+<div class="module-row">
+  <img src="bp-14.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Multi-Agent Care Workflow AI</div>
+
+    <div class="mod-desc">
+      A coordinated multi-agent architecture managing diagnostics, logistics, staffing, patient routing,
+      and operational load in real time — enabling autonomous system-wide optimization.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-14-multi-agent-care-workflow-ai.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-14')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp14">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ============================
+     MODULE 15 — BP-15
+============================= -->
+<div class="module-row">
+  <img src="bp-15.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Medical NLP Interoperability Pipeline</div>
+
+    <div class="mod-desc">
+      A universal clinical language pipeline that converts medical text into computable, interoperable
+      intelligence — enabling seamless cross-hospital and cross-national integration.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-15')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp15">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<!-- ============================
+     MODULE 16 — BP-16
+============================= -->
+<div class="module-row">
+  <img src="bp-16.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">AI-Empowered Clinical Simulation Lab</div>
+
+    <div class="mod-desc">
+      A national-scale simulation environment that predicts patient trajectories, operational
+      stress points, diagnostic surges, and system vulnerabilities — enabling proactive redesign
+      of care pathways and resource allocation.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-16-ai-empowered-clinical-simulation-lab.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-16')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp16">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 17 — BP-17
+============================= -->
+<div class="module-row">
+  <img src="bp-17.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">National Digital Twin for Healthcare</div>
+
+    <div class="mod-desc">
+      A dynamic computational replica of the national health system — enabling scenario testing,
+      predictive planning, strategic simulation, and real-time operational mirroring across all
+      clinical, logistical, and financial flows.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-17-national-digital-twin-for-healthcare.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-17')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp17">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 18 — BP-18
+============================= -->
+<div class="module-row">
+  <img src="bp-18.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Real-Time AI Risk Envelope Engine</div>
+
+    <div class="mod-desc">
+      A predictive envelope that continuously identifies emerging risks, anomaly trajectories,
+      safety thresholds, and system instabilities — enabling automated mitigation and early-warning
+      signals across the National Health OS.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-18.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-18')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp18">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 19 — BP-19
+============================= -->
+<div class="module-row">
+  <img src="bp-19.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Clinical Cognition AI Layer</div>
+
+    <div class="mod-desc">
+      Models clinical reasoning, decision drift, cognitive load, and diagnostic behavior — aligning
+      human decision logic with predictive AI signals to increase accuracy, safety, and throughput.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-19-clinical-cognition-ai-layer.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-19')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp19">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 20 — BP-20
+============================= -->
+<div class="module-row">
+  <img src="bp-20.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Continuous National Learning Health Model</div>
+
+    <div class="mod-desc">
+      A perpetual learning engine that improves the entire national health ecosystem through
+      real-time feedback loops, multi-source intelligence fusion, and adaptive system tuning.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-20-continuous-national-learning-health-model.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-20')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp20">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<!-- ============================
+     MODULE 21 — BP-21
+============================= -->
+<div class="module-row">
+  <img src="bp-21.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Self-Healing Health Infrastructure</div>
+
+    <div class="mod-desc">
+      An autonomous infrastructure layer capable of detecting, isolating, and correcting failures
+      in real time — ensuring uninterrupted clinical, logistical, and digital operations across
+      the national health ecosystem.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-21-self-healing-health-infrastructure.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-21')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp21">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 22 — BP-22
+============================= -->
+<div class="module-row">
+  <img src="bp-22.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Operational Neural Mesh</div>
+
+    <div class="mod-desc">
+      A logistics intelligence mesh connecting diagnostic, mobility, supply-chain, and workforce
+      nodes — enabling synchronized national operations and predictive flow stabilization.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-22-health-system-operational-neural-mesh.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-22')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp22">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 23 — BP-23
+============================= -->
+<div class="module-row">
+  <img src="bp-23.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Autonomous Health Supply Chain Grid</div>
+
+    <div class="mod-desc">
+      A predictive and automated supply-chain grid coordinating nationwide distribution of
+      medicines, equipment, cold-chain assets, and clinical consumables — reducing shortages
+      and increasing operational resilience.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-23-autonomous-health-supply-chain-grid.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-23')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp23">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 24 — BP-24
+============================= -->
+<div class="module-row">
+  <img src="bp-24.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Intelligent Health Transportation Network</div>
+
+    <div class="mod-desc">
+      Predictive routing, mobility compression, and rapid patient distribution across cities and
+      regions — enabling equitable access, reduced delays, and optimized emergency flows.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-24-intelligent-health-transportation-network.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-24')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp24">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 25 — BP-25
+============================= -->
+<div class="module-row">
+  <img src="bp-25.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">National Health Resilience Index</div>
+
+    <div class="mod-desc">
+      A real-time resilience scoring engine measuring structural integrity, clinical readiness,
+      service continuity, and vulnerability gradients across hospitals and infrastructure layers.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-25-national-health-resilience-index.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-25')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp25">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<!-- ============================
+     MODULE 26 — BP-26
+============================= -->
+<div class="module-row">
+  <img src="bp-26.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Dynamic Waiting Room Elimination System</div>
+
+    <div class="mod-desc">
+      A predictive routing and distributed intake system eliminating queues by dynamically allocating
+      patients across capacity nodes — enabling a zero-wait national clinical model.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-26-dynamic-waiting-room-elimination-system.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-26')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp26">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 27 — BP-27
+============================= -->
+<div class="module-row">
+  <img src="bp-27.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Clinical Capacity Forecasting Grid</div>
+
+    <div class="mod-desc">
+      A national-scale forecasting grid predicting ICU load, surgical volume, imaging throughput,
+      staffing availability, and operational stress — enabling proactive resource balancing.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-27-clinical-capacity-forecasting-grid.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-27')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp27">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 28 — BP-28
+============================= -->
+<div class="module-row">
+  <img src="bp-28.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">National Health Mission Control</div>
+
+    <div class="mod-desc">
+      A unified national command interface integrating workforce, diagnostics, mobility,
+      resilience, and predictive intelligence — enabling deep situational awareness
+      and coordinated system-wide directives.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-28-national-health-mission-control.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-28')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp28">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 29 — BP-29
+============================= -->
+<div class="module-row">
+  <img src="bp-29.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">National Health OS Kernel</div>
+
+    <div class="mod-desc">
+      The sovereign computational kernel that unifies all national health modules — enforcing
+      system-wide coherence, operational law, predictive priority, and zero-drift regulation.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-29-national-health-operating-system-kernel.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-29')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp29">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- ============================
+     MODULE 30 — BP-30
+============================= -->
+<div class="module-row">
+  <img src="bp-30.jpg" class="mod-img"/>
+
+  <div class="mod-content">
+    <div class="mod-title">Health Nation Digital Twin</div>
+
+    <div class="mod-desc">
+      A sovereign-scale predictive engine simulating national health dynamics — enabling real-time
+      adjustments, long-horizon planning, crisis simulation, and whole-nation operational alignment.
+    </div>
+
+    <div class="mod-actions">
+      <a href="bp-30-health-nation-digital-twin.html" class="view-btn">View Module</a>
+
+      <a class="feedback-btn"
+         onclick="openFeedback('BP-30')">
+         Send Feedback
+      </a>
+
+      <span class="counter" id="counter-bp30">loading…</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<!-- ============================================
+     FEEDBACK MODAL (UI)
+=============================================== -->
+<style>
+#feedback-modal{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(6px);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+}
+
+#feedback-box{
+  background:rgba(10,21,42,.95);
+  width:420px;
+  padding:28px;
+  border-radius:20px;
+  border:1px solid rgba(56,189,248,.35);
+  box-shadow:0 0 28px rgba(56,189,248,.25);
+}
+
+#feedback-box h3{
+  color:#7dd3fc;
+  margin-bottom:14px;
+  font-size:1.3rem;
+}
+
+#feedback-box label{
+  display:block;
+  color:#cbd5e1;
+  margin-top:10px;
+  font-size:.9rem;
+}
+
+#feedback-box input,
+#feedback-box textarea{
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  border-radius:10px;
+  background:rgba(2,6,23,.75);
+  border:1px solid rgba(56,189,248,.28);
+  color:#e2e8f0;
+  font-size:.9rem;
+}
+
+#feedback-submit{
+  margin-top:18px;
+  width:100%;
+  padding:12px;
+  background:#38bdf8;
+  border:none;
+  border-radius:12px;
+  color:#031e29;
+  font-weight:700;
+  cursor:pointer;
+}
+
+#feedback-close{
+  margin-top:10px;
+  width:100%;
+  padding:10px;
+  background:transparent;
+  border:1px solid #7dd3fc;
+  border-radius:12px;
+  color:#7dd3fc;
+  cursor:pointer;
+}
+</style>
+
+
+<div id="feedback-modal">
+  <div id="feedback-box">
+    <h3>Send Feedback</h3>
+
+    <label>Architecture ID</label>
+    <input id="fb_id" type="text" readonly />
+
+    <label>Your Name</label>
+    <input id="fb_name" type="text" placeholder="Optional" />
+
+    <label>Your Email</label>
+    <input id="fb_email" type="email" placeholder="Optional" />
+
+    <label>Your Message (max 600 chars)</label>
+    <textarea id="fb_msg" maxlength="600"></textarea>
+
+    <button id="feedback-submit" onclick="submitFeedback()">Submit Feedback</button>
+    <button id="feedback-close" onclick="closeFeedback()">Close</button>
+  </div>
+</div>
+
+
+<!-- ============================================
+     FEEDBACK LOGIC (Google Sheets API)
+=============================================== -->
+<script>
+const WEBAPP_URL = 
+"https://script.google.com/macros/s/AKfycbzB246HYidcBhME9rY9mUAC7gQXC2BnIXIxAOdY8Q1fAV9UEDGbqULWhC5KS0owGxIl/exec";
+
+function openFeedback(id){
+  document.getElementById("fb_id").value = id;
+  document.getElementById("feedback-modal").style.display = "flex";
+}
+
+function closeFeedback(){
+  document.getElementById("feedback-modal").style.display = "none";
+}
+
+async function submitFeedback(){
+  const payload = {
+    timestamp: new Date().toISOString(),
+    architecture_id: document.getElementById("fb_id").value,
+    name: document.getElementById("fb_name").value,
+    email: document.getElementById("fb_email").value,
+    message: document.getElementById("fb_msg").value,
+    user_ip: "hidden"
+  };
+
+  const res = await fetch(WEBAPP_URL,{
+    method:"POST",
+    body:JSON.stringify(payload),
+    redirect:"follow"
+  });
+
+  alert("Feedback submitted successfully.");
+  closeFeedback();
+}
+</script>
+
+
+
+<!-- ============================================
+     VISIT COUNTER PER MODULE — DAILY
+=============================================== -->
+<script>
+function todayKey(){
+  const d = new Date();
+  return d.getFullYear() +
+         String(d.getMonth()+1).padStart(2,'0') +
+         String(d.getDate()).padStart(2,'0');
+}
+
+function countFor(id){
+  const key = "counter-" + id;
+  const dateKey = todayKey();
+
+  let data = JSON.parse(localStorage.getItem(key) || "{}");
+
+  if(!data.date || data.date !== dateKey){
+    data = { date:dateKey, count:1 };
+  } else {
+    data.count++;
+  }
+
+  localStorage.setItem(key, JSON.stringify(data));
+
+  return dateKey + String(data.count).padStart(4,'0');
+}
+
+window.addEventListener("DOMContentLoaded",()=>{
+  const ids = [
+    "bp01","bp02","bp03","bp04","bp05",
+    "bp06","bp07","bp08","bp09","bp10",
+    "bp11","bp12","bp13","bp14","bp15",
+    "bp16","bp17","bp18","bp19","bp20",
+    "bp21","bp22","bp23","bp24","bp25",
+    "bp26","bp27","bp28","bp29","bp30"
+  ];
+
+  ids.forEach(id=>{
+    let el = document.getElementById("counter-" + id);
+    if(el){
+      el.innerText = countFor(id);
+    }
+  });
+});
+</script>
+
+
+
+<!-- ============================================
+     FOOTER
+=============================================== -->
+<footer style="margin-top:80px; padding:60px 0; background:rgba(3,12,26,.5); border-top:1px solid rgba(56,189,248,.25);">
+  <div style="max-width:1320px; margin:auto; display:flex; gap:40px; flex-wrap:wrap;">
+
+    <div style="flex:1; min-width:260px;">
+      <h3 style="color:#7dd3fc; margin-bottom:14px;">Lohrasbi Architecture Lab</h3>
+      <p style="color:#94a3b8;">
+        National Health OS · AI Governance · Crisis Architecture · Symbiotic Intelligence · Executive Advisory
+      </p>
+    </div>
+
+    <div style="flex:1; min-width:200px;">
+      <h4 style="color:#cbd5e1;">Navigation</h4>
+      <ul style="list-style:none; margin-top:10px; line-height:1.7;">
         <li><a href="index.html">Home</a></li>
         <li><a href="architecture.html">Architecture Lab</a></li>
         <li><a href="research.html">Research</a></li>
@@ -1566,277 +1348,40 @@ async function submitFeedback(){
       </ul>
     </div>
 
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p style="margin-top:12px;">
-        For national architecture, system redesign, advisory, and multi-country transformation:
-      </p>
-      <p class="footer-email">info.dr.lohrasbi@gmail.com</p>
+    <div style="flex:1; min-width:200px;">
+      <h4 style="color:#cbd5e1;">Contact</h4>
+      <p style="color:#94a3b8;">info.dr.lohrasbi@gmail.com</p>
+      <p style="color:#64748b; margin-top:6px;">London · Global Advisory</p>
     </div>
 
   </div>
 
-  <div class="footer-bottom" style="
-      margin-top:34px;
-      padding-top:14px;
-      border-top:1px solid rgba(56,189,248,.25);
-      text-align:center;
-      color:#64748b;
-  ">
-    © 2025 · Dr. Nader Lohrasbi — National Health OS & Strategic Architecture
+  <div style="text-align:center; margin-top:40px; color:#64748b;">
+    © 2025 · Dr. Nader Lohrasbi — National Health OS Architecture
   </div>
 </footer>
 
 
-<!-- ============================================================
+
+<!-- ============================================
      JSON-LD — STRUCTURED DATA
-=============================================================== -->
+=============================================== -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Architecture Lab — National Health OS",
-  "url": "https://lohrasbi.info/architecture.html",
-  "description": "A 30-module national healthcare operating system designed by Dr. Nader Lohrasbi.",
-  "creator": {
-    "@type": "Person",
-    "name": "Dr. Nader Lohrasbi",
-    "jobTitle": "Healthcare Transformation Architect & AI Strategist",
-    "url": "https://lohrasbi.info"
+  "@context":"https://schema.org",
+  "@type":"CollectionPage",
+  "name":"Architecture Lab — National Health OS",
+  "url":"https://lohrasbi.info/architecture.html",
+  "creator":{
+    "@type":"Person",
+    "name":"Dr. Nader Lohrasbi",
+    "jobTitle":"Healthcare Transformation Architect & AI Strategist"
   },
-  "hasPart": [
-    {"@type":"CreativeWork","name":"Symbiotic Intelligence Command Center"},
-    {"@type":"CreativeWork","name":"Architecture Over Repair Doctrine"},
-    {"@type":"CreativeWork","name":"System Integrity Dome"},
-    {"@type":"CreativeWork","name":"Predictive Emergency Mobility Network"},
-    {"@type":"CreativeWork","name":"Clinical Efficiency Paradox"},
-    {"@type":"CreativeWork","name":"12-Layer AI Governance Model"},
-    {"@type":"CreativeWork","name":"Financial Nervous System"},
-    {"@type":"CreativeWork","name":"Distributed Diagnostic Grid"},
-    {"@type":"CreativeWork","name":"Intelligent Workforce Orchestration"},
-    {"@type":"CreativeWork","name":"Artificial Soul Framework"},
-    {"@type":"CreativeWork","name":"Bespoke AI Assistant"},
-    {"@type":"CreativeWork","name":"Federated Clinical Reasoning Engine"},
-    {"@type":"CreativeWork","name":"Multi-Agent Care Workflow AI"},
-    {"@type":"CreativeWork","name":"Medical NLP Interoperability Pipeline"},
-    {"@type":"CreativeWork","name":"AI Risk Envelope Engine"},
-    {"@type":"CreativeWork","name":"Clinical Cognition AI Layer"},
-    {"@type":"CreativeWork","name":"Continuous National Learning Health Model"},
-    {"@type":"CreativeWork","name":"Self-Healing Health Infrastructure"},
-    {"@type":"CreativeWork","name":"Operational Neural Mesh"},
-    {"@type":"CreativeWork","name":"Autonomous Health Supply Chain Grid"},
-    {"@type":"CreativeWork","name":"Intelligent Health Transportation Network"},
-    {"@type":"CreativeWork","name":"National Health Resilience Index"},
-    {"@type":"CreativeWork","name":"Waiting Room Elimination System"},
-    {"@type":"CreativeWork","name":"Clinical Capacity Forecasting Grid"},
-    {"@type":"CreativeWork","name":"National Health Mission Control"},
-    {"@type":"CreativeWork","name":"National Health OS Kernel"},
-    {"@type":"CreativeWork","name":"Health Nation Digital Twin"}
-  ]
-}
-</script>
-
-
-<!-- ============================================================
-     VISITOR COUNTER
-=============================================================== -->
-<style>
-#visit-counter-box{
-  position:fixed;
-  bottom:18px;
-  right:18px;
-  background:rgba(0,0,0,.45);
-  padding:6px 10px;
-  border-radius:8px;
-  font-size:.72rem;
-  color:#94a3b8;
-  font-family:Inter,system-ui;
-  letter-spacing:.03em;
-  z-index:9999;
-  border:1px solid rgba(56,189,248,.25);
-  opacity:.55;
-  transition:.3s;
-}
-#visit-counter-box:hover{
-  opacity:1;
-  background:rgba(2,6,23,.85);
-}
-</style>
-
-<div id="visit-counter-box">Loading…</div>
-
-<script>
-function formatDateKey(dt){
-  const y = dt.getFullYear();
-  const m = String(dt.getMonth()+1).padStart(2,'0');
-  const d = String(dt.getDate()).padStart(2,'0');
-  return `${y}${m}${d}`;
-}
-
-(function(){
-  const today = new Date();
-  const key   = "lohrasbi-arch-visitors";
-  const dateKey = formatDateKey(today);
-
-  let data = JSON.parse(localStorage.getItem(key) || "{}");
-
-  if(!data.date || data.date !== dateKey){
-    data = { date: dateKey, count: 1 };
-  } else {
-    data.count++;
-  }
-
-  localStorage.setItem(key, JSON.stringify(data));
-
-  const finalValue = `${dateKey}${String(data.count).padStart(4,'0')}`;
-  document.getElementById("visit-counter-box").innerText = finalValue;
-})();
-</script>
-
-
-<!-- ============================================================
-     FEEDBACK MODAL (FINAL VERSION)
-=============================================================== -->
-<div id="feedback-modal">
-  <div id="feedback-modal-content">
-    <button id="feedback-close-btn" onclick="closeFeedbackModal()">×</button>
-
-    <h3 style="margin-bottom:16px; font-size:1.4rem; color:#7dd3fc;">
-      Send Feedback
-    </h3>
-
-    <input id="fb-arch-id" type="hidden"/>
-
-    <label>Name</label>
-    <input id="fb-name" type="text" placeholder="Optional"/>
-
-    <label>Email</label>
-    <input id="fb-email" type="email" placeholder="Optional"/>
-
-    <label>Message</label>
-    <textarea id="fb-message" maxlength="600" placeholder="Your feedback (max 600 characters)..."></textarea>
-
-    <button id="fb-submit" onclick="submitFeedback()">Submit</button>
-  </div>
-</div>
-
-
-<!-- ============================================================
-     FEEDBACK API + LOGIC
-=============================================================== -->
-<script>
-const FEEDBACK_API =
-  "https://script.google.com/macros/s/AKfycbzB246HYidcBhME9rY9mUAC7gQXC2BnIXIxAOdY8Q1fAV9UEDGbqULWhC5KS0owGxIl/exec";
-
-function openFeedbackModal(archID){
-  document.getElementById("feedback-modal").style.display = "flex";
-  document.getElementById("fb-arch-id").value = archID;
-}
-
-function closeFeedbackModal(){
-  document.getElementById("feedback-modal").style.display = "none";
-}
-
-function clearFeedbackForm(){
-  document.getElementById("fb-name").value = "";
-  document.getElementById("fb-email").value = "";
-  document.getElementById("fb-message").value = "";
-}
-
-async function submitFeedback(){
-  const archID = document.getElementById("fb-arch-id").value.trim();
-  const name   = document.getElementById("fb-name").value.trim();
-  const email  = document.getElementById("fb-email").value.trim();
-  const msg    = document.getElementById("fb-message").value.trim();
-
-  if(!msg || msg.length < 3){
-    showToast("Message too short.", "error");
-    return;
-  }
-
-  const payload = {
-    architecture_id: archID,
-    name: name,
-    email: email,
-    message: msg,
-    user_ip: "browser"
-  };
-
-  try{
-    await fetch(FEEDBACK_API, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify(payload)
-    });
-
-    showToast("Feedback sent successfully.", "success");
-    closeFeedbackModal();
-    clearFeedbackForm();
-
-  } catch(err){
-    console.error(err);
-    showToast("Error sending feedback.", "error");
+  "about":{
+    "@type":"Organization",
+    "name":"Lohrasbi Architecture Lab"
   }
 }
-</script>
-
-
-<!-- ============================================================
-     TOAST NOTIFICATIONS
-=============================================================== -->
-<style>
-#toast-box{
-  position:fixed;
-  bottom:24px;
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(3,15,32,.95);
-  padding:14px 22px;
-  border-radius:12px;
-  border:1px solid rgba(56,189,248,.35);
-  color:#dff3ff;
-  font-size:.9rem;
-  display:none;
-  z-index:999999;
-  box-shadow:0 0 20px rgba(56,189,248,.25);
-}
-.toast-success{
-  border-color:#38bdf8;
-  color:#b3e8ff;
-}
-.toast-error{
-  border-color:#f87171;
-  color:#fecaca;
-}
-</style>
-
-<div id="toast-box"></div>
-
-<script>
-function showToast(msg, type="success"){
-  const box = document.getElementById("toast-box");
-  box.innerText = msg;
-  box.className = "";
-  box.classList.add(type === "success" ? "toast-success" : "toast-error");
-  box.style.display = "block";
-
-  setTimeout(()=>{ box.style.display="none"; }, 3000);
-}
-</script>
-
-
-<!-- ============================================================
-     SMOOTH SCROLLING
-=============================================================== -->
-<script>
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener('click',function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href'))
-      .scrollIntoView({ behavior:"smooth" });
-  });
-});
 </script>
 
 </body>
