@@ -3,283 +3,1758 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>National Research OS — Research Hub v2</title>
-<meta name="description" content="The National Research Operating System integrating DOI pipelines, blueprint citations, scholarly repositories, and executive-level research governance." />
-<link rel="icon" type="image/png" href="favicon-96x96.png" />
+<title>National Research OS — Research Hub</title>
+
+<meta name="description"
+ content="The sovereign Research Operating System integrating DOI engines, blueprint citation networks, working papers, and national-scale scholarly architecture." />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
-    body {
-        margin: 0;
-        font-family: "Inter", sans-serif;
-        background: #020617;
-        color: #e2e8f0;
-        line-height: 1.7;
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+        background:#000814;
+        font-family:Inter, sans-serif;
+        color:#e2e8f0;
+        line-height:1.7;
+        padding-bottom:80px;
     }
 
-    header {
-        background: #0f172a;
-        padding: 40px 20px;
-        border-bottom: 1px solid #1e293b;
-        text-align: center;
-    }
-    .hero-title {
-        font-size: 2.6rem;
-        font-weight: 700;
-        color: #e0f2fe;
-    }
-    .hero-sub {
-        font-size: 1.1rem;
-        color: #38bdf8;
-        font-weight: 500;
-        margin-top: 6px;
+    a{text-decoration:none;color:#38bdf8;transition:.3s;}
+
+    /* HEADER */
+    header{
+        width:100%;
+        padding:20px 30px;
+        background:rgba(0,20,50,0.55);
+        border-bottom:1px solid rgba(56,189,248,0.25);
+        backdrop-filter:blur(10px);
+        position:sticky;
+        top:0;
+        z-index:50;
     }
 
-    .container {
-        max-width: 1300px;
-        margin: 40px auto;
-        padding: 0 20px;
+    .nav{
+        max-width:1280px;
+        margin:auto;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
     }
 
-    .card {
-        background: #1e293b;
-        padding: 30px;
-        border-radius: 12px;
-        border: 1px solid #334155;
-        margin-bottom: 40px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+    .nav-left{
+        font-size:1.15rem;
+        color:#7dd3fc;
+        font-weight:700;
     }
 
-    .section-title {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: #22c55e;
-        margin-bottom: 20px;
+    .nav-right a{
+        margin-left:22px;
+        color:#cbd5e1;
     }
 
-    .sub {
-        color: #38bdf8;
-        font-size: 1rem;
-        margin-bottom: 15px;
-        font-weight: 500;
+    .nav-right a:hover{
+        color:#7dd3fc;
     }
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
-        margin-top: 15px;
+    /* HERO */
+    .hero{
+        text-align:center;
+        padding:70px 20px 40px;
+        border-bottom:1px solid rgba(56,189,248,0.15);
+        background:linear-gradient(to bottom, #001227, #000814);
     }
 
-    .node {
-        background: #0f172a;
-        padding: 18px;
-        border-radius: 10px;
-        border: 1px solid #334155;
-        transition: 0.25s ease;
-    }
-    .node:hover {
-        border-color: #22c55e;
-        transform: translateY(-3px);
-        box-shadow: 0 0 12px rgba(34,197,94,0.45);
+    .hero-title{
+        font-size:2.8rem;
+        font-weight:800;
+        color:#e0f2fe;
     }
 
-    .node-title {
-        font-size: 1rem;
-        color: #e2e8f0;
-        font-weight: 600;
+    .hero-sub{
+        margin-top:10px;
+        font-size:1.15rem;
+        color:#38bdf8;
+        font-weight:500;
     }
 
-    a {
-        color: #38bdf8;
-        font-size: 0.9rem;
-        text-decoration: none;
+    /* CONTAINER */
+    .container{
+        max-width:1280px;
+        margin:50px auto;
+        padding:0 26px;
     }
 
-    .diagram-box {
-        border: 1px dashed #38bdf8;
-        padding: 28px;
-        border-radius: 12px;
-        background: rgba(56,189,248,0.07);
-        color: #38bdf8;
-        text-align: center;
-        font-size: 1rem;
-        margin-top: 10px;
+    .card{
+        background:rgba(15,30,60,0.7);
+        border:1px solid rgba(56,189,248,0.25);
+        border-radius:14px;
+        padding:32px;
+        margin-bottom:40px;
+        backdrop-filter:blur(10px);
+        box-shadow:0 4px 18px rgba(0,0,0,0.45);
     }
 
-    footer {
-        text-align: center;
-        padding: 30px;
-        color: #64748b;
-        border-top: 1px solid #1e293b;
-        font-size: 0.85rem;
-        margin-top: 60px;
+    .section-title{
+        font-size:1.5rem;
+        font-weight:700;
+        color:#22c55e;
+        margin-bottom:16px;
     }
 
-    .btn-row {
-        margin-top: 15px;
+    .sub{
+        font-size:1rem;
+        font-weight:500;
+        color:#7dd3fc;
+        margin-bottom:14px;
     }
 
-    .btn {
-        display: inline-block;
-        padding: 10px 18px;
-        background: #0f172a;
-        border-radius: 6px;
-        border: 1px solid #334155;
-        margin-right: 8px;
-        color: #38bdf8;
-        transition: 0.25s ease;
+    .diagram-box{
+        border:1px dashed #38bdf8;
+        padding:28px;
+        background:rgba(56,189,248,0.06);
+        border-radius:12px;
+        text-align:center;
+        color:#38bdf8;
+        font-size:1rem;
+        margin-top:16px;
     }
-    .btn:hover {
-        border-color: #22c55e;
-        color: #22c55e;
+
+    .btn-row{
+        margin-top:20px;
+    }
+
+    .btn{
+        display:inline-block;
+        padding:10px 18px;
+        border-radius:8px;
+        border:1px solid rgba(56,189,248,0.35);
+        background:rgba(0,20,40,0.6);
+        color:#7dd3fc;
+        margin-right:10px;
+        font-size:.9rem;
+        transition:.25s;
+    }
+    .btn:hover{
+        border-color:#22c55e;
+        color:#22c55e;
     }
 </style>
 </head>
 
 <body>
+<!-- ENTERPRISE SIDEBAR NAVIGATION ----------------------------------------->
+<div class="research-sidebar">
+    <div class="sidebar-title">Research OS</div>
+
+    <ul class="sidebar-menu">
+        <li><a href="#layer-overview">Overview</a></li>
+        <li><a href="#layer-global-pipeline">Global Pipeline</a></li>
+        <li><a href="#layer-doi-engine">DOI Engine</a></li>
+        <li><a href="#layer-working-papers">Working Papers</a></li>
+        <li><a href="#layer-blueprints">Blueprint System</a></li>
+        <li><a href="#layer-knowledge-graph">Knowledge Graph</a></li>
+        <li><a href="#layer-operations">Operations Command</a></li>
+        <li><a href="#layer-intelligence">Intelligence Dashboard</a></li>
+        <li><a href="#layer-si">Symbiotic Intelligence</a></li>
+        <li><a href="#layer-meta">Meta-Structure</a></li>
+    </ul>
+</div>
 
 <header>
-    <h1 class="hero-title">National Research OS — Research Hub v2</h1>
-    <div class="hero-sub">Unified DOI Engine • Blueprint Citation System • AI-Driven Publication Pipeline</div>
+    <div class="nav">
+        <div class="nav-left">Lohrasbi Architecture Lab</div>
+        <div class="nav-right">
+           </div>
+</div>
 </header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1 class="hero-title">National Research OS — Research Hub v3</h1>
+    <div class="hero-sub">
+        DOI Engine • Scholarly Pipeline • Blueprint Citation Network • Executive Research Governance
+    </div>
+</section>
 
 <div class="container">
 
-    <!-- GLOBAL PIPELINE -->
+    <!-- GLOBAL PIPELINE ------------------------------------------------------>
     <div class="card">
         <div class="section-title">Global Research Pipeline Architecture</div>
+
         <p>
-            The National Research OS synchronizes all scholarly channels — LinkedIn, Zenodo, SSRN, ORCID,  
-            Google Scholar, and cross-platform DOI registries — into a unified architecture.  
-            This pipeline governs how strategic papers, working papers, datasets, and architectures  
-            propagate through the global academic ecosystem.
+            The National Research OS integrates all scholarly ecosystems — Zenodo, SSRN, ORCID, Google Scholar,
+            institutional repositories, and DOI registries — into one unified national pipeline.
+            This system governs production, validation, indexing, dissemination, and scholarly impact flow.
         </p>
 
         <div class="diagram-box">
-            Placeholder — National Research Pipeline Architecture Diagram
+            National Research Pipeline Diagram — (Coming Soon)
         </div>
 
         <div class="btn-row">
-            <a class="btn" href="https://www.linkedin.com">LinkedIn</a>
-            <a class="btn" href="https://zenodo.org">Zenodo</a>
-            <a class="btn" href="https://ssrn.com">SSRN</a>
-            <a class="btn" href="https://orcid.org">ORCID</a>
-            <a class="btn" href="https://scholar.google.com">Google Scholar</a>
+            <a class="btn" href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+            <a class="btn" href="https://zenodo.org" target="_blank">Zenodo</a>
+            <a class="btn" href="https://ssrn.com" target="_blank">SSRN</a>
+            <a class="btn" href="https://orcid.org" target="_blank">ORCID</a>
+            <a class="btn" href="https://scholar.google.com" target="_blank">Google Scholar</a>
         </div>
     </div>
 
-    <!-- DOI INDEX -->
+    <!-- DOI INDEX ------------------------------------------------------------>
     <div class="card">
         <div class="section-title">Unified DOI Index</div>
-        <div class="sub">All research outputs centralized under one national DOI ecosystem.</div>
+        <div class="sub">A consolidated DOI engine governing all scholarly artifacts.</div>
 
         <div class="diagram-box">
-            Placeholder — DOI Knowledge Graph
+            DOI Knowledge Graph — (Coming Soon)
         </div>
     </div>
 
-    <!-- WORKING PAPERS -->
+    <!-- WORKING PAPERS ------------------------------------------------------->
     <div class="card">
         <div class="section-title">Working Papers Series</div>
-        <div class="sub">Official Research Series — Lohrasbi Strategy & Architecture</div>
+        <div class="sub">Official Series — Lohrasbi Strategy & Architecture</div>
 
         <p>
-            Each working paper is catalogued with a permanent identifier and tracked across repositories.  
-            This module ensures visibility, citation propagation, and academic integration.
+            The Working Papers Series captures foundational strategic and architectural thinking.
+            Each paper receives a permanent DOI, is propagated through scholarly networks,
+            and becomes part of the national intelligence corpus powering Health Nation OS.
         </p>
 
         <div class="grid">
-            <div class="node"><div class="node-title">The Architecture Over Repair Doctrine</div><a href="#">Coming Soon</a></div>
-            <div class="node"><div class="node-title">The Efficiency Paradox</div><a href="#">Coming Soon</a></div>
-            <div class="node"><div class="node-title">Financial Nervous System Model</div><a href="#">Coming Soon</a></div>
-            <div class="node"><div class="node-title">Macro-Micro Alignment Architecture</div><a href="#">Coming Soon</a></div>
+
+            <div class="node">
+                <div class="node-title">The Architecture Over Repair Doctrine</div>
+                <a href="https://papers.ssrn.com" target="_blank">SSRN — Coming Soon</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">The Efficiency Paradox</div>
+                <a href="https://papers.ssrn.com" target="_blank">SSRN — Coming Soon</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Financial Nervous System Model</div>
+                <a href="https://papers.ssrn.com" target="_blank">SSRN — Coming Soon</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Macro–Micro Alignment Architecture</div>
+                <a href="https://papers.ssrn.com" target="_blank">SSRN — Coming Soon</a>
+            </div>
+
         </div>
     </div>
 
-    <!-- BLUEPRINT CITATION SYSTEM -->
+    <!-- BLUEPRINT CITATION SYSTEM ------------------------------------------->
     <div class="card">
         <div class="section-title">Blueprint Citation System (30 Modules)</div>
-        <div class="sub">Each blueprint is indexed as an independent Creative Work.</div>
+        <div class="sub">
+            Each blueprint is an independent Creative Work forming a structural layer within the Health Nation OS.
+        </div>
+
+        <!-- DOMAIN A ---------------------------------------------------------->
+        <h3 style="color:#7dd3fc;margin-top:25px;margin-bottom:10px;">
+            Domain A — Strategic Architecture (1–10)
+        </h3>
 
         <div class="grid">
-            <div class="node"><div class="node-title">bp-01 Health Nation OS</div><a href="bp-01-health-nation-os.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-02 Architecture Over Repair</div><a href="bp-02-architecture-over-repair.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-03 Crisis Architecture</div><a href="bp-03-crisis-architecture-framework.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-04 Strategic Control Tower</div><a href="bp-04-strategic-control-tower.html">Open Blueprint</a></div>
-
-            <div class="node"><div class="node-title">bp-05 Clinical Efficiency Paradox</div><a href="bp-05-clinical-efficiency-paradox.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-06 AI Governance Model</div><a href="bp-06-ai-governance-model.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-07 Macro-Micro Alignment</div><a href="bp-07-macro-micro-alignment.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-08 Financial Nervous System</div><a href="bp-08-financial-nervous-system.html">Open Blueprint</a></div>
-
-            <div class="node"><div class="node-title">bp-09 Distributed Care City</div><a href="bp-09-distributed-care-city.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-10 Intelligent Workforce Orchestration</div><a href="bp-10-intelligent-workforce-orchestration.html">Open Blueprint</a></div>
-
-            <div class="node"><div class="node-title">bp-11 Artificial Soul Framework</div><a href="bp-11-artificial-soul-framework.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-12 Bespoke AI Assistant</div><a href="bp-12-bespoke-ai-assistant.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-13 Federated Clinical Reasoning Engine</div><a href="bp-13-federated-clinical-reasoning-engine.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-14 Multi-Agent Care Workflow AI</div><a href="bp-14-multi-agent-care-workflow-ai.html">Open Blueprint</a></div>
-
-            <div class="node"><div class="node-title">bp-15 Global Medical NLP Pipeline</div><a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-16 AI Clinical Simulation Lab</div><a href="bp-16-ai-empowered-clinical-simulation-lab.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-17 Autonomous Triage AI</div><a href="bp-17-autonomous-triage-and-routing-ai.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-18 National Pattern Recognition Grid</div><a href="bp-18-national-health-pattern-recognition-grid.html">Open Blueprint</a></div>
-
-            <div class="node"><div class="node-title">bp-19 Cognitive Digital Front Door</div><a href="bp-19-cognitive-digital-front-door.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-20 Population Health Intelligence</div><a href="bp-20-population-health-intelligence-engine.html">Open Blueprint</a></div>
-
-            <div class="node"><div class="node-title">bp-21 Smart Hospital Grid</div><a href="bp-21-smart-hospital-grid.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-22 National Appointment Exchange</div><a href="bp-22-national-appointment-exchange.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-23 AI Imaging Logistics</div><a href="bp-23-ai-imaging-logistics-network.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-24 Health Transportation Network</div><a href="bp-24-intelligent-health-transportation-network.html">Open Blueprint</a></div>
-
-            <div class="node"><div class="node-title">bp-25 National Health Resilience Index</div><a href="bp-25-national-health-resilience-index.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-26 Waiting Room Elimination System</div><a href="bp-26-dynamic-waiting-room-elimination-system.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-27 Clinical Capacity Forecasting</div><a href="bp-27-clinical-capacity-forecasting-grid.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-28 National Health Mission Control</div><a href="bp-28-national-health-mission-control.html">Open Blueprint</a></div>
-
-            <div class="node"><div class="node-title">bp-29 National Health OS Kernel</div><a href="bp-29-national-health-operating-system-kernel.html">Open Blueprint</a></div>
-            <div class="node"><div class="node-title">bp-30 Health Nation Digital Twin</div><a href="bp-30-health-nation-digital-twin.html">Open Blueprint</a></div>
+            <div class="node"><div class="node-title">bp-01 Health Nation OS</div><a href="bp-01-health-nation-os.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-02 Architecture Over Repair</div><a href="bp-02-architecture-over-repair.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-03 Crisis Architecture Framework</div><a href="bp-03-crisis-architecture-framework.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-04 Strategic Control Tower</div><a href="bp-04-strategic-control-tower.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-05 Clinical Efficiency Paradox</div><a href="bp-05-clinical-efficiency-paradox.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-06 AI Governance Model</div><a href="bp-06-ai-governance-model.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-07 Macro–Micro Alignment</div><a href="bp-07-macro-micro-alignment.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-08 Financial Nervous System</div><a href="bp-08-financial-nervous-system.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-09 Distributed Care City</div><a href="bp-09-distributed-care-city.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-10 Intelligent Workforce Orchestration</div><a href="bp-10-intelligent-workforce-orchestration.html">Open</a></div>
         </div>
+
+        <!-- DOMAIN B ---------------------------------------------------------->
+        <h3 style="color:#7dd3fc;margin-top:30px;margin-bottom:10px;">
+            Domain B — AI & Cognitive Systems (11–20)
+        </h3>
+
+        <div class="grid">
+            <div class="node"><div class="node-title">bp-11 Artificial Soul Framework</div><a href="bp-11-artificial-soul-framework.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-12 Bespoke AI Assistant</div><a href="bp-12-bespoke-ai-assistant.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-13 Federated Clinical Reasoning Engine</div><a href="bp-13-federated-clinical-reasoning-engine.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-14 Multi-Agent Care Workflow AI</div><a href="bp-14-multi-agent-care-workflow-ai.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-15 Medical NLP Pipeline</div><a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-16 AI Clinical Simulation Lab</div><a href="bp-16-ai-empowered-clinical-simulation-lab.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-17 Autonomous Triage AI</div><a href="bp-17-autonomous-triage-and-routing-ai.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-18 National Pattern Recognition Grid</div><a href="bp-18-national-health-pattern-recognition-grid.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-19 Cognitive Digital Front Door</div><a href="bp-19-cognitive-digital-front-door.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-20 Population Health Intelligence</div><a href="bp-20-population-health-intelligence-engine.html">Open</a></div>
+        </div>
+
+        <!-- DOMAIN C ---------------------------------------------------------->
+        <h3 style="color:#7dd3fc;margin-top:30px;margin-bottom:10px;">
+            Domain C — Infrastructure, Urban & Logistics (21–30)
+        </h3>
+
+        <div class="grid">
+            <div class="node"><div class="node-title">bp-21 Smart Hospital Grid</div><a href="bp-21-smart-hospital-grid.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-22 National Appointment Exchange</div><a href="bp-22-national-appointment-exchange.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-23 AI Imaging Logistics</div><a href="bp-23-ai-imaging-logistics-network.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-24 Health Transportation Network</div><a href="bp-24-intelligent-health-transportation-network.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-25 National Health Resilience Index</div><a href="bp-25-national-health-resilience-index.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-26 Dynamic Waiting Room Elimination</div><a href="bp-26-dynamic-waiting-room-elimination-system.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-27 Clinical Capacity Forecasting</div><a href="bp-27-clinical-capacity-forecasting-grid.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-28 National Health Mission Control</div><a href="bp-28-national-health-mission-control.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-29 National Health OS Kernel</div><a href="bp-29-national-health-operating-system-kernel.html">Open</a></div>
+            <div class="node"><div class="node-title">bp-30 Health Nation Digital Twin</div><a href="bp-30-health-nation-digital-twin.html">Open</a></div>
+        </div>
+
     </div>
 
-    <!-- EXECUTIVE CONTROL PANEL -->
+    <!-- EXECUTIVE CONTROL PANEL ---------------------------------------------->
     <div class="card">
         <div class="section-title">Executive Control Panel</div>
-        <div class="sub">System-wide management interface for research assets.</div>
+        <div class="sub">System-wide orchestration tools for research governance.</div>
+
+        <p>
+            This panel governs all research assets within the National Research OS.
+            Each action triggers updates across DOI registries, repository networks,
+            and internal blueprint indexing.
+        </p>
 
         <div class="grid">
-            <div class="node"><div class="node-title">Create New Working Paper</div><a href="#">Generate Template</a></div>
-            <div class="node"><div class="node-title">Submit to Zenodo</div><a href="#">Upload Portal</a></div>
-            <div class="node"><div class="node-title">Submit to SSRN</div><a href="#">Submission Module</a></div>
-            <div class="node"><div class="node-title">Update DOI Index</div><a href="#">Synchronize</a></div>
+            <div class="node"><div class="node-title">Create New Working Paper</div><a href="https://ssrn.com" target="_blank">Generate Template</a></div>
+            <div class="node"><div class="node-title">Submit to Zenodo</div><a href="https://zenodo.org/deposit" target="_blank">Upload Portal</a></div>
+            <div class="node"><div class="node-title">Submit to SSRN</div><a href="https://hq.ssrn.com/submissions/CreateNewAbstract.cfm" target="_blank">Submission Module</a></div>
+            <div class="node"><div class="node-title">Update DOI Index</div><a href="https://doi.org" target="_blank">Synchronize</a></div>
         </div>
     </div>
 
-</div>
+    <!-- SYSTEM PURPOSE ------------------------------------------------------->
+    <div class="card">
+        <div class="section-title">Purpose of the Research Hub</div>
 
-<footer>
-    © 2025 Dr. Nader Lohrasbi — National Research OS v2  
-</footer>
+        <p>
+            The Research Hub functions as the sovereign knowledge layer of the Health Nation OS.
+            It governs DOI propagation, blueprint citation, repository synchronization,
+            and executive publication workflows.
+            Together, these modules form the national-scale intelligence backbone powering
+            evidence-based policy, advanced analytics, and multi-domain alignment.
+        </p>
+    </div>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "National Research OS — Research Hub v2",
-  "description": "The sovereign research operating system integrating DOI pipelines, blueprint citations, working papers, and scholarly repositories.",
-  "creator": {
-    "@type": "Person",
-    "name": "Dr. Nader Lohrasbi",
-    "url": "https://lohrasbi.info"
-  },
-  "url": "https://lohrasbi.info/research-hub-v2.html",
-  "hasPart": [
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-01-health-nation-os.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-30-health-nation-digital-twin.html"}
+      "url": "https://lohrasbi.info/blueprints.html",
+      "hasPart": [
+        {"@type":"CreativeWork","url":"https://lohrasbi.info/bp-01-health-nation-os.html"},
+        {"@type":"CreativeWork","url":"https://lohrasbi.info/bp-02-architecture-over-repair.html"},
+        {"@type":"CreativeWork","url":"https://lohrasbi.info/bp-03-crisis-architecture-framework.html"},
+        {"@type":"CreativeWork","url":"https://lohrasbi.info/bp-30-health-nation-digital-twin.html"}
+      ]
+    }
   ]
 }
 </script>
+<!-- RESEARCH INTELLIGENCE LAYER --------------------------------------------->
+<div class="card">
+    <div class="section-title">Research Intelligence Layer</div>
+    <div class="sub">Real-time academic signals across all research channels.</div>
 
-</body>
-</html>
+    <p>
+        The Research Intelligence Layer aggregates scholarly signals from multiple ecosystems — 
+        citation networks, DOI registries, repository performance, blueprint interactions, and 
+        working paper traction.  
+        This dashboard acts as the strategic decision engine for the National Research OS.
+    </p>
+
+    <!-- INTELLIGENCE GRID ---------------------------------------------------->
+    <div class="grid">
+
+        <!-- ORCID -->
+        <div class="node">
+            <div class="node-title">ORCID Identity</div>
+            <a href="https://orcid.org/0009-0004-4232-2953" target="_blank">
+                View ORCID Profile →
+            </a>
+            <p style="font-size:0.85rem;color:#94a3b8;margin-top:8px;">
+                Global researcher identity, linked to all scholarly ecosystems.
+            </p>
+        </div>
+
+        <!-- GOOGLE SCHOLAR -->
+        <div class="node">
+            <div class="node-title">Google Scholar Metrics</div>
+            <a href="https://scholar.google.com/citations?user=AFxhFKwAAAAJ" target="_blank">
+                Open Scholar Profile →
+            </a>
+            <p style="font-size:0.85rem;color:#94a3b8;margin-top:8px;">
+                Citation growth, h-index, and research visibility tracking.
+            </p>
+        </div>
+
+        <!-- SSRN -->
+        <div class="node">
+            <div class="node-title">SSRN Research Signals</div>
+            <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=9241472" target="_blank">
+                SSRN Author Page →
+            </a>
+            <p style="font-size:0.85rem;color:#94a3b8;margin-top:8px;">
+                Economics & strategy insights across the Lohrasbi Working Paper Series.
+            </p>
+        </div>
+
+        <!-- ZENODO -->
+        <div class="node">
+            <div class="node-title">Zenodo / CERN Repository</div>
+            <a href="https://zenodo.org/search?q=Nader%20Lohrasbi" target="_blank">
+                Zenodo Index →
+            </a>
+            <p style="font-size:0.85rem;color:#94a3b8;margin-top:8px;">
+                DOI-registered outputs synchronizing with global research databases.
+            </p>
+        </div>
+
+        <!-- FIGSHARE -->
+        <div class="node">
+            <div class="node-title">Figshare Research Data</div>
+            <a href="https://figshare.com/authors/Nader_Lohrasbi/22668938" target="_blank">
+                Figshare Author Hub →
+            </a>
+            <p style="font-size:0.85rem;color:#94a3b8;margin-top:8px;">
+                Dataset visibility + rapid Google indexation performance.
+            </p>
+        </div>
+
+        <!-- OpenAlex / Dimensions -->
+        <div class="node">
+            <div class="node-title">External Indexing (OpenAlex + Dimensions)</div>
+            <a href="https://explore.openalex.org" target="_blank">
+                OpenAlex →
+            </a>
+            <br/>
+            <a href="https://app.dimensions.ai/discover/publication" target="_blank">
+                Dimensions →
+            </a>
+            <p style="font-size:0.85rem;color:#94a3b8;margin-top:8px;">
+                Monitors global scholarly graph integration and referencing.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- PIPELINE STATUS --------------------------------------------------------->
+<div class="card">
+    <div class="section-title">Pipeline Status</div>
+    <div class="sub">Instant overview of infrastructure health.</div>
+
+    <div class="grid">
+
+        <div class="node">
+            <div class="node-title">DOI Engine</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Status: <span style="color:#22c55e;">Active</span><br/>
+                DOI propagation across Zenodo → ORCID → Google Scholar.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Blueprint Citation Graph</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Status: <span style="color:#22c55e;">Operational</span><br/>
+                30 blueprints indexed as independent Creative Works.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Working Paper Series</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Status: <span style="color:#22c55e;">Publishing Phase</span><br/>
+                Papers scheduled for SSRN dissemination.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Repository Sync</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Status: <span style="color:#22c55e;">Synchronized</span><br/>
+                All linked repositories indexed under ORCID ecosystem.
+            </p>
+        </div>
+
+    </div>
+</div>
+<!-- AI RESEARCH INSIGHTS PANEL --------------------------------------------->
+<div class="card">
+    <div class="section-title">AI Research Insights Panel</div>
+    <div class="sub">Machine intelligence signals derived from cross-repository analysis.</div>
+
+    <p>
+        The AI Insights Panel performs high-level semantic pattern recognition across strategic papers,
+        blueprints, repositories, and citation networks.  
+        Its role is to identify emerging themes, cross-domain architectural linkages, and national-scale 
+        transformation pathways.
+    </p>
+
+    <div class="grid">
+
+        <!-- SIGNAL 1 -->
+        <div class="node">
+            <div class="node-title">Emerging Strategic Themes</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Detected alignment across: <br/>
+                • Crisis Architecture  
+                • AI Governance  
+                • Population Health Intelligence  
+                • Operational Neural Mesh  
+            </p>
+        </div>
+
+        <!-- SIGNAL 2 -->
+        <div class="node">
+            <div class="node-title">Cross-Blueprint Convergence</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                AI identifies strong conceptual convergence between Blueprint 01, 08, 14, and 20.
+                These modules form a national-level cognitive pathway.
+            </p>
+        </div>
+
+        <!-- SIGNAL 3 -->
+        <div class="node">
+            <div class="node-title">Repository Momentum</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Zenodo + Figshare receiving accelerated indexation signals.  
+                SSRN demonstrating global managerial visibility.
+            </p>
+        </div>
+
+        <!-- SIGNAL 4 -->
+        <div class="node">
+            <div class="node-title">Strategic Publication Trajectory</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                AI projects increasing demand in the following domains:  
+                • Clinical Efficiency Systems  
+                • Digital Twin Architecture  
+                • Federated Reasoning Engines  
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- REPOSITORY CROSSWALK MAP ----------------------------------------------->
+<div class="card">
+    <div class="section-title">Repository Cross-Walk Map</div>
+    <div class="sub">Synchronized pathways between all research systems.</div>
+
+    <p>
+        This map shows how research assets move through the scholarly ecosystem.  
+        Once a paper or blueprint is indexed, the National Research OS propagates it through all channels,
+        ensuring maximum visibility, canonical DOI tracking, and multi-repository coherence.
+    </p>
+
+    <div class="diagram-box" style="font-size:0.95rem;">
+
+        Research Asset → DOI Registry (Zenodo / Crossref) →  
+        ORCID Sync →  
+        Google Scholar Ingestion →  
+        SSRN Managerial Layer →  
+        Blueprint Citation Engine →  
+        National Research OS Graph
+
+    </div>
+
+    <p style="margin-top:20px;color:#94a3b8;font-size:0.9rem;">
+        This automated alignment ensures every research object contributes to national-scale 
+        intelligence, strategic planning, and system architecture evolution.
+    </p>
+
+</div>
+<!-- NATIONAL KNOWLEDGE GRAPH LAYER ----------------------------------------->
+<div class="card">
+    <div class="section-title">National Knowledge Graph Layer</div>
+    <div class="sub">Unified knowledge architecture connecting all research assets.</div>
+
+    <p>
+        The Knowledge Graph Layer fuses all research objects — blueprints, working papers,
+        datasets, repositories, and DOI-linked materials — into one coherent national architecture.
+        This layer represents the cognitive map of the Health Nation OS.
+    </p>
+
+    <div class="diagram-box" style="text-align:left;line-height:1.8;font-size:0.95rem;">
+
+        <strong>Core Node:</strong> Health Nation OS  
+        → connects to all 30 Blueprint Modules  
+        → forms the structural base of the National Architecture  
+        <br/><br/>
+
+        <strong>Blueprints (1–30)</strong>  
+        → each blueprint = independent Creative Work  
+        → contributes domain-specific intelligence  
+        → linked to Working Papers + Research Pipelines  
+        <br/><br/>
+
+        <strong>Working Papers Series</strong>  
+        → theoretical frameworks powering blueprint evolution  
+        → SSRN + Zenodo fed  
+        → propagates into ORCID + Google Scholar  
+        <br/><br/>
+
+        <strong>DOI Ecosystem</strong>  
+        → permanent identifiers for scholarly interoperability  
+        → enables citation continuity + repository alignment  
+        <br/><br/>
+
+        <strong>External Repositories:</strong>  
+        ORCID → Google Scholar → SSRN → Zenodo → Figshare  
+        → all unify inside the Research OS Graph  
+        <br/><br/>
+
+        <strong>Final Convergence:</strong>  
+        National Research OS integrates all research signals  
+        → delivers evidence-based strategy and architectural governance  
+        → forms the Knowledge Brain of the Health Nation
+    </div>
+</div>
+<!-- GOVERNANCE & PROTOCOL LAYER -------------------------------------------->
+<div class="card">
+    <div class="section-title">Governance & Protocol Layer</div>
+    <div class="sub">Formal governance architecture for the National Research OS.</div>
+
+    <p>
+        The Governance Layer defines how research objects are created, validated, versioned, 
+        published, propagated, and integrated across scholarly ecosystems.  
+        It ensures coherence, auditability, and long-term structural integrity of the 
+        Health Nation Research Infrastructure.
+    </p>
+
+    <div class="grid">
+
+        <!-- POLICY NODE -->
+        <div class="node">
+            <div class="node-title">Policy & Compliance Rules</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Mandatory DOI for all research outputs  
+                • Repository alignment required (Zenodo → ORCID → Scholar)  
+                • Citation format unified across all blueprints  
+                • Publication governance anchored in SSRN workflows  
+            </p>
+        </div>
+
+        <!-- VERSIONING NODE -->
+        <div class="node">
+            <div class="node-title">Version Control Protocol</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Each blueprint = semantic versioning (v1.0 → v1.1 → v2.0)  
+                • Working papers tracked through revision lineage  
+                • All changes documented in Research Logbook  
+            </p>
+        </div>
+
+        <!-- PUBLICATION PIPELINE -->
+        <div class="node">
+            <div class="node-title">Publication Pipeline Rules</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Draft → Preprint → DOI Release → Repository Sync  
+                • SSRN ↔ Zenodo dual-channel dissemination  
+                • Auto-update links on Research Hub  
+            </p>
+        </div>
+
+        <!-- ACCESS CONTROL -->
+        <div class="node">
+            <div class="node-title">Access & Custodianship</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Custodian: Lohrasbi Architecture Lab  
+                • External collaborations require authorization  
+                • Sensitive blueprints governed under Tier-2 clearance  
+            </p>
+        </div>
+
+        <!-- AUDIT SYSTEM -->
+        <div class="node">
+            <div class="node-title">Audit & Traceability</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • All edits logged within Research OS  
+                • DOI updates leave permanent metadata trails  
+                • Full provenance tracking across repositories  
+            </p>
+        </div>
+
+        <!-- ETHICS & AI -->
+        <div class="node">
+            <div class="node-title">Ethics & AI Governance</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • AI-assisted writing transparency  
+                • Ethical review for high-impact blueprints  
+                • Alignment with Lohrasbi AI Governance Model (Blueprint 06)  
+            </p>
+        </div>
+
+    </div>
+</div>
+<!-- NATIONAL RESEARCH SECURITY LAYER --------------------------------------->
+<div class="card">
+    <div class="section-title">National Research Security Layer</div>
+    <div class="sub">Integrity, authenticity, and trust infrastructure for all research assets.</div>
+
+    <p>
+        The Security Layer ensures that every research artifact — papers, datasets, blueprints,
+        and DOI-registered outputs — maintains verified authenticity, tamper resistance,
+        and traceable provenance.  
+        It is the defensive shield of the National Research OS.
+    </p>
+
+    <div class="grid">
+
+        <!-- INTEGRITY -->
+        <div class="node">
+            <div class="node-title">Research Integrity Framework</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Enforced DOI validation  
+                • Canonical metadata structure  
+                • Repository cross-verification  
+                • Scholarly identity anchoring via ORCID  
+            </p>
+        </div>
+
+        <!-- ANTI-FORGERY -->
+        <div class="node">
+            <div class="node-title">Anti-Forgery Protocols</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Hash-based authenticity checks  
+                • Title + abstract fingerprinting  
+                • Anti-duplicate detection across platforms  
+                • Blueprint integrity checksum  
+            </p>
+        </div>
+
+        <!-- PROVENANCE -->
+        <div class="node">
+            <div class="node-title">Provenance Security Layer</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Full lineage tracking (Draft → DOI → Repository → Blueprint)  
+                • Sync audit logs for SSRN & Zenodo  
+                • Immutable version history for blueprints  
+            </p>
+        </div>
+
+        <!-- TRUST SCORE -->
+        <div class="node">
+            <div class="node-title">Trust Scoring Engine</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Repository reputation weighting  
+                • DOI registry credibility scoring  
+                • Citation-quality metrics  
+                • Cross-platform consistency index  
+            </p>
+        </div>
+
+        <!-- CRISIS PROTOCOLS -->
+        <div class="node">
+            <div class="node-title">Crisis Resilience Protocols</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Rapid redeployment of research assets  
+                • Emergency publication continuity plan  
+                • Blueprint failover mechanisms  
+                • Mission-critical architecture protection  
+            </p>
+        </div>
+
+        <!-- AI SECURITY -->
+        <div class="node">
+            <div class="node-title">AI Security & Compliance</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • AI-authorship disclosure rules  
+                • Model alignment verification  
+                • Misuse detection for blueprint content  
+                • Compliance with AI Governance Model (bp-06)  
+            </p>
+        </div>
+
+    </div>
+</div>
+<!-- NATIONAL RESEARCH INFLUENCE & PROPAGATION LAYER ------------------------->
+<div class="card">
+    <div class="section-title">National Research Influence & Propagation Layer</div>
+    <div class="sub">Global impact mapping and intellectual propagation pathways.</div>
+
+    <p>
+        The Influence & Propagation Layer models how research originating from 
+        Lohrasbi Architecture Lab spreads through global academic, strategic, and 
+        policy ecosystems.  
+        It measures the velocity, reach, and structural influence of each research 
+        artifact across scholarly networks.
+    </p>
+
+    <div class="grid">
+
+        <!-- INFLUENCE FIELD -->
+        <div class="node">
+            <div class="node-title">Influence Field Mapping</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Identification of high-impact architecture themes  
+                • Propagation vectors across digital health, AI governance, crisis systems  
+                • Cross-domain influence scoring (clinical, managerial, national-scale)  
+            </p>
+        </div>
+
+        <!-- CITATION SPREAD -->
+        <div class="node">
+            <div class="node-title">Citation Propagation Engine</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Tracks citation paths across Google Scholar, ORCID, SSRN  
+                • Detects early adoption of frameworks  
+                • Measures blueprint-based referencing behavior  
+            </p>
+        </div>
+
+        <!-- REPOSITORY REACH -->
+        <div class="node">
+            <div class="node-title">Repository Reach Index</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Evaluates repository-level visibility  
+                • Zenodo → strongest DOI uplift  
+                • Figshare → fastest Google indexation  
+                • SSRN → high managerial and policymaker exposure  
+            </p>
+        </div>
+
+        <!-- THOUGHT LEADERSHIP -->
+        <div class="node">
+            <div class="node-title">Thought Leadership Gradient</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Measures strategic influence across executive networks  
+                • Evaluates blueprint adoption in decision-making contexts  
+                • Monitors media and professional traction signals  
+            </p>
+        </div>
+
+        <!-- GLOBAL DISSEMINATION -->
+        <div class="node">
+            <div class="node-title">Global Dissemination Pathways</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • North America — AI & Digital Health acceleration  
+                • Europe — Policy + crisis systems adoption  
+                • Middle East — National transformation & architecture interest  
+            </p>
+        </div>
+
+        <!-- ARCHITECTURE PENETRATION -->
+        <div class="node">
+            <div class="node-title">Architecture Penetration Index</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Measures system architecture uptake  
+                • Tracks multi-sector adoption of blueprint concepts  
+                • Detects national-level integration opportunities  
+            </p>
+        </div>
+
+    </div>
+</div>
+<!-- NATIONAL RESEARCH INFLUENCE & PROPAGATION LAYER ------------------------->
+<div class="card">
+    <div class="section-title">National Research Influence & Propagation Layer</div>
+    <div class="sub">Global impact mapping and intellectual propagation pathways.</div>
+
+    <p>
+        The Influence & Propagation Layer models how research originating from 
+        Lohrasbi Architecture Lab spreads through global academic, strategic, and 
+        policy ecosystems.  
+        It measures the velocity, reach, and structural influence of each research 
+        artifact across scholarly networks.
+    </p>
+
+    <div class="grid">
+
+        <!-- INFLUENCE FIELD -->
+        <div class="node">
+            <div class="node-title">Influence Field Mapping</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Identification of high-impact architecture themes  
+                • Propagation vectors across digital health, AI governance, crisis systems  
+                • Cross-domain influence scoring (clinical, managerial, national-scale)  
+            </p>
+        </div>
+
+        <!-- CITATION SPREAD -->
+        <div class="node">
+            <div class="node-title">Citation Propagation Engine</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Tracks citation paths across Google Scholar, ORCID, SSRN  
+                • Detects early adoption of frameworks  
+                • Measures blueprint-based referencing behavior  
+            </p>
+        </div>
+
+        <!-- REPOSITORY REACH -->
+        <div class="node">
+            <div class="node-title">Repository Reach Index</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Evaluates repository-level visibility  
+                • Zenodo → strongest DOI uplift  
+                • Figshare → fastest Google indexation  
+                • SSRN → high managerial and policymaker exposure  
+            </p>
+        </div>
+
+        <!-- THOUGHT LEADERSHIP -->
+        <div class="node">
+            <div class="node-title">Thought Leadership Gradient</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Measures strategic influence across executive networks  
+                • Evaluates blueprint adoption in decision-making contexts  
+                • Monitors media and professional traction signals  
+            </p>
+        </div>
+
+        <!-- GLOBAL DISSEMINATION -->
+        <div class="node">
+            <div class="node-title">Global Dissemination Pathways</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • North America — AI & Digital Health acceleration  
+                • Europe — Policy + crisis systems adoption  
+                • Middle East — National transformation & architecture interest  
+            </p>
+        </div>
+
+        <!-- ARCHITECTURE PENETRATION -->
+        <div class="node">
+            <div class="node-title">Architecture Penetration Index</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Measures system architecture uptake  
+                • Tracks multi-sector adoption of blueprint concepts  
+                • Detects national-level integration opportunities  
+            </p>
+        </div>
+
+    </div>
+</div>
+<!-- STRATEGIC RESEARCH COMMAND LAYER ----------------------------------------->
+<div class="card">
+    <div class="section-title">Strategic Research Command Layer (SRCL)</div>
+    <div class="sub">Executive-level control interface for national-scale research architecture.</div>
+
+    <p>
+        The Strategic Research Command Layer (SRCL) functions as the mission control center 
+        for the National Research OS — governing pipelines, intelligence cycles, blueprint 
+        evolution, publication strategy, and global research alignment.  
+        This layer is designed for high-level decision-makers and executive oversight bodies.
+    </p>
+
+    <div class="grid">
+
+        <!-- COMMAND CONSOLE -->
+        <div class="node">
+            <div class="node-title">Architecture Strategy Console</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Defines yearly research architecture roadmap  
+                • Aligns blueprint updates with national transformation goals  
+                • Controls expansion, revision, and scaling of research modules  
+            </p>
+        </div>
+
+        <!-- PIPELINE INTELLIGENCE -->
+        <div class="node">
+            <div class="node-title">Pipeline Intelligence Engine</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Monitors DOI generation velocity  
+                • Detects research bottlenecks and accelerators  
+                • Automates cross-repository synchronization (Zenodo → SSRN → ORCID → Scholar)  
+            </p>
+        </div>
+
+        <!-- PUBLICATION STRATEGY -->
+        <div class="node">
+            <div class="node-title">Publication Strategy Hub</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Controls sequencing of working papers  
+                • Manages executive articles (LinkedIn, Medium, Substack)  
+                • Optimizes visibility across technical + managerial domains  
+            </p>
+        </div>
+
+        <!-- RESEARCH INTELLIGENCE →
+        -->
+        <div class="node">
+            <div class="node-title">Research Intelligence Dashboard</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Tracks global adoption signals  
+                • Identifies influential citations and regional traction  
+                • Detects emerging questions requiring new blueprints  
+            </p>
+        </div>
+
+        <!-- GLOBAL ALIGNMENT -->
+        <div class="node">
+            <div class="node-title">Global Research Alignment Grid</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Aligns research themes with global healthcare priorities  
+                • Maps multi-region relevance (EU/US/MEA)  
+                • Ensures blueprint resonance with global AI-Health agendas  
+            </p>
+        </div>
+
+        <!-- STRATEGIC MODES -->
+        <div class="node">
+            <div class="node-title">Strategic OS Modes</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • <b>Crisis Mode:</b> Accelerated blueprint updates for emergencies  
+                • <b>Growth Mode:</b> High-velocity publication cycles  
+                • <b>Audit Mode:</b> Deep validation of all research pipelines  
+                • <b>Expansion Mode:</b> Launch of new blueprint clusters  
+            </p>
+        </div>
+
+        <!-- GOVERNANCE -->
+        <div class="node">
+            <div class="node-title">Governance & Compliance Layer</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Ensures publication integrity  
+                • Manages authorship rules, contributions, and metadata  
+                • Controls formal certification of research modules  
+            </p>
+        </div>
+
+        <!-- COMMAND ACTIONS -->
+        <div class="node">
+            <div class="node-title">Command Actions</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                • Deploy new working paper template  
+                • Trigger DOI issuance  
+                • Synchronize repository nodes  
+                • Initiate global dissemination waves  
+            </p>
+        </div>
+
+    </div>
+</div>
+<!-- EXECUTIVE SUMMARY LAYER ------------------------------------------------->
+<div class="card">
+    <div class="section-title">Executive Summary — National Research OS</div>
+    <div class="sub">A 20-second overview for policymakers, executives, and national leaders.</div>
+
+    <p>
+        The National Research OS provides a unified, sovereign platform that governs how 
+        strategic insights, scholarly outputs, and architectural blueprints evolve across 
+        a nation’s healthcare ecosystem.  
+        It consolidates all research nodes — blueprints, DOIs, working papers, real-world data, 
+        and cross-repository publication pipelines — into one executive-controlled system.
+    </p>
+
+    <p style="margin-top:14px;">
+        At its core, the OS ensures structural alignment across clinical, operational, 
+        financial, and cognitive domains.  
+        This alignment accelerates national decision-making, improves research interoperability, 
+        and enables the rapid evolution of healthcare architecture at scale.
+    </p>
+
+    <div class="grid" style="margin-top:22px;">
+
+        <!-- BLOCK 1 -->
+        <div class="node">
+            <div class="node-title">1 — Unified Architecture</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                30 interconnected blueprints form a modular, scalable, and sovereign 
+                healthcare architecture for national transformation.
+            </p>
+        </div>
+
+        <!-- BLOCK 2 -->
+        <div class="node">
+            <div class="node-title">2 — Research Intelligence</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Continuous intelligence cycle integrating DOIs, citations, global signals, 
+                and institutional adoption metrics.
+            </p>
+        </div>
+
+        <!-- BLOCK 3 -->
+        <div class="node">
+            <div class="node-title">3 — Executive Governance</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                High-level control panel enabling publication strategy, blueprint evolution, 
+                validation workflows, and policy-synchronized research growth.
+            </p>
+        </div>
+
+        <!-- BLOCK 4 -->
+        <div class="node">
+            <div class="node-title">4 — Global Integration</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Seamless alignment with Zenodo, SSRN, ORCID, Google Scholar, LinkedIn, 
+                and other global repositories.
+            </p>
+        </div>
+
+        <!-- BLOCK 5 -->
+        <div class="node">
+            <div class="node-title">5 — National Impact Acceleration</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Converts research outputs into operational, clinical, and infrastructural 
+                upgrades for hospitals, cities, and national agencies.
+            </p>
+        </div>
+
+    </div>
+
+    <p style="margin-top:22px;">
+        In summary:  
+        <b>The National Research OS transforms scattered research outputs into a coherent 
+        national intelligence architecture — enabling faster, smarter, and more resilient 
+        health systems.</b>
+    </p>
+</div>
+<!-- FEEDBACK INTELLIGENCE LAYER ---------------------------------------------->
+<div class="card">
+    <div class="section-title">Feedback Intelligence Layer</div>
+    <div class="sub">A continuous learning engine for improving blueprints, research assets, and national strategy.</div>
+
+    <p>
+        The National Research OS incorporates a dedicated Feedback Intelligence Layer (FIL) designed to 
+        capture structured and unstructured insight from experts, institutions, researchers, and policymakers.  
+        FIL transforms feedback into actionable intelligence that informs the evolution of the 30 blueprints,  
+        publication strategy, and the national research agenda.
+    </p>
+
+    <p style="margin-top:10px;">
+        This layer operates as a real-time refinement cycle — detecting gaps, tracking demand signals,  
+        identifying emerging health system patterns, and updating the architecture roadmap.
+    </p>
+
+    <div class="grid" style="margin-top:22px;">
+
+        <!-- BLOCK 1 -->
+        <div class="node">
+            <div class="node-title">1 — Expert Feedback Loop</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Collects structured input from clinical leaders, AI architects, economists,  
+                and national policy teams to refine blueprints and research outputs.
+            </p>
+        </div>
+
+        <!-- BLOCK 2 -->
+        <div class="node">
+            <div class="node-title">2 — Pattern Recognition Engine</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Analyzes feedback trends across domains — safety, efficiency, interoperability,  
+                and population-level health signals.
+            </p>
+        </div>
+
+        <!-- BLOCK 3 -->
+        <div class="node">
+            <div class="node-title">3 — Blueprint Revision Signals</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Identifies which blueprint modules require updates, expansions, or  
+                strategic repositioning based on national needs.
+            </p>
+        </div>
+
+        <!-- BLOCK 4 -->
+        <div class="node">
+            <div class="node-title">4 — Institutional Requests Queue</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Tracks requests from governments, hospitals, academic institutions, and  
+                agencies requiring blueprint access or custom adaptation.
+            </p>
+        </div>
+
+        <!-- BLOCK 5 -->
+        <div class="node">
+            <div class="node-title">5 — Continuous Publishing Logic</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Synchronizes updates with LinkedIn, Zenodo, SSRN, and ORCID to maintain  
+                global visibility and citation propagation.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- FEEDBACK SUBMISSION BOX -->
+    <div style="margin-top:30px;padding:20px;border:1px dashed #38bdf8;border-radius:12px;">
+        <h3 style="color:#38bdf8;margin-bottom:10px;">Submit Expert Feedback</h3>
+        <p style="margin-bottom:15px;color:#94a3b8;">
+            Institutions, experts, and research partners may submit feedback or request  
+            blueprint refinement. Responses are processed by the National Research OS.
+        </p>
+
+        <a href="contact.html" class="btn" style="margin-top:8px;">Submit Feedback</a>
+    </div>
+
+</div>
+<!-- RESEARCH OPERATIONS COMMAND LAYER --------------------------------------->
+<div class="card">
+    <div class="section-title">Research Operations Command Layer</div>
+    <div class="sub">Operational engine governing publications, DOIs, blueprint updates, and cross-platform propagation.</div>
+
+    <p>
+        The Research Operations Command Layer (ROCL) is the backbone of the National Research OS —  
+        coordinating publication workflow, DOI registration, blueprint synchronization,  
+        and multi-platform dissemination across LinkedIn, Zenodo, SSRN, ORCID, and Google Scholar.
+    </p>
+
+    <p style="margin-top:10px;">
+        ROCL ensures that every output — Working Papers, Strategic Papers, Blueprints, Datasets,  
+        and Meta-Architectures — remains consistent, version-controlled, and globally discoverable.
+    </p>
+
+    <div class="grid" style="margin-top:22px;">
+
+        <!-- BLOCK 1 -->
+        <div class="node">
+            <div class="node-title">1 — DOI Registration Engine</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Centralized module for DOI creation, validation, and repository synchronization  
+                across Zenodo, SSRN, and ORCID.
+            </p>
+        </div>
+
+        <!-- BLOCK 2 -->
+        <div class="node">
+            <div class="node-title">2 — Multi-Channel Publishing Orchestrator</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Automates structured distribution to LinkedIn, Substack, SlideShare, Google Scholar,  
+                and institutional platforms to maximize visibility and impact.
+            </p>
+        </div>
+
+        <!-- BLOCK 3 -->
+        <div class="node">
+            <div class="node-title">3 — Version Control & Blueprint Sync</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Tracks changes across all 30 blueprint modules and updates citations,  
+                references, and architecture dependencies in real time.
+            </p>
+        </div>
+
+        <!-- BLOCK 4 -->
+        <div class="node">
+            <div class="node-title">4 — Research Asset Governance</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Governs Working Papers, Strategic Papers, OS-level frameworks,  
+                datasets, diagrams, and system definitions.
+            </p>
+        </div>
+
+        <!-- BLOCK 5 -->
+        <div class="node">
+            <div class="node-title">5 — Automated Repository Sync</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Ensures all research assets remain aligned between GitHub, Zenodo, SSRN,  
+                and institutional archives.
+            </p>
+        </div>
+
+        <!-- BLOCK 6 -->
+        <div class="node">
+            <div class="node-title">6 — Impact & Reach Analytics</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Tracks citation propagation, download statistics, engagement signals,  
+                global academic reach, and governance-level influence.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- COMMAND PANEL -->
+    <div style="margin-top:32px;padding:24px;border:1px dashed #38bdf8;border-radius:12px;">
+        <h3 style="color:#38bdf8;margin-bottom:12px;">Command Actions</h3>
+
+        <div class="grid" style="margin-top:14px;">
+
+            <div class="node">
+                <div class="node-title">Register New DOI</div>
+                <a href="https://zenodo.org" style="font-size:0.85rem;">Open DOI Portal</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Publish to SSRN</div>
+                <a href="https://ssrn.com" style="font-size:0.85rem;">Open Submission Module</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Sync ORCID Records</div>
+                <a href="https://orcid.org" style="font-size:0.85rem;">Open ORCID</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Distribute to LinkedIn</div>
+                <a href="https://www.linkedin.com" style="font-size:0.85rem;">Open Publishing Panel</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Update Blueprint Citations</div>
+                <a href="architecture.html" style="font-size:0.85rem;">Open Architecture Index</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Sync Research Index</div>
+                <a href="research.html" style="font-size:0.85rem;">Open Research Index</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- NATIONAL KNOWLEDGE GRAPH LAYER ----------------------------------------->
+<div class="card">
+    <div class="section-title">National Knowledge Graph Layer</div>
+    <div class="sub">
+        The cognitive-structural graph connecting all 30 blueprints into one unified  
+        national knowledge architecture.
+    </div>
+
+    <p>
+        The National Knowledge Graph (NKG) models how each architectural module — cognitive,  
+        clinical, operational, infrastructural, and crisis-oriented — interacts within  
+        the sovereign Health Nation OS.  
+    </p>
+
+    <p style="margin-top:10px;">
+        This graph defines dependencies, influence pathways, priority layers, and  
+        system-wide propagation effects, enabling high-level strategic reasoning  
+        and national-scale decision intelligence.
+    </p>
+
+    <!-- DIAGRAM PLACEHOLDER -->
+    <div class="diagram-box" style="margin-top:22px;">
+        Placeholder — National Knowledge Graph  
+        (Cognitive–Operational–Infrastructure–Crisis relationships)
+    </div>
+
+    <!-- KNOWLEDGE GRAPH CLUSTERS -->
+    <h3 style="color:#38bdf8;margin-top:32px;">Primary Clusters</h3>
+
+    <div class="grid" style="margin-top:16px;">
+
+        <!-- Cluster A -->
+        <div class="node">
+            <div class="node-title">Cluster A — Cognitive Engines</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                AI-driven layers including NLP pipelines, reasoning engines,  
+                multi-agent orchestration, and cognitive workflow intelligence.
+            </p>
+            <a href="architecture.html" style="font-size:0.85rem;">View Related Blueprints</a>
+        </div>
+
+        <!-- Cluster B -->
+        <div class="node">
+            <div class="node-title">Cluster B — Clinical Systems</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Decision support, crisis architecture, triage automation,  
+                and clinical capacity intelligence models.
+            </p>
+            <a href="architecture.html" style="font-size:0.85rem;">View Related Blueprints</a>
+        </div>
+
+        <!-- Cluster C -->
+        <div class="node">
+            <div class="node-title">Cluster C — Operational Grid</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Workforce orchestration, financial nervous systems,  
+                command layers, and operational neural meshes.
+            </p>
+            <a href="architecture.html" style="font-size:0.85rem;">Explore Operational Pathways</a>
+        </div>
+
+        <!-- Cluster D -->
+        <div class="node">
+            <div class="node-title">Cluster D — Infrastructure & Logistics</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Digital twins, transportation networks, imaging logistics,  
+                and nationwide interoperability frameworks.
+            </p>
+            <a href="architecture.html" style="font-size:0.85rem;">View Infrastructure Blueprints</a>
+        </div>
+
+        <!-- Cluster E -->
+        <div class="node">
+            <div class="node-title">Cluster E — Crisis & Resilience</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Crisis architecture, resilience index, emergency response,  
+                and adaptive capacity models.
+            </p>
+            <a href="architecture.html" style="font-size:0.85rem;">Explore Crisis Layer</a>
+        </div>
+
+    </div>
+
+    <!-- GRAPH RELATION TABLE -->
+    <h3 style="color:#38bdf8;margin-top:40px;">System Dependency Matrix</h3>
+
+    <p style="margin-bottom:12px;">
+        High-level dependency pathways showing how changes in one blueprint  
+        propagate through the OS.
+    </p>
+
+    <div class="diagram-box">
+        Placeholder — dependency matrix (Blueprints → Impacted Layers → National OS)
+    </div>
+
+    <!-- NOTES -->
+    <p style="margin-top:28px;color:#94a3b8;font-size:0.9rem;">
+        The National Knowledge Graph serves as the reasoning substrate for Health Nation OS —  
+        enabling systemic intelligence, policy simulation, and multi-layer alignment.
+    </p>
+
+</div>
+<!-- NATIONAL RESEARCH INTELLIGENCE DASHBOARD ------------------------------->
+<div class="card">
+    <div class="section-title">National Research Intelligence Dashboard</div>
+    <div class="sub">
+        Real-time indicators for research performance, blueprint propagation, DOI lifecycle,  
+        and multi-platform knowledge distribution.
+    </div>
+
+    <p>
+        The National Research Intelligence Dashboard (NRID) provides oversight across  
+        publication velocity, DOI activation, repository alignment, blueprint circulation,  
+        and global academic reach.  
+    </p>
+
+    <!-- GRID OF INDICATORS -->
+    <div class="grid" style="margin-top:22px;">
+
+        <div class="node">
+            <div class="node-title">DOI Activation Status</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Displays the number of active DOIs, pending registrations, and unassigned  
+                blueprint identifiers.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Publication Velocity</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Weekly and monthly output metrics covering Working Papers, Strategic Papers,  
+                and Blueprint Updates.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Repository Sync Health</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Tracks alignment between GitHub, Zenodo, SSRN, ORCID, and Google Scholar.  
+                Highlights out-of-sync modules.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Blueprint Circulation Metrics</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Measures readership, citation potential, and inter-blueprint dependencies  
+                influencing national OS layers.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Academic Reach Score</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Calculates international reach based on indexing, impressions,  
+                repository propagation, and knowledge graph integration.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Cross-Platform Propagation</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Evaluates how well publications diffuse across LinkedIn, Zenodo, SSRN,  
+                Substack, Medium, and Google Scholar.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- SYSTEM STATUS PANEL -->
+    <div style="margin-top:38px;padding:24px;border:1px dashed #38bdf8;border-radius:12px;">
+        <h3 style="color:#38bdf8;margin-bottom:12px;">System Status Panel</h3>
+
+        <div class="grid" style="margin-top:14px;">
+
+            <div class="node">
+                <div class="node-title">Blueprint Update Status</div>
+                <a href="architecture.html" style="font-size:0.85rem;">Open Architecture Index</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Working Papers Tracker</div>
+                <a href="research.html" style="font-size:0.85rem;">Open Working Papers</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Research Outputs Governance</div>
+                <a href="research-hub-v2.html" style="font-size:0.85rem;">Open Governance Panel</a>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Analytics & Insights Layer</div>
+                <a href="#" style="font-size:0.85rem;">Coming Soon</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FUTURE METRICS -->
+    <h3 style="color:#38bdf8;margin-top:34px;">Future Intelligence Metrics</h3>
+
+    <p style="font-size:0.9rem;color:#94a3b8;">
+        Upcoming AI-driven indicators will provide deeper insight into system evolution:
+        <br>• Citation trajectory forecasts (12-month projection)  
+        <br>• Blueprint operational alignment score  
+        <br>• Semantic similarity mapping across Working Papers  
+        <br>• DOI network propagation models  
+        <br>• National Knowledge Coherence Index (NKCI)
+    </p>
+
+</div>
+<!-- SYMBIOTIC INTELLIGENCE METRICS LAYER ----------------------------------->
+<div class="card">
+    <div class="section-title">Symbiotic Intelligence Metrics</div>
+    <div class="sub">
+        The evolutionary intelligence layer that measures human–AI co-creation,  
+        architectural coherence, and system-wide adaptive health.
+    </div>
+
+    <p>
+        Symbiotic Intelligence (SI) is the meta-framework governing how human reasoning,  
+        AI cognition, architectural systems, and real-time feedback loops interact to  
+        create a continuously improving Research Operating System.
+    </p>
+
+    <p style="margin-top:10px;">
+        This layer defines how research, architecture, and national healthcare models  
+        evolve together — forming a self-correcting, self-optimizing, and self-expanding  
+        strategic ecosystem.
+    </p>
+
+    <!-- METRIC GROUPS ------------------------------------------------------->
+    <h3 style="color:#38bdf8;margin-top:30px;">Primary SI Metrics</h3>
+
+    <div class="grid" style="margin-top:16px;">
+
+        <div class="node">
+            <div class="node-title">1 — Cognitive Alignment Score (CAS)</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Measures alignment between human conceptual models and AI-generated  
+                architectural outputs.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">2 — Architectural Coherence Index (ACI)</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Evaluates structural consistency across the 30 blueprint modules  
+                as they evolve over time.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">3 — System Adaptation Velocity (SAV)</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Measures how quickly the Research OS incorporates feedback,  
+                new data, new architecture, and updated reasoning.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">4 — Knowledge Coherence Gradient (KCG)</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Tracks the directional evolution of ideas, concepts, and architectural  
+                models over time.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">5 — Human–AI Synergy Index (HASI)</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Quantifies the extent of collaborative creation between human insight  
+                and AI computational architecture.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">6 — Structural Impact Forecast (SIF)</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Predicts how changes in one blueprint or paper might propagate through  
+                the national OS.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- EVOLUTION PANEL ----------------------------------------------------->
+    <h3 style="color:#38bdf8;margin-top:36px;">Evolutionary Intelligence Panel</h3>
+
+    <div style="margin-top:16px;padding:24px;border:1px dashed #38bdf8;border-radius:12px;">
+        <p style="font-size:0.9rem;color:#94a3b8;">
+            The Symbiotic Intelligence Engine continuously analyzes interactions between  
+            research outputs, user feedback, AI reasoning, and architectural design patterns  
+            to model the future trajectory of the Health Nation OS.
+        </p>
+
+        <div class="grid" style="margin-top:16px;">
+
+            <div class="node">
+                <div class="node-title">Predictive Research Pathways</div>
+                <p style="font-size:0.85rem;color:#94a3b8;">
+                    AI-generated forecasts on emerging themes, potential architectures,  
+                    and future structural gaps.
+                </p>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Adaptive Blueprint Mapping</div>
+                <p style="font-size:0.85rem;color:#94a3b8;">
+                    Tracks how each blueprint shifts in relevance and influence  
+                    across national healthcare ecosystems.
+                </p>
+            </div>
+
+            <div class="node">
+                <div class="node-title">Symbiotic Feedback Integration</div>
+                <p style="font-size:0.85rem;color:#94a3b8;">
+                    Connects public feedback (Google Sheets pipeline) with architectural  
+                    logic to create a self-evolving structure.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FUTURE INTELLIGENCE EXTENSIONS ------------------------------------->
+    <h3 style="color:#38bdf8;margin-top:36px;">Future SI Extensions</h3>
+
+    <p style="font-size:0.9rem;color:#94a3b8;">
+        The next phase of Symbiotic Intelligence will integrate:
+    </p>
+
+    <ul style="color:#94a3b8;font-size:0.9rem;line-height:1.6;margin-top:10px;">
+        <li>Neural dependency graphs across all architectural modules</li>
+        <li>Evolution tracking using temporal semantic embeddings</li>
+        <li>Real-time public sentiment–architecture influence models</li>
+        <li>National-scale scenario simulation models</li>
+        <li>Full AI-driven literature synthesis for Working Papers</li>
+    </ul>
+
+</div>
+<!-- META-STRUCTURE & LONGITUDINAL REASONING LAYER ------------------------->
+<div class="card">
+    <div class="section-title">Meta-Structure & Longitudinal Reasoning Layer</div>
+    <div class="sub">
+        The temporal evolution layer — mapping how research, blueprints, and national  
+        architectures transform over months, years, and strategic cycles.
+    </div>
+
+    <p>
+        The Meta-Structure Layer (MSL) represents the highest abstraction level of  
+        the National Research OS. It captures the temporal logic — how ideas evolve,  
+        how architectures mature, and how national systems transform through  
+        sequential research cycles.
+    </p>
+
+    <p style="margin-top:10px;">
+        This layer enables longitudinal reasoning: understanding not only what the  
+        system is, but how it changes, why it changes, and what it is becoming.
+    </p>
+
+    <!-- LONGITUDINAL MODEL -------------------------------------------------->
+    <h3 style="color:#38bdf8;margin-top:30px;">Longitudinal Evolution Model</h3>
+
+    <div class="diagram-box" style="margin-top:12px;">
+        Placeholder — Longitudinal Architecture Timeline  
+        (Blueprints → Research Outputs → National OS Maturity Curve)
+    </div>
+
+    <p style="font-size:0.9rem;color:#94a3b8;margin-top:16px;">
+        This model tracks evolution across four temporal strata:
+    </p>
+
+    <ul style="color:#94a3b8;font-size:0.9rem;line-height:1.6;margin-top:8px;">
+        <li><b>Foundational Layer:</b> Establishing core architecture (Blueprints 1–10)</li>
+        <li><b>Cognitive Expansion Layer:</b> AI-driven maturity (Blueprints 11–20)</li>
+        <li><b>Infrastructure Convergence Layer:</b> national-scale synchronization (21–30)</li>
+        <li><b>HNO-S Emergence Layer:</b> the unified Health Nation Operating System</li>
+    </ul>
+
+    <!-- META-CYCLES --------------------------------------------------------->
+    <h3 style="color:#38bdf8;margin-top:30px;">Meta-Cycles of Research Evolution</h3>
+
+    <p style="font-size:0.9rem;color:#94a3b8;">
+        Research evolution follows cyclical patterns — each cycle raising the maturity  
+        level of the Research OS:
+    </p>
+
+    <div class="grid" style="margin-top:14px;">
+
+        <div class="node">
+            <div class="node-title">Cycle 1 — Concept Initialization</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Formation of new architectural ideas and strategic hypotheses.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Cycle 2 — Structural Definition</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Blueprint formation, system mapping, and integration pathways.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Cycle 3 — Publication & Propagation</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Dissemination across academic ecosystems and strategic domains.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Cycle 4 — National Integration</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Implementation potential, policy alignment, and system-level adoption.
+            </p>
+        </div>
+
+        <div class="node">
+            <div class="node-title">Cycle 5 — Evolution & Reformation</div>
+            <p style="font-size:0.85rem;color:#94a3b8;">
+                Feedback-driven transformation of architectures and strategic logic.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- META-STRUCTURAL INDEX ---------------------------------------------->
+    <h3 style="color:#38bdf8;margin-top:36px;">Meta-Structural Coherence Index (MSCI)</h3>
+
+    <p style="font-size:0.9rem;color:#94a3b8;margin-top:8px;">
+        The MSCI measures the internal harmony of the entire research ecosystem —  
+        how well Working Papers, Blueprints, OS layers, and strategic doctrines  
+        reinforce one another over time.
+    </p>
+
+    <div class="diagram-box" style="margin-top:12px;">
+        Placeholder — MSCI Computation Graph  
+        (Inputs: BP Layers, Knowledge Graph, SI Metrics, Research Signals)
+    </div>
+
+    <!-- FUTURE META EXTENSIONS --------------------------------------------->
+    <h3 style="color:#38bdf8;margin-top:36px;">Future Meta-Extensions</h3>
+
+    <ul style="color:#94a3b8;font-size:0.9rem;line-height:1.6;margin-top:10px;">
+        <li>Temporal reasoning engine for architecture evolution simulation</li>
+        <li>Predictive national maturity modelling for Health Nation OS</li>
+        <li>Longitudinal semantic compression for research cycles</li>
+        <li>Meta-layer integration with Symbiotic Intelligence feedback loops</li>
+    </ul>
+
+    <p style="margin-top:20px;color:#94a3b8;font-size:0.9rem;">
+        The Meta-Structure Layer completes the National Research OS — establishing  
+        not just the present architecture, but the evolutionary path of an entire  
+        national knowledge ecosystem.
+    </p>
+
+</div>
