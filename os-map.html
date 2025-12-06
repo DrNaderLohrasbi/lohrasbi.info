@@ -1,256 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Health Nation OS — Interactive System Map</title>
-<meta name="description" content="The unified system architecture map integrating all 30 national healthcare blueprints into the Health Nation Operating System." />
-<link rel="icon" type="image/png" href="favicon-96x96.png" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Health Nation OS — System Map</title>
+
+<meta name="description" content="Unified national architecture map connecting all 30 strategic, cognitive, and infrastructure blueprints into the sovereign Health Nation OS."/>
+<link rel="icon" type="image/png" href="favicon-96x96.png"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
 <style>
-    body {
-        margin: 0;
-        font-family: "Inter", sans-serif;
-        background: #020617;
-        color: #e2e8f0;
-        line-height: 1.7;
-    }
-    header {
-        padding: 50px 20px;
-        background: #0f172a;
-        border-bottom: 1px solid #1e293b;
-        text-align: center;
-    }
-    .hero-title {
-        font-size: 2.7rem;
-        font-weight: 700;
-        color: #e0f2fe;
-        margin-bottom: 10px;
-    }
-    .hero-subtitle {
-        font-size: 1.1rem;
-        color: #38bdf8;
-        font-weight: 500;
-        max-width: 800px;
-        margin: 0 auto;
-    }
+body{
+  margin:0;
+  background:#020617;
+  color:#e2e8f0;
+  font-family:"Inter",sans-serif;
+  line-height:1.7;
+}
 
-    .container {
-        max-width: 1200px;
-        margin: 40px auto 80px;
-        padding: 0 20px;
-    }
+header{
+  padding:50px 20px;
+  text-align:center;
+  background:#0f172a;
+  border-bottom:1px solid #1e293b;
+}
 
-    .card {
-        background: #1e293b;
-        padding: 30px;
-        border-radius: 12px;
-        border: 1px solid #334155;
-        margin-bottom: 40px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-    }
+.hero-title{
+  font-size:2.8rem;
+  font-weight:800;
+  color:#e0f2fe;
+  margin-bottom:10px;
+}
 
-    .section-title {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: #22c55e;
-        margin-bottom: 20px;
-    }
+.hero-subtitle{
+  font-size:1.1rem;
+  color:#38bdf8;
+  max-width:800px;
+  margin:0 auto;
+}
 
-    .diagram-box {
-        border: 1px dashed #38bdf8;
-        padding: 26px;
-        border-radius: 12px;
-        background: rgba(56,189,248,0.07);
-        color: #38bdf8;
-        margin-top: 10px;
-        text-align: center;
-        font-size: 1rem;
-    }
+.container{
+  max-width:1200px;
+  margin:40px auto 80px;
+  padding:0 20px;
+}
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-    }
+.card{
+  background:#1e293b;
+  padding:30px;
+  border-radius:14px;
+  border:1px solid #334155;
+  margin-bottom:40px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.45);
+}
 
-    .node {
-        background: #0f172a;
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid #334155;
-        transition: 0.25s ease;
-    }
-    .node:hover {
-        border-color: #22c55e;
-        box-shadow: 0 0 12px rgba(34,197,94,0.45);
-        transform: translateY(-3px);
-    }
-    .node-title {
-        font-size: 1rem;
-        color: #e2e8f0;
-        font-weight: 600;
-        margin-bottom: 6px;
-    }
-    .node a {
-        color: #38bdf8;
-        font-size: 0.9rem;
-    }
+.section-title{
+  font-size:1.45rem;
+  font-weight:700;
+  color:#22c55e;
+  margin-bottom:20px;
+}
 
-    footer {
-        text-align: center;
-        padding: 30px;
-        color: #64748b;
-        border-top: 1px solid #1e293b;
-        font-size: 0.85rem;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.node{
+  background:#0f172a;
+  padding:20px;
+  border-radius:12px;
+  border:1px solid #334155;
+  transition:.25s ease;
+}
+
+.node:hover{
+  border-color:#22c55e;
+  transform:translateY(-3px);
+  box-shadow:0 0 12px rgba(34,197,94,.4);
+}
+
+.node-title{
+  font-size:1rem;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.node a{
+  color:#38bdf8;
+  font-size:.9rem;
+}
+
+.diagram-box{
+  border:1px dashed #38bdf8;
+  padding:28px;
+  text-align:center;
+  border-radius:12px;
+  margin-top:10px;
+  background:rgba(56,189,248,0.07);
+}
 </style>
+
 </head>
 
 <body>
 
 <header>
-    <h1 class="hero-title">Health Nation OS — Interactive Architecture Map</h1>
-    <div class="hero-subtitle">
-        The unified operating system integrating all 30 blueprints across Strategic Architecture,  
-        AI & Cognitive Systems, and Urban/Logistics Infrastructure into one sovereign national platform.
-    </div>
+  <h1 class="hero-title">Health Nation OS — Interactive Architecture Map</h1>
+  <div class="hero-subtitle">
+      The sovereign operating system connecting all 30 blueprint modules across 
+      Strategy, AI Cognition, Infrastructure, Logistics, and Crisis Architecture.
+  </div>
 </header>
 
 <div class="container">
 
-    <!-- System Overview -->
-    <div class="card">
-        <div class="section-title">System Overview</div>
-        <p>
-            The Health Nation Operating System (HN-OS) is the top-layer synthesis of all 30 blueprint modules.  
-            It operates as a sovereign digital architecture, aligning clinical, operational, financial,  
-            cognitive, and infrastructural layers into one coherent national framework.  
-            This interactive map provides a unified reference point for system governance,  
-            policy design, capacity alignment, cross-domain interoperability,  
-            and national-level execution logic.
-        </p>
-    </div>
-
-    <!-- Diagram Placeholder -->
-    <div class="card">
-        <div class="section-title">Health Nation OS — System Diagram</div>
-        <div class="diagram-box">
-            Placeholder — Full OS System Diagram Will Be Rendered Here
-        </div>
-    </div>
-
-    <!-- Strategic Architecture (1–10) -->
-    <div class="card">
-        <div class="section-title">Domain A — Strategic Architecture (1–10)</div>
-        <div class="grid">
-
-            <div class="node"><div class="node-title">01 — Health Nation OS</div><a href="bp-01-health-nation-os.html">Open</a></div>
-            <div class="node"><div class="node-title">02 — Architecture Over Repair</div><a href="bp-02-architecture-over-repair.html">Open</a></div>
-            <div class="node"><div class="node-title">03 — Crisis Architecture Framework</div><a href="bp-03-crisis-architecture-framework.html">Open</a></div>
-            <div class="node"><div class="node-title">04 — Strategic Control Tower</div><a href="bp-04-strategic-control-tower.html">Open</a></div>
-            <div class="node"><div class="node-title">05 — Clinical Efficiency Paradox</div><a href="bp-05-clinical-efficiency-paradox.html">Open</a></div>
-            <div class="node"><div class="node-title">06 — AI Governance Model</div><a href="bp-06-ai-governance-model.html">Open</a></div>
-            <div class="node"><div class="node-title">07 — Macro–Micro Alignment</div><a href="bp-07-macro-micro-alignment.html">Open</a></div>
-            <div class="node"><div class="node-title">08 — Financial Nervous System</div><a href="bp-08-financial-nervous-system.html">Open</a></div>
-            <div class="node"><div class="node-title">09 — Distributed Care City</div><a href="bp-09-distributed-care-city.html">Open</a></div>
-            <div class="node"><div class="node-title">10 — Intelligent Workforce Orchestration</div><a href="bp-10-intelligent-workforce-orchestration.html">Open</a></div>
-
-        </div>
-    </div>
-
-    <!-- AI & Cognitive Systems (11–20) -->
-    <div class="card">
-        <div class="section-title">Domain B — AI & Cognitive Systems (11–20)</div>
-        <div class="grid">
-
-            <div class="node"><div class="node-title">11 — Artificial Soul Framework</div><a href="bp-11-artificial-soul-framework.html">Open</a></div>
-            <div class="node"><div class="node-title">12 — Bespoke AI Assistant</div><a href="bp-12-bespoke-ai-assistant.html">Open</a></div>
-            <div class="node"><div class="node-title">13 — Federated Clinical Reasoning Engine</div><a href="bp-13-federated-clinical-reasoning-engine.html">Open</a></div>
-            <div class="node"><div class="node-title">14 — Multi-Agent Care Workflow AI</div><a href="bp-14-multi-agent-care-workflow-ai.html">Open</a></div>
-            <div class="node"><div class="node-title">15 — Medical NLP Pipeline (Global Interoperability)</div><a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">Open</a></div>
-            <div class="node"><div class="node-title">16 — AI-Empowered Clinical Simulation Lab</div><a href="bp-16-ai-empowered-clinical-simulation-lab.html">Open</a></div>
-            <div class="node"><div class="node-title">17 — Autonomous Triage & Routing AI</div><a href="bp-17-autonomous-triage-and-routing-ai.html">Open</a></div>
-            <div class="node"><div class="node-title">18 — National Health Pattern Recognition Grid</div><a href="bp-18-national-health-pattern-recognition-grid.html">Open</a></div>
-            <div class="node"><div class="node-title">19 — Cognitive Digital Front Door</div><a href="bp-19-cognitive-digital-front-door.html">Open</a></div>
-            <div class="node"><div class="node-title">20 — Population Health Intelligence Engine</div><a href="bp-20-population-health-intelligence-engine.html">Open</a></div>
-
-        </div>
-    </div>
-
-    <!-- Urban / Logistics / Infrastructure (21–30) -->
-    <div class="card">
-        <div class="section-title">Domain C — Urban / Logistics / Infrastructure (21–30)</div>
-        <div class="grid">
-
-            <div class="node"><div class="node-title">21 — Smart Hospital Grid</div><a href="bp-21-smart-hospital-grid.html">Open</a></div>
-            <div class="node"><div class="node-title">22 — National Appointment Exchange</div><a href="bp-22-national-appointment-exchange.html">Open</a></div>
-            <div class="node"><div class="node-title">23 — AI Imaging Logistics Network</div><a href="bp-23-ai-imaging-logistics-network.html">Open</a></div>
-            <div class="node"><div class="node-title">24 — Intelligent Health Transportation Network</div><a href="bp-24-intelligent-health-transportation-network.html">Open</a></div>
-            <div class="node"><div class="node-title">25 — National Health Resilience Index</div><a href="bp-25-national-health-resilience-index.html">Open</a></div>
-            <div class="node"><div class="node-title">26 — Dynamic Waiting Room Elimination System</div><a href="bp-26-dynamic-waiting-room-elimination-system.html">Open</a></div>
-            <div class="node"><div class="node-title">27 — Clinical Capacity Forecasting Grid</div><a href="bp-27-clinical-capacity-forecasting-grid.html">Open</a></div>
-            <div class="node"><div class="node-title">28 — National Health Mission Control</div><a href="bp-28-national-health-mission-control.html">Open</a></div>
-            <div class="node"><div class="node-title">29 — National Health OS Kernel</div><a href="bp-29-national-health-operating-system-kernel.html">Open</a></div>
-            <div class="node"><div class="node-title">30 — Health Nation Digital Twin</div><a href="bp-30-health-nation-digital-twin.html">Open</a></div>
-
-        </div>
-    </div>
-
+<div class="card">
+  <div class="section-title">System Overview</div>
+  <p>
+      The Health Nation OS synthesizes all 30 blueprints into one national digital architecture.  
+      It defines how healthcare thinks, predicts, allocates resources, governs AI, prevents crises,  
+      and transforms clinical workflows across an entire nation.
+  </p>
 </div>
 
+<div class="card">
+  <div class="section-title">System Diagram</div>
+  <div class="diagram-box">Placeholder — Full OS Diagram</div>
+</div>
+<!-- DOMAIN A — STRATEGIC ARCHITECTURE (1–10) ------------------------------->
+<div class="card">
+  <div class="section-title">Domain A — Strategic Architecture (01–10)</div>
+
+  <div class="grid">
+
+    <div class="node">
+      <div class="node-title">01 — Health Nation OS</div>
+      <a href="bp-01-health-nation-os.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">02 — Architecture Over Repair</div>
+      <a href="bp-02-architecture-over-repair.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">03 — Crisis Architecture Framework</div>
+      <a href="bp-03-crisis-architecture-framework.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">04 — Strategic Control Tower</div>
+      <a href="bp-04-strategic-control-tower.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">05 — Clinical Efficiency Paradox</div>
+      <a href="bp-05-clinical-efficiency-paradox.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">06 — AI Governance Model</div>
+      <a href="bp-06-ai-governance-model.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">07 — Macro–Micro Alignment</div>
+      <a href="bp-07-macro-micro-alignment.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">08 — Financial Nervous System</div>
+      <a href="bp-08-financial-nervous-system.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">09 — Distributed Care City</div>
+      <a href="bp-09-distributed-care-city.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">10 — Intelligent Workforce Orchestration</div>
+      <a href="bp-10-intelligent-workforce-orchestration.html">Open</a>
+    </div>
+
+  </div>
+</div>
+<!-- DOMAIN B — AI & COGNITIVE SYSTEMS (11–20) ------------------------------>
+<div class="card">
+  <div class="section-title">Domain B — AI & Cognitive Systems (11–20)</div>
+
+  <div class="grid">
+
+    <div class="node">
+      <div class="node-title">11 — Artificial Soul Framework</div>
+      <a href="bp-11-artificial-soul-framework.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">12 — Bespoke AI Assistant</div>
+      <a href="bp-12-bespoke-ai-assistant.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">13 — Federated Clinical Reasoning Engine</div>
+      <a href="bp-13-federated-clinical-reasoning-engine.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">14 — Multi-Agent Care Workflow AI</div>
+      <a href="bp-14-multi-agent-care-workflow-ai.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">15 — Medical NLP Pipeline (Global Interoperability)</div>
+      <a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">16 — AI-Empowered Clinical Simulation Lab</div>
+      <a href="bp-16-ai-empowered-clinical-simulation-lab.html">Open</a>
+    </div>
+
+    <!-- Corrected 17 -->
+    <div class="node">
+      <div class="node-title">17 — Smart Preventive Care Mesh</div>
+      <a href="bp-17-smart-preventive-care-mesh.html">Open</a>
+    </div>
+
+    <!-- Corrected 18 -->
+    <div class="node">
+      <div class="node-title">18 — Autonomous Health Monitoring</div>
+      <a href="bp-18-autonomous-health-monitoring.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">19 — Cognitive Digital Front Door</div>
+      <a href="bp-19-cognitive-digital-front-door.html">Open</a>
+    </div>
+
+    <!-- Corrected 20 -->
+    <div class="node">
+      <div class="node-title">20 — Population Health Intelligence Engine</div>
+      <a href="bp-20-population-health-intelligence.html">Open</a>
+    </div>
+
+  </div>
+</div>
+<!-- DOMAIN C — URBAN / LOGISTICS / INFRASTRUCTURE (21–30) ------------------>
+<div class="card">
+  <div class="section-title">Domain C — Urban / Logistics / Infrastructure (21–30)</div>
+
+  <div class="grid">
+
+    <div class="node">
+      <div class="node-title">21 — Smart Hospital Grid</div>
+      <a href="bp-21-smart-hospital-grid.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">22 — National Appointment Exchange</div>
+      <a href="bp-22-national-appointment-exchange.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">23 — AI Imaging Logistics Network</div>
+      <a href="bp-23-ai-imaging-logistics-network.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">24 — Intelligent Health Transportation Network</div>
+      <a href="bp-24-intelligent-health-transportation-network.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">25 — National Health Resilience Index</div>
+      <a href="bp-25-national-health-resilience-index.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">26 — Dynamic Waiting Room Elimination System</div>
+      <a href="bp-26-dynamic-waiting-room-elimination-system.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">27 — Clinical Capacity Forecasting Grid</div>
+      <a href="bp-27-clinical-capacity-forecasting-grid.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">28 — National Health Mission Control</div>
+      <a href="bp-28-national-health-mission-control.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">29 — National Health OS Kernel</div>
+      <a href="bp-29-national-health-operating-system-kernel.html">Open</a>
+    </div>
+
+    <div class="node">
+      <div class="node-title">30 — Health Nation Digital Twin</div>
+      <a href="bp-30-health-nation-digital-twin.html">Open</a>
+    </div>
+
+  </div>
+</div>
 <footer>
-    © 2025 Dr. Nader Lohrasbi — All Rights Reserved.
+  © 2025 Dr. Nader Lohrasbi — Health Nation OS Architecture Map · All Rights Reserved.
 </footer>
 
-<!-- JSON-LD -->
+<!-- JSON-LD STRUCTURED DATA — FULL BLUEPRINT GRAPH -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
-  "name": "Health Nation OS — Interactive System Map",
+  "name": "Health Nation OS — Interactive Architecture Map",
   "description": "The unified meta-architecture integrating all 30 blueprint modules into one sovereign Health Nation Operating System.",
   "url": "https://lohrasbi.info/os-map.html",
   "creator": {
     "@type": "Person",
     "name": "Dr. Nader Lohrasbi",
+    "jobTitle": "Healthcare Transformation Architect & AI Strategist",
     "url": "https://lohrasbi.info"
   },
   "hasPart": [
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-01-health-nation-os.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-02-architecture-over-repair.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-03-crisis-architecture-framework.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-04-strategic-control-tower.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-05-clinical-efficiency-paradox.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-06-ai-governance-model.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-07-macro-micro-alignment.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-08-financial-nervous-system.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-09-distributed-care-city.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-10-intelligent-workforce-orchestration.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-11-artificial-soul-framework.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-12-bespoke-ai-assistant.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-13-federated-clinical-reasoning-engine.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-14-multi-agent-care-workflow-ai.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-15-medical-nlp-pipeline-for-global-interoperability.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-16-ai-empowered-clinical-simulation-lab.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-17-autonomous-triage-and-routing-ai.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-18-national-health-pattern-recognition-grid.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-19-cognitive-digital-front-door.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-20-population-health-intelligence-engine.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-21-smart-hospital-grid.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-22-national-appointment-exchange.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-23-ai-imaging-logistics-network.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-24-intelligent-health-transportation-network.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-25-national-health-resilience-index.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-26-dynamic-waiting-room-elimination-system.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-27-clinical-capacity-forecasting-grid.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-28-national-health-mission-control.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-29-national-health-operating-system-kernel.html"},
-    {"@type": "CreativeWork", "url": "https://lohrasbi.info/bp-30-health-nation-digital-twin.html"}
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-01-health-nation-os.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-02-architecture-over-repair.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-03-crisis-architecture-framework.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-04-strategic-control-tower.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-05-clinical-efficiency-paradox.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-06-ai-governance-model.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-07-macro-micro-alignment.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-08-financial-nervous-system.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-09-distributed-care-city.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-10-intelligent-workforce-orchestration.html" },
+
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-11-artificial-soul-framework.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-12-bespoke-ai-assistant.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-13-federated-clinical-reasoning-engine.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-14-multi-agent-care-workflow-ai.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-15-medical-nlp-pipeline-for-global-interoperability.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-16-ai-empowered-clinical-simulation-lab.html" },
+
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-17-smart-preventive-care-mesh.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-18-autonomous-health-monitoring.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-19-clinical-cognition-ai-layer.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-20-population-health-intelligence.html" },
+
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-21-smart-hospital-grid.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-22-national-appointment-exchange.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-23-ai-imaging-logistics-network.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-24-intelligent-health-transportation-network.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-25-national-health-resilience-index.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-26-dynamic-waiting-room-elimination-system.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-27-clinical-capacity-forecasting-grid.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-28-national-health-mission-control.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-29-national-health-operating-system-kernel.html" },
+    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-30-health-nation-digital-twin.html" }
   ]
 }
 </script>
-
-</body>
-</html>
