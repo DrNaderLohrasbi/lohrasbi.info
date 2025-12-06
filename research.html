@@ -1,155 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Research – Lohrasbi Architecture Lab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Source-of-truth research hub for AI architecture, Health Nation OS, crisis systems, and national healthcare transformation by Dr. Nader Lohrasbi." />
+  <meta charset="UTF-8"/>
+  <title>Research Lab — Strategic Intelligence & National Health OS | Dr. Nader Lohrasbi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <meta name="description"
+        content="Research Lab of Dr. Nader Lohrasbi — integrating Symbiotic Intelligence, National Health OS architectures, SSRN Working Paper Series, Zenodo DOIs, and the research pipeline powering next-generation healthcare systems."/>
+
   <meta name="theme-color" content="#020617"/>
 
-  <!-- FAVICONS -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="manifest" href="/site.webmanifest">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 
-  <!-- Fonts + Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- GOOGLE SCHEMA — PUBLICATIONS -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Lohrasbi Research Publications",
-    "itemListElement": [
-      {
-        "@type": "ScholarlyArticle",
-        "headline": "AI-Enhanced Medication Adherence and Recovery Monitoring",
-        "datePublished": "2025-01-31",
-        "image": "https://lohrasbi.info/pub1.jpg",
-        "url": "https://www.linkedin.com/posts/nader-lohrasbi_healthcareinnovation-aiarchitecture-computervision-activity-7397555618976518146-M4C4",
-        "author": { "@type": "Person", "name": "Dr. Nader Lohrasbi", "url": "https://lohrasbi.info" }
-      },
-      {
-        "@type": "ScholarlyArticle",
-        "headline": "Confidence Scores in AI Referrals",
-        "datePublished": "2025-01-17",
-        "image": "https://lohrasbi.info/pub2.jpg",
-        "url": "https://www.linkedin.com/posts/nader-lohrasbi_confidence-scores-in-ai-referrals-when-machines-activity-7392549904650293249-8CFv",
-        "author": { "@type": "Person", "name": "Dr. Nader Lohrasbi", "url": "https://lohrasbi.info" }
-      },
-      {
-        "@type": "ScholarlyArticle",
-        "headline": "Building Trust in AI-Enabled Healthcare",
-        "datePublished": "2025-01-03",
-        "image": "https://lohrasbi.info/pub3.jpg",
-        "url": "https://www.linkedin.com/posts/nader-lohrasbi_trustarchitecture-datasecurity-aiinhealthcare-activity-7382331601025941504-ntCF",
-        "author": { "@type": "Person", "name": "Dr. Nader Lohrasbi", "url": "https://lohrasbi.info" }
-      }
-    ]
-  }
-  </script>
-
-  <!-- SSRN WORKING PAPER SCHEMA -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "The Financial Nervous System of AI-Driven Healthcare",
-    "datePublished": "2025-02-01",
-    "url": "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=9241472",
-    "author": { "@type": "Person", "name": "Dr. Nader Lohrasbi" },
-    "publisher": { "@type": "Organization", "name": "SSRN" }
-  }
-  </script>
-
-  <!-- STYLES -->
   <style>
-    body{margin:0;background:#020617;color:#e5e7eb;font-family:Inter,system-ui,sans-serif;}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Inter,system-ui,-apple-system,sans-serif;
+      background:#00060f;
+      color:#e5e7eb;
+      line-height:1.65;
+    }
+
     a{text-decoration:none;color:inherit;}
 
+    .shell{
+      max-width:1320px;
+      margin:auto;
+      padding:24px 24px 140px;
+    }
+
+    /* --------------------------------------------------
+       NAVIGATION
+    -------------------------------------------------- */
     header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(2,6,23,.92);
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(2,6,23,0.92);
       backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(15,23,42,.7);
+      border-bottom:1px solid rgba(56,189,248,.18);
     }
+
     .nav{
-      max-width:1180px;margin:auto;padding:14px 22px;
-      display:flex;justify-content:space-between;align-items:center;
-    }
-    .nav-left{font-size:.95rem;font-weight:600;}
-    .nav-left span{margin-left:6px;font-size:.8rem;color:#64748b;}
-    .nav-links{display:flex;gap:18px;font-size:.85rem;}
-    .nav-links a{padding:6px 12px;border-radius:999px;color:#94a3b8;}
-    .nav-links a:hover{background:#1e293b;color:#fff;}
-    .nav-links a.active{background:#22c55e;color:#022c22;font-weight:600;}
-
-    .btn-upgrade{
-      display:inline-block;margin:20px 0;
-      padding:12px 20px;border-radius:14px;
-      font-size:.85rem;font-weight:600;
-      background:#1e293b;color:#38bdf8;
-      border:1px solid #334155;
-    }
-    .btn-upgrade:hover{
-      background:#0f172a;border-color:#22c55e;color:#22c55e;
+      max-width:1320px;
+      margin:auto;
+      padding:14px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
 
-    .shell{max-width:1180px;margin:auto;padding:42px 22px;}
-    .title{font-size:2.3rem;font-weight:700;color:#f8fafc;margin-bottom:6px;}
-    .subtitle{font-size:1.05rem;color:#93c5fd;margin-bottom:36px;max-width:760px;}
-
-    .sec{
-      margin-top:40px;background:rgba(15,23,42,.92);
-      border-radius:24px;padding:32px;
-      border:1px solid #1e293b;
-      box-shadow:0 18px 50px rgba(0,0,0,.45);
-    }
-    .sec h2{font-size:1.5rem;color:#f1f5f9;margin:0 0 8px;}
-    .sec p{font-size:.95rem;color:#94a3b8;max-width:760px;margin-bottom:22px;}
-
-    .pub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:18px;}
-    .pub-card{
-      background:rgba(2,6,23,.75);border-radius:20px;border:1px solid #1e293b;
-      overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.35);
-      display:flex;flex-direction:column;
-    }
-    .pub-card img{width:100%;height:160px;object-fit:cover;}
-    .pub-body{padding:14px;display:flex;flex-direction:column;gap:8px;}
-    .pub-title{font-size:1rem;font-weight:600;color:#f1f5f9;}
-    .pub-body p{color:#94a3b8;font-size:.85rem;flex:1;}
-    .pub-cta{color:#38bdf8;font-size:.8rem;}
-    .pub-cta:hover{text-decoration:underline;}
-
-    footer{
-      text-align:center;margin-top:80px;padding:20px 0;
-      border-top:1px solid #1e293b;font-size:.8rem;color:#64748b;
+    .nav-left{
+      font-size:1.05rem;
+      font-weight:600;
+      color:#7dd3fc;
+      letter-spacing:.02em;
     }
 
-    @media(max-width:900px){.pub-grid{grid-template-columns:repeat(2,1fr);}}
-    @media(max-width:600px){.pub-grid{grid-template-columns:1fr;}}
+    .nav-links{
+      display:flex;
+      gap:22px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      padding:8px 16px;
+      border-radius:999px;
+      color:#94a3b8;
+      font-size:.92rem;
+      transition:.25s;
+    }
+
+    .nav-links a:hover{
+      background:#1e293b;
+      color:#fff;
+    }
+
+    .nav-links .active{
+      background:#38bdf8;
+      color:#031e29;
+      font-weight:600;
+    }
+
+    /* --------------------------------------------------
+       HERO
+    -------------------------------------------------- */
+    .hero{
+      background:linear-gradient(to bottom right, rgba(3,16,32,.9), rgba(2,6,23,.9));
+      border:1px solid rgba(56,189,248,.28);
+      border-radius:32px;
+      padding:58px;
+      margin-top:40px;
+      box-shadow:0 0 42px rgba(0,140,255,.15);
+      text-align:left;
+    }
+
+    .hero h1{
+      font-size:3rem;
+      font-weight:800;
+      color:#f8fafc;
+      margin-bottom:18px;
+      text-shadow:0 0 18px rgba(56,189,248,.28);
+    }
+
+    .hero-sub{
+      font-size:1.2rem;
+      font-weight:400;
+      color:#93c5fd;
+      margin-bottom:24px;
+    }
+
+    .hero p{
+      max-width:980px;
+      font-size:1.05rem;
+      color:#cbd5e1;
+      line-height:1.75;
+    }
+
+    .hero-kpi{
+      margin-top:32px;
+      display:flex;
+      gap:36px;
+      flex-wrap:wrap;
+    }
+
+    .kpi-box{
+      background:rgba(10,21,42,.55);
+      border:1px solid rgba(56,189,248,.25);
+      padding:18px 26px;
+      border-radius:18px;
+      text-align:center;
+    }
+
+    .kpi-box h3{
+      font-size:1.6rem;
+      font-weight:700;
+      color:#7dd3fc;
+    }
+
+    .kpi-box p{
+      font-size:.9rem;
+      color:#94a3b8;
+    }
+
+    .hero-btn{
+      display:inline-block;
+      margin-top:40px;
+      padding:12px 26px;
+      background:#38bdf8;
+      color:#031e29;
+      font-weight:600;
+      border-radius:12px;
+      transition:.25s;
+    }
+
+    .hero-btn:hover{
+      background:#7dd3fc;
+    }
+
+    /* --------------------------------------------------
+       SECTION TITLES
+    -------------------------------------------------- */
+    .section{
+      margin-top:90px;
+      margin-bottom:70px;
+    }
+
+    .section-title{
+      font-size:2.2rem;
+      font-weight:700;
+      color:#7dd3fc;
+      text-shadow:0 0 18px rgba(56,189,248,.35);
+      margin-bottom:26px;
+    }
+
+    /* --------------------------------------------------
+       PIPELINE STREAM CARDS
+    -------------------------------------------------- */
+    .stream-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:32px;
+      max-width:1280px;
+      margin:auto;
+    }
+
+    .stream-card{
+      background:rgba(12,28,52,.55);
+      border:1px solid rgba(56,189,248,.22);
+      border-radius:22px;
+      padding:26px;
+      transition:.25s;
+    }
+
+    .stream-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 22px rgba(56,189,248,.25);
+    }
+
+    .stream-card h3{
+      font-size:1.4rem;
+      font-weight:600;
+      color:#e2e8f0;
+      margin-bottom:10px;
+    }
+
+    .stream-card p{
+      font-size:.95rem;
+      color:#94a3b8;
+      line-height:1.6;
+    }
+
+    .divider{
+      width:100%;
+      height:1px;
+      background:linear-gradient(to right, transparent, #38bdf8, transparent);
+      margin:80px 0;
+    }
+
+    /* --------------------------------------------------
+       FEATURED PAPERS
+    -------------------------------------------------- */
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:32px;
+      max-width:1280px;
+      margin:auto;
+    }
+
+    .featured-card{
+      background:rgba(15,23,42,.6);
+      border:1px solid rgba(56,189,248,.25);
+      border-radius:22px;
+      padding:24px;
+      transition:.25s;
+    }
+
+    .featured-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 22px rgba(56,189,248,.25);
+    }
+
+    .featured-card h3{
+      font-size:1.3rem;
+      color:#93c5fd;
+      margin-bottom:10px;
+    }
+
+    .featured-card p{
+      font-size:.95rem;
+      color:#cbd5e1;
+      line-height:1.6;
+      min-height:60px;
+      margin-bottom:14px;
+    }
+
+    .featured-btn{
+      display:inline-block;
+      padding:8px 18px;
+      border-radius:12px;
+      border:1px solid #38bdf8;
+      color:#38bdf8;
+      font-size:.88rem;
+      transition:.25s;
+    }
+
+    .featured-btn:hover{
+      background:#38bdf8;
+      color:#031e29;
+    }
+
   </style>
 </head>
-
 <body>
 
 <header>
   <div class="nav">
-    <div class="nav-left">Lohrasbi Architecture Lab <span>Research Hub</span></div>
+    <div class="nav-left">Lohrasbi Research Lab</div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="architecture.html">Architecture Lab</a>
       <a href="research.html" class="active">Research</a>
-
-      <!-- NEW RESEARCH HUB V2 -->
-      <a href="research-hub-v2.html" class="btn-upgrade">Research Hub v2</a>
-
-      <a href="index.html#digital-fortress">Digital Fortress</a>
-      <a href="index.html#publications">Publications</a>
+      <a href="blueprints.html">Blueprints</a>
+      <a href="os-map.html">OS Map</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
@@ -157,81 +300,909 @@
 
 <div class="shell">
 
-  <!-- UPGRADE NOTICE -->
-  <a href="research-hub-v2.html" class="btn-upgrade">
-    🚀 New: Open National Research OS (Research Hub v2)
-  </a>
+  <!-- ============================================================
+       HERO — EXECUTIVE RESEARCH BLOCK
+  =============================================================== -->
+  <section class="hero">
+    <h1>Research Lab — Strategic Intelligence & National Health OS</h1>
+    <div class="hero-sub">Symbiotic Intelligence · National Health OS · SSRN Series · Working Papers</div>
 
-  <div class="title">Research Hub</div>
-  <div class="subtitle">
-    Source-of-truth repository for research, blueprints, and working manuscripts by  
-    Dr. Nader Lohrasbi across AI architecture, Health Nation OS, and crisis systems.
-  </div>
+    <p>
+      The Research Lab centralizes all scholarly work powering the National Health OS and Symbiotic Intelligence frameworks.
+      This includes working papers, SSRN series, blueprint research, cognitive models, and DOI-indexed publications.
+    </p>
 
-  <!-- BLUEPRINTS -->
-  <div class="sec">
-    <h2>Blueprints & AI Architecture Models</h2>
-    <p>Executive architectures defining national operating systems and intelligence layers.</p>
+    <div class="hero-kpi">
+      <div class="kpi-box">
+        <h3>30+</h3>
+        <p>Architecture Papers</p>
+      </div>
+      <div class="kpi-box">
+        <h3>10+</h3>
+        <p>DOI Publications</p>
+      </div>
+      <div class="kpi-box">
+        <h3>3 Streams</h3>
+        <p>Research Pipelines</p>
+      </div>
+    </div>
 
-    <div class="pub-grid">
+    <a class="hero-btn" href="#">Download Research Pack</a>
+  </section>
 
-      <div class="pub-card">
-        <img src="pub1.jpg">
-        <div class="pub-body">
-          <div class="pub-title">AI-Enhanced Medication Adherence</div>
-          <p>A predictive monitoring model for recovery loops.</p>
-          <a class="pub-cta" href="https://www.linkedin.com/posts/nader-lohrasbi_healthcareinnovation-aiarchitecture-computervision-activity-7397555618976518146-M4C4">Open Blueprint →</a>
-        </div>
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       RESEARCH PIPELINE MAP (3 STREAMS)
+  =============================================================== -->
+  <section class="section">
+    <h2 class="section-title">Research Pipeline — Three Primary Streams</h2>
+
+    <div class="stream-grid">
+
+      <div class="stream-card">
+        <h3>Stream A — National Health OS (Blueprint Papers)</h3>
+        <p>
+          30 interconnected architecture papers forming the unified National Health Operating System.
+          Each module has a dedicated research file and cross-links to its operational blueprint.
+        </p>
       </div>
 
-      <div class="pub-card">
-        <img src="pub2.jpg">
-        <div class="pub-body">
-          <div class="pub-title">AI Confidence Scores in Referrals</div>
-          <p>A model where machine confidence supports clinical reasoning.</p>
-          <a class="pub-cta" href="https://www.linkedin.com/posts/nader-lohrasbi_confidence-scores-in-ai-referrals-when-machines-activity-7392549904650293249-8CFv">Open Blueprint →</a>
-        </div>
+      <div class="stream-card">
+        <h3>Stream B — Symbiotic Intelligence Series</h3>
+        <p>
+          Research advancing cognitive symbiosis, decision fusion, hybrid reasoning,
+          and the AI structures that augment national healthcare systems.
+        </p>
       </div>
 
-      <div class="pub-card">
-        <img src="pub3.jpg">
-        <div class="pub-body">
-          <div class="pub-title">Trust Architecture for Health AI</div>
-          <p>Compliance and privacy systems enabling trustable AI healthcare.</p>
-          <a class="pub-cta" href="https://www.linkedin.com/posts/nader-lohrasbi_trustarchitecture-datasecurity-aiinhealthcare-activity-7382331601025941504-ntCF">Open Blueprint →</a>
-        </div>
+      <div class="stream-card">
+        <h3>Stream C — SSRN Working Paper Series</h3>
+        <p>
+          Executive-level research including Architecture Over Repair, Efficiency Paradox,
+          Financial Nervous System, and macro–micro systems analysis.
+        </p>
       </div>
 
     </div>
-  </div>
+  </section>
 
-  <!-- WORKING PAPERS -->
-  <div class="sec">
-    <h2>Working Paper Series</h2>
-    <p>Foundational manuscripts shaping national architecture and AI-enabled healthcare.</p>
+  <div class="divider"></div>
 
-    <div class="pub-card" style="max-width:460px;">
-      <div class="pub-body">
-        <div class="pub-title">The Financial Nervous System of AI Healthcare</div>
-        <p>Working paper submitted to SSRN, defining integrated financial–clinical architecture.</p>
-        <a class="pub-cta" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=9241472">View on SSRN →</a>
+  <!-- ============================================================
+       FEATURED PAPERS (TOP 3)
+  =============================================================== -->
+  <section class="section">
+    <h2 class="section-title">Featured Papers</h2>
+
+    <div class="featured-grid">
+
+      <div class="featured-card">
+        <h3>Architecture Over Repair Doctrine</h3>
+        <p>A foundational doctrine replacing incremental fixes with structural redesign principles for national systems.</p>
+        <a class="featured-btn" href="#">View Paper</a>
       </div>
+
+      <div class="featured-card">
+        <h3>The Efficiency Paradox</h3>
+        <p>Revealing systemic friction where workflow logic collapses under real-world load conditions.</p>
+        <a class="featured-btn" href="#">View Paper</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>Financial Nervous System</h3>
+        <p>An AI-driven financial intelligence architecture embedded directly into clinical operations.</p>
+        <a class="featured-btn" href="#">View Paper</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+  <!-- ============================================================
+       WORKING PAPER SERIES (SSRN + ZENODO)
+  =============================================================== -->
+  <section class="section" id="working-papers">
+    <h2 class="section-title">Working Paper Series — SSRN & DOI Pipeline</h2>
+
+    <p class="subtext">
+      This section consolidates all SSRN submissions, DOIs from Zenodo, and ongoing research 
+      powering the systemic redesign of national health systems.
+      Every paper includes a cross-link to relevant architecture modules.
+    </p>
+
+    <div class="featured-grid">
+
+      <!-- PAPER 1 -->
+      <div class="featured-card">
+        <h3>The Architecture Over Repair Doctrine</h3>
+        <p>
+          A national-level doctrine reframing system improvement from incremental “fixing”
+          toward structural architectural redesign.
+        </p>
+        <a class="featured-btn" href="#">View SSRN / DOI</a>
+      </div>
+
+      <!-- PAPER 2 -->
+      <div class="featured-card">
+        <h3>The Efficiency Paradox</h3>
+        <p>
+          Reveals where healthcare workflows collapse under load due to unaligned operational logic.
+        </p>
+        <a class="featured-btn" href="#">View SSRN / DOI</a>
+      </div>
+
+      <!-- PAPER 3 -->
+      <div class="featured-card">
+        <h3>Financial Nervous System</h3>
+        <p>
+          An AI-driven orchestration of billing, approvals, liquidity forecasting,
+          and real-time financial compliance.
+        </p>
+        <a class="featured-btn" href="#">View SSRN / DOI</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       SYMBIOTIC INTELLIGENCE SERIES (EXECUTIVE TRACK)
+  =============================================================== -->
+  <section class="section" id="symbiotic-series">
+    <h2 class="section-title">Symbiotic Intelligence Series</h2>
+
+    <p class="subtext">
+      The research backbone defining joint human–AI cognition, executive reasoning loops,
+      and the intelligence substrate of the National Health OS.
+    </p>
+
+    <div class="stream-grid">
+
+      <div class="stream-card">
+        <h3>SI-01 — Cognitive Fusion Engine</h3>
+        <p>
+          A reasoning substrate merging human judgment with machine predictions.
+          Enables stable high-stakes decision loops.
+        </p>
+      </div>
+
+      <div class="stream-card">
+        <h3>SI-02 — Structural Intelligence Memory</h3>
+        <p>
+          Long-term systemic memory tracking historic failures, friction points,
+          demographic drift, and resilience signatures.
+        </p>
+      </div>
+
+      <div class="stream-card">
+        <h3>SI-03 — Multi-Agent National Control Loop</h3>
+        <p>
+          A coordinated orchestration of predictive engines, planning agents,
+          and national-scale operational routing.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       NATIONAL HEALTH OS — BLUEPRINT RESEARCH INDEX
+  =============================================================== -->
+  <section class="section" id="blueprint-index">
+    <h2 class="section-title">National Health OS — Blueprint Research Index</h2>
+
+    <p class="subtext">
+      Each architecture module has a corresponding research paper (SSRN or DOI-indexed)
+      forming the scientific backbone of the National Health OS.
+      This index links blueprint files to their research counterparts.
+    </p>
+
+    <div class="featured-grid">
+
+      <!-- MODULE 01 -->
+      <div class="featured-card">
+        <h3>BP-01 — Symbiotic Intelligence Command Center</h3>
+        <p>Research on national-level decision fusion and unified cognitive substrates.</p>
+        <a class="featured-btn" href="bp-01-health-nation-os.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 02 -->
+      <div class="featured-card">
+        <h3>BP-02 — Architecture Over Repair Doctrine</h3>
+        <p>Foundational research on replacing repair logic with system-level architectural design.</p>
+        <a class="featured-btn" href="bp-02-architecture-over-repair.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 03 -->
+      <div class="featured-card">
+        <h3>BP-03 — System Integrity Dome</h3>
+        <p>Research on national continuity envelopes and anomaly suppression frameworks.</p>
+        <a class="featured-btn" href="bp-03-crisis-architecture-framework.html">View Blueprint</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       EXPANDED BLUEPRINT RESEARCH TABLE (MODULES 04–15)
+  =============================================================== -->
+  <section class="section">
+    <h2 class="section-title">Blueprint Research — Modules 04–15</h2>
+
+    <div class="featured-grid">
+
+      <div class="featured-card">
+        <h3>BP-04 — Predictive Emergency Mobility</h3>
+        <p>Optimizing cross-city movement and forecasting surges via predictive mobility logic.</p>
+        <a class="featured-btn" href="bp-04-strategic-control-tower.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-05 — Clinical Efficiency Paradox</h3>
+        <p>Revealing systemic bottlenecks where healthcare efficiency collapses under load.</p>
+        <a class="featured-btn" href="bp-05-clinical-efficiency-paradox.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-06 — 12-Layer AI Governance Model</h3>
+        <p>Research defining safe regulation and national-scale oversight for AI systems.</p>
+        <a class="featured-btn" href="bp-06-ai-governance-model.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-07 — Macro–Micro Alignment</h3>
+        <p>Research linking national strategies to operational frontline realities.</p>
+        <a class="featured-btn" href="bp-07-macro-micro-alignment.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-08 — Financial Nervous System</h3>
+        <p>An AI-native financial infrastructure embedded in clinical operations.</p>
+        <a class="featured-btn" href="bp-08-financial-nervous-system.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-09 — Distributed Diagnostic Grid</h3>
+        <p>Nationwide diagnostic load balancing and multi-node redistribution.</p>
+        <a class="featured-btn" href="bp-09-distributed-care-city.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-10 — Workforce Orchestration</h3>
+        <p>Predictive staff modeling and behavioral simulation logic.</p>
+        <a class="featured-btn" href="bp-10-intelligent-workforce-orchestration.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-11 — Artificial Soul Framework</h3>
+        <p>The continuity model for reasoning, memory, and AI identity in clinical systems.</p>
+        <a class="featured-btn" href="bp-11-artificial-soul-framework.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-12 — Bespoke AI Assistant</h3>
+        <p>A personalized cognitive augmentation engine for executives and clinicians.</p>
+        <a class="featured-btn" href="bp-12-bespoke-ai-assistant.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-13 — Federated Clinical Reasoning</h3>
+        <p>Distributed reasoning models without exposing raw clinical data.</p>
+        <a class="featured-btn" href="bp-13-federated-clinical-reasoning-engine.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-14 — Multi-Agent Workflow AI</h3>
+        <p>Coordinated AI agents for staffing, mobility, diagnostics, and logistics.</p>
+        <a class="featured-btn" href="bp-14-multi-agent-care-workflow-ai.html">View Blueprint</a>
+      </div>
+
+      <div class="featured-card">
+        <h3>BP-15 — Medical NLP Interoperability</h3>
+        <p>A universal translation system for clinical text and global data interoperability.</p>
+        <a class="featured-btn" href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">View Blueprint</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+  <!-- ============================================================
+       BLUEPRINT RESEARCH — MODULES 16–30
+  =============================================================== -->
+  <section class="section" id="research-modules-16-30">
+    <h2 class="section-title">Blueprint Research — Modules 16–30</h2>
+
+    <div class="featured-grid">
+
+      <!-- MODULE 16 -->
+      <div class="featured-card">
+        <h3>BP-16 — AI-Empowered Clinical Simulation Lab</h3>
+        <p>National-scale simulation environment modeling patient trajectories and systemic stress points.</p>
+        <a class="featured-btn" href="bp-16-ai-empowered-clinical-simulation-lab.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 17 -->
+      <div class="featured-card">
+        <h3>BP-17 — National Digital Twin</h3>
+        <p>Dynamic computational replica of national healthcare systems for predictive decision-making.</p>
+        <a class="featured-btn" href="bp-17-national-digital-twin-for-healthcare.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 18 -->
+      <div class="featured-card">
+        <h3>BP-18 — AI Risk Envelope Engine</h3>
+        <p>Predictive thresholds, anomaly detection, and real-time clinical safety envelopes.</p>
+        <a class="featured-btn" href="bp-18.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 19 -->
+      <div class="featured-card">
+        <h3>BP-19 — Clinical Cognition AI Layer</h3>
+        <p>A reasoning model capturing clinician behavior, drift, and decision alignment patterns.</p>
+        <a class="featured-btn" href="bp-19-clinical-cognition-ai-layer.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 20 -->
+      <div class="featured-card">
+        <h3>BP-20 — Continuous National Learning Health Model</h3>
+        <p>A perpetual national learning loop built onto real-time feedback envelopes.</p>
+        <a class="featured-btn" href="bp-20-continuous-national-learning-health-model.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 21 -->
+      <div class="featured-card">
+        <h3>BP-21 — Self-Healing Health Infrastructure</h3>
+        <p>Autonomous detection and correction of failures within clinical & logistic networks.</p>
+        <a class="featured-btn" href="bp-21-self-healing-health-infrastructure.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 22 -->
+      <div class="featured-card">
+        <h3>BP-22 — Operational Neural Mesh</h3>
+        <p>A multi-node intelligence mesh coordinating diagnostics, mobility, and supply-chain flow.</p>
+        <a class="featured-btn" href="bp-22-health-system-operational-neural-mesh.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 23 -->
+      <div class="featured-card">
+        <h3>BP-23 — Autonomous Supply Chain Grid</h3>
+        <p>Predictive distribution engine for supplies, equipment, and pharmaceuticals.</p>
+        <a class="featured-btn" href="bp-23-autonomous-health-supply-chain-grid.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 24 -->
+      <div class="featured-card">
+        <h3>BP-24 — Intelligent Health Transportation Network</h3>
+        <p>Mobility optimization, predictive routing, and emergency redistribution logic.</p>
+        <a class="featured-btn" href="bp-24-intelligent-health-transportation-network.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 25 -->
+      <div class="featured-card">
+        <h3>BP-25 — National Health Resilience Index</h3>
+        <p>A scoring model for systemic resilience across national health infrastructure.</p>
+        <a class="featured-btn" href="bp-25-national-health-resilience-index.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 26 -->
+      <div class="featured-card">
+        <h3>BP-26 — Dynamic Waiting Room Elimination System</h3>
+        <p>Eliminating queues using intake intelligence, predictive routing, and real-time load allocation.</p>
+        <a class="featured-btn" href="bp-26-dynamic-waiting-room-elimination-system.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 27 -->
+      <div class="featured-card">
+        <h3>BP-27 — National Capacity Forecasting Grid</h3>
+        <p>Predictive modeling of ICU, OR, diagnostics, workforce, and bed capacity.</p>
+        <a class="featured-btn" href="bp-27-clinical-capacity-forecasting-grid.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 28 -->
+      <div class="featured-card">
+        <h3>BP-28 — National Health Mission Control</h3>
+        <p>A unified executive interface integrating mobility, diagnostics, workforce, and resilience telemetry.</p>
+        <a class="featured-btn" href="bp-28-national-health-mission-control.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 29 -->
+      <div class="featured-card">
+        <h3>BP-29 — National Health OS Kernel</h3>
+        <p>The computational kernel unifying all modules into one National Operating System.</p>
+        <a class="featured-btn" href="bp-29-national-health-operating-system-kernel.html">View Blueprint</a>
+      </div>
+
+      <!-- MODULE 30 -->
+      <div class="featured-card">
+        <h3>BP-30 — Health Nation Digital Twin</h3>
+        <p>A sovereign-scale predictive engine simulating national health dynamics.</p>
+        <a class="featured-btn" href="bp-30-health-nation-digital-twin.html">View Blueprint</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       CROSS-LAYER RESEARCH BRIDGE
+  =============================================================== -->
+  <section class="section" id="cross-layer-research">
+    <h2 class="section-title">Cross-Layer Research Bridges</h2>
+
+    <p class="subtext">
+      These bridges define research dependencies and knowledge flow between Strategic, AI, 
+      and Infrastructure layers of the National Health OS.
+    </p>
+
+    <div class="stream-grid">
+
+      <div class="stream-card">
+        <h3>Governance ⇄ Intelligence</h3>
+        <p>
+          Policy kernels directly influence predictive engines, and intelligence loops 
+          inject evidence back into executive decision-making.
+        </p>
+      </div>
+
+      <div class="stream-card">
+        <h3>Intelligence ⇄ Workforce</h3>
+        <p>
+          Cognitive models shape staffing flows, burnout thresholds, and 
+          real-time clinical decision pathways.
+        </p>
+      </div>
+
+      <div class="stream-card">
+        <h3>Diagnostics ⇄ Mobility</h3>
+        <p>
+          Load-balancing signals drive emergency routing logic and 
+          national-scale mobility compression.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       CALL TO ACTION — EXECUTIVE COLLABORATION
+  =============================================================== -->
+  <section class="section" id="cta-exec">
+    <h2 class="section-title">Executive Collaboration & Research Partnerships</h2>
+
+    <p class="subtext">
+      For national-scale transformations, longitudinal advisory collaborations, 
+      and multi-system redesign initiatives:
+    </p>
+
+    <div style="margin-top:32px;">
+      <a href="contact.html"
+         style="
+           display:inline-block;
+           padding:14px 28px;
+           background:#38bdf8;
+           color:#031e29;
+           font-weight:600;
+           border-radius:14px;
+           transition:.25s;">
+        Contact Dr. Lohrasbi
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+  <!-- ============================================================
+       ENTERPRISE FOOTER
+  =============================================================== -->
+  <footer id="footer">
+    <div class="footer-grid" style="
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:32px;
+      padding:40px 0;
+    ">
+
+      <!-- Column 1 -->
+      <div class="footer-col">
+        <h3 style="color:#7dd3fc; margin-bottom:16px;">Lohrasbi Research Lab</h3>
+        <p style="color:#cbd5e1; line-height:1.6;">
+          Research infrastructure powering the National Health OS, Symbiotic Intelligence,
+          SSRN working papers, blueprint architectures, and systemic redesign frameworks.
+        </p>
+
+        <div class="footer-social" style="margin-top:18px; display:flex; gap:14px;">
+          <a href="https://www.linkedin.com/in/nader-lohrasbi" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://orcid.org/0009-0004-4232-2953" target="_blank"><i class="fa-brands fa-orcid"></i></a>
+          <a href="https://github.com/DrNaderLohrasbi" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="https://drlohrasbi.substack.com" target="_blank"><i class="fa-solid fa-newspaper"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="footer-col">
+        <h4 style="color:#7dd3fc; margin-bottom:16px;">Navigation</h4>
+        <ul style="list-style:none; line-height:1.9;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="architecture.html">Architecture Lab</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="os-map.html">OS Map</a></li>
+          <li><a href="blueprints.html">Blueprints</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="footer-col">
+        <h4 style="color:#7dd3fc; margin-bottom:16px;">Contact</h4>
+        <p style="color:#cbd5e1; line-height:1.6;">
+          For advisory collaborations, research partnerships, or national architecture projects:
+        </p>
+        <p style="margin-top:10px; color:#7dd3fc; font-weight:600;">info.dr.lohrasbi@gmail.com</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom" style="
+      margin-top:30px;
+      padding-top:18px;
+      border-top:1px solid rgba(56,189,248,.18);
+      text-align:center;
+      color:#64748b;
+      font-size:.85rem;
+    ">
+      © 2025 · Dr. Nader Lohrasbi — National Health OS & Research Architecture
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       PAGE MICRO INTERACTIONS
+  =============================================================== -->
+  <script>
+    /* Smooth anchor scroll */
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({ behavior:"smooth" });
+        }
+      });
+    });
+  </script>
+
+
+  <!-- ============================================================
+       JSON-LD — RESEARCH COLLECTION STRUCTURED DATA
+  =============================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Research Lab — National Health OS",
+    "url":"https://lohrasbi.info/research.html",
+    "description":"Advanced research collection supporting Symbiotic Intelligence, National Health OS architectures, SSRN series, and systemic redesign frameworks.",
+    "creator":{
+      "@type":"Person",
+      "name":"Dr. Nader Lohrasbi",
+      "jobTitle":"Healthcare Transformation Architect & AI Strategist",
+      "url":"https://lohrasbi.info",
+      "sameAs":[
+        "https://www.linkedin.com/in/nader-lohrasbi",
+        "https://orcid.org/0009-0004-4232-2953",
+        "https://scholar.google.com",
+        "https://github.com/DrNaderLohrasbi"
+      ]
+    },
+    "hasPart":[
+      { "@type":"ScholarlyArticle", "name":"Architecture Over Repair Doctrine" },
+      { "@type":"ScholarlyArticle", "name":"The Efficiency Paradox" },
+      { "@type":"ScholarlyArticle", "name":"Financial Nervous System" },
+      { "@type":"ScholarlyArticle", "name":"Symbiotic Intelligence Series — Cognitive Fusion" },
+      { "@type":"CreativeWork", "name":"BP-01 — Symbiotic Intelligence Command Center" },
+      { "@type":"CreativeWork", "name":"BP-02 — Architecture Over Repair" },
+      { "@type":"CreativeWork", "name":"BP-03 — System Integrity Dome" },
+      { "@type":"CreativeWork", "name":"BP-04 — Predictive Mobility Network" },
+      { "@type":"CreativeWork", "name":"BP-05 — Clinical Efficiency Paradox" },
+      { "@type":"CreativeWork", "name":"BP-06 — 12-Layer AI Governance Model" },
+      { "@type":"CreativeWork", "name":"BP-07 — Macro–Micro Alignment" },
+      { "@type":"CreativeWork", "name":"BP-08 — Financial Nervous System" },
+      { "@type":"CreativeWork", "name":"BP-09 — Distributed Diagnostic Grid" },
+      { "@type":"CreativeWork", "name":"BP-10 — Workforce Orchestration" },
+      { "@type":"CreativeWork", "name":"BP-11 — Artificial Soul Framework" },
+      { "@type":"CreativeWork", "name":"BP-12 — Bespoke AI Assistant" },
+      { "@type":"CreativeWork", "name":"BP-13 — Federated Clinical Reasoning" },
+      { "@type":"CreativeWork", "name":"BP-14 — Multi-Agent Workflow AI" },
+      { "@type":"CreativeWork", "name":"BP-15 — Medical NLP Interoperability" },
+      { "@type":"CreativeWork", "name":"BP-16 — Clinical Simulation Lab" },
+      { "@type":"CreativeWork", "name":"BP-17 — National Digital Twin" },
+      { "@type":"CreativeWork", "name":"BP-18 — Risk Envelope Engine" },
+      { "@type":"CreativeWork", "name":"BP-19 — Clinical Cognition Layer" },
+      { "@type":"CreativeWork", "name":"BP-20 — National Learning Health Model" },
+      { "@type":"CreativeWork", "name":"BP-21 — Self-Healing Infrastructure" },
+      { "@type":"CreativeWork", "name":"BP-22 — Operational Neural Mesh" },
+      { "@type":"CreativeWork", "name":"BP-23 — Autonomous Supply Chain Grid" },
+      { "@type":"CreativeWork", "name":"BP-24 — Transportation Network" },
+      { "@type":"CreativeWork", "name":"BP-25 — Resilience Index" },
+      { "@type":"CreativeWork", "name":"BP-26 — Waiting Room Elimination" },
+      { "@type":"CreativeWork", "name":"BP-27 — Capacity Forecasting" },
+      { "@type":"CreativeWork", "name":"BP-28 — Mission Control" },
+      { "@type":"CreativeWork", "name":"BP-29 — OS Kernel" },
+      { "@type":"CreativeWork", "name":"BP-30 — Digital Twin" }
+    ]
+  }
+  </script>
+  <!-- ============================================================
+       RESEARCH FEEDBACK BUTTON (FLOATING ACTION)
+  =============================================================== -->
+  <style>
+    #feedback-float-btn{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      background:#38bdf8;
+      color:#031e29;
+      padding:14px 22px;
+      border-radius:14px;
+      font-weight:600;
+      font-size:.9rem;
+      cursor:pointer;
+      box-shadow:0 6px 22px rgba(0,140,255,.35);
+      transition:.25s;
+      z-index:9999;
+    }
+    #feedback-float-btn:hover{
+      background:#7dd3fc;
+      transform:translateY(-3px);
+    }
+  </style>
+
+  <div id="feedback-float-btn">Give Research Feedback</div>
+
+
+  <!-- ============================================================
+       FEEDBACK MODAL
+  =============================================================== -->
+  <style>
+    #feedback-modal{
+      position:fixed;
+      top:0;left:0;
+      width:100%;height:100%;
+      background:rgba(0,0,0,.65);
+      backdrop-filter:blur(6px);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:10000;
+    }
+
+    #feedback-box{
+      width:420px;
+      background:#0f172a;
+      border:1px solid rgba(56,189,248,.25);
+      border-radius:18px;
+      padding:26px;
+      box-shadow:0 0 32px rgba(56,189,248,.25);
+      animation:fadeIn .25s;
+    }
+
+    #feedback-box h3{
+      margin-bottom:16px;
+      color:#7dd3fc;
+    }
+
+    .fb-input{
+      width:100%;
+      background:#020617;
+      border:1px solid rgba(56,189,248,.35);
+      color:#e2e8f0;
+      padding:10px 14px;
+      border-radius:10px;
+      margin-bottom:14px;
+      font-size:.9rem;
+    }
+
+    .fb-input:focus{
+      outline:none;
+      border-color:#38bdf8;
+    }
+
+    #fb-message{
+      height:120px;
+      resize:none;
+    }
+
+    #fb-submit{
+      width:100%;
+      background:#38bdf8;
+      color:#031e29;
+      padding:12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700;
+      margin-top:6px;
+      transition:.25s;
+    }
+
+    #fb-submit:hover{
+      background:#7dd3fc;
+    }
+
+    #fb-close{
+      margin-top:12px;
+      width:100%;
+      background:#1e293b;
+      color:#cbd5e1;
+      padding:10px;
+      cursor:pointer;
+      border-radius:10px;
+    }
+
+    #fb-success{
+      text-align:center;
+      color:#7dd3fc;
+      font-weight:600;
+      margin-top:10px;
+      display:none;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0; transform:scale(.96);}
+      to{opacity:1; transform:scale(1);}
+    }
+  </style>
+
+
+  <div id="feedback-modal">
+    <div id="feedback-box">
+      <h3>Research Feedback</h3>
+
+      <input id="fb-name" class="fb-input" type="text" placeholder="Name" />
+
+      <input id="fb-email" class="fb-input" type="email" placeholder="Email" />
+
+      <textarea id="fb-message" class="fb-input" placeholder="Your message (max 600 chars)"></textarea>
+
+      <!-- Hidden architecture/research identifier -->
+      <input id="fb-research-id" type="hidden" value="research-page"/>
+
+      <button id="fb-submit">Submit Feedback</button>
+      <div id="fb-success">Thank you — feedback sent.</div>
+
+      <button id="fb-close">Close</button>
     </div>
   </div>
 
-  <!-- ZENODO -->
-  <div class="sec">
-    <h2>Zenodo Research Archive</h2>
-    <p>Formal DOI-linked outputs, deposited and indexed for academic propagation.</p>
 
-    <a class="pub-cta" href="https://zenodo.org/search?q=Nader%20Lohrasbi" target="_blank">Open Zenodo Archive →</a>
-  </div>
+  <!-- ============================================================
+       FEEDBACK JS — SEND TO GOOGLE WEB APP
+  =============================================================== -->
+  <script>
+    const fbModal = document.getElementById("feedback-modal");
+    const fbBtn   = document.getElementById("feedback-float-btn");
+    const fbClose = document.getElementById("fb-close");
+    const fbSubmit = document.getElementById("fb-submit");
+    const fbSuccess = document.getElementById("fb-success");
 
-</div>
+    fbBtn.onclick = ()=> fbModal.style.display = "flex";
+    fbClose.onclick = ()=> fbModal.style.display = "none";
 
-<footer>
-  © 2025 Dr. Nader Lohrasbi · Lohrasbi Strategy & Architecture
-</footer>
+    fbSubmit.onclick = async ()=>{
+      const name = document.getElementById("fb-name").value.trim();
+      const email = document.getElementById("fb-email").value.trim();
+      const msg = document.getElementById("fb-message").value.trim();
+      const research_id = document.getElementById("fb-research-id").value;
+
+      if(msg.length < 3){
+        alert("Message too short.");
+        return;
+      }
+
+      const data = {
+        name:name,
+        email:email,
+        message:msg,
+        architecture_id: research_id
+      };
+
+      fbSubmit.disabled = true;
+      fbSubmit.innerText = "Sending...";
+
+      try{
+        await fetch(
+          "https://script.google.com/macros/s/AKfycbzB246HYidcBhME9rY9mUAC7gQXC2BnIXIxAOdY8Q1fAV9UEDGbqULWhC5KS0owGxIl/exec",
+          {
+            method:"POST",
+            mode:"no-cors",
+            headers:{ "Content-Type":"application/json" },
+            body:JSON.stringify(data)
+          }
+        );
+
+        fbSuccess.style.display="block";
+        fbSubmit.innerText = "Sent";
+
+        setTimeout(()=>{ 
+          fbModal.style.display = "none";
+          fbSuccess.style.display="none";
+          fbSubmit.disabled=false;
+          fbSubmit.innerText="Submit Feedback";
+        }, 1500);
+
+      }catch(e){
+        alert("Error sending feedback.");
+      }
+
+    };
+  </script>
+
+
+  <!-- ============================================================
+       VISITOR COUNTER (DAILY RESET — RESEARCH PAGE)
+  =============================================================== -->
+  <style>
+    #visit-counter-box{
+      position:fixed;
+      bottom:18px;
+      left:18px;
+      background:rgba(0,0,0,.45);
+      padding:6px 10px;
+      border-radius:8px;
+      font-size:.72rem;
+      color:#94a3b8;
+      font-family:Inter,system-ui;
+      border:1px solid rgba(56,189,248,.25);
+      opacity:.55;
+      transition:.3s;
+      z-index:9999;
+    }
+    #visit-counter-box:hover{
+      opacity:1;
+      background:rgba(2,6,23,.85);
+    }
+  </style>
+
+  <div id="visit-counter-box">Loading…</div>
+
+  <script>
+    function formatDateKey(dt){
+      const y = dt.getFullYear();
+      const m = String(dt.getMonth()+1).padStart(2,'0');
+      const d = String(dt.getDate()).padStart(2,'0');
+      return `${y}${m}${d}`;
+    }
+
+    (function(){
+      const today = new Date();
+      const key   = "lohrasbi-research-visitors";
+      const dateKey = formatDateKey(today);
+
+      let data = JSON.parse(localStorage.getItem(key) || "{}");
+
+      if(!data.date || data.date !== dateKey){
+        data = { date: dateKey, count: 1 };
+      } else {
+        data.count++;
+      }
+
+      localStorage.setItem(key, JSON.stringify(data));
+      const finalValue = `${dateKey}${String(data.count).padStart(4,'0')}`;
+
+      document.getElementById("visit-counter-box").innerText = finalValue;
+    })();
+  </script>
+
+
+</div> <!-- END OF .shell -->
 
 </body>
 </html>
