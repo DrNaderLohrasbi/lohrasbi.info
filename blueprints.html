@@ -7,200 +7,189 @@
   <meta name="theme-color" content="#000814"/>
 
   <meta name="description"
-        content="The Strategic Blueprint Library contains 30 foundational architectures forming the core of the Health Nation OS. Designed by Dr. Nader Lohrasbi for national-scale healthcare transformation."/>
+        content="The Strategic Blueprint Library contains 30 foundational architectures that form the Health Nation OS — cognitive, clinical, operational, infrastructural, crisis, and financial layers — designed by Dr. Nader Lohrasbi."/>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
   <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-family:Inter,sans-serif;
       background:#000814;
       color:#e2e8f0;
-      padding-bottom:60px;
+      padding-bottom:80px;
     }
+    a{text-decoration:none;color:inherit;}
 
-    a{text-decoration:none;color:inherit}
-
-    /* -------------------------------
-       HEADER — Minimal Version (B)
-    --------------------------------*/
+    /* HEADER */
     header{
       width:100%;
       padding:18px 26px;
-      border-bottom:1px solid rgba(56,189,248,.22);
       background:rgba(0,12,28,0.75);
-      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(56,189,248,.25);
+      backdrop-filter:blur(12px);
+      position:sticky;
+      top:0;z-index:50;
     }
-
-    .nav-mini{
+    .nav{
       max-width:1280px;
       margin:auto;
       display:flex;
       justify-content:space-between;
       align-items:center;
     }
-
-    .nav-mini-left{
-      font-size:1.05rem;
+    .nav-left{
+      font-size:1.1rem;
       font-weight:700;
       color:#38bdf8;
     }
-
-    .nav-mini-right a{
-      margin-left:20px;
-      font-size:.9rem;
+    .nav-right a{
+      margin-left:22px;
+      font-size:.92rem;
       color:#cbd5e1;
-      transition:.3s;
+      transition:.25s;
     }
+    .nav-right a:hover{color:#7dd3fc;}
 
-    .nav-mini-right a:hover{
-      color:#7dd3fc;
-    }
-
-    /* -------------------------------
-       PAGE HEADER
-    --------------------------------*/
-    .page-shell{
+    /* PAGE SHELL */
+    .shell{
       max-width:1280px;
       margin:auto;
       padding:40px 26px;
     }
-
     .page-title{
       font-size:2.6rem;
       font-weight:800;
+      margin-bottom:12px;
       color:#f1f5f9;
-      margin-bottom:10px;
     }
-
     .page-sub{
-      font-size:1.05rem;
+      font-size:1.1rem;
+      line-height:1.7;
       color:#94a3b8;
-      line-height:1.65;
-      max-width:900px;
+      max-width:920px;
       margin-bottom:40px;
     }
 
-    /* -------------------------------
-       FILTER BAR (will be built in Part 2)
-    --------------------------------*/
+    /* FILTER BAR */
     .filter-bar{
-      margin:10px 0 40px;
       display:flex;
       flex-wrap:wrap;
       gap:14px;
+      margin-bottom:40px;
     }
-
     .filter-btn{
       padding:10px 18px;
-      font-size:.9rem;
       border-radius:999px;
-      border:1px solid rgba(56,189,248,.32);
       background:rgba(0,20,40,0.6);
+      border:1px solid rgba(56,189,248,.28);
       color:#cbd5e1;
+      font-size:.9rem;
       cursor:pointer;
-      transition:.3s;
-      backdrop-filter:blur(6px);
+      transition:.25s;
     }
-
     .filter-btn:hover{
       background:rgba(0,40,80,0.7);
-      border-color:rgba(56,189,248,.5);
+      border-color:#38bdf8;
     }
-
     .filter-btn.active{
       background:#38bdf8;
       color:#001219;
-      border-color:#38bdf8;
       font-weight:600;
+      border-color:#38bdf8;
     }
 
-    /* -------------------------------
-       BLUEPRINT GRID (built in Part 2)
-    --------------------------------*/
+    /* BLUEPRINT GRID */
     .bp-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
       gap:28px;
-      margin-top:20px;
     }
 
     .bp-card{
-      background:rgba(0,20,40,0.6);
-      border-radius:18px;
+      background:rgba(0,20,40,0.55);
       border:1px solid rgba(56,189,248,.22);
-      backdrop-filter:blur(10px);
+      border-radius:18px;
       overflow:hidden;
-      transition:.3s;
-      cursor:pointer;
+      backdrop-filter:blur(12px);
+      transition:.25s;
     }
-
     .bp-card:hover{
       transform:translateY(-4px);
-      border-color:rgba(56,189,248,.4);
-      background:rgba(0,40,80,0.7);
+      border-color:#38bdf8;
+      background:rgba(0,40,80,0.65);
     }
-
-    .bp-card img{
+    .bp-img{
       width:100%;
       height:200px;
       object-fit:cover;
       opacity:.9;
-      transition:.3s;
+      transition:.25s;
     }
-
-    .bp-card:hover img{
+    .bp-card:hover .bp-img{
       opacity:1;
       transform:scale(1.03);
     }
-
-    .bp-card h3{
-      font-size:1.1rem;
-      padding:14px 16px 4px;
+    .bp-title{
+      font-size:1.15rem;
+      font-weight:700;
+      padding:16px 18px 6px;
       color:#f1f5f9;
     }
-
-    .bp-card p{
-      font-size:.9rem;
+    .bp-desc{
+      font-size:.92rem;
+      padding:0 18px 18px;
       color:#cbd5e1;
-      padding:0 16px 16px;
-      line-height:1.5;
+      line-height:1.55;
+    }
+    .bp-tag{
+      font-size:.75rem;
+      opacity:.6;
+      padding:0 18px;
+      margin-bottom:6px;
+      text-transform:uppercase;
+      letter-spacing:.04em;
     }
 
+    .bp-btn{
+      display:inline-block;
+      margin:12px 18px 20px;
+      padding:10px 16px;
+      background:#38bdf8;
+      color:#001219;
+      font-weight:600;
+      border-radius:10px;
+      transition:.25s;
+    }
+    .bp-btn:hover{background:#7dd3fc;}
   </style>
 </head>
 
 <body>
 
 <header>
-  <div class="nav-mini">
-    <div class="nav-mini-left">Lohrasbi Architecture Lab</div>
-    <div class="nav-mini-right">
+  <div class="nav">
+    <div class="nav-left">Lohrasbi Architecture Lab</div>
+    <div class="nav-right">
       <a href="index.html">Home</a>
+      <a href="architecture.html">Architecture Lab</a>
       <a href="research.html">Research</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
 </header>
 
-<div class="page-shell">
+<div class="shell">
 
   <h1 class="page-title">Strategic Blueprint Library</h1>
 
   <p class="page-sub">
-    The 30 core architectures that form the Health Nation OS.  
-    Each blueprint represents a fundamental structural layer — cognitive, clinical, operational, infrastructural, or crisis-oriented.  
-    Together, they define how a modern health nation thinks, adapts, and evolves.
+    The 30 foundational architectures defining the cognitive, clinical, operational,
+    infrastructural, crisis, and financial layers of the Health Nation OS.  
+    Each blueprint is designed for modular deployment — or integration into a unified
+    national transformation program.
   </p>
 
-  <!-- FILTERS (will be filled in Part 2) -->
+  <!-- FILTER BAR -->
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="cognitive">Cognitive</button>
@@ -211,187 +200,502 @@
     <button class="filter-btn" data-filter="financial">Financial</button>
   </div>
 
-  <!-- GRID CONTAINER -->
+  <!-- BLUEPRINT GRID (Cards added in Part 2) -->
   <div class="bp-grid">
-    <!-- Cards added in Part 2 -->
-  </div>
-
-</div> <!-- end page-shell -->
-    <!-- BLUEPRINT GRID : ROW 3 ------------------------------------------------>
-    <div class="bp-row">
-      <div class="bp-card">
-        <img src="011.png" alt="Blueprint 11">
-        <div class="bp-label">Blueprint 11</div>
-        <div class="bp-title">National Health Digital Twin</div>
+    <!-- ============================
+         BLUEPRINTS 01–10
+    ============================= -->
+    
+    <!-- BP01 -->
+    <div class="bp-card" data-category="cognitive">
+      <img src="bp-01.jpg" class="bp-img" alt="bp-01">
+      <div class="bp-tag">Cognitive</div>
+      <div class="bp-title">Symbiotic Intelligence Command Center</div>
+      <div class="bp-desc">
+        The sovereign control layer enabling national-scale AI cognition,
+        real-time decision engines, and system-wide orchestration.
       </div>
-
-      <div class="bp-card">
-        <img src="012.png" alt="Blueprint 12">
-        <div class="bp-label">Blueprint 12</div>
-        <div class="bp-title">AI-Driven Population Risk Models</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="013.png" alt="Blueprint 13">
-        <div class="bp-label">Blueprint 13</div>
-        <div class="bp-title">Unified Emergency Response Layer</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="014.png" alt="Blueprint 14">
-        <div class="bp-label">Blueprint 14</div>
-        <div class="bp-title">Zero-Friction Referral Network</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="015.png" alt="Blueprint 15">
-        <div class="bp-label">Blueprint 15</div>
-        <div class="bp-title">Quantum-Safe Healthcare Security</div>
-      </div>
+      <a href="bp-01-health-nation-os.html" class="bp-btn">View Blueprint</a>
     </div>
 
-    <!-- BLUEPRINT GRID : ROW 4 ------------------------------------------------>
-    <div class="bp-row">
-      <div class="bp-card">
-        <img src="016.png" alt="Blueprint 16">
-        <div class="bp-label">Blueprint 16</div>
-        <div class="bp-title">National AI Ethics Layer</div>
+    <!-- BP02 -->
+    <div class="bp-card" data-category="strategic">
+      <img src="bp-02.jpg" class="bp-img" alt="bp-02">
+      <div class="bp-tag">Strategic</div>
+      <div class="bp-title">Architecture Over Repair Doctrine</div>
+      <div class="bp-desc">
+        A national-scale doctrine replacing incremental fixes with systemic
+        architectural redesign — enabling resilient, future-proof health systems.
       </div>
-
-      <div class="bp-card">
-        <img src="017.png" alt="Blueprint 17">
-        <div class="bp-label">Blueprint 17</div>
-        <div class="bp-title">Smart Preventive Care Mesh</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="018.png" alt="Blueprint 18">
-        <div class="bp-label">Blueprint 18</div>
-        <div class="bp-title">Autonomous Health Monitoring</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="019.png" alt="Blueprint 19">
-        <div class="bp-label">Blueprint 19</div>
-        <div class="bp-title">AI-Integrated Home Care Framework</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="020.png" alt="Blueprint 20">
-        <div class="bp-label">Blueprint 20</div>
-        <div class="bp-title">National Health Data Command Center</div>
-      </div>
+      <a href="bp-02-architecture-over-repair.html" class="bp-btn">View Blueprint</a>
     </div>
 
-    <!-- SECTION DIVIDER ------------------------------------------------------->
-    <div class="section-divider">
-      <span></span>
+    <!-- BP03 -->
+    <div class="bp-card" data-category="crisis">
+      <img src="bp-03.jpg" class="bp-img" alt="bp-03">
+      <div class="bp-tag">Crisis</div>
+      <div class="bp-title">Crisis Architecture Framework</div>
+      <div class="bp-desc">
+        An adaptive national framework enabling rapid system stabilization,
+        operational reconfiguration, and crisis-level continuity of care.
+      </div>
+      <a href="bp-03-crisis-architecture-framework.html" class="bp-btn">View Blueprint</a>
     </div>
 
-    <h2 class="section-heading">Advanced Blueprint Layer (21–30)</h2>
-    <!-- BLUEPRINT GRID : ROW 5 ------------------------------------------------>
-    <div class="bp-row">
-      <div class="bp-card">
-        <img src="021.png" alt="Blueprint 21">
-        <div class="bp-label">Blueprint 21</div>
-        <div class="bp-title">Health Equity Intelligence Layer</div>
+    <!-- BP04 -->
+    <div class="bp-card" data-category="operational">
+      <img src="bp-04.jpg" class="bp-img" alt="bp-04">
+      <div class="bp-tag">Operational</div>
+      <div class="bp-title">Strategic Control Tower</div>
+      <div class="bp-desc">
+        A unified national command layer integrating capacity,
+        logistics, alerts, and governance for real-time health operations.
       </div>
-
-      <div class="bp-card">
-        <img src="022.png" alt="Blueprint 22">
-        <div class="bp-label">Blueprint 22</div>
-        <div class="bp-title">Unified Social Determinants Engine</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="023.png" alt="Blueprint 23">
-        <div class="bp-label">Blueprint 23</div>
-        <div class="bp-title">National Clinical Governance AI</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="024.png" alt="Blueprint 24">
-        <div class="bp-label">Blueprint 24</div>
-        <div class="bp-title">Interoperability Exchange Layer</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="025.png" alt="Blueprint 25">
-        <div class="bp-label">Blueprint 25</div>
-        <div class="bp-title">National Care Navigation System</div>
-      </div>
+      <a href="bp-04-strategic-control-tower.html" class="bp-btn">View Blueprint</a>
     </div>
 
-    <!-- BLUEPRINT GRID : ROW 6 ------------------------------------------------>
-    <div class="bp-row">
-      <div class="bp-card">
-        <img src="026.png" alt="Blueprint 26">
-        <div class="bp-label">Blueprint 26</div>
-        <div class="bp-title">AI-Driven Workforce Optimization</div>
+    <!-- BP05 -->
+    <div class="bp-card" data-category="clinical">
+      <img src="bp-05.jpg" class="bp-img" alt="bp-05">
+      <div class="bp-tag">Clinical</div>
+      <div class="bp-title">Clinical Efficiency Paradox</div>
+      <div class="bp-desc">
+        An architecture resolving the structural conflict between efficiency,
+        staff burden, safety, and clinical throughput.
       </div>
-
-      <div class="bp-card">
-        <img src="027.png" alt="Blueprint 27">
-        <div class="bp-label">Blueprint 27</div>
-        <div class="bp-title">Predictive National Capacity System</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="028.png" alt="Blueprint 28">
-        <div class="bp-label">Blueprint 28</div>
-        <div class="bp-title">Healthcare Cyber-Resilience OS</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="029.png" alt="Blueprint 29">
-        <div class="bp-label">Blueprint 29</div>
-        <div class="bp-title">National Trust & Compliance Grid</div>
-      </div>
-
-      <div class="bp-card">
-        <img src="030.png" alt="Blueprint 30">
-        <div class="bp-label">Blueprint 30</div>
-        <div class="bp-title">Health Nation OS – Meta Architecture</div>
-      </div>
+      <a href="bp-05-clinical-efficiency-paradox.html" class="bp-btn">View Blueprint</a>
     </div>
 
-    <!-- FINAL DIVIDER --------------------------------------------------------->
-    <div class="section-divider">
-      <span></span>
+    <!-- BP06 -->
+    <div class="bp-card" data-category="governance">
+      <img src="bp-06.jpg" class="bp-img" alt="bp-06">
+      <div class="bp-tag">Governance</div>
+      <div class="bp-title">12-Layer AI Governance Model</div>
+      <div class="bp-desc">
+        A national stack defining ethical, operational, legal,
+        security, and technical governance for clinical AI systems.
+      </div>
+      <a href="bp-06-ai-governance-model.html" class="bp-btn">View Blueprint</a>
     </div>
 
-    <!-- SYSTEM PURPOSE -------------------------------------------------------->
-    <section class="system-purpose">
-      <h2>Purpose of the Blueprint Library</h2>
-      <p>
-        These thirty foundational architectures collectively define the cognitive, operational, 
-        infrastructural, trust, and crisis-response layers of the Health Nation OS. Each blueprint 
-        is a modular component capable of being deployed independently or as part of a unified 
-        national transformation program.
+    <!-- BP07 -->
+    <div class="bp-card" data-category="operational">
+      <img src="bp-07.jpg" class="bp-img" alt="bp-07">
+      <div class="bp-tag">Operational</div>
+      <div class="bp-title">Macro–Micro Alignment</div>
+      <div class="bp-desc">
+        A structural bridge aligning national strategies with frontline workflows,
+        ensuring coherence across all levels of the health system.
+      </div>
+      <a href="bp-07-macro-micro-alignment.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP08 -->
+    <div class="bp-card" data-category="financial">
+      <img src="bp-08.jpg" class="bp-img" alt="bp-08">
+      <div class="bp-tag">Financial</div>
+      <div class="bp-title">Financial Nervous System</div>
+      <div class="bp-desc">
+        A real-time, event-driven architecture synchronizing payments,
+        reimbursements, cost flow, and operational finance.
+      </div>
+      <a href="bp-08-financial-nervous-system.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP09 -->
+    <div class="bp-card" data-category="infrastructure">
+      <img src="bp-09.jpg" class="bp-img" alt="bp-09">
+      <div class="bp-tag">Infrastructure</div>
+      <div class="bp-title">Distributed Care City</div>
+      <div class="bp-desc">
+        A decentralized, AI-driven care delivery mesh replacing the
+        traditional hospital-centric model.
+      </div>
+      <a href="bp-09-distributed-care-city.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP10 -->
+    <div class="bp-card" data-category="workforce">
+      <img src="bp-10.jpg" class="bp-img" alt="bp-10">
+      <div class="bp-tag">Workforce</div>
+      <div class="bp-title">Intelligent Workforce Orchestration</div>
+      <div class="bp-desc">
+        Dynamic, real-time AI orchestration of staffing, scheduling,
+        acuity patterns, and multi-disciplinary load balancing.
+      </div>
+      <a href="bp-10-intelligent-workforce-orchestration.html" class="bp-btn">View Blueprint</a>
+    </div>
+    <!-- ============================
+         BLUEPRINTS 11–20
+    ============================= -->
+
+    <!-- BP11 -->
+    <div class="bp-card" data-category="cognitive">
+      <img src="bp-11.jpg" class="bp-img" alt="bp-11">
+      <div class="bp-tag">Cognitive</div>
+      <div class="bp-title">National Health Digital Twin</div>
+      <div class="bp-desc">
+        A sovereign-scale predictive engine simulating population health,
+        capacity flows, and system-wide operational dynamics.
+      </div>
+      <a href="bp-11.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP12 -->
+    <div class="bp-card" data-category="clinical">
+      <img src="bp-12.jpg" class="bp-img" alt="bp-12">
+      <div class="bp-tag">Clinical</div>
+      <div class="bp-title">AI-Driven Population Risk Models</div>
+      <div class="bp-desc">
+        A national AI model benchmarking chronic, acute, and emerging 
+        disease risks across demographic, behavioral, and socioeconomic layers.
+      </div>
+      <a href="bp-12.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP13 -->
+    <div class="bp-card" data-category="operational">
+      <img src="bp-13.jpg" class="bp-img" alt="bp-13">
+      <div class="bp-tag">Operational</div>
+      <div class="bp-title">Unified Emergency Response Layer</div>
+      <div class="bp-desc">
+        A real-time AI-enabled emergency grid connecting ambulance, hospitals,
+        command centers, and predictive forecasting engines.
+      </div>
+      <a href="bp-13.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP14 -->
+    <div class="bp-card" data-category="clinical">
+      <img src="bp-14.jpg" class="bp-img" alt="bp-14">
+      <div class="bp-tag">Clinical</div>
+      <div class="bp-title">Zero-Friction Referral Network</div>
+      <div class="bp-desc">
+        Intelligent routing, specialist load balancing, and national-level
+        appointment orchestration without administrative friction.
+      </div>
+      <a href="bp-14.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP15 -->
+    <div class="bp-card" data-category="security">
+      <img src="bp-15.jpg" class="bp-img" alt="bp-15">
+      <div class="bp-tag">Security</div>
+      <div class="bp-title">Quantum-Safe Healthcare Security</div>
+      <div class="bp-desc">
+        Post-quantum encryption stack securing patient identity, 
+        clinical data, and national health infrastructure.
+      </div>
+      <a href="bp-15.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP16 -->
+    <div class="bp-card" data-category="governance">
+      <img src="bp-16.jpg" class="bp-img" alt="bp-16">
+      <div class="bp-tag">Governance</div>
+      <div class="bp-title">National AI Ethics Layer</div>
+      <div class="bp-desc">
+        A sovereign governance framework regulating fairness, transparency, 
+        responsibility, and oversight of high-stakes AI systems.
+      </div>
+      <a href="bp-16.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP17 -->
+    <div class="bp-card" data-category="clinical">
+      <img src="bp-17.jpg" class="bp-img" alt="bp-17">
+      <div class="bp-tag">Clinical</div>
+      <div class="bp-title">Smart Preventive Care Mesh</div>
+      <div class="bp-desc">
+        A distributed, AI-powered preventive care grid predicting disease
+        trajectories and enabling personalized early intervention.
+      </div>
+      <a href="bp-17.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP18 -->
+    <div class="bp-card" data-category="operational">
+      <img src="bp-18.jpg" class="bp-img" alt="bp-18">
+      <div class="bp-tag">Operational</div>
+      <div class="bp-title">Autonomous Health Monitoring</div>
+      <div class="bp-desc">
+        National-scale autonomous sensing and alerting infrastructure
+        monitoring clinical deterioration in real time.
+      </div>
+      <a href="bp-18.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP19 -->
+    <div class="bp-card" data-category="clinical">
+      <img src="bp-19.jpg" class="bp-img" alt="bp-19">
+      <div class="bp-tag">Clinical</div>
+      <div class="bp-title">AI-Integrated Home Care Framework</div>
+      <div class="bp-desc">
+        A next-generation home-care model combining robotics, remote monitoring,
+        predictive engines, and clinical escalation pathways.
+      </div>
+      <a href="bp-19.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP20 -->
+    <div class="bp-card" data-category="infrastructure">
+      <img src="bp-20.jpg" class="bp-img" alt="bp-20">
+      <div class="bp-tag">Infrastructure</div>
+      <div class="bp-title">National Health Data Command Center</div>
+      <div class="bp-desc">
+        A sovereign AI-powered command hub integrating national datasets,
+        interoperability layers, and cross-system intelligence.
+      </div>
+      <a href="bp-20.html" class="bp-btn">View Blueprint</a>
+    </div>
+    <!-- ============================
+         BLUEPRINTS 21–30 (Advanced Layer)
+    ============================= -->
+
+    <!-- BP21 -->
+    <div class="bp-card" data-category="equity">
+      <img src="bp-21.jpg" class="bp-img" alt="bp-21">
+      <div class="bp-tag">Equity</div>
+      <div class="bp-title">Health Equity Intelligence Layer</div>
+      <div class="bp-desc">
+        A national engine mapping inequity gradients, access gaps,
+        and structural disparities with real-time intervention signals.
+      </div>
+      <a href="bp-21-self-healing-health-infrastructure.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP22 -->
+    <div class="bp-card" data-category="operational">
+      <img src="bp-22.jpg" class="bp-img" alt="bp-22">
+      <div class="bp-tag">Operational</div>
+      <div class="bp-title">Unified Social Determinants Engine</div>
+      <div class="bp-desc">
+        A multi-dimensional intelligence layer integrating SDoH signals
+        into clinical, operational, and national policymaking decisions.
+      </div>
+      <a href="bp-22-health-system-operational-neural-mesh.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP23 -->
+    <div class="bp-card" data-category="governance">
+      <img src="bp-23.jpg" class="bp-img" alt="bp-23">
+      <div class="bp-tag">Governance</div>
+      <div class="bp-title">National Clinical Governance AI</div>
+      <div class="bp-desc">
+        A sovereign oversight system regulating clinical AI behavior,
+        model drift, risk envelopes, and compliance enforcement.
+      </div>
+      <a href="bp-23-autonomous-health-supply-chain-grid.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP24 -->
+    <div class="bp-card" data-category="infrastructure">
+      <img src="bp-24.jpg" class="bp-img" alt="bp-24">
+      <div class="bp-tag">Infrastructure</div>
+      <div class="bp-title">Interoperability Exchange Layer</div>
+      <div class="bp-desc">
+        A national interoperability substrate enabling AI, hospitals,
+        logistics, and national registries to share intelligence seamlessly.
+      </div>
+      <a href="bp-24-intelligent-health-transportation-network.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP25 -->
+    <div class="bp-card" data-category="clinical">
+      <img src="bp-25.jpg" class="bp-img" alt="bp-25">
+      <div class="bp-tag">Clinical</div>
+      <div class="bp-title">National Health Resilience Index</div>
+      <div class="bp-desc">
+        A dynamic scoring engine measuring resilience across hospitals,
+        infrastructure, supply chains, and emergency response networks.
+      </div>
+      <a href="bp-25-national-health-resilience-index.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP26 -->
+    <div class="bp-card" data-category="workforce">
+      <img src="bp-26.jpg" class="bp-img" alt="bp-26">
+      <div class="bp-tag">Workforce</div>
+      <div class="bp-title">AI-Driven Workforce Optimization</div>
+      <div class="bp-desc">
+        A predictive AI engine optimizing staff allocation, burnout mitigation,
+        acuity balancing, and multi-disciplinary workflow routing.
+      </div>
+      <a href="bp-26-dynamic-waiting-room-elimination-system.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP27 -->
+    <div class="bp-card" data-category="operational">
+      <img src="bp-27.jpg" class="bp-img" alt="bp-27">
+      <div class="bp-tag">Operational</div>
+      <div class="bp-title">Predictive National Capacity System</div>
+      <div class="bp-desc">
+        A nationwide forecasting engine predicting surgical load,
+        ICU occupancy, diagnostic throughput, and workforce constraints.
+      </div>
+      <a href="bp-27-clinical-capacity-forecasting-grid.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP28 -->
+    <div class="bp-card" data-category="security">
+      <img src="bp-28.jpg" class="bp-img" alt="bp-28">
+      <div class="bp-tag">Security</div>
+      <div class="bp-title">Healthcare Cyber-Resilience OS</div>
+      <div class="bp-desc">
+        A national defense system ensuring cyber-resilience,
+        zero-trust perimeters, and autonomous threat response.
+      </div>
+      <a href="bp-28-national-health-mission-control.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP29 -->
+    <div class="bp-card" data-category="trust">
+      <img src="bp-29.jpg" class="bp-img" alt="bp-29">
+      <div class="bp-tag">Trust</div>
+      <div class="bp-title">National Trust & Compliance Grid</div>
+      <div class="bp-desc">
+        A nationwide compliance mesh ensuring auditability, legal alignment,
+        and transparent governance across all system components.
+      </div>
+      <a href="bp-29-national-health-operating-system-kernel.html" class="bp-btn">View Blueprint</a>
+    </div>
+
+    <!-- BP30 -->
+    <div class="bp-card" data-category="cognitive">
+      <img src="bp-30.jpg" class="bp-img" alt="bp-30">
+      <div class="bp-tag">Cognitive</div>
+      <div class="bp-title">Health Nation OS – Meta Architecture</div>
+      <div class="bp-desc">
+        The ultimate unifying architecture that integrates all 30 system blueprints
+        into a sovereign, adaptive, and intelligent National Health OS.
+      </div>
+      <a href="bp-30-health-nation-digital-twin.html" class="bp-btn">View Blueprint</a>
+    </div>
+    <!-- ============================
+         PURPOSE SECTION
+    ============================= -->
+    <div class="purpose-box">
+      <h2 class="purpose-title">Purpose of the Blueprint Library</h2>
+      <p class="purpose-desc">
+        These thirty foundational architectures collectively define the cognitive,
+        operational, infrastructural, trust, financial, and crisis-response layers
+        of the Health Nation OS.  
+        Each blueprint is a modular component capable of being deployed independently
+        or as part of a unified national transformation program.
       </p>
-    </section>
+    </div>
 
-    <!-- CALL TO ACTION -------------------------------------------------------->
-    <section class="cta-box">
-      <h3>Request Full Blueprint Access</h3>
-      <p>
-        Organizations, governments, or institutions seeking the complete architectural documentation, 
-        implementation playbooks, or strategic deployment pathways may submit a formal request.
+
+    <!-- ============================
+         CALL TO ACTION
+    ============================= -->
+    <div class="cta-section">
+      <h3 class="cta-title">Request Full Blueprint Access</h3>
+      <p class="cta-text">
+        Organizations, governments, and institutions seeking the complete
+        architectural documentation, implementation playbooks, or national deployment
+        pathways may submit a formal consultation request.
       </p>
 
       <a href="contact.html" class="cta-btn">Request Access</a>
-    </section>
-
-  </div> <!-- END SHELL -->
-
-  <!-- FOOTER ---------------------------------------------------------------->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">Lohrasbi Architecture Lab</div>
-      <div class="footer-sub">Health Nations · AI Strategy · Crisis Architecture</div>
-      <div class="footer-copy">© 2025 Dr. Nader Lohrasbi — All Rights Reserved</div>
     </div>
-  </footer>
+
+</div> <!-- END OF PAGE-SHELL -->
+
+
+<!-- ============================
+     FOOTER
+============================= -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Lohrasbi Architecture Lab</div>
+    <div class="footer-sub">Health Nations · AI Strategy · Crisis Architecture</div>
+    <div class="footer-copy">© 2025 Dr. Nader Lohrasbi — All Rights Reserved</div>
+  </div>
+</footer>
+
+
+<!-- ============================
+     FILTER ENGINE (JavaScript)
+============================= -->
+<script>
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".bp-card");
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+      // Remove active from all buttons
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.getAttribute("data-filter");
+
+      cards.forEach(card => {
+        const category = card.getAttribute("data-category");
+
+        if (filter === "all" || category === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+    });
+  });
+</script>
+
+
+<!-- ============================
+     JSON-LD STRUCTURED DATA
+============================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Strategic Blueprint Library – Lohrasbi Architecture Lab",
+  "description": "A 30-module architecture library defining the cognitive, structural, clinical, operational, financial, and crisis layers of a National Health OS.",
+  "url": "https://lohrasbi.info/blueprints.html",
+  "creator": {
+    "@type": "Person",
+    "name": "Dr. Nader Lohrasbi",
+    "jobTitle": "Healthcare Transformation Architect & AI Strategist",
+    "url": "https://lohrasbi.info"
+  },
+  "hasPart": [
+    {"@type":"CreativeWork","name":"BP-01 Symbiotic Intelligence Command Center"},
+    {"@type":"CreativeWork","name":"BP-02 Architecture Over Repair"},
+    {"@type":"CreativeWork","name":"BP-03 Crisis Architecture Framework"},
+    {"@type":"CreativeWork","name":"BP-04 Strategic Control Tower"},
+    {"@type":"CreativeWork","name":"BP-05 Clinical Efficiency Paradox"},
+    {"@type":"CreativeWork","name":"BP-06 AI Governance Model"},
+    {"@type":"CreativeWork","name":"BP-07 Macro–Micro Alignment"},
+    {"@type":"CreativeWork","name":"BP-08 Financial Nervous System"},
+    {"@type":"CreativeWork","name":"BP-09 Distributed Care City"},
+    {"@type":"CreativeWork","name":"BP-10 Intelligent Workforce Orchestration"},
+    {"@type":"CreativeWork","name":"BP-11 National Health Digital Twin"},
+    {"@type":"CreativeWork","name":"BP-12 Population Risk Intelligence"},
+    {"@type":"CreativeWork","name":"BP-13 Emergency Response Layer"},
+    {"@type":"CreativeWork","name":"BP-14 Referral Network"},
+    {"@type":"CreativeWork","name":"BP-15 Quantum-Safe Security"},
+    {"@type":"CreativeWork","name":"BP-16 AI Ethics Layer"},
+    {"@type":"CreativeWork","name":"BP-17 Preventive Care Mesh"},
+    {"@type":"CreativeWork","name":"BP-18 Autonomous Monitoring"},
+    {"@type":"CreativeWork","name":"BP-19 Home Care Framework"},
+    {"@type":"CreativeWork","name":"BP-20 National Data Command Center"},
+    {"@type":"CreativeWork","name":"BP-21 Equity Intelligence"},
+    {"@type":"CreativeWork","name":"BP-22 SDoH Engine"},
+    {"@type":"CreativeWork","name":"BP-23 Clinical Governance AI"},
+    {"@type":"CreativeWork","name":"BP-24 Interoperability Exchange Layer"},
+    {"@type":"CreativeWork","name":"BP-25 Resilience Index"},
+    {"@type":"CreativeWork","name":"BP-26 Workforce Optimization"},
+    {"@type":"CreativeWork","name":"BP-27 Capacity Forecasting"},
+    {"@type":"CreativeWork","name":"BP-28 Cyber-Resilience OS"},
+    {"@type":"CreativeWork","name":"BP-29 Trust & Compliance Grid"},
+    {"@type":"CreativeWork","name":"BP-30 Health Nation Meta Architecture"}
+  ]
+}
+</script>
 
 </body>
 </html>
