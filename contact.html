@@ -13,122 +13,89 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    background:#000814;
-    color:#e2e8f0;
-    line-height:1.7;
+    background:#000814;color:#e2e8f0;line-height:1.7;
 }
 
-/* -------------------------------
-   HEADER
---------------------------------*/
+/* HEADER */
 header{
-    width:100%;
-    padding:18px 26px;
+    width:100%;padding:18px 26px;
     border-bottom:1px solid rgba(56,189,248,.22);
-    background:rgba(0,12,28,0.75);
-    backdrop-filter:blur(10px);
+    background:rgba(0,12,28,0.75);backdrop-filter:blur(10px);
 }
-
 .nav-mini{
-    max-width:1280px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    max-width:1280px;margin:auto;
+    display:flex;justify-content:space-between;align-items:center;
 }
-
-.nav-mini-left{
-    font-size:1.05rem;
-    font-weight:700;
-    color:#38bdf8;
-}
-
+.nav-mini-left{font-size:1.05rem;font-weight:700;color:#38bdf8;}
 .nav-mini-right a{
-    margin-left:20px;
-    font-size:.9rem;
-    color:#cbd5e1;
-    text-decoration:none;
+    margin-left:20px;font-size:.9rem;color:#cbd5e1;text-decoration:none;
 }
+.nav-mini-right a:hover{color:#7dd3fc;}
 
-.nav-mini-right a:hover{
-    color:#7dd3fc;
-}
-
-/* -------------------------------
-   HERO SECTION
---------------------------------*/
+/* HERO */
 .hero{
-    padding:70px 26px;
-    text-align:center;
+    padding:70px 26px;text-align:center;
     background:linear-gradient(to bottom,#001227,#000814);
     border-bottom:1px solid rgba(56,189,248,.15);
 }
-
-.hero-title{
-    font-size:2.6rem;
-    font-weight:800;
-    color:#f1f5f9;
-    margin-bottom:12px;
-}
-
+.hero-title{font-size:2.6rem;font-weight:800;color:#f1f5f9;margin-bottom:12px;}
 .hero-sub{
-    font-size:1.15rem;
-    color:#94a3b8;
-    max-width:800px;
-    margin:12px auto 0;
-    line-height:1.65;
+    font-size:1.15rem;color:#94a3b8;max-width:800px;margin:12px auto 0;
 }
-
 .hero-badges{
-    margin-top:22px;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:14px;
+    margin-top:22px;display:flex;justify-content:center;
+    flex-wrap:wrap;gap:14px;
 }
-
 .badge{
-    padding:8px 16px;
-    font-size:.85rem;
-    border-radius:999px;
+    padding:8px 16px;font-size:.85rem;border-radius:999px;
     border:1px solid rgba(56,189,248,.32);
-    color:#38bdf8;
-    background:rgba(0,20,40,0.4);
-    backdrop-filter:blur(6px);
+    color:#38bdf8;background:rgba(0,20,40,0.4);backdrop-filter:blur(6px);
 }
 
-/* -------------------------------
-   MAIN CONTAINER
---------------------------------*/
+/* BODY STRUCTURE */
 .container{
-    max-width:900px;
-    margin:50px auto 70px;
-    padding:0 26px;
+    max-width:900px;margin:50px auto 70px;padding:0 26px;
 }
-
 .section-title{
-    font-size:1.4rem;
-    font-weight:700;
-    color:#22c55e;
-    margin-bottom:18px;
+    font-size:1.4rem;font-weight:700;color:#22c55e;margin-bottom:18px;
+}
+.card{
+    background:rgba(0,20,40,0.6);border:1px solid rgba(56,189,248,.22);
+    border-radius:16px;backdrop-filter:blur(10px);
+    padding:26px;margin-bottom:28px;
 }
 
-.card{
-    background:rgba(0,20,40,0.6);
-    border:1px solid rgba(56,189,248,.22);
-    border-radius:16px;
-    backdrop-filter:blur(10px);
-    padding:26px;
-    margin-bottom:28px;
+/* EMAIL BLOCK */
+.email-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;margin-top:10px;
 }
+.email-item{
+    padding:18px;border-radius:12px;
+    background:#0f172a;border:1px solid #334155;
+}
+.email-item i{color:#38bdf8;font-size:1.2rem;margin-right:8px;}
+.email-title{font-weight:700;margin-bottom:6px;color:#e2e8f0;}
+.email-desc{font-size:.85rem;color:#94a3b8;margin-bottom:8px;}
+.email-value{font-size:.9rem;color:#38bdf8;}
+
+/* FORM */
+input, textarea, select{
+    width:100%;padding:12px;border-radius:8px;
+    border:1px solid #334155;background:#0f172a;color:#e2e8f0;
+}
+button{
+    width:100%;padding:14px;border-radius:10px;
+    border:1px solid #38bdf8;background:#001a2c;
+    color:#38bdf8;font-size:1rem;font-weight:600;cursor:pointer;
+    transition:.3s;
+}
+button:hover{background:#002d46;}
 </style>
 </head>
 
@@ -151,11 +118,11 @@ header{
   <p class="hero-sub">
     This channel is designed for governments, national health systems,  
     research institutions, and strategic partners seeking access to  
-    architectural frameworks, consulting engagements, or blueprint licensing.
+    architectural frameworks or blueprint licensing.
   </p>
 
   <div class="hero-badges">
-    <div class="badge">Strategy Request</div>
+    <div class="badge">Executive Office</div>
     <div class="badge">Blueprint Access</div>
     <div class="badge">Research & DOI</div>
     <div class="badge">National Health Projects</div>
@@ -164,221 +131,191 @@ header{
 
 <div class="container">
 
-  <!-- SECTION: DIRECT CONTACT PURPOSE -->
+  <!-- PURPOSE -->
   <div class="card">
     <div class="section-title">Purpose of This Channel</div>
     <p>
       This contact interface is reserved for executive-level communication regarding  
       national health architecture, crisis systems, AI governance, and long-range  
-      transformation projects.  
-      <br><br>
-      Messages are reviewed within a structured evaluation pipeline to  
-      prioritize high-impact collaborations.
+      transformation projects.
     </p>
   </div>
-  <!-- SECTION: CONTACT CHANNELS -->
+
+  <!-- EMAIL BLOCK -->
   <div class="card">
-    <div class="section-title">Executive Contact Channels</div>
+    <div class="section-title">Direct Department Emails</div>
 
-    <p style="margin-bottom:20px;">
-      Select the category that best describes your request.  
-      Each path activates a tailored intake workflow inside the  
-      Health Nation OS governance system.
-    </p>
+    <div class="email-grid">
 
-    <ul style="list-style:none; padding-left:0; line-height:1.9;">
-      <li><i class="fa-solid fa-sitemap" style="color:#38bdf8; margin-right:6px;"></i>
-        <strong>Strategic Architecture & National Health Programs</strong>  
-        — Request consultation, advisory, or multi-year transformation engagement.
-      </li>
+      <div class="email-item">
+        <div class="email-title"><i class="fa-solid fa-building"></i> Executive Office</div>
+        <div class="email-desc">High-level strategy & governmental programs.</div>
+        <div class="email-value" id="mail_exec"></div>
+      </div>
 
-      <li><i class="fa-solid fa-dna" style="color:#38bdf8; margin-right:6px;"></i>
-        <strong>Research / DOI / Academic Collaboration</strong>  
-        — Connect regarding working papers, citations, scientific modeling, or postgraduate frameworks.
-      </li>
+      <div class="email-item">
+        <div class="email-title"><i class="fa-solid fa-sitemap"></i> Strategy Division</div>
+        <div class="email-desc">Blueprint licensing & architectural requests.</div>
+        <div class="email-value" id="mail_strategy"></div>
+      </div>
 
-      <li><i class="fa-solid fa-cubes" style="color:#38bdf8; margin-right:6px;"></i>
-        <strong>Blueprint Access (30 Modules)</strong>  
-        — Request full blueprint documentation, implementation playbooks, or deployment pathways.
-      </li>
-    </ul>
+      <div class="email-item">
+        <div class="email-title"><i class="fa-solid fa-flask"></i> Research Division</div>
+        <div class="email-desc">DOI, publications, scientific collaboration.</div>
+        <div class="email-value" id="mail_research"></div>
+      </div>
+
+      <div class="email-item">
+        <div class="email-title"><i class="fa-solid fa-newspaper"></i> Press</div>
+        <div class="email-desc">Media requests, interviews, press statements.</div>
+        <div class="email-value" id="mail_press"></div>
+      </div>
+
+      <div class="email-item">
+        <div class="email-title"><i class="fa-solid fa-envelope"></i> General Info</div>
+        <div class="email-desc">General inquiries routed to the lab.</div>
+        <div class="email-value" id="mail_info"></div>
+      </div>
+
+      <div class="email-item">
+        <div class="email-title"><i class="fa-solid fa-user-tie"></i> Founder Office</div>
+        <div class="email-desc">Direct channel to the founder.</div>
+        <div class="email-value" id="mail_founder"></div>
+      </div>
+
+    </div>
   </div>
 
-
-
-  <!-- SECTION: CONTACT FORM -->
+  <!-- CONTACT FORM -->
   <div class="card">
     <div class="section-title">Executive Inquiry Form</div>
 
-    <p style="margin-bottom:18px;">
-      Provide the required details below.  
-      Your message will enter the secure evaluation pipeline of  
-      Lohrasbi Architecture Lab.
-    </p>
-
     <form id="contactForm">
 
-      <!-- NAME -->
-      <label style="font-size:.9rem; color:#cbd5e1;">Full Name</label>
-      <input type="text" id="name" required
-             style="width:100%; padding:12px; margin:8px 0 18px;
-                    border-radius:8px; border:1px solid #334155;
-                    background:#0f172a; color:#e2e8f0;">
+      <label>Full Name</label>
+      <input type="text" id="name" required>
 
-      <!-- EMAIL -->
-      <label style="font-size:.9rem; color:#cbd5e1;">Email</label>
-      <input type="email" id="email" required
-             style="width:100%; padding:12px; margin:8px 0 18px;
-                    border-radius:8px; border:1px solid #334155;
-                    background:#0f172a; color:#e2e8f0;">
+      <label>Email</label>
+      <input type="email" id="email" required>
 
-      <!-- CATEGORY -->
-      <label style="font-size:.9rem; color:#cbd5e1;">Inquiry Category</label>
-      <select id="category" required
-              style="width:100%; padding:12px; margin:8px 0 18px;
-                     border-radius:8px; border:1px solid #334155;
-                     background:#0f172a; color:#e2e8f0;">
+      <label>Inquiry Category</label>
+      <select id="category" required>
         <option value="">Select…</option>
         <option value="strategy">Strategic Architecture</option>
-        <option value="research">Research / DOI / Academic</option>
+        <option value="research">Research / DOI</option>
         <option value="blueprint">Blueprint Access</option>
         <option value="executive">Government / National Health Authority</option>
       </select>
 
-      <!-- MESSAGE -->
-      <label style="font-size:.9rem; color:#cbd5e1;">Message</label>
-      <textarea id="message" maxlength="1200" required
-                style="width:100%; padding:12px; margin:8px 0 22px;
-                       border-radius:8px; border:1px solid #334155;
-                       background:#0f172a; color:#e2e8f0; height:140px;"></textarea>
+      <label>Message</label>
+      <textarea id="message" maxlength="1200" required></textarea>
 
-      <!-- AUTO FIELD: PAGE SOURCE -->
       <input type="hidden" id="source" value="contact_page"/>
 
-      <!-- SUBMIT BUTTON -->
-      <button type="submit"
-              style="width:100%; padding:14px; border-radius:10px;
-                     border:1px solid #38bdf8; background:#001a2c;
-                     color:#38bdf8; font-size:1rem; font-weight:600;
-                     cursor:pointer; transition:.3s;">
-        Send Secure Message
-      </button>
+      <button type="submit">Send Secure Message</button>
 
-      <!-- RESPONSE BOX -->
       <div id="formStatus"
            style="margin-top:18px; font-size:.9rem; color:#22c55e; display:none;">
       </div>
-    </form>
 
+    </form>
   </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="margin-top:70px;padding:40px 0;text-align:center;background:#000b17;border-top:1px solid rgba(56,189,248,.18);">
+  <div style="font-size:1.1rem;font-weight:700;color:#38bdf8;">Lohrasbi Architecture Lab</div>
+  <div style="font-size:.9rem;color:#94a3b8;margin-top:6px;">
+    Health Nations · AI Strategy · Crisis Architecture
+  </div>
+  <div style="font-size:.85rem;color:#64748b;margin-top:14px;">
+    © 2025 Dr. Nader Lohrasbi — All Rights Reserved.
+  </div>
+</footer>
+
+
+<!-- EMAIL OBFUSCATION -->
 <script>
-// -------------------------------
-// GOOGLE SHEETS WEB APP ENDPOINT
-// -------------------------------
+function showEmail(id, user, domain){
+  document.getElementById(id).innerText = user + "@" + domain;
+}
+
+showEmail("mail_exec", "executive.office", "lohrasbi.info");
+showEmail("mail_strategy", "strategy", "lohrasbi.info");
+showEmail("mail_research", "research", "lohrasbi.info");
+showEmail("mail_press", "press", "lohrasbi.info");
+showEmail("mail_info", "info", "lohrasbi.info");
+showEmail("mail_founder", "executive", "lohrasbi.info");
+</script>
+
+
+<!-- FORM API -->
+<script>
 const WEB_APP_URL =
   "https://script.google.com/macros/s/AKfycbzB246HYidcBhME9rY9mUAC7gQXC2BnIXIxAOdY8Q1fAV9UEDGbqULWhC5KS0owGxIl/exec";
 
 const form = document.getElementById("contactForm");
 const formStatus = document.getElementById("formStatus");
 
-// -------------------------------
-// FORM SUBMIT HANDLER
-// -------------------------------
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  formStatus.style.display="none";
 
-  formStatus.style.display = "none";
-
-  const submitBtn = form.querySelector("button[type='submit']");
-  submitBtn.innerText = "Sending...";
-  submitBtn.disabled = true;
+  const btn = form.querySelector("button");
+  btn.innerText="Sending...";
+  btn.disabled=true;
 
   const data = {
-    timestamp: new Date().toISOString(),
-    name: document.getElementById("name").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    category: document.getElementById("category").value,
-    message: document.getElementById("message").value.trim(),
-    source: document.getElementById("source").value,
-    user_ip: "hidden"
+    timestamp:new Date().toISOString(),
+    name:document.getElementById("name").value.trim(),
+    email:document.getElementById("email").value.trim(),
+    category:document.getElementById("category").value,
+    message:document.getElementById("message").value.trim(),
+    source:"contact_page",
+    user_ip:"hidden"
   };
 
-  try {
-    const res = await fetch(WEB_APP_URL, {
-      method: "POST",
-      mode: "cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+  try{
+    const res = await fetch(WEB_APP_URL,{
+      method:"POST",mode:"cors",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(data)
     });
-
-    if (res.ok) {
-      formStatus.style.display = "block";
-      formStatus.style.color = "#22c55e";
-      formStatus.innerText = "Your message has been successfully submitted.";
-
+    if(res.ok){
+      formStatus.style.display="block";
+      formStatus.style.color="#22c55e";
+      formStatus.innerText="Your message has been successfully submitted.";
       form.reset();
-    } else {
-      throw new Error("API returned an error");
-    }
-  } catch (err) {
-    formStatus.style.display = "block";
-    formStatus.style.color = "#f87171";
-    formStatus.innerText = "There was an issue submitting your request. Please try again.";
-
-    console.error("Submission Error:", err);
+    } else { throw new Error(); }
+  }catch(err){
+    formStatus.style.display="block";
+    formStatus.style.color="#f87171";
+    formStatus.innerText="There was an issue submitting your request.";
   }
 
-  submitBtn.innerText = "Send Secure Message";
-  submitBtn.disabled = false;
+  btn.innerText="Send Secure Message";
+  btn.disabled=false;
 });
 </script>
-<!-- ========================= -->
-<!-- EXECUTIVE FOOTER         -->
-<!-- ========================= -->
-<footer style="
-    margin-top:70px;
-    padding:40px 0;
-    text-align:center;
-    background:#000b17;
-    border-top:1px solid rgba(56,189,248,.18);
-">
-    <div style="font-size:1.1rem; font-weight:700; color:#38bdf8;">
-        Lohrasbi Architecture Lab
-    </div>
-
-    <div style="font-size:.9rem; color:#94a3b8; margin-top:6px;">
-        Health Nations · AI Strategy · Crisis Architecture · Symbiotic Intelligence
-    </div>
-
-    <div style="font-size:.85rem; color:#64748b; margin-top:14px;">
-        © 2025 Dr. Nader Lohrasbi — All Rights Reserved.
-    </div>
-</footer>
 
 
-<!-- ========================= -->
-<!-- JSON-LD — SEARCH ENGINE   -->
-<!-- ========================= -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "name": "Contact — Lohrasbi Architecture Lab",
-  "url": "https://lohrasbi.info/contact.html",
-
-  "mainEntity": {
-    "@type": "Organization",
-    "name": "Lohrasbi Architecture Lab",
-    "url": "https://lohrasbi.info",
-    "logo": "https://lohrasbi.info/profile-main.jpg",
-    "description": "A sovereign architecture lab designing national-scale healthcare systems, AI governance layers, and crisis management frameworks.",
-    "founder": {
-      "@type": "Person",
-      "name": "Dr. Nader Lohrasbi",
-      "jobTitle": "Healthcare Transformation Architect & AI Strategist",
-      "url": "https://lohrasbi.info",
-      "image": "https://lohrasbi.info/profile.jpg",
-      "sameAs": [
+  "@context":"https://schema.org",
+  "@type":"ContactPage",
+  "name":"Contact — Lohrasbi Architecture Lab",
+  "url":"https://lohrasbi.info/contact.html",
+  "mainEntity":{
+    "@type":"Organization",
+    "name":"Lohrasbi Architecture Lab",
+    "url":"https://lohrasbi.info",
+    "logo":"https://lohrasbi.info/profile-main.jpg",
+    "founder":{
+      "@type":"Person",
+      "name":"Dr. Nader Lohrasbi",
+      "jobTitle":"Healthcare Transformation Architect & AI Strategist",
+      "sameAs":[
         "https://www.linkedin.com/in/nader-lohrasbi",
         "https://orcid.org/0009-0004-4232-2953",
         "https://scholar.google.com/citations?user=AFxhFKwAAAAJ",
