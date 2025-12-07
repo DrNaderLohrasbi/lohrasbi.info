@@ -3,362 +3,875 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Health Nation OS — System Map</title>
 
-<meta name="description" content="Unified national architecture map connecting all 30 strategic, cognitive, and infrastructure blueprints into the sovereign Health Nation OS."/>
+<title>Health Nation OS — Master Architecture Map | Dr. Nader Lohrasbi</title>
+
+<meta name="description" content="Unified sovereign architecture map integrating all 30 strategic, cognitive, and infrastructure blueprints into the Health Nation Operating System. Designed by Dr. Nader Lohrasbi — Healthcare Transformation Architect & AI Strategist."/>
+
 <link rel="icon" type="image/png" href="favicon-96x96.png"/>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 
 <style>
+/* ================================
+   GLOBAL BASE
+================================ */
 body{
-  margin:0;
-  background:#020617;
-  color:#e2e8f0;
-  font-family:"Inter",sans-serif;
-  line-height:1.7;
+    margin:0;
+    font-family:"Inter",sans-serif;
+    background:#020617;
+    color:#e2e8f0;
+    line-height:1.7;
 }
 
+a{text-decoration:none;color:#38bdf8;}
+a:hover{color:#7dd3fc;}
+
+/* ================================
+   NAVIGATION (Unified Phase 2)
+================================ */
+nav{
+    width:100%;
+    background:#0f172a;
+    border-bottom:1px solid #1e293b;
+    padding:18px 0;
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.nav-container{
+    max-width:1400px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+}
+
+.nav-container a{
+    color:#e2e8f0;
+    font-weight:600;
+    font-size:0.95rem;
+    padding:6px 10px;
+    transition:.25s;
+}
+
+.nav-container a:hover{
+    color:#38bdf8;
+}
+
+/* ================================
+   HEADER / HERO
+================================ */
 header{
-  padding:50px 20px;
-  text-align:center;
-  background:#0f172a;
-  border-bottom:1px solid #1e293b;
+    padding:60px 20px;
+    text-align:center;
+    background:#0f172a;
+    border-bottom:1px solid #1e293b;
 }
 
 .hero-title{
-  font-size:2.8rem;
-  font-weight:800;
-  color:#e0f2fe;
-  margin-bottom:10px;
+    font-size:2.9rem;
+    font-weight:800;
+    color:#e0f2fe;
+    margin-bottom:12px;
 }
 
-.hero-subtitle{
-  font-size:1.1rem;
-  color:#38bdf8;
-  max-width:800px;
-  margin:0 auto;
+.hero-sub{
+    font-size:1.18rem;
+    font-weight:500;
+    color:#38bdf8;
+    max-width:900px;
+    margin:0 auto;
 }
 
+/* ================================
+   MAIN CONTAINER
+================================ */
 .container{
-  max-width:1200px;
-  margin:40px auto 80px;
-  padding:0 20px;
+    max-width:1400px;
+    margin:40px auto 80px;
+    padding:0 20px;
 }
 
+/* ================================
+   CARD STANDARD
+================================ */
 .card{
-  background:#1e293b;
-  padding:30px;
-  border-radius:14px;
-  border:1px solid #334155;
-  margin-bottom:40px;
-  box-shadow:0 4px 14px rgba(0,0,0,0.45);
+    background:#0f172a;
+    border:1px solid #1e293b;
+    padding:32px;
+    border-radius:14px;
+    margin-bottom:44px;
+    box-shadow:0 4px 18px rgba(0,0,0,.45);
 }
 
+/* TITLE */
 .section-title{
-  font-size:1.45rem;
-  font-weight:700;
-  color:#22c55e;
-  margin-bottom:20px;
+    font-size:1.7rem;
+    font-weight:700;
+    color:#38bdf8;
+    margin-bottom:18px;
 }
 
+/* ================================
+   GRID SYSTEM
+================================ */
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
 }
 
 .node{
-  background:#0f172a;
-  padding:20px;
-  border-radius:12px;
-  border:1px solid #334155;
-  transition:.25s ease;
+    background:#1e293b;
+    border:1px solid #334155;
+    padding:20px;
+    border-radius:12px;
+    transition:.25s;
 }
 
 .node:hover{
-  border-color:#22c55e;
-  transform:translateY(-3px);
-  box-shadow:0 0 12px rgba(34,197,94,.4);
+    border-color:#38bdf8;
+    box-shadow:0 0 12px rgba(56,189,248,.45);
+    transform:translateY(-3px);
 }
 
 .node-title{
-  font-size:1rem;
-  font-weight:600;
-  margin-bottom:6px;
+    font-size:1.05rem;
+    font-weight:600;
+    margin-bottom:8px;
 }
 
-.node a{
-  color:#38bdf8;
-  font-size:.9rem;
+/* ================================
+   FEEDBACK BUTTON
+================================ */
+.feedback-btn{
+    padding:14px 26px;
+    background:#38bdf8;
+    color:#031620;
+    font-weight:700;
+    border-radius:12px;
+    font-size:1rem;
+    cursor:pointer;
+    border:none;
+    box-shadow:0 0 14px rgba(56,189,248,.4);
+    transition:.25s;
+}
+.feedback-btn:hover{
+    background:#7dd3fc;
 }
 
-.diagram-box{
-  border:1px dashed #38bdf8;
-  padding:28px;
-  text-align:center;
-  border-radius:12px;
-  margin-top:10px;
-  background:rgba(56,189,248,0.07);
+/* ================================
+   FEEDBACK MODAL
+================================ */
+#feedbackModal{
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(4px);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    background:#0f172a;
+    border:1px solid #1e293b;
+    padding:32px;
+    width:90%;
+    max-width:480px;
+    border-radius:16px;
+    box-shadow:0 0 22px rgba(56,189,248,.25);
+}
+
+.modal-box input,
+.modal-box textarea{
+    width:100%;
+    padding:10px;
+    background:#0a1222;
+    border:1px solid #334155;
+    border-radius:10px;
+    color:white;
+    margin-top:4px;
+    margin-bottom:14px;
+}
+
+.modal-btn{
+    padding:10px 18px;
+    background:#38bdf8;
+    color:#031620;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:700;
+    width:100%;
+    margin-bottom:12px;
+}
+
+.modal-close{
+    background:#1e293b;
+    color:#e2e8f0;
+}
+
+#fb_status{
+    margin-top:14px;
+    font-size:0.9rem;
+    text-align:center;
+    color:#38bdf8;
+}
+
+/* ================================
+   FOOTER
+================================ */
+footer{
+    text-align:center;
+    padding:40px;
+    margin-top:60px;
+    color:#64748b;
+    border-top:1px solid #1e293b;
+    font-size:0.9rem;
 }
 </style>
-
 </head>
 
 <body>
 
+<!-- ============================
+     NAVIGATION (Unified)
+============================ -->
+<nav>
+  <div class="nav-container">
+    <a href="index.html">Home</a>
+    <a href="research.html">Research Hub</a>
+    <a href="blueprints.html">Blueprint Library</a>
+    <a href="architecture.html">Architecture Lab</a>
+    <a href="os-map.html">OS Map</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- ============================
+     HERO
+============================ -->
 <header>
-  <h1 class="hero-title">Health Nation OS — Interactive Architecture Map</h1>
-  <div class="hero-subtitle">
-      The sovereign operating system connecting all 30 blueprint modules across 
-      Strategy, AI Cognition, Infrastructure, Logistics, and Crisis Architecture.
+  <h1 class="hero-title">Health Nation OS — Master Architecture Map</h1>
+  <div class="hero-sub">
+    The sovereign, unified architecture integrating all 30 strategic, cognitive, and infrastructure modules  
+    into the National Health Operating System.
   </div>
 </header>
 
+<!-- ============================
+     MAIN CONTAINER
+============================ -->
 <div class="container">
-
+<!-- ============================
+     SYSTEM OVERVIEW
+============================ -->
 <div class="card">
-  <div class="section-title">System Overview</div>
-  <p>
-      The Health Nation OS synthesizes all 30 blueprints into one national digital architecture.  
-      It defines how healthcare thinks, predicts, allocates resources, governs AI, prevents crises,  
-      and transforms clinical workflows across an entire nation.
-  </p>
+    <div class="section-title">System Overview</div>
+    <p>
+        The Health Nation OS integrates all 30 strategic, cognitive, and infrastructure blueprints into
+        one sovereign operating system — defining how a nation thinks, allocates resources, governs AI,
+        predicts failures, and executes clinical transformation at scale.
+    </p>
 </div>
 
+<!-- ============================
+     SYSTEM DIAGRAM
+============================ -->
 <div class="card">
-  <div class="section-title">System Diagram</div>
-  <div class="diagram-box">Placeholder — Full OS Diagram</div>
+    <div class="section-title">System Diagram</div>
+    <div class="diagram-box" 
+         style="border:1px dashed #38bdf8;padding:30px;border-radius:12px;text-align:center;">
+        Full OS Diagram Will Be Placed Here
+    </div>
 </div>
-<!-- DOMAIN A — STRATEGIC ARCHITECTURE (1–10) ------------------------------->
+
+<!-- =======================================================
+     DOMAIN A — STRATEGIC ARCHITECTURE (01–10)
+======================================================= -->
 <div class="card">
-  <div class="section-title">Domain A — Strategic Architecture (01–10)</div>
+    <div class="section-title">Domain A — Strategic Architecture (01–10)</div>
 
-  <div class="grid">
+    <div class="grid">
 
-    <div class="node">
-      <div class="node-title">01 — Health Nation OS</div>
-      <a href="bp-01-health-nation-os.html">Open</a>
+        <!-- 01 -->
+        <div class="node">
+            <div class="node-title">01 — Health Nation OS</div>
+            <a href="bp-01-health-nation-os.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1SsHbvv1jDKWWU-rSfIBvckv4pIePvyaa/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 02 -->
+        <div class="node">
+            <div class="node-title">02 — Architecture Over Repair</div>
+            <a href="bp-02-architecture-over-repair.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1rJP2fUsPv0Zecw34klioz46cACz6CXWs/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 03 -->
+        <div class="node">
+            <div class="node-title">03 — Crisis Architecture Framework</div>
+            <a href="bp-03-crisis-architecture-framework.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1lozIIyzFTySzDGJ-ZxiPGZ9ARu7Vp9g-/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 04 -->
+        <div class="node">
+            <div class="node-title">04 — Strategic Control Tower</div>
+            <a href="bp-04-strategic-control-tower.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/13HvZZnQZZwrpICsJOHYN1hbrtRNb8FEn/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 05 -->
+        <div class="node">
+            <div class="node-title">05 — Clinical Efficiency Paradox</div>
+            <a href="bp-05-clinical-efficiency-paradox.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1Jycg4Vf_bkNFs32RIF7llJIFAedh0w5i/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 06 -->
+        <div class="node">
+            <div class="node-title">06 — AI Governance Model</div>
+            <a href="bp-06-ai-governance-model.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1CGqDg0icIWqH0i60vYwcdTC6H0m_rqPm/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 07 -->
+        <div class="node">
+            <div class="node-title">07 — Macro–Micro Alignment</div>
+            <a href="bp-07-macro-micro-alignment.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1JU3e-rtUZ7xdtU8-YsWOIRBF382DkdbR/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 08 -->
+        <div class="node">
+            <div class="node-title">08 — Financial Nervous System</div>
+            <a href="bp-08-financial-nervous-system.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1RiVTJONEGmXp94-ywqQtL62PK_-Mh29O/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 09 -->
+        <div class="node">
+            <div class="node-title">09 — Distributed Care City</div>
+            <a href="bp-09-distributed-care-city.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/19BmzwT7u3TS6sjHU1h6qxuxW4wN0ZXaJ/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 10 -->
+        <div class="node">
+            <div class="node-title">10 — Intelligent Workforce Orchestration</div>
+            <a href="bp-10-intelligent-workforce-orchestration.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/15JOyalhDScveGbmV1avlHyTgFH8mCsGA/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
     </div>
-
-    <div class="node">
-      <div class="node-title">02 — Architecture Over Repair</div>
-      <a href="bp-02-architecture-over-repair.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">03 — Crisis Architecture Framework</div>
-      <a href="bp-03-crisis-architecture-framework.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">04 — Strategic Control Tower</div>
-      <a href="bp-04-strategic-control-tower.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">05 — Clinical Efficiency Paradox</div>
-      <a href="bp-05-clinical-efficiency-paradox.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">06 — AI Governance Model</div>
-      <a href="bp-06-ai-governance-model.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">07 — Macro–Micro Alignment</div>
-      <a href="bp-07-macro-micro-alignment.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">08 — Financial Nervous System</div>
-      <a href="bp-08-financial-nervous-system.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">09 — Distributed Care City</div>
-      <a href="bp-09-distributed-care-city.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">10 — Intelligent Workforce Orchestration</div>
-      <a href="bp-10-intelligent-workforce-orchestration.html">Open</a>
-    </div>
-
-  </div>
 </div>
-<!-- DOMAIN B — AI & COGNITIVE SYSTEMS (11–20) ------------------------------>
+<!-- =======================================================
+     DOMAIN B — AI & Cognitive Systems (11–20)
+======================================================= -->
 <div class="card">
-  <div class="section-title">Domain B — AI & Cognitive Systems (11–20)</div>
+    <div class="section-title">Domain B — AI & Cognitive Systems (11–20)</div>
 
-  <div class="grid">
+    <div class="grid">
 
-    <div class="node">
-      <div class="node-title">11 — Artificial Soul Framework</div>
-      <a href="bp-11-artificial-soul-framework.html">Open</a>
+        <!-- 11 -->
+        <div class="node">
+            <div class="node-title">11 — Artificial Soul Framework</div>
+            <a href="bp-11-artificial-soul-framework.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1giJfpVfytPPxNp1dflTwgBHli8lbmBoB/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 12 -->
+        <div class="node">
+            <div class="node-title">12 — Bespoke AI Assistant</div>
+            <a href="bp-12-bespoke-ai-assistant.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1rbcoS57_D1rs9HlreyOMJrc5ufX9ibGs/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 13 -->
+        <div class="node">
+            <div class="node-title">13 — Federated Clinical Reasoning Engine</div>
+            <a href="bp-13-federated-clinical-reasoning-engine.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1BHXPUhDNnOjxLDjd2W4thBdSGqSlZ0FZ/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 14 -->
+        <div class="node">
+            <div class="node-title">14 — Multi-Agent Care Workflow AI</div>
+            <a href="bp-14-multi-agent-care-workflow-ai.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1T_M1AJnVZ6HC9rB5WvFOMePdbroc67r2/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 15 -->
+        <div class="node">
+            <div class="node-title">15 — Medical NLP Pipeline (Global Interoperability)</div>
+            <a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/10qii1atfIXpZAuRz2Vr2hfavJUl5HAeh/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 16 -->
+        <div class="node">
+            <div class="node-title">16 — AI-Empowered Clinical Simulation Lab</div>
+            <a href="bp-16-ai-empowered-clinical-simulation-lab.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1H4RSeQz2nHj2lrfYOhu6_-mI-abPysQa/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 17 -->
+        <div class="node">
+            <div class="node-title">17 — Smart Preventive Care Mesh</div>
+            <a href="bp-17-smart-preventive-care-mesh.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1Kcgkga74C9le__VEwYuwv6BMi59MVhQA/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 18 -->
+        <div class="node">
+            <div class="node-title">18 — Autonomous Health Monitoring</div>
+            <a href="bp-18-autonomous-health-monitoring.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1_1OEgTRMGzunvmRSG8SdspuiEkOZ5pxw/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 19 -->
+        <div class="node">
+            <div class="node-title">19 — Cognitive Digital Front Door</div>
+            <a href="bp-19-cognitive-digital-front-door.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1dbADc6ruQee9lGIyNdUf_lo3yeBJ40mI/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 20 -->
+        <div class="node">
+            <div class="node-title">20 — Population Health Intelligence Engine</div>
+            <a href="bp-20-population-health-intelligence.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1emi8fEUPmtPvLm9LqulhLtRnYUYXCK7j/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
     </div>
-
-    <div class="node">
-      <div class="node-title">12 — Bespoke AI Assistant</div>
-      <a href="bp-12-bespoke-ai-assistant.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">13 — Federated Clinical Reasoning Engine</div>
-      <a href="bp-13-federated-clinical-reasoning-engine.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">14 — Multi-Agent Care Workflow AI</div>
-      <a href="bp-14-multi-agent-care-workflow-ai.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">15 — Medical NLP Pipeline (Global Interoperability)</div>
-      <a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">16 — AI-Empowered Clinical Simulation Lab</div>
-      <a href="bp-16-ai-empowered-clinical-simulation-lab.html">Open</a>
-    </div>
-
-    <!-- Corrected 17 -->
-    <div class="node">
-      <div class="node-title">17 — Smart Preventive Care Mesh</div>
-      <a href="bp-17-smart-preventive-care-mesh.html">Open</a>
-    </div>
-
-    <!-- Corrected 18 -->
-    <div class="node">
-      <div class="node-title">18 — Autonomous Health Monitoring</div>
-      <a href="bp-18-autonomous-health-monitoring.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">19 — Cognitive Digital Front Door</div>
-      <a href="bp-19-cognitive-digital-front-door.html">Open</a>
-    </div>
-
-    <!-- Corrected 20 -->
-    <div class="node">
-      <div class="node-title">20 — Population Health Intelligence Engine</div>
-      <a href="bp-20-population-health-intelligence.html">Open</a>
-    </div>
-
-  </div>
 </div>
-<!-- DOMAIN C — URBAN / LOGISTICS / INFRASTRUCTURE (21–30) ------------------>
+<!-- =======================================================
+     DOMAIN C — Urban / Logistics / Infrastructure (21–30)
+======================================================= -->
 <div class="card">
-  <div class="section-title">Domain C — Urban / Logistics / Infrastructure (21–30)</div>
+    <div class="section-title">Domain C — Urban / Logistics / Infrastructure (21–30)</div>
 
-  <div class="grid">
+    <div class="grid">
 
-    <div class="node">
-      <div class="node-title">21 — Smart Hospital Grid</div>
-      <a href="bp-21-smart-hospital-grid.html">Open</a>
+        <!-- 21 -->
+        <div class="node">
+            <div class="node-title">21 — Self-Healing Health Infrastructure</div>
+            <a href="bp-21-self-healing-health-infrastructure.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1x2JUX6jhFnnIb7jd7sorKFShgj71jBNr/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 22 -->
+        <div class="node">
+            <div class="node-title">22 — Health System Operational Neural Mesh</div>
+            <a href="bp-22-health-system-operational-neural-mesh.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1R_hfCMThiaUx52Ah4l3TjIgf0nLH5RCV/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 23 -->
+        <div class="node">
+            <div class="node-title">23 — Autonomous Health Supply Chain Grid</div>
+            <a href="bp-23-autonomous-health-supply-chain-grid.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1PsbKxsVySDP9OEEmt_4V8nzl3kO0Vc2f/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 24 -->
+        <div class="node">
+            <div class="node-title">24 — Intelligent Health Transportation Network</div>
+            <a href="bp-24-intelligent-health-transportation-network.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1BnvgAxpri1-5aHhvPTZkpXAT3_fCpFOe/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 25 -->
+        <div class="node">
+            <div class="node-title">25 — National Health Resilience Index</div>
+            <a href="bp-25-national-health-resilience-index.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/16iyWBAMWlbYKjOhSv9z6x43LgeTP5KZ3/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 26 -->
+        <div class="node">
+            <div class="node-title">26 — Dynamic Waiting Room Elimination System</div>
+            <a href="bp-26-dynamic-waiting-room-elimination-system.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1_pEeRLmrMnIcebqdn-fUASQGTa8tjWGk/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 27 -->
+        <div class="node">
+            <div class="node-title">27 — Clinical Capacity Forecasting Grid</div>
+            <a href="bp-27-clinical-capacity-forecasting-grid.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1cvI-CvU7De8a2TTYB7ru-ODVvv65afyI/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 28 -->
+        <div class="node">
+            <div class="node-title">28 — National Health Mission Control</div>
+            <a href="bp-28-national-health-mission-control.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1jr47-LHRFQ4z1PtDPP1u2lQBO0jDgtTG/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 29 -->
+        <div class="node">
+            <div class="node-title">29 — National Health Operating System Kernel</div>
+            <a href="bp-29-national-health-operating-system-kernel.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1wUttnTVwCEPlki8nDpRQ4xK0lWCLuXVN/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
+        <!-- 30 -->
+        <div class="node">
+            <div class="node-title">30 — Health Nation Digital Twin</div>
+            <a href="bp-30-health-nation-digital-twin.html">Open Blueprint</a><br>
+            <a href="https://drive.google.com/file/d/1CfSZ_R0psvRNvVvBDFZ0xH_kEsbcu6ZO/view?usp=drive_link" target="_blank">
+                Open PDF
+            </a>
+        </div>
+
     </div>
-
-    <div class="node">
-      <div class="node-title">22 — National Appointment Exchange</div>
-      <a href="bp-22-national-appointment-exchange.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">23 — AI Imaging Logistics Network</div>
-      <a href="bp-23-ai-imaging-logistics-network.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">24 — Intelligent Health Transportation Network</div>
-      <a href="bp-24-intelligent-health-transportation-network.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">25 — National Health Resilience Index</div>
-      <a href="bp-25-national-health-resilience-index.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">26 — Dynamic Waiting Room Elimination System</div>
-      <a href="bp-26-dynamic-waiting-room-elimination-system.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">27 — Clinical Capacity Forecasting Grid</div>
-      <a href="bp-27-clinical-capacity-forecasting-grid.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">28 — National Health Mission Control</div>
-      <a href="bp-28-national-health-mission-control.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">29 — National Health OS Kernel</div>
-      <a href="bp-29-national-health-operating-system-kernel.html">Open</a>
-    </div>
-
-    <div class="node">
-      <div class="node-title">30 — Health Nation Digital Twin</div>
-      <a href="bp-30-health-nation-digital-twin.html">Open</a>
-    </div>
-
-  </div>
 </div>
-<footer>
-  © 2025 Dr. Nader Lohrasbi — Health Nation OS Architecture Map · All Rights Reserved.
+<!-- =======================================================
+     SYSTEM DIAGRAM — NATIONAL HEALTH OS
+======================================================= -->
+<div class="card">
+    <div class="section-title">System Diagram — Health Nation OS</div>
+
+    <div class="diagram-box">
+        <p style="color:#93c5fd;font-size:1rem;margin-bottom:10px;">
+            Full OS Diagram will be embedded here
+        </p>
+        <p style="color:#64748b;font-size:0.9rem;">
+            (A high-level architecture map representing all 30 blueprint domains)
+        </p>
+    </div>
+
+    <p style="margin-top:20px;color:#a5b4fc;">
+        This diagram visualizes the macro-to-micro intelligence stack:
+        strategic doctrine → AI cognition → workflows → data flows → logistics → national resilience.
+    </p>
+</div>
+
+
+<!-- =======================================================
+     FEEDBACK MODULE — MANDATORY EMAIL (Research Standard)
+======================================================= -->
+<div class="card" id="feedback">
+    <div class="section-title">Submit Feedback</div>
+
+    <p>
+        Provide insights, corrections, or collaboration requests.  
+        All submissions are processed through the National Research OS feedback registry.
+    </p>
+
+    <button id="openFeedback"
+            style="
+                padding:12px 22px;
+                background:#0ea5e9;
+                color:#031620;
+                font-weight:700;
+                border:none;
+                border-radius:12px;
+                cursor:pointer;
+                margin-top:14px;
+                box-shadow:0 0 12px rgba(14,165,233,.4);
+            ">
+        Open Feedback Form
+    </button>
+</div>
+
+
+<!-- ===========================
+     FEEDBACK MODAL (POPUP)
+=========================== -->
+<div id="feedbackModal"
+     style="
+        display:none;
+        position:fixed;
+        top:0;left:0;
+        width:100%;height:100%;
+        background:rgba(0,0,0,0.75);
+        backdrop-filter:blur(4px);
+        z-index:9999;
+        justify-content:center;
+        align-items:center;
+     ">
+
+    <div style="
+        background:#0f172a;
+        border:1px solid #1e293b;
+        padding:30px;
+        width:90%;
+        max-width:480px;
+        border-radius:16px;
+        box-shadow:0 0 22px rgba(56,189,248,.25);
+    ">
+
+        <h2 style="color:#38bdf8;margin-bottom:20px;">Feedback Form</h2>
+
+        <label>Name</label>
+        <input id="fb_name"
+               style="
+                   width:100%;padding:10px;
+                   background:#0a1222;
+                   border:1px solid #334155;
+                   border-radius:10px;
+                   color:white;
+                   margin-top:4px;margin-bottom:12px;
+               " />
+
+        <label>Email</label>
+        <input id="fb_email"
+               style="
+                   width:100%;padding:10px;
+                   background:#0a1222;
+                   border:1px solid #334155;
+                   border-radius:10px;
+                   color:white;
+                   margin-top:4px;margin-bottom:12px;
+               " />
+
+        <label>Feedback</label>
+        <textarea id="fb_message" maxlength="600"
+                  style="
+                      width:100%;height:120px;
+                      background:#0a1222;
+                      border:1px solid #334155;
+                      border-radius:10px;
+                      padding:10px;
+                      color:white;
+                      resize:none;
+                      margin-top:4px;margin-bottom:14px;
+                  "></textarea>
+
+        <!-- Hidden page identifier -->
+        <input id="fb_page" value="OS_MAP_PAGE" type="hidden" />
+
+        <button id="sendFeedback"
+                style="
+                    padding:10px 18px;
+                    background:#38bdf8;
+                    color:#031620;
+                    border:none;
+                    border-radius:10px;
+                    cursor:pointer;
+                    width:100%;
+                    font-weight:700;
+                    margin-bottom:10px;
+                ">
+            Submit Feedback
+        </button>
+
+        <button id="closeFeedback"
+                style="
+                    padding:10px 18px;
+                    background:#1e293b;
+                    color:#e2e8f0;
+                    border:none;
+                    border-radius:10px;
+                    cursor:pointer;
+                    width:100%;
+                ">
+            Close
+        </button>
+
+        <div id="fb_status"
+             style="margin-top:14px;font-size:0.9rem;text-align:center;color:#38bdf8;">
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =========================================
+     FEEDBACK SCRIPT — Google Web App POST
+========================================= -->
+<script>
+const modal = document.getElementById("feedbackModal");
+
+document.getElementById("openFeedback").onclick = () => {
+    modal.style.display = "flex";
+};
+
+document.getElementById("closeFeedback").onclick = () => {
+    modal.style.display = "none";
+};
+
+document.getElementById("sendFeedback").onclick = async () => {
+
+    const name = document.getElementById("fb_name").value.trim();
+    const email = document.getElementById("fb_email").value.trim();
+    const message = document.getElementById("fb_message").value.trim();
+    const page = document.getElementById("fb_page").value;
+
+    if(!name || !email || !message){
+        document.getElementById("fb_status").innerHTML =
+            "⚠ Please fill all fields.";
+        return;
+    }
+
+    const payload = {
+        timestamp: new Date().toISOString(),
+        page,
+        name,
+        email,
+        message,
+        user_ip: "N/A"
+    };
+
+    try{
+        await fetch(
+            "https://script.google.com/macros/s/AKfycbzB246HYidcBhME9rY9mUAC7gQXC2BnIXIxAOdY8Q1fAV9UEDGbqULWhC5KS0owGxIl/exec",
+            {
+                method: "POST",
+                mode: "no-cors",
+                headers: {"Content-Type":"application/json"},
+                body: JSON.stringify(payload)
+            }
+        );
+
+        document.getElementById("fb_status").innerHTML =
+            "✅ Submitted successfully.";
+        document.getElementById("fb_message").value = "";
+
+    } catch (e){
+        document.getElementById("fb_status").innerHTML =
+            "❌ Error — please try again.";
+    }
+};
+</script>
+
+
+<!-- =======================================================
+     FOOTER — EXECUTIVE LEVEL
+======================================================= -->
+<footer style="
+    text-align:center;
+    padding:40px;
+    margin-top:60px;
+    color:#64748b;
+    border-top:1px solid #1e293b;
+    font-size:0.9rem;
+">
+    © 2025 Dr. Nader Lohrasbi — Health Nation OS • Executive Architecture Map  
+    <br>
+    All Rights Reserved — Strategic Architecture & Research Intelligence
 </footer>
 
-<!-- JSON-LD STRUCTURED DATA — FULL BLUEPRINT GRAPH -->
+
+<!-- =======================================================
+     JSON-LD — FULL BLUEPRINT AUTHORITY GRAPH
+======================================================= -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Health Nation OS — Interactive Architecture Map",
-  "description": "The unified meta-architecture integrating all 30 blueprint modules into one sovereign Health Nation Operating System.",
+  "@type": "Dataset",
+  "name": "Health Nation OS — Master Architecture Map",
+  "description": "Unified architecture of all 30 blueprint modules across strategy, AI cognition, logistics, infrastructure, resilience, and national digital health operations.",
   "url": "https://lohrasbi.info/os-map.html",
+
   "creator": {
     "@type": "Person",
     "name": "Dr. Nader Lohrasbi",
     "jobTitle": "Healthcare Transformation Architect & AI Strategist",
-    "url": "https://lohrasbi.info"
+    "url": "https://lohrasbi.info",
+    "image": "https://lohrasbi.info/profile-main.jpg"
   },
+
   "hasPart": [
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-01-health-nation-os.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-02-architecture-over-repair.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-03-crisis-architecture-framework.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-04-strategic-control-tower.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-05-clinical-efficiency-paradox.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-06-ai-governance-model.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-07-macro-micro-alignment.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-08-financial-nervous-system.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-09-distributed-care-city.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-10-intelligent-workforce-orchestration.html" },
+    { "@type": "CreativeWork", "name": "bp-01", "url": "https://lohrasbi.info/bp-01-health-nation-os.html" },
+    { "@type": "CreativeWork", "name": "bp-02", "url": "https://lohrasbi.info/bp-02-architecture-over-repair.html" },
+    { "@type": "CreativeWork", "name": "bp-03", "url": "https://lohrasbi.info/bp-03-crisis-architecture-framework.html" },
+    { "@type": "CreativeWork", "name": "bp-04", "url": "https://lohrasbi.info/bp-04-strategic-control-tower.html" },
+    { "@type": "CreativeWork", "name": "bp-05", "url": "https://lohrasbi.info/bp-05-clinical-efficiency-paradox.html" },
+    { "@type": "CreativeWork", "name": "bp-06", "url": "https://lohrasbi.info/bp-06-ai-governance-model.html" },
+    { "@type": "CreativeWork", "name": "bp-07", "url": "https://lohrasbi.info/bp-07-macro-micro-alignment.html" },
+    { "@type": "CreativeWork", "name": "bp-08", "url": "https://lohrasbi.info/bp-08-financial-nervous-system.html" },
+    { "@type": "CreativeWork", "name": "bp-09", "url": "https://lohrasbi.info/bp-09-distributed-care-city.html" },
+    { "@type": "CreativeWork", "name": "bp-10", "url": "https://lohrasbi.info/bp-10-intelligent-workforce-orchestration.html" },
 
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-11-artificial-soul-framework.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-12-bespoke-ai-assistant.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-13-federated-clinical-reasoning-engine.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-14-multi-agent-care-workflow-ai.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-15-medical-nlp-pipeline-for-global-interoperability.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-16-ai-empowered-clinical-simulation-lab.html" },
+    { "@type": "CreativeWork", "name": "bp-11", "url": "https://lohrasbi.info/bp-11-artificial-soul-framework.html" },
+    { "@type": "CreativeWork", "name": "bp-12", "url": "https://lohrasbi.info/bp-12-bespoke-ai-assistant.html" },
+    { "@type": "CreativeWork", "name": "bp-13", "url": "https://lohrasbi.info/bp-13-federated-clinical-reasoning-engine.html" },
+    { "@type": "CreativeWork", "name": "bp-14", "url": "https://lohrasbi.info/bp-14-multi-agent-care-workflow-ai.html" },
+    { "@type": "CreativeWork", "name": "bp-15", "url": "https://lohrasbi.info/bp-15-medical-nlp-pipeline-for-global-interoperability.html" },
+    { "@type": "CreativeWork", "name": "bp-16", "url": "https://lohrasbi.info/bp-16-ai-empowered-clinical-simulation-lab.html" },
 
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-17-smart-preventive-care-mesh.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-18-autonomous-health-monitoring.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-19-clinical-cognition-ai-layer.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-20-population-health-intelligence.html" },
+    { "@type": "CreativeWork", "name": "bp-17", "url": "https://lohrasbi.info/bp-17-national-digital-twin-for-healthcare.html" },
+    { "@type": "CreativeWork", "name": "bp-18", "url": "https://lohrasbi.info/bp-18-autonomous-health-monitoring.html" },
+    { "@type": "CreativeWork", "name": "bp-19", "url": "https://lohrasbi.info/bp-19-clinical-cognition-ai-layer.html" },
+    { "@type": "CreativeWork", "name": "bp-20", "url": "https://lohrasbi.info/bp-20-continuous-national-learning-health-model.html" },
 
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-21-smart-hospital-grid.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-22-national-appointment-exchange.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-23-ai-imaging-logistics-network.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-24-intelligent-health-transportation-network.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-25-national-health-resilience-index.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-26-dynamic-waiting-room-elimination-system.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-27-clinical-capacity-forecasting-grid.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-28-national-health-mission-control.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-29-national-health-operating-system-kernel.html" },
-    { "@type": "CreativeWork", "url": "https://lohrasbi.info/bp-30-health-nation-digital-twin.html" }
+    { "@type": "CreativeWork", "name": "bp-21", "url": "https://lohrasbi.info/bp-21-self-healing-health-infrastructure.html" },
+    { "@type": "CreativeWork", "name": "bp-22", "url": "https://lohrasbi.info/bp-22-health-system-operational-neural-mesh.html" },
+    { "@type": "CreativeWork", "name": "bp-23", "url": "https://lohrasbi.info/bp-23-autonomous-health-supply-chain-grid.html" },
+    { "@type": "CreativeWork", "name": "bp-24", "url": "https://lohrasbi.info/bp-24-intelligent-health-transportation-network.html" },
+    { "@type": "CreativeWork", "name": "bp-25", "url": "https://lohrasbi.info/bp-25-national-health-resilience-index.html" },
+    { "@type": "CreativeWork", "name": "bp-26", "url": "https://lohrasbi.info/bp-26-dynamic-waiting-room-elimination-system.html" },
+    { "@type": "CreativeWork", "name": "bp-27", "url": "https://lohrasbi.info/bp-27-clinical-capacity-forecasting-grid.html" },
+    { "@type": "CreativeWork", "name": "bp-28", "url": "https://lohrasbi.info/bp-28-national-health-mission-control.html" },
+    { "@type": "CreativeWork", "name": "bp-29", "url": "https://lohrasbi.info/bp-29-national-health-operating-system-kernel.html" },
+    { "@type": "CreativeWork", "name": "bp-30", "url": "https://lohrasbi.info/bp-30-health-nation-digital-twin.html" }
   ]
 }
 </script>
