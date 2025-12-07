@@ -5,99 +5,152 @@
   <title>Blueprint 06 – 12-Layer AI Governance Model | Lohrasbi Architecture Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description"
-        content="Blueprint 06: 12-Layer AI Governance Model. A multi-layer national governance architecture ensuring safety, transparency, accountability, and coordinated AI deployment across health systems."/>
+        content="Blueprint 06: The 12-Layer AI Governance Model — a national framework enabling safe, auditable, large-scale deployment of AI systems across healthcare infrastructure."/>
+  <link rel="canonical" href="https://lohrasbi.info/bp-06-ai-governance-model.html"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    body{
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-      margin:0;background:#000814;color:#e2e8f0;
+    :root{
+      --bg:#000814;
+      --accent:#38bdf8;
+      --accent-soft:rgba(56,189,248,.12);
+      --text-main:#e2e8f0;
+      --text-soft:#94a3b8;
+      --border:rgba(56,189,248,.25);
+      --radius-lg:18px;
+      --radius-xl:24px;
     }
-    a{text-decoration:none;color:#7dd3fc}
 
+    body{
+      margin:0;background:var(--bg);color:var(--text-main);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{text-decoration:none;color:#7dd3fc;}
+    a:hover{color:#e0f2fe;}
+
+    /* HEADER ---------------------------------------------------------- */
     header{
-      padding:18px 26px;
-      background:rgba(0,20,40,.65);
-      border-bottom:1px solid rgba(56,189,248,.22);
-      backdrop-filter:blur(10px);
+      position:sticky;top:0;z-index:40;
+      padding:14px 26px;
+      background:rgba(2,8,23,0.9);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(15,23,42,0.9);
     }
     .nav-mini{
-      max-width:1280px;margin:auto;
+      max-width:1180px;margin:auto;
       display:flex;justify-content:space-between;align-items:center;
     }
     .nav-mini-left{
-      font-size:1.05rem;font-weight:700;color:#38bdf8;
+      font-size:1.02rem;font-weight:700;text-transform:uppercase;
+      letter-spacing:.04em;color:var(--accent);
     }
-
-    .shell{
-      max-width:1180px;margin:auto;padding:40px 26px 80px;
+    .nav-mini-right a{
+      margin-left:18px;font-size:.95rem;color:var(--text-soft);
     }
+    .nav-mini-right a.active{color:#e5f3ff;font-weight:600;}
 
+    /* PAGE ------------------------------------------------------------ */
+    .shell{max-width:1180px;margin:auto;padding:34px 26px 80px;}
+
+    /* HERO ------------------------------------------------------------ */
     .hero{
-      display:flex;gap:40px;flex-wrap:wrap;align-items:center;margin-bottom:50px;
+      display:flex;gap:34px;flex-wrap:wrap;align-items:center;
+      margin-bottom:42px;
     }
     .hero img{
-      width:420px;border-radius:18px;
-      border:1px solid rgba(56,189,248,.25);
-      box-shadow:0 0 40px rgba(0,150,255,.15);
+      width:420px;max-width:100%;
+      border-radius:var(--radius-xl);
+      border:1px solid var(--border);
+      box-shadow:0 26px 55px rgba(15,23,42,.85);
+      object-fit:cover;
+      background:#020617;
     }
-    .hero h1{
-      font-size:2.4rem;margin:0 0 10px 0;color:#f1f5f9;
-    }
-
     .bp-tag{
-      display:inline-block;margin-bottom:14px;
-      padding:6px 14px;border-radius:999px;
+      display:inline-flex;gap:8px;align-items:center;
+      padding:6px 14px;margin-bottom:12px;
+      border-radius:999px;
       border:1px solid rgba(56,189,248,.35);
-      background:rgba(0,30,60,.5);
-      color:#7dd3fc;font-size:.85rem;
-      backdrop-filter:blur(6px);
+      background:rgba(15,23,42,.85);
+      color:#7dd3fc;font-size:.8rem;text-transform:uppercase;
+      letter-spacing:.09em;
     }
-
     .bp-short{
-      font-size:1rem;color:#cbd5e1;line-height:1.6;max-width:580px;
+      max-width:580px;font-size:1rem;color:#cbd5e1;line-height:1.6;
     }
 
+    /* SECTION ---------------------------------------------------------- */
     h2{
-      margin-top:50px;font-size:1.8rem;color:#f8fafc;
+      margin-top:40px;font-size:1.6rem;color:#f8fafc;
     }
-
     .section{
-      margin-top:16px;font-size:1rem;color:#cbd5e1;line-height:1.7;max-width:900px;
+      margin-top:10px;max-width:900px;font-size:.98rem;color:#cbd5e1;line-height:1.7;
+    }
+    ul{
+      margin-top:10px;margin-left:22px;color:#cbd5e1;
+      font-size:.98rem;line-height:1.6;
     }
 
-    ul{margin-top:12px;margin-left:22px;color:#cbd5e1;}
+    /* PDF -------------------------------------------------------------- */
+    .bp-pdf{
+      margin-top:46px;padding:22px;
+      background:radial-gradient(circle at top left,rgba(56,189,248,.09),rgba(15,23,42,.96));
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 26px 55px rgba(15,23,42,.9);
+    }
+    .bp-pdf-frame{
+      margin-top:18px;border-radius:var(--radius-lg);overflow:hidden;
+      border:1px solid rgba(148,163,184,.45);
+      background:#020617;
+    }
+    .bp-pdf-note{
+      margin-top:10px;font-size:.85rem;color:var(--text-soft);
+    }
 
+    /* Q&A -------------------------------------------------------------- */
     .qa-box{
-      margin-top:50px;padding:26px;border-radius:18px;
-      background:rgba(0,30,60,.5);
+      margin-top:40px;padding:22px;
+      background:rgba(15,23,42,.9);
+      border-radius:var(--radius-xl);
       border:1px solid rgba(56,189,248,.25);
       backdrop-filter:blur(6px);
     }
-    .qa-box h3{
-      margin:0 0 14px 0;font-size:1.45rem;color:#f1f5f9;
-    }
+    .qa-box h3{margin:0 0 10px;font-size:1.35rem;}
+    .qa-box p{margin:4px 0;color:#cbd5e1;font-size:.96rem;}
 
+    /* NAVIGATION ------------------------------------------------------- */
     .nav-bottom{
-      margin-top:60px;display:flex;justify-content:space-between;font-size:1rem;
+      margin-top:46px;display:flex;justify-content:space-between;
+      font-size:.95rem;color:var(--text-soft);
     }
+    .nav-bottom a{display:flex;align-items:center;gap:6px;}
 
+    /* FOOTER ----------------------------------------------------------- */
     footer{
-      text-align:center;padding:26px;margin-top:40px;
-      color:#64748b;font-size:.9rem;
+      text-align:center;padding:20px;margin-top:20px;
+      color:#64748b;font-size:.85rem;
+      border-top:1px solid rgba(15,23,42,.9);
+      background:#020617;
     }
-
   </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="nav-mini">
     <div class="nav-mini-left">Lohrasbi Architecture Lab</div>
-    <a href="index.html">Home</a>
+    <div class="nav-mini-right">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="blueprints.html" class="active">Blueprints</a>
+      <a href="os-map.html">OS Map</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 </header>
 
@@ -105,66 +158,126 @@
 
   <!-- HERO -->
   <div class="hero">
-    <img src="006.png" alt="AI Governance Model Blueprint">
+    <img src="bp-06.jpg" alt="Blueprint 06 – AI Governance Model">
 
     <div>
-      <div class="bp-tag">Blueprint 06</div>
+      <div class="bp-tag">
+        <i class="fa-solid fa-diagram-project"></i>
+        Blueprint 06 · AI Governance
+      </div>
+
       <h1>12-Layer AI Governance Model</h1>
+
       <p class="bp-short">
-        A complete national governance architecture defining how AI is developed, deployed, monitored, 
-        constrained, audited, and ethically aligned across the healthcare ecosystem.
+        A full-stack governance architecture regulating AI behavior, safety, identity, access control,
+        compliance, monitoring, and system-wide integration across national healthcare systems.
       </p>
     </div>
   </div>
 
-  <!-- EXTENDED SECTION -->
+  <!-- CONTENT -->
   <h2>Extended Architecture Overview</h2>
   <div class="section">
-    The 12-Layer AI Governance Model provides an end-to-end governance structure ensuring that AI systems 
-    across the health nation remain transparent, auditable, safe, clinically aligned, and socially legitimate. 
-    It defines policy, assurance, oversight, validation, safety monitoring, red-teaming, and ethical guardrails.
+    The 12-Layer AI Governance Model establishes a sovereign, auditable framework that governs 
+    how AI is deployed, monitored, validated, updated, and integrated across clinical, operational,
+    financial, and national health infrastructures.
   </div>
 
-  <h2>The 12 Layers</h2>
+  <h2>The 12 Governance Layers</h2>
   <ul>
-    <li>National AI Policy & Legislative Alignment</li>
-    <li>Ethical & Societal Guardrails</li>
-    <li>Model Registration & Traceability</li>
-    <li>Clinical Validation & Bias Auditing</li>
-    <li>Real-Time Monitoring & Drift Detection</li>
-    <li>Explainability & Transparency Layer</li>
-    <li>Risk Scoring & Safety Thresholds</li>
-    <li>Incident Response Protocols</li>
-    <li>AI Lifecycle Management</li>
-    <li>Human-in-the-Loop Governance</li>
-    <li>Security & Zero-Trust Enforcement</li>
-    <li>National Oversight Council Interface</li>
+    <li>Identity & Access Control</li>
+    <li>Data Provenance & Integrity</li>
+    <li>Consent & Privacy Layer</li>
+    <li>Model Lineage & Version Control</li>
+    <li>Bias Monitoring & Fairness Assurance</li>
+    <li>Clinical Safety Guardrails</li>
+    <li>Operational Boundary Enforcement</li>
+    <li>Explainability & Documentation Layer</li>
+    <li>Audit Logging & Traceability</li>
+    <li>Governance Orchestration Hub</li>
+    <li>National Compliance Integration</li>
+    <li>Zero-Trust Security Architecture</li>
   </ul>
 
   <h2>Dependencies</h2>
   <div class="section">
-    <strong>Upstream:</strong> National Policy & Strategy  
-    <br/>
-    <strong>Downstream:</strong> Federated Clinical Reasoning Engine, Trust Grid, Compliance OS
+    <strong>Upstream:</strong> National Strategy, Architecture Over Repair<br/>
+    <strong>Downstream:</strong> Clinical AI Systems, National Health Mission Control
   </div>
 
-  <!-- Q&A BOX -->
+  <!-- PDF VIEWER -->
+  <section class="bp-pdf" id="blueprint-pdf">
+    <h2>Full Blueprint – Read-Only PDF</h2>
+    <p>The complete AI Governance Model blueprint is provided as a secure, read-only PDF.</p>
+
+    <div class="bp-pdf-frame">
+      <iframe
+        src="https://drive.google.com/file/d/1CGqDg0icIWqH0i60vYwcdTC6H0m_rqPm/preview"
+        width="100%" height="880" style="border:0;" allow="fullscreen" loading="lazy"></iframe>
+    </div>
+
+    <p class="bp-pdf-note">
+      If the viewer fails:
+      <a href="https://drive.google.com/file/d/1CGqDg0icIWqH0i60vYwcdTC6H0m_rqPm/view?usp=drive_link" target="_blank">
+        Open full PDF
+      </a>
+    </p>
+  </section>
+
+  <!-- Q&A -->
   <div class="qa-box">
-    <h3>Questions & Notes</h3>
-    <p>Governments or institutions may request the full 12-layer governance documentation and audit templates.</p>
+    <h3>Questions & Architecture Support</h3>
+    <p>Support for national AI governance implementation is available upon request.</p>
   </div>
 
   <!-- NAVIGATION -->
   <div class="nav-bottom">
-    <a href="bp-05-clinical-efficiency-paradox.html">← Previous</a>
-    <a href="bp-07-macro-micro-alignment.html">Next →</a>
+    <a href="bp-05-clinical-efficiency-paradox.html"><i class="fa-solid fa-arrow-left-long"></i> Previous</a>
+    <a href="bp-07-macro-micro-alignment.html">Next <i class="fa-solid fa-arrow-right-long"></i></a>
   </div>
 
 </div>
 
 <footer>
-  © 2025 Dr. Nader Lohrasbi — Strategic Blueprint Series
+  © 2025 Dr. Nader Lohrasbi · Lohrasbi Architecture Lab · AI Governance Blueprint v1.0
 </footer>
+
+<!-- JSON-LD ------------------------------------------------------------>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "@id":"https://lohrasbi.info/bp-06-ai-governance-model.html#blueprint",
+  "name":"Blueprint 06 – 12-Layer AI Governance Model",
+  "author":{
+    "@type":"Person",
+    "name":"Dr. Nader Lohrasbi",
+    "identifier":"https://orcid.org/0009-0004-4232-2953"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"Lohrasbi Architecture Lab",
+    "url":"https://lohrasbi.info"
+  },
+  "inLanguage":"en",
+  "isPartOf":{
+    "@type":"CreativeWorkSeries",
+    "name":"Lohrasbi National Blueprint Series",
+    "url":"https://lohrasbi.info/blueprints.html"
+  },
+  "encoding":{
+    "@type":"MediaObject",
+    "contentUrl":"https://drive.google.com/file/d/1CGqDg0icIWqH0i60vYwcdTC6H0m_rqPm/view?usp=drive_link",
+    "encodingFormat":"application/pdf"
+  },
+  "about":[
+    "AI Governance",
+    "National AI Regulation",
+    "12-Layer Governance Model",
+    "Healthcare AI Safety"
+  ]
+}
+</script>
 
 </body>
 </html>
