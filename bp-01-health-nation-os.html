@@ -5,144 +5,237 @@
   <title>Blueprint 01 – Health Nation OS | Lohrasbi Architecture Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description"
-        content="Blueprint 01: Health Nation OS. The master operating system for national health transformation, integrating clinical, operational, data, and AI intelligence into one unified architecture."/>
+        content="Blueprint 01: Health Nation OS. The master operating system for national health transformation, integrating clinical, operational, financial, governance, and AI intelligence into one unified architecture."/>
+  <link rel="canonical" href="https://lohrasbi.info/bp-01-health-nation-os.html"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
+    :root{
+      --bg:#000814;
+      --bg-soft:#02091a;
+      --accent:#38bdf8;
+      --accent-soft:rgba(56,189,248,.12);
+      --border-subtle:rgba(148,163,184,.35);
+      --text-main:#e2e8f0;
+      --text-soft:#94a3b8;
+      --radius-lg:18px;
+      --radius-xl:24px;
+    }
+
+    *{box-sizing:border-box;}
+
     body{
       font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       margin:0;
       padding:0;
-      background:#000814;
-      color:#e2e8f0;
+      background:radial-gradient(circle at top,#020617 0,#000814 38%,#000 100%);
+      color:var(--text-main);
+      -webkit-font-smoothing:antialiased;
     }
 
-    a{text-decoration:none;color:#7dd3fc}
+    a{text-decoration:none;color:#7dd3fc;}
+    a:hover{color:#e0f2fe;}
 
     /* HEADER ---------------------------------------------------------- */
     header{
-      padding:18px 26px;
-      background:rgba(0,20,40,0.65);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(56,189,248,.22);
+      position:sticky;
+      top:0;
+      z-index:40;
+      padding:14px 26px;
+      background:rgba(2,8,23,0.9);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(15,23,42,0.9);
     }
     .nav-mini{
-      max-width:1280px;
+      max-width:1180px;
       margin:auto;
       display:flex;
       justify-content:space-between;
       align-items:center;
+      gap:24px;
     }
     .nav-mini-left{
-      font-size:1.05rem;
+      font-size:1.02rem;
       font-weight:700;
-      color:#38bdf8;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+    .nav-mini-right a{
+      margin-left:18px;
+      font-size:.95rem;
+      color:var(--text-soft);
+    }
+    .nav-mini-right a:first-child{margin-left:0;}
+    .nav-mini-right a.active{
+      color:#e5f3ff;
+      font-weight:600;
     }
 
     /* PAGE SHELL ------------------------------------------------------ */
     .shell{
       max-width:1180px;
       margin:auto;
-      padding:40px 26px 80px;
+      padding:34px 26px 80px;
     }
 
     /* HERO ------------------------------------------------------------ */
     .hero{
       display:flex;
-      gap:40px;
+      gap:34px;
       align-items:center;
       flex-wrap:wrap;
-      margin-bottom:50px;
+      margin-bottom:42px;
     }
-
     .hero img{
       width:420px;
-      border-radius:18px;
+      max-width:100%;
+      border-radius:var(--radius-xl);
       border:1px solid rgba(56,189,248,.25);
-      box-shadow:0 0 40px rgba(0,150,255,.15);
+      box-shadow:0 26px 55px rgba(15,23,42,.85);
+      background:#020617;
+      object-fit:cover;
     }
-
     .hero h1{
       font-size:2.4rem;
       margin:0 0 10px 0;
       color:#f1f5f9;
     }
-
     .hero .bp-tag{
-      display:inline-block;
-      margin-bottom:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:12px;
       padding:6px 14px;
       border-radius:999px;
       border:1px solid rgba(56,189,248,.35);
-      font-size:.85rem;
+      font-size:.8rem;
       color:#7dd3fc;
-      background:rgba(0,30,60,.5);
-      backdrop-filter:blur(6px);
+      background:rgba(15,23,42,.85);
+      text-transform:uppercase;
+      letter-spacing:.09em;
     }
-
+    .hero .bp-tag i{
+      font-size:.8rem;
+    }
     .bp-short{
       font-size:1rem;
       color:#cbd5e1;
       line-height:1.6;
       max-width:580px;
     }
+    .bp-meta{
+      margin-top:16px;
+      font-size:.85rem;
+      color:var(--text-soft);
+    }
 
     /* SECTION HEADERS ------------------------------------------------- */
     h2{
-      margin-top:50px;
-      font-size:1.8rem;
+      margin-top:40px;
+      font-size:1.6rem;
       color:#f8fafc;
     }
-
     .section{
-      margin-top:16px;
-      font-size:1rem;
+      margin-top:10px;
+      font-size:.98rem;
       color:#cbd5e1;
       line-height:1.7;
       max-width:900px;
     }
-
-    /* LISTS ----------------------------------------------------------- */
     ul{
-      margin-top:12px;
+      margin-top:10px;
       margin-left:22px;
       color:#cbd5e1;
+      font-size:.98rem;
+      line-height:1.6;
+    }
+
+    /* PDF BLOCK ------------------------------------------------------- */
+    .bp-pdf{
+      margin-top:46px;
+      padding:22px 22px 26px;
+      border-radius:var(--radius-xl);
+      border:1px solid var(--border-subtle);
+      background:radial-gradient(circle at top left,rgba(56,189,248,.09),rgba(15,23,42,.96));
+      box-shadow:0 26px 55px rgba(15,23,42,.9);
+    }
+    .bp-pdf h2{
+      margin-top:0;
+      font-size:1.5rem;
+    }
+    .bp-pdf p{
+      font-size:.95rem;
+      color:var(--text-soft);
+      max-width:880px;
+    }
+    .bp-pdf-frame{
+      margin-top:18px;
+      border-radius:var(--radius-lg);
+      overflow:hidden;
+      border:1px solid rgba(148,163,184,.45);
+      background:#020617;
+    }
+    .bp-pdf-note{
+      margin-top:10px;
+      font-size:.85rem;
+      color:var(--text-soft);
     }
 
     /* Q&A ------------------------------------------------------------- */
     .qa-box{
-      margin-top:50px;
-      padding:26px;
-      border-radius:18px;
-      background:rgba(0,30,60,.5);
+      margin-top:40px;
+      padding:22px;
+      border-radius:var(--radius-xl);
+      background:rgba(15,23,42,.9);
       border:1px solid rgba(56,189,248,.25);
       backdrop-filter:blur(6px);
     }
     .qa-box h3{
-      margin:0 0 14px 0;
-      font-size:1.45rem;
+      margin:0 0 10px 0;
+      font-size:1.35rem;
       color:#f1f5f9;
+    }
+    .qa-box p{
+      margin:4px 0;
+      font-size:.96rem;
+      color:#cbd5e1;
     }
 
     /* NAVIGATION ------------------------------------------------------ */
     .nav-bottom{
-      margin-top:60px;
+      margin-top:46px;
       display:flex;
+      flex-wrap:wrap;
+      gap:14px;
       justify-content:space-between;
-      font-size:1rem;
+      font-size:.95rem;
+      color:var(--text-soft);
+    }
+    .nav-bottom a{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
     }
 
     /* FOOTER ---------------------------------------------------------- */
     footer{
       text-align:center;
-      padding:26px;
-      margin-top:40px;
+      padding:20px;
+      margin-top:20px;
       color:#64748b;
-      font-size:.9rem;
+      font-size:.85rem;
+      border-top:1px solid rgba(15,23,42,.9);
+      background:#020617;
     }
 
+    @media (max-width:768px){
+      .shell{padding:26px 18px 60px;}
+      .hero h1{font-size:2rem;}
+      .bp-pdf-frame iframe{height:520px;}
+    }
   </style>
 </head>
 
@@ -153,6 +246,10 @@
     <div class="nav-mini-left">Lohrasbi Architecture Lab</div>
     <div class="nav-mini-right">
       <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="blueprints.html" class="active">Architecture</a>
+      <a href="os-map.html">OS Map</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 </header>
@@ -161,60 +258,143 @@
 
   <!-- HERO -->
   <div class="hero">
-    <img src="001.png" alt="Health Nation OS Blueprint">
+    <img src="bp-01.jpg" alt="Blueprint 01 – Health Nation OS">
 
     <div>
-      <div class="bp-tag">Blueprint 01</div>
+      <div class="bp-tag">
+        <i class="fa-solid fa-diagram-project"></i>
+        Blueprint 01 · Core OS
+      </div>
       <h1>Health Nation OS</h1>
       <p class="bp-short">
-        The master operating system of a modern health nation — unifying clinical, operational, 
-        financial, governance, and AI intelligence into a single interoperable architecture.
+        The master operating system of a modern health nation — unifying clinical, operational,
+        financial, governance, and AI intelligence into a single interoperable architecture capable of
+        real-time decision-making and crisis resilience.
       </p>
+      <div class="bp-meta">
+        Lohrasbi National Blueprint Series · Lohrasbi Architecture Lab · 2025
+      </div>
     </div>
   </div>
 
   <!-- EXTENDED SECTION -->
   <h2>Extended Architecture Overview</h2>
   <div class="section">
-    Health Nation OS defines the foundational rules, workflows, intelligence layers, data flows, and 
-    adaptive logic that govern a national healthcare system. It consolidates fragmented infrastructures 
-    — hospitals, clinics, telehealth, logistics, finance, and AI — into one integrated operating model 
-    capable of real-time decision-making and crisis resilience.
+    Health Nation OS defines the foundational rules, workflows, intelligence layers, data flows, and
+    adaptive logic that govern a national healthcare system. It consolidates fragmented infrastructures
+    — hospitals, clinics, telehealth, logistics, finance, and AI — into one integrated operating model
+    that can sense stress, predict failure, and reconfigure itself dynamically.
   </div>
 
   <h2>Core Structural Layers</h2>
   <ul>
-    <li>Cognitive AI Layer for national reasoning and prioritization</li>
-    <li>Unified Clinical Workflow Engine</li>
-    <li>National Data Interoperability Grid</li>
-    <li>Predictive Demand & Capacity System</li>
-    <li>Trust, Compliance & Zero-Trust Security Architecture</li>
+    <li>Cognitive AI Layer for national reasoning, prioritization, and scenario simulation</li>
+    <li>Unified Clinical Workflow Engine across inpatient, outpatient, virtual, and community care</li>
+    <li>National Data Interoperability Grid for real-time semantic and structural exchange</li>
+    <li>Predictive Demand & Capacity Intelligence for load-balancing and surge management</li>
+    <li>Trust, Compliance & Zero-Trust Security Architecture for sovereign, resilient operations</li>
   </ul>
 
   <h2>Dependencies</h2>
   <div class="section">
-    <strong>Upstream:</strong> Architecture Over Repair, National Governance Model  
-    <br/>
-    <strong>Downstream:</strong> Crisis Architecture, Distributed Care City, Financial Nervous System
+    <strong>Upstream:</strong> Architecture Over Repair Doctrine, National Governance & Stewardship Model<br/>
+    <strong>Downstream:</strong> Crisis Architecture Framework, Distributed Care City, Financial Nervous System,
+    Workforce Orchestration, and National Health Mission Control.
   </div>
+
+  <!-- PDF BLUEPRINT VIEWER -->
+  <section id="blueprint-pdf" class="bp-pdf">
+    <h2>Full Blueprint – Read-Only PDF</h2>
+    <p>
+      The full technical and strategic specification for <strong>Blueprint 01 – Health Nation OS</strong>
+      is published as a controlled, read-only PDF on the secure Lohrasbi Architecture Lab repository.
+      Download, print, and copy are intentionally disabled. Use this viewer for executive and architectural review.
+    </p>
+
+    <div class="bp-pdf-frame">
+      <iframe
+        src="https://drive.google.com/file/d/1SsHbvv1jDKWWU-rSfIBvckv4pIePvyaa/preview"
+        width="100%"
+        height="880"
+        style="border:0;"
+        allow="fullscreen"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <p class="bp-pdf-note">
+      If the embedded viewer does not load correctly, open the secure PDF viewer in a new tab:
+      <a href="https://drive.google.com/file/d/1SsHbvv1jDKWWU-rSfIBvckv4pIePvyaa/view?usp=drive_link"
+         target="_blank" rel="noopener noreferrer">
+        Open full blueprint PDF
+      </a>
+    </p>
+  </section>
 
   <!-- Q&A BOX -->
   <div class="qa-box">
-    <h3>Questions & Notes</h3>
-    <p>Organizations may submit architectural questions or request implementation guidance via the Contact page.</p>
+    <h3>Questions & Architecture Support</h3>
+    <p>
+      Organizations, ministries, or health systems that require implementation guidance for
+      <strong>Health Nation OS</strong> can initiate contact via the <a href="contact.html">Contact Intelligence Layer</a>.
+    </p>
+    <p>
+      Advisory engagements focus on national architecture design, crisis operating models, and
+      symbiotic AI governance rather than localized optimisation projects.
+    </p>
   </div>
 
   <!-- BOTTOM NAVIGATION -->
   <div class="nav-bottom">
-    <a href="bp-02-architecture-over-repair.html">← Previous</a>
-    <a href="bp-02-architecture-over-repair.html">Next →</a>
+    <a href="blueprints.html"><i class="fa-solid fa-arrow-left-long"></i> Back to Architecture Library</a>
+    <a href="bp-02-architecture-over-repair.html">
+      Next blueprint: Architecture Over Repair Doctrine
+      <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
   </div>
 
 </div>
 
 <footer>
-  © 2025 Dr. Nader Lohrasbi — Health Nation OS Documentation v1.0
+  © 2025 Dr. Nader Lohrasbi · Lohrasbi Architecture Lab · Health Nation OS Blueprint v1.0
 </footer>
+
+<!-- JSON-LD STRUCTURED DATA ------------------------------------------->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": "https://lohrasbi.info/bp-01-health-nation-os.html#blueprint",
+  "name": "Blueprint 01 – Health Nation OS",
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Nader Lohrasbi",
+    "identifier": "https://orcid.org/0009-0004-4232-2953"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Lohrasbi Architecture Lab",
+    "url": "https://lohrasbi.info"
+  },
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "CreativeWorkSeries",
+    "name": "Lohrasbi National Blueprint Series",
+    "url": "https://lohrasbi.info/blueprints.html"
+  },
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://drive.google.com/file/d/1SsHbvv1jDKWWU-rSfIBvckv4pIePvyaa/view?usp=drive_link",
+    "encodingFormat": "application/pdf"
+  },
+  "about": [
+    "Health Nation OS",
+    "National health operating system",
+    "Symbiotic Intelligence",
+    "Crisis-resilient health architecture"
+  ]
+}
+</script>
 
 </body>
 </html>
