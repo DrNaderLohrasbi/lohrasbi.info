@@ -4,90 +4,140 @@
   <meta charset="UTF-8"/>
   <title>Blueprint 14 – Multi-Agent Care Workflow AI | Lohrasbi Architecture Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
   <meta name="description"
-        content="Blueprint 14: Multi-Agent Care Workflow AI. A coordinated multi-agent architecture enabling parallel, collaborative, safety-constrained AI task execution across the healthcare system."/>
+        content="Blueprint 14: Multi-Agent Care Workflow AI — a coordinated ecosystem of specialized AI agents that collaborate across triage, scheduling, resource allocation, risk detection, and escalation to orchestrate the full patient journey."/>
+  <link rel="canonical" href="https://lohrasbi.info/bp-14-multi-agent-care-workflow-ai.html"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    body{
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-      margin:0;background:#000814;color:#e2e8f0;
+    :root{
+      --bg:#000814;
+      --accent:#38bdf8;
+      --text-main:#e2e8f0;
+      --text-soft:#94a3b8;
+      --border:rgba(56,189,248,.25);
+      --radius-lg:18px;
+      --radius-xl:24px;
     }
+
+    body{
+      margin:0;background:var(--bg);color:var(--text-main);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
     a{text-decoration:none;color:#7dd3fc;}
+    a:hover{color:#e0f2fe;}
 
     header{
-      padding:18px 26px;
-      background:rgba(0,20,40,.65);
-      border-bottom:1px solid rgba(56,189,248,.22);
-      backdrop-filter:blur(10px);
+      position:sticky;top:0;z-index:40;
+      padding:14px 26px;background:rgba(2,8,23,.9);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(15,23,42,.9);
     }
+
     .nav-mini{
-      max-width:1280px;margin:auto;
+      max-width:1180px;margin:auto;
       display:flex;justify-content:space-between;align-items:center;
     }
+
     .nav-mini-left{
-      font-size:1.05rem;font-weight:700;color:#38bdf8;
+      font-size:1.02rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.04em;
+      color:var(--accent);
     }
+
+    .nav-mini-right a{
+      margin-left:18px;font-size:.95rem;color:var(--text-soft);
+    }
+    .nav-mini-right a.active{color:#e5f3ff;font-weight:600;}
 
     .shell{
-      max-width:1180px;margin:auto;padding:40px 26px 80px;
+      max-width:1180px;margin:auto;
+      padding:34px 26px 80px;
     }
 
-    /* HERO */
     .hero{
-      display:flex;gap:40px;flex-wrap:wrap;align-items:center;margin-bottom:50px;
+      display:flex;gap:34px;flex-wrap:wrap;
+      align-items:center;margin-bottom:42px;
     }
+
     .hero img{
-      width:420px;border-radius:18px;
-      border:1px solid rgba(56,189,248,.25);
-      box-shadow:0 0 40px rgba(0,150,255,.15);
-    }
-    .hero h1{
-      font-size:2.35rem;margin:0 0 12px 0;color:#f1f5f9;
+      width:420px;border-radius:var(--radius-xl);
+      border:1px solid var(--border);
+      background:#020617;
+      box-shadow:0 26px 55px rgba(15,23,42,.85);
     }
 
     .bp-tag{
-      display:inline-block;margin-bottom:14px;
-      padding:6px 14px;border-radius:999px;
-      border:1px solid rgba(56,189,248,.35);
-      background:rgba(0,30,60,.5);
-      color:#7dd3fc;font-size:.85rem;
-      backdrop-filter:blur(6px);
+      display:inline-flex;gap:8px;align-items:center;
+      padding:6px 14px;margin-bottom:12px;
+      border-radius:999px;border:1px solid rgba(56,189,248,.35);
+      background:rgba(15,23,42,.85);
+      color:#7dd3fc;font-size:.8rem;
+      text-transform:uppercase;letter-spacing:.09em;
     }
 
     .bp-short{
-      font-size:1rem;color:#cbd5e1;line-height:1.6;max-width:580px;
+      max-width:580px;font-size:1rem;color:#cbd5e1;line-height:1.6;
     }
 
     h2{
-      margin-top:50px;font-size:1.75rem;color:#f8fafc;
+      margin-top:40px;font-size:1.6rem;color:#f8fafc;
     }
 
     .section{
-      margin-top:16px;font-size:1rem;color:#cbd5e1;line-height:1.7;max-width:900px;
+      margin-top:10px;max-width:900px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.7;
     }
 
-    ul{margin-top:12px;margin-left:22px;color:#cbd5e1;}
+    ul{
+      margin-top:10px;margin-left:22px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.6;
+    }
+
+    .bp-pdf{
+      margin-top:46px;padding:22px;
+      background:radial-gradient(circle at top left,
+      rgba(56,189,248,.09),rgba(15,23,42,.96));
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 26px 55px rgba(15,23,42,.9);
+    }
+
+    .bp-pdf-frame{
+      margin-top:18px;border-radius:var(--radius-lg);
+      overflow:hidden;border:1px solid rgba(148,163,184,.45);
+    }
+
+    .bp-pdf-note{
+      margin-top:10px;font-size:.85rem;color:var(--text-soft);
+    }
 
     .qa-box{
-      margin-top:50px;padding:26px;border-radius:18px;
-      background:rgba(0,30,60,.5);
+      margin-top:40px;padding:22px;
+      background:rgba(15,23,42,.9);
+      border-radius:var(--radius-xl);
       border:1px solid rgba(56,189,248,.25);
-      backdrop-filter:blur(6px);
     }
+
     .qa-box h3{
-      margin:0 0 14px 0;font-size:1.45rem;color:#f1f5f9;
+      margin:0 0 10px;font-size:1.35rem;
     }
 
     .nav-bottom{
-      margin-top:60px;display:flex;justify-content:space-between;font-size:1rem;
+      margin-top:46px;display:flex;
+      justify-content:space-between;
+      font-size:.95rem;
     }
 
     footer{
-      text-align:center;padding:26px;margin-top:40px;
-      color:#64748b;font-size:.9rem;
+      text-align:center;padding:20px;margin-top:20px;
+      color:#64748b;font-size:.85rem;
+      background:#020617;
+      border-top:1px solid rgba(15,23,42,.9);
     }
   </style>
 </head>
@@ -97,80 +147,140 @@
 <header>
   <div class="nav-mini">
     <div class="nav-mini-left">Lohrasbi Architecture Lab</div>
-    <a href="index.html">Home</a>
+
+    <div class="nav-mini-right">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="blueprints.html" class="active">Blueprints</a>
+      <a href="os-map.html">OS Map</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 </header>
+
 
 <div class="shell">
 
   <!-- HERO -->
   <div class="hero">
-    <img src="014.png" alt="Multi-Agent Care Workflow AI Blueprint">
+    <img src="bp-14.jpg" alt="Blueprint 14 – Multi-Agent Care Workflow AI">
 
     <div>
-      <div class="bp-tag">Blueprint 14</div>
+      <div class="bp-tag">
+        <i class="fa-solid fa-layer-group"></i>
+        Blueprint 14 · Multi-Agent Orchestration
+      </div>
+
       <h1>Multi-Agent Care Workflow AI</h1>
 
       <p class="bp-short">
-        A coordinated multi-agent AI architecture enabling parallel decision-making, 
-        task delegation, and workflow execution across clinical and operational systems.
+        A coordinated ecosystem of specialized AI agents — triage, scheduling, resource allocation,
+        risk detection, escalation, and continuity management — working together to orchestrate
+        the full patient journey across hospitals and national care networks.
       </p>
     </div>
   </div>
 
-  <!-- EXTENDED OVERVIEW -->
+  <!-- CONTENT -->
   <h2>Extended Architecture Overview</h2>
   <div class="section">
-    The Multi-Agent Care Workflow AI introduces a collaborative ecosystem where specialized AI agents 
-    — diagnostic agents, logistics agents, scheduling agents, safety agents, financial agents —  
-    work simultaneously while adhering to strict safety constraints.  
-    This architecture eliminates delays, accelerates throughput, and enables intelligent division of labor.
+    Multi-Agent Care Workflow AI restructures the patient journey into an orchestrated, adaptive,
+    and intelligence-driven flow. Each agent executes a focused cognitive role while sharing
+    insight with the collective system, enabling real-time optimization of transitions,
+    resources, and clinical pathways.
   </div>
 
-  <h2>Agent Classes</h2>
+  <h2>Core Components</h2>
   <ul>
-    <li>Clinical Reasoning Agents</li>
-    <li>Scheduling & Throughput Agents</li>
-    <li>Patient Coordination Agents</li>
-    <li>Safety & Compliance Agents</li>
-    <li>Financial & Resource Optimization Agents</li>
-  </ul>
-
-  <h2>Coordination Primitives</h2>
-  <ul>
-    <li>Shared Context Memory</li>
-    <li>Task Arbitration & Priority Rules</li>
-    <li>Conflict Resolution Framework</li>
-    <li>Human-Override Governance</li>
+    <li>Triage Intelligence Agent</li>
+    <li>Scheduling & Coordination Agent</li>
+    <li>Resource Allocation Agent</li>
+    <li>Risk Detection & Escalation Agent</li>
+    <li>Continuity-of-Care Orchestrator</li>
   </ul>
 
   <h2>Dependencies</h2>
   <div class="section">
-    <strong>Upstream:</strong> Federated Clinical Reasoning Engine  
+    <strong>Upstream:</strong> Federated Clinical Reasoning Engine, Bespoke AI Assistant  
     <br/>
-    <strong>Downstream:</strong> Unified Clinical Pipeline, Autonomous Hospital Control Loop
+    <strong>Downstream:</strong> Clinical Simulation Systems, Hospital Control Loops
   </div>
 
-  <!-- Q&A BOX -->
-  <div class="qa-box">
-    <h3>Questions & Notes</h3>
-    <p>
-      This blueprint is typically deployed in national orchestration engines, digital hospitals, 
-      and advanced clinical workflow automation environments.
+  <!-- PDF VIEWER -->
+  <section class="bp-pdf" id="blueprint-pdf">
+    <h2>Full Blueprint – Read-Only PDF</h2>
+    <p>The complete Multi-Agent Care Workflow AI blueprint is provided as a secure national-level document.</p>
+
+    <div class="bp-pdf-frame">
+      <iframe
+        src="https://drive.google.com/file/d/1T_M1AJnVZ6HC9rB5WvFOMePdbroc67r2/preview"
+        width="100%" height="880" allow="fullscreen" loading="lazy" style="border:0;"></iframe>
+    </div>
+
+    <p class="bp-pdf-note">
+      If viewer fails:
+      <a href="https://drive.google.com/file/d/1T_M1AJnVZ6HC9rB5WvFOMePdbroc67r2/view?usp=drive_link" target="_blank">
+        Open full PDF
+      </a>
     </p>
+  </section>
+
+  <!-- Q&A -->
+  <div class="qa-box">
+    <h3>Questions & Architecture Support</h3>
+    <p>Support for multi-agent orchestration design, pathway optimization, and integration with national workflow systems is available.</p>
   </div>
 
   <!-- NAVIGATION -->
   <div class="nav-bottom">
-    <a href="bp-13-federated-clinical-reasoning-engine.html">← Previous</a>
-    <a href="bp-15-medical-nlp-interoperability-pipeline.html">Next →</a>
+    <a href="bp-13-federated-clinical-reasoning-engine.html"><i class="fa-solid fa-arrow-left-long"></i> Previous</a>
+    <a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">
+      Next <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
   </div>
 
 </div>
 
 <footer>
-  © 2025 Dr. Nader Lohrasbi — Strategic Blueprint Series
+  © 2025 Dr. Nader Lohrasbi · Lohrasbi Architecture Lab · Multi-Agent Blueprint v1.0
 </footer>
+
+<!-- JSON-LD ----------------------------------------------------------- -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "@id":"https://lohrasbi.info/bp-14-multi-agent-care-workflow-ai.html#blueprint",
+  "name":"Blueprint 14 – Multi-Agent Care Workflow AI",
+  "author":{
+    "@type":"Person",
+    "name":"Dr. Nader Lohrasbi",
+    "identifier":"https://orcid.org/0009-0004-4232-2953"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"Lohrasbi Architecture Lab",
+    "url":"https://lohrasbi.info"
+  },
+  "inLanguage":"en",
+  "isPartOf":{
+    "@type":"CreativeWorkSeries",
+    "name":"Lohrasbi National Blueprint Series",
+    "url":"https://lohrasbi.info/blueprints.html"
+  },
+  "encoding":{
+    "@type":"MediaObject",
+    "contentUrl":"https://drive.google.com/file/d/1T_M1AJnVZ6HC9rB5WvFOMePdbroc67r2/view?usp=drive_link",
+    "encodingFormat":"application/pdf"
+  },
+  "about":[
+    "Multi-Agent Workflow",
+    "AI-Driven Orchestration",
+    "Patient Journey Optimization",
+    "Clinical Workflow AI"
+  ]
+}
+</script>
 
 </body>
 </html>
