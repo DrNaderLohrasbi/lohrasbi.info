@@ -1,799 +1,960 @@
-<!-- =============================================
-     START OF MODULE LIST
-============================================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Blueprint Architecture Lab — Dr. Nader Lohrasbi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<div id="module-container">
+    <meta name="description"
+          content="National Health OS Blueprint Architecture Lab — Designed by Dr. Nader Lohrasbi. Flow-Thinking, Architectural Doctrine, 30 National Blueprints, and Executive-Level Architecture Request Portal." />
 
-<!-- ============================
-     MODULE 01 — BP-01
-============================= -->
-<div class="module-row">
-  <img src="bp-01.jpg" class="mod-img"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
-  <div class="mod-content">
-    <div class="mod-title">Symbiotic Intelligence Command Center</div>
+    <style>
+        body {
+            margin: 0;
+            background: #f7f9fc;
+            font-family: 'Inter', sans-serif;
+            color: #0a0a0a;
+            line-height: 1.6;
+        }
 
-    <div class="mod-desc">
-      The cognitive command nucleus of the National Health OS — aligning human and AI intelligence to enable
-      macro–micro coherence, crisis prediction, and unified operational logic across institutions.
+        /* ----------------------------------------
+           HEADER / NAVIGATION
+        ---------------------------------------- */
+        header {
+            background: #000814;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #001d3d;
+        }
+
+        .nav-left {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        nav a {
+            color: #e2e8f0;
+            margin-left: 28px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #90e0ef;
+        }
+
+        /* ----------------------------------------
+           HERO / DOCTRINE SECTION
+        ---------------------------------------- */
+        .hero {
+            padding: 70px 60px 40px 60px;
+            background: #ffffff;
+            border-bottom: 1px solid #d9dee2;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #001d3d;
+            margin-bottom: 24px;
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            color: #003566;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .doctrine-block {
+            margin-top: 50px;
+            background: #f0f4f8;
+            padding: 35px;
+            border-radius: 18px;
+            border-left: 6px solid #003566;
+        }
+
+        .doctrine-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #001d3d;
+            margin-bottom: 16px;
+        }
+
+        .doctrine-text {
+            margin-bottom: 18px;
+            font-size: 17px;
+            color: #0a0a0a;
+        }
+
+        /* ----------------------------------------
+           BLUEPRINT SECTION
+        ---------------------------------------- */
+        .section-title {
+            margin-top: 60px;
+            font-size: 32px;
+            font-weight: 700;
+            color: #001d3d;
+            text-align: center;
+        }
+
+        /* blueprint cards will be added in Part 2 */
+
+        /* ----------------------------------------
+           INVITATION SECTION
+        ---------------------------------------- */
+        .invitation {
+            margin: 80px auto;
+            width: 85%;
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 20px;
+            border: 1px solid #dbe2ea;
+        }
+
+        .inv-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #001d3d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .inv-text {
+            font-size: 18px;
+            margin-bottom: 18px;
+            color: #0a0a0a;
+        }
+
+        .inv-email-box {
+            margin-top: 25px;
+            padding: 18px;
+            background: #f0f4f8;
+            font-size: 22px;
+            font-weight: 700;
+            color: #001d3d;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 6px solid #003566;
+        }
+
+        /* ----------------------------------------
+           FOOTER
+        ---------------------------------------- */
+        footer {
+            margin-top: 120px;
+            background: #000814;
+            padding: 40px;
+            color: #e2e8f0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- ===========================================================
+     HEADER / NAVIGATION
+=========================================================== -->
+<header>
+    <div class="nav-left">Lohrasbi Architecture Lab</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="architecture.html">Architecture Lab</a>
+        <a href="blueprints.html">Blueprints</a>
+        <a href="research.html">Research</a>
+        <a href="research-hub-v2.html">Research Hub</a>
+        <a href="os-map.html">OS Map</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<!-- ===========================================================
+     DOCTRINE — THE CORE OF ARCHITECTURE
+=========================================================== -->
+<section class="hero">
+
+    <h1 class="hero-title">National Blueprint Architecture Lab</h1>
+    <div class="hero-sub">
+        Flow-Thinking • Structural Intelligence • 30 National-Scale Architectures
     </div>
 
-    <div class="mod-actions">
-      <a href="bp-01-health-nation-os.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-01')">Send Feedback</a>
-      <span class="counter" id="counter-bp01">loading…</span>
+    <div class="doctrine-block">
+        <div class="doctrine-title">Why Architecture — Not Apps — Determines National Intelligence</div>
+        <div class="doctrine-text">
+            جهان سلامت دیجیتال در دام «App-Thinking» گیر کرده است: خرید ابزارهای تکی، راه‌حل‌های نقطه‌ای،
+            داشبوردهای رنگی، مدل‌های پیش‌بینی‌کننده. اما هیچ‌چیز جریان پیدا نمی‌کند. دلیل؟ معماری وجود ندارد.
+        </div>
+
+        <div class="doctrine-text">
+            Flow-Thinking یک تغییر پارادایم است: طراحی «لوله‌کشی فکری» که داده، تصمیم، گردش‌کار و هوش را در
+            کل اکوسیستم ملی یکپارچه می‌کند. وقتی زیرساخت رویدادمحور و Data Fabric متحد داشته باشی، هر ابزار
+            جدید طی روزها متصل می‌شود — نه سال‌ها.
+        </div>
+
+        <div class="doctrine-title">Architect vs Technician — تفکیک بنیادین نقش‌ها</div>
+        <div class="doctrine-text">
+            تکنسین استاد «چگونه» است. مسیر گاو را آسفالت می‌کند. معمار استاد «چرا» است — مسیر را حذف،
+            هدف را بازتعریف و سیستم را دوباره می‌سازد. تکنسین سرعت می‌بخشد؛ معمار جهت را تعیین می‌کند.
+        </div>
+
+        <div class="doctrine-text">
+            این آزمایشگاه، ۳۰ معماری ملی را ارائه می‌دهد — نه ابزار. هر معماری یک طراحی ساختاری است که
+            می‌تواند یک شهر، یک استان یا یک ملت را متحول کند.
+        </div>
     </div>
-  </div>
+
+</section>
+
+<!-- ===========================================================
+     BLUEPRINT CARDS WILL BE INSERTED HERE (PART 2)
+=========================================================== -->
+
+<div id="blueprint-container"></div>
+
+<!-- ===========================================================
+     INVITATION TO SUBMIT ARCHITECTURE REQUEST
+=========================================================== -->
+<section class="invitation">
+    <div class="inv-title">Submit Your Architecture Request</div>
+
+    <div class="inv-text">
+        اگر شما یک مسئله ساختاری دارید — چه در سطح بیمارستان، چه در سطح شهری یا ملی — می‌توانید
+        درخواست معماری خود را برای ما ارسال کنید. ما تنها ابزار طراحی نمی‌کنیم؛ ما سیستم می‌سازیم.
+    </div>
+
+    <div class="inv-text">
+        طراحی یک Architecture واقعی به معنای بازسازی جریان‌ها، حذف گلوگاه‌ها، و ساخت یک مدل هوشمند است
+        که بتواند «Symbiotic Intelligence» را در مقیاس بزرگ فعال کند.
+    </div>
+
+    <div class="inv-text">
+        درخواست خود را به ایمیل رسمی زیر ارسال کنید:
+    </div>
+
+    <div class="inv-email-box">
+        executive.office@lohrasbi.info
+    </div>
+</section>
+
+<!-- ===========================================================
+     FOOTER
+=========================================================== -->
+<footer>
+    © 2025 Dr. Nader Lohrasbi — National Health OS Architecture Lab
+</footer>
+
+</body>
+</html>
+<div id="blueprint-container">
+
+<!-- ======================================================
+     BP 01
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-01.jpg" class="bp-img"/>
+
+    <div>
+        <div class="bp-title">Health Nation OS — Symbiotic Intelligence Command Center</div>
+        <div class="bp-desc">
+            The central cognitive nucleus that aligns human + AI intelligence to orchestrate national-scale flow,
+            predictive stability, macro–micro coherence, and unified operational logic.
+        </div>
+
+        <div class="bp-actions">
+            <a href="bp-01-health-nation-os.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP01">PDF</a>
+            <a onclick="openFeedback('BP-01')">Feedback</a>
+        </div>
+    </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 02
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-02.jpg" class="bp-img"/>
 
-<!-- ============================
-     MODULE 02 — BP-02
-============================= -->
-<div class="module-row">
-  <img src="bp-02.jpg" class="mod-img"/>
+    <div>
+        <div class="bp-title">Architecture Over Repair Doctrine</div>
+        <div class="bp-desc">
+            A structural doctrine that replaces repair-based interventions with architectural redesign —
+            ensuring systemic integration, coherence, and elimination of fragmentation.
+        </div>
 
-  <div class="mod-content">
-    <div class="mod-title">Architecture Over Repair Doctrine</div>
-
-    <div class="mod-desc">
-      A structural doctrine that replaces repair-based interventions with system-level redesign —
-      eliminating fragmentation and establishing a unified architectural foundation for national health systems.
+        <div class="bp-actions">
+            <a href="bp-02-architecture-over-repair.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP02">PDF</a>
+            <a onclick="openFeedback('BP-02')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-02-architecture-over-repair.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-02')">Send Feedback</a>
-      <span class="counter" id="counter-bp02">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 03
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-03.jpg" class="bp-img"/>
 
-<!-- ============================
-     MODULE 03 — BP-03
-============================= -->
-<div class="module-row">
-  <img src="bp-03.jpg" class="mod-img"/>
+    <div>
+        <div class="bp-title">Crisis Architecture Framework — System Integrity Dome</div>
+        <div class="bp-desc">
+            A national shield that prevents structural collapse during crisis by stabilizing decision flow,
+            managing cognitive load, and maintaining integrity across critical domains.
+        </div>
 
-  <div class="mod-content">
-    <div class="mod-title">System Integrity Dome</div>
-
-    <div class="mod-desc">
-      A national operational shield preserving system coherence during crisis,
-      stabilizing decision flow, and preventing integrity drift across clinical, logistical, and AI layers.
+        <div class="bp-actions">
+            <a href="bp-03-crisis-architecture-framework.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP03">PDF</a>
+            <a onclick="openFeedback('BP-03')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-03-crisis-architecture-framework.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-03')">Send Feedback</a>
-      <span class="counter" id="counter-bp03">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 04
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-04.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Predictive Emergency Mobility Network</div>
+        <div class="bp-desc">
+            A forecasting engine that synchronizes national ambulance flow, cross-city emergency load,
+            and predictive mobility compression to reduce response times.
+        </div>
 
-<!-- ============================
-     MODULE 04 — BP-04
-============================= -->
-<div class="module-row">
-  <img src="bp-04.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Predictive Emergency Mobility Network</div>
-
-    <div class="mod-desc">
-      A forecasting engine that synchronizes national ambulance fleets, cross-city emergency load,
-      and mobility compression — reducing response times and preventing structural overload.
+        <div class="bp-actions">
+            <a href="bp-04-strategic-control-tower.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP04">PDF</a>
+            <a onclick="openFeedback('BP-04')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-04-strategic-control-tower.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-04')">Send Feedback</a>
-      <span class="counter" id="counter-bp04">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 05
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-05.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Clinical Efficiency Paradox</div>
+        <div class="bp-desc">
+            Reveals collapse points in clinical workflows and redesigns diagnostic, surgical,
+            and emergency pathways for sustained high throughput.
+        </div>
 
-<!-- ============================
-     MODULE 05 — BP-05
-============================= -->
-<div class="module-row">
-  <img src="bp-05.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Clinical Efficiency Paradox</div>
-
-    <div class="mod-desc">
-      Reveals structural collapse points in clinical pathways under load —
-      enabling redesign of diagnostic, surgical, and emergency workflows for sustained high throughput.
+        <div class="bp-actions">
+            <a href="bp-05-clinical-efficiency-paradox.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP05">PDF</a>
+            <a onclick="openFeedback('BP-05')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-05-clinical-efficiency-paradox.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-05')">Send Feedback</a>
-      <span class="counter" id="counter-bp05">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 06
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-06.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">12-Layer AI Governance Model</div>
+        <div class="bp-desc">
+            A sovereign governance structure embedding safety, auditability,
+            and real-time oversight into every AI and clinical layer.
+        </div>
 
-<!-- ============================
-     MODULE 06 — BP-06
-============================= -->
-<div class="module-row">
-  <img src="bp-06.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">12-Layer AI Governance Model</div>
-
-    <div class="mod-desc">
-      A sovereign AI governance architecture embedding safety, auditability, and real-time oversight
-      into every computational and clinical layer of the national health system.
+        <div class="bp-actions">
+            <a href="bp-06-ai-governance-model.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP06">PDF</a>
+            <a onclick="openFeedback('BP-06')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-06-ai-governance-model.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-06')">Send Feedback</a>
-      <span class="counter" id="counter-bp06">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 07
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-07.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Macro–Micro Alignment Model</div>
+        <div class="bp-desc">
+            Eliminates the structural mismatch between national policy and clinical execution —
+            ensuring coherence between governance intent and operational reality.
+        </div>
 
-<!-- ============================
-     MODULE 07 — BP-07
-============================= -->
-<div class="module-row">
-  <img src="bp-07.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Macro–Micro Alignment Model</div>
-
-    <div class="mod-desc">
-      Eliminates the structural mismatch between national-level policy logic and on-the-ground clinical execution —
-      ensuring coherence between governance intent and operational reality.
+        <div class="bp-actions">
+            <a href="bp-07-macro-micro-alignment.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP07">PDF</a>
+            <a onclick="openFeedback('BP-07')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-07-macro-micro-alignment.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-07')">Send Feedback</a>
-      <span class="counter" id="counter-bp07">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 08
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-08.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Financial Nervous System</div>
+        <div class="bp-desc">
+            A real-time economic intelligence grid unifying reimbursement logic,
+            payment flow, staff attribution, and liquidity signals.
+        </div>
 
-<!-- ============================
-     MODULE 08 — BP-08
-============================= -->
-<div class="module-row">
-  <img src="bp-08.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Financial Nervous System</div>
-
-    <div class="mod-desc">
-      A real-time financial intelligence grid integrating reimbursement logic, liquidity signals,
-      billing verification, staff attribution, and clinical event flow into a unified economic engine.
+        <div class="bp-actions">
+            <a href="bp-08-financial-nervous-system.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP08">PDF</a>
+            <a onclick="openFeedback('BP-08')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-08-financial-nervous-system.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-08')">Send Feedback</a>
-      <span class="counter" id="counter-bp08">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 09
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-09.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Distributed Diagnostic Grid</div>
+        <div class="bp-desc">
+            A nationwide diagnostic routing mesh that redistributes workload
+            to eliminate bottlenecks across imaging, labs, and specialty care.
+        </div>
 
-<!-- ============================
-     MODULE 09 — BP-09
-============================= -->
-<div class="module-row">
-  <img src="bp-09.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Distributed Diagnostic Grid</div>
-
-    <div class="mod-desc">
-      A nationwide diagnostic load-balancing mesh redistributing imaging, lab, and specialty demand —
-      increasing throughput and eliminating regional bottlenecks.
+        <div class="bp-actions">
+            <a href="bp-09-distributed-care-city.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP09">PDF</a>
+            <a onclick="openFeedback('BP-09')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-09-distributed-care-city.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-09')">Send Feedback</a>
-      <span class="counter" id="counter-bp09">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 10
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-10.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Intelligent Workforce Orchestration</div>
+        <div class="bp-desc">
+            Real-time modeling of staffing dynamics, workload, burnout, and predictive routing —
+            building a self-balancing national workforce.
+        </div>
 
-<!-- ============================
-     MODULE 10 — BP-10
-============================= -->
-<div class="module-row">
-  <img src="bp-10.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Intelligent Workforce Orchestration</div>
-
-    <div class="mod-desc">
-      Real-time modeling of staffing dynamics, workload prediction, burnout signals, and optimal task routing —
-      enabling a self-balancing clinical workforce architecture.
+        <div class="bp-actions">
+            <a href="bp-10-intelligent-workforce-orchestration.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP10">PDF</a>
+            <a onclick="openFeedback('BP-10')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-10-intelligent-workforce-orchestration.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-10')">Send Feedback</a>
-      <span class="counter" id="counter-bp10">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 11–30 (SECTION 2 & 3)
+====================================================== -->
 
-<!-- END OF PART 1 -->
-<!-- ============================
-     MODULE 11 — BP-11
-============================= -->
-<div class="module-row">
-  <img src="bp-11.jpg" class="mod-img"/>
+</div>
+<!-- ======================================================
+     BP 11
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-11.jpg" class="bp-img"/>
 
-  <div class="mod-content">
-    <div class="mod-title">Artificial Soul Framework</div>
+    <div>
+        <div class="bp-title">Artificial Soul Framework</div>
+        <div class="bp-desc">
+            A cognitive substrate enabling persistent memory, longitudinal reasoning,
+            adaptive intelligence, and cross-domain synthesis — forming the deep cognitive core
+            of the National Health OS.
+        </div>
 
-    <div class="mod-desc">
-      A longitudinal cognitive substrate enabling persistent memory, continuity of reasoning,
-      adaptive intelligence, and cross-domain synthesis — forming the deep cognitive backbone
-      of the National Health OS.
+        <div class="bp-actions">
+            <a href="bp-11-artificial-soul-framework.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP11">PDF</a>
+            <a onclick="openFeedback('BP-11')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-11-artificial-soul-framework.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-11')">Send Feedback</a>
-      <span class="counter" id="counter-bp11">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 12
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-12.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Bespoke AI Assistant</div>
+        <div class="bp-desc">
+            A personalized intelligence layer augmenting clinicians, executives, and policymakers —
+            providing contextual reasoning, decision augmentation, and real-time workflow alignment.
+        </div>
 
-<!-- ============================
-     MODULE 12 — BP-12
-============================= -->
-<div class="module-row">
-  <img src="bp-12.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Bespoke AI Assistant</div>
-
-    <div class="mod-desc">
-      A personalized intelligence layer augmenting clinicians, executives, and policymakers —
-      delivering contextual reasoning, situational awareness, decision augmentation,
-      and real-time workflow alignment.
+        <div class="bp-actions">
+            <a href="bp-12-bespoke-ai-assistant.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP12">PDF</a>
+            <a onclick="openFeedback('BP-12')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-12-bespoke-ai-assistant.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-12')">Send Feedback</a>
-      <span class="counter" id="counter-bp12">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 13
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-13.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Federated Clinical Reasoning Engine</div>
+        <div class="bp-desc">
+            A distributed reasoning engine enabling hospitals to collaborate on clinical intelligence
+            without sharing raw data — achieving national-scale cognitive fusion with privacy preserved.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 13 — BP-13
-============================= -->
-<div class="module-row">
-  <img src="bp-13.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Federated Clinical Reasoning Engine</div>
-
-    <div class="mod-desc">
-      A distributed reasoning engine allowing hospitals to collaborate on clinical intelligence
-      without sharing raw data — enabling privacy-preserving national-scale cognitive fusion.
+        <div class="bp-actions">
+            <a href="bp-13-federated-clinical-reasoning-engine.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP13">PDF</a>
+            <a onclick="openFeedback('BP-13')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-13-federated-clinical-reasoning-engine.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-13')">Send Feedback</a>
-      <span class="counter" id="counter-bp13">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 14
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-14.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Multi-Agent Care Workflow AI</div>
+        <div class="bp-desc">
+            A coordinated multi-agent system managing diagnostics, logistics, staffing,
+            routing, and operational load — enabling autonomous optimization of care pathways.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 14 — BP-14
-============================= -->
-<div class="module-row">
-  <img src="bp-14.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Multi-Agent Care Workflow AI</div>
-
-    <div class="mod-desc">
-      A coordinated multi-agent system managing diagnostics, logistics, staffing, routing,
-      and operational load in real time — enabling autonomous optimization of care pathways.
+        <div class="bp-actions">
+            <a href="bp-14-multi-agent-care-workflow-ai.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP14">PDF</a>
+            <a onclick="openFeedback('BP-14')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-14-multi-agent-care-workflow-ai.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-14')">Send Feedback</a>
-      <span class="counter" id="counter-bp14">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 15
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-15.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Medical NLP Interoperability Pipeline</div>
+        <div class="bp-desc">
+            A universal medical language pipeline converting free-text clinical narratives
+            into computable intelligence — enabling seamless interoperability across institutions.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 15 — BP-15
-============================= -->
-<div class="module-row">
-  <img src="bp-15.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Medical NLP Interoperability Pipeline</div>
-
-    <div class="mod-desc">
-      A universal medical language pipeline converting clinical narratives into computable,
-      interoperable intelligence — enabling seamless cross-hospital and cross-national integration.
+        <div class="bp-actions">
+            <a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP15">PDF</a>
+            <a onclick="openFeedback('BP-15')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-15')">Send Feedback</a>
-      <span class="counter" id="counter-bp15">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 16
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-16.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">AI-Empowered Clinical Simulation Lab</div>
+        <div class="bp-desc">
+            A national-scale simulation environment predicting patient trajectories, surge dynamics,
+            operational bottlenecks, and system vulnerabilities — enabling proactive redesign.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 16 — BP-16
-============================= -->
-<div class="module-row">
-  <img src="bp-16.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">AI-Empowered Clinical Simulation Lab</div>
-
-    <div class="mod-desc">
-      A national-scale simulation environment predicting patient trajectories, operational stress points,
-      diagnostic surges, clinical bottlenecks, and system vulnerabilities — enabling proactive redesign.
+        <div class="bp-actions">
+            <a href="bp-16-ai-empowered-clinical-simulation-lab.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP16">PDF</a>
+            <a onclick="openFeedback('BP-16')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-16-ai-empowered-clinical-simulation-lab.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-16')">Send Feedback</a>
-      <span class="counter" id="counter-bp16">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 17
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-17.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">National Digital Twin for Healthcare</div>
+        <div class="bp-desc">
+            A high-resolution computational replica of the national health ecosystem —
+            enabling predictive planning, scenario testing, resilience modeling, and real-time mirroring.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 17 — BP-17
-============================= -->
-<div class="module-row">
-  <img src="bp-17.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">National Digital Twin for Healthcare</div>
-
-    <div class="mod-desc">
-      A dynamic computational replica of the national health ecosystem — enabling scenario testing,
-      predictive planning, resilience modeling, and real-time system mirroring across all domains.
+        <div class="bp-actions">
+            <a href="bp-17-national-digital-twin-for-healthcare.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP17">PDF</a>
+            <a onclick="openFeedback('BP-17')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-17-national-digital-twin-for-healthcare.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-17')">Send Feedback</a>
-      <span class="counter" id="counter-bp17">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 18
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-18.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Autonomous Health Monitoring — AI Risk Envelope Engine</div>
+        <div class="bp-desc">
+            A real-time predictive safety envelope detecting emerging risks, anomaly patterns,
+            and operational instabilities — enabling automated mitigation.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 18 — BP-18
-============================= -->
-<div class="module-row">
-  <img src="bp-18.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Real-Time AI Risk Envelope Engine</div>
-
-    <div class="mod-desc">
-      A predictive safety envelope continuously detecting emerging risks, anomaly trajectories,
-      operational instabilities, and policy breaches — enabling automated mitigation layers.
+        <div class="bp-actions">
+            <a href="bp-18-autonomous-health-monitoring.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP18">PDF</a>
+            <a onclick="openFeedback('BP-18')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-18-autonomous-health-monitoring.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-18')">Send Feedback</a>
-      <span class="counter" id="counter-bp18">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 19
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-19.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Clinical Cognition AI Layer</div>
+        <div class="bp-desc">
+            Models clinical reasoning, cognitive drift, diagnostic uncertainty, and decision load —
+            aligning clinical judgment with predictive AI signals to increase accuracy and safety.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 19 — BP-19
-============================= -->
-<div class="module-row">
-  <img src="bp-19.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Clinical Cognition AI Layer</div>
-
-    <div class="mod-desc">
-      Models clinical reasoning, cognitive drift, diagnostic uncertainty, and decision load —
-      aligning human judgment with predictive AI signals to increase accuracy and safety.
+        <div class="bp-actions">
+            <a href="bp-19-clinical-cognition-ai-layer.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP19">PDF</a>
+            <a onclick="openFeedback('BP-19')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-19-clinical-cognition-ai-layer.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-19')">Send Feedback</a>
-      <span class="counter" id="counter-bp19">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 20
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-20.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Continuous National Learning Health Model</div>
+        <div class="bp-desc">
+            A perpetual learning engine transforming multi-source signals into improvement loops —
+            enabling adaptive tuning and ecosystem-wide systemic evolution.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 20 — BP-20
-============================= -->
-<div class="module-row">
-  <img src="bp-20.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Continuous National Learning Health Model</div>
-
-    <div class="mod-desc">
-      A perpetual learning engine transforming multi-source signals into national-scale improvement loops —
-      enabling adaptive tuning, systemic intelligence evolution, and ecosystem-wide optimization.
+        <div class="bp-actions">
+            <a href="bp-20-continuous-national-learning-health-model.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP20">PDF</a>
+            <a onclick="openFeedback('BP-20')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-20-continuous-national-learning-health-model.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-20')">Send Feedback</a>
-      <span class="counter" id="counter-bp20">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 21
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-21.jpg" class="bp-img"/>
 
-<!-- END OF PART 2 -->
-<!-- ============================
-     MODULE 21 — BP-21
-============================= -->
-<div class="module-row">
-  <img src="bp-21.jpg" class="mod-img"/>
+    <div>
+        <div class="bp-title">Self-Healing Health Infrastructure</div>
+        <div class="bp-desc">
+            An autonomous infrastructure layer capable of detecting, isolating, and correcting failures
+            in real time — maintaining continuous national health operations.
+        </div>
 
-  <div class="mod-content">
-    <div class="mod-title">Self-Healing Health Infrastructure</div>
-
-    <div class="mod-desc">
-      An autonomous infrastructure layer capable of detecting, isolating, and correcting failures
-      in real time — ensuring uninterrupted clinical, logistical, and digital operations across
-      the entire national health ecosystem.
+        <div class="bp-actions">
+            <a href="bp-21-self-healing-health-infrastructure.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP21">PDF</a>
+            <a onclick="openFeedback('BP-21')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-21-self-healing-health-infrastructure.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-21')">Send Feedback</a>
-      <span class="counter" id="counter-bp21">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 22
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-22.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Operational Neural Mesh</div>
+        <div class="bp-desc">
+            A logistics and intelligence mesh connecting diagnostics, mobility,
+            emergency, supply-chain, and staffing nodes — enabling synchronized national operations.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 22 — BP-22
-============================= -->
-<div class="module-row">
-  <img src="bp-22.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Operational Neural Mesh</div>
-
-    <div class="mod-desc">
-      A logistics and intelligence mesh connecting diagnostic, mobility, supply-chain,
-      emergency, and workforce nodes — enabling synchronized national operations and
-      predictive stabilization of flow across the ecosystem.
+        <div class="bp-actions">
+            <a href="bp-22-health-system-operational-neural-mesh.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP22">PDF</a>
+            <a onclick="openFeedback('BP-22')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-22-health-system-operational-neural-mesh.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-22')">Send Feedback</a>
-      <span class="counter" id="counter-bp22">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 23
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-23.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Autonomous Health Supply Chain Grid</div>
+        <div class="bp-desc">
+            A predictive supply-chain architecture coordinating medicines, equipment,
+            diagnostics, and cold-chain assets — maximizing resilience under load.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 23 — BP-23
-============================= -->
-<div class="module-row">
-  <img src="bp-23.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Autonomous Health Supply Chain Grid</div>
-
-    <div class="mod-desc">
-      A predictive, automated supply-chain grid coordinating national distribution of medicines,
-      equipment, cold-chain assets, diagnostics, and clinical consumables — minimizing shortages
-      and maximizing resilience during high-load scenarios.
+        <div class="bp-actions">
+            <a href="bp-23-autonomous-health-supply-chain-grid.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP23">PDF</a>
+            <a onclick="openFeedback('BP-23')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-23-autonomous-health-supply-chain-grid.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-23')">Send Feedback</a>
-      <span class="counter" id="counter-bp23">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 24
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-24.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Intelligent Health Transportation Network</div>
+        <div class="bp-desc">
+            A predictive routing and mobility optimization engine managing patient flows,
+            emergency transit, and inter-hospital distribution — reducing delays nationwide.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 24 — BP-24
-============================= -->
-<div class="module-row">
-  <img src="bp-24.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Intelligent Health Transportation Network</div>
-
-    <div class="mod-desc">
-      A predictive routing and mobility optimization layer managing patient distribution,
-      emergency flows, inter-hospital transfers, and regional access — reducing delays and
-      enabling equitable national mobility.
+        <div class="bp-actions">
+            <a href="bp-24-intelligent-health-transportation-network.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP24">PDF</a>
+            <a onclick="openFeedback('BP-24')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-24-intelligent-health-transportation-network.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-24')">Send Feedback</a>
-      <span class="counter" id="counter-bp24">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 25
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-25.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">National Health Resilience Index</div>
+        <div class="bp-desc">
+            A sovereign resilience scoring engine measuring structural integrity, readiness,
+            and vulnerability gradients across hospitals — guiding strategic reinforcement.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 25 — BP-25
-============================= -->
-<div class="module-row">
-  <img src="bp-25.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">National Health Resilience Index</div>
-
-    <div class="mod-desc">
-      A national resilience scoring engine measuring structural integrity, clinical readiness,
-      service continuity, and vulnerability gradients across hospitals and infrastructure nodes —
-      enabling targeted reinforcement and strategic investment.
+        <div class="bp-actions">
+            <a href="bp-25-national-health-resilience-index.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP25">PDF</a>
+            <a onclick="openFeedback('BP-25')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-25-national-health-resilience-index.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-25')">Send Feedback</a>
-      <span class="counter" id="counter-bp25">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 26
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-26.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Dynamic Waiting Room Elimination System</div>
+        <div class="bp-desc">
+            A distributed intake and routing system dynamically allocating patients
+            across capacity nodes — enabling a zero-waiting clinical model.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 26 — BP-26
-============================= -->
-<div class="module-row">
-  <img src="bp-26.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Dynamic Waiting Room Elimination System</div>
-
-    <div class="mod-desc">
-      A distributed national intake and routing system that eliminates queues by dynamically
-      allocating patients across available capacity nodes — enabling a zero-wait clinical model.
+        <div class="bp-actions">
+            <a href="bp-26-dynamic-waiting-room-elimination-system.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP26">PDF</a>
+            <a onclick="openFeedback('BP-26')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-26-dynamic-waiting-room-elimination-system.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-26')">Send Feedback</a>
-      <span class="counter" id="counter-bp26">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 27
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-27.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Clinical Capacity Forecasting Grid</div>
+        <div class="bp-desc">
+            A national forecasting grid predicting ICU load, surgical volume, imaging throughput,
+            staffing availability, and operational stress horizons.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 27 — BP-27
-============================= -->
-<div class="module-row">
-  <img src="bp-27.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Clinical Capacity Forecasting Grid</div>
-
-    <div class="mod-desc">
-      A national forecasting grid predicting ICU demand, surgical load, imaging throughput,
-      staffing availability, and operational stress horizons — enabling proactive resource balancing
-      and pre-emptive crisis avoidance.
+        <div class="bp-actions">
+            <a href="bp-27-clinical-capacity-forecasting-grid.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP27">PDF</a>
+            <a onclick="openFeedback('BP-27')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-27-clinical-capacity-forecasting-grid.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-27')">Send Feedback</a>
-      <span class="counter" id="counter-bp27">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 28
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-28.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">National Health Mission Control</div>
+        <div class="bp-desc">
+            A unified national command interface integrating diagnostics, mobility, workforce,
+            resilience, predictive intelligence, and operational law — enabling deep situational awareness.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 28 — BP-28
-============================= -->
-<div class="module-row">
-  <img src="bp-28.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">National Health Mission Control</div>
-
-    <div class="mod-desc">
-      A unified national command interface integrating mobility, diagnostics, workforce,
-      resilience, predictive intelligence, and operational law — enabling deep situational
-      awareness and coordinated system-wide directives.
+        <div class="bp-actions">
+            <a href="bp-28-national-health-mission-control.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP28">PDF</a>
+            <a onclick="openFeedback('BP-28')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-28-national-health-mission-control.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-28')">Send Feedback</a>
-      <span class="counter" id="counter-bp28">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 29
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-29.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">National Health OS Kernel</div>
+        <div class="bp-desc">
+            The sovereign computational kernel that unifies all national modules —
+            ensuring coherence, predictive integrity, safety laws, and zero-drift regulation.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 29 — BP-29
-============================= -->
-<div class="module-row">
-  <img src="bp-29.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">National Health OS Kernel</div>
-
-    <div class="mod-desc">
-      The sovereign computational kernel that unifies all national health modules — enforcing
-      coherence, safety laws, predictive priority, governance logic, and zero-drift regulation
-      across the entire ecosystem.
+        <div class="bp-actions">
+            <a href="bp-29-national-health-operating-system-kernel.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP29">PDF</a>
+            <a onclick="openFeedback('BP-29')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-29-national-health-operating-system-kernel.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-29')">Send Feedback</a>
-      <span class="counter" id="counter-bp29">loading…</span>
-    </div>
-  </div>
 </div>
 
-<div class="divider"></div>
+<!-- ======================================================
+     BP 30
+====================================================== -->
+<div class="bp-card">
+    <img src="bp-30.jpg" class="bp-img"/>
 
+    <div>
+        <div class="bp-title">Health Nation Digital Twin</div>
+        <div class="bp-desc">
+            A sovereign-scale predictive engine simulating national health dynamics —
+            enabling real-time adjustment, crisis rehearsal, long-horizon planning,
+            and architecture-level decision flow.
+        </div>
 
-
-
-<!-- ============================
-     MODULE 30 — BP-30
-============================= -->
-<div class="module-row">
-  <img src="bp-30.jpg" class="mod-img"/>
-
-  <div class="mod-content">
-    <div class="mod-title">Health Nation Digital Twin</div>
-
-    <div class="mod-desc">
-      A sovereign-scale predictive engine simulating national health dynamics — enabling real-time
-      adjustments, policy simulation, long-horizon planning, crisis rehearsal, and ecosystem-wide
-      operational alignment.
+        <div class="bp-actions">
+            <a href="bp-30-health-nation-digital-twin.html">View Blueprint</a>
+            <a href="https://drive.google.com/file/d/BP30">PDF</a>
+            <a onclick="openFeedback('BP-30')">Feedback</a>
+        </div>
     </div>
-
-    <div class="mod-actions">
-      <a href="bp-30-health-nation-digital-twin.html" class="view-btn">View Module</a>
-      <a class="feedback-btn" onclick="openFeedback('BP-30')">Send Feedback</a>
-      <span class="counter" id="counter-bp30">loading…</span>
-    </div>
-  </div>
 </div>
+<script>
+    const counters = [
+        "BP-01","BP-02","BP-03","BP-04","BP-05","BP-06","BP-07","BP-08","BP-09","BP-10",
+        "BP-11","BP-12","BP-13","BP-14","BP-15","BP-16","BP-17","BP-18","BP-19","BP-20",
+        "BP-21","BP-22","BP-23","BP-24","BP-25","BP-26","BP-27","BP-28","BP-29","BP-30"
+    ];
 
-<div class="divider"></div>
+    async function loadCounters() {
+        counters.forEach(id => {
+            const el = document.getElementById("counter-" + id.toLowerCase().replace("bp-","bp"));
+            if (el) el.innerText = ""; // optional: hide counters if not needed
+        });
+    }
 
-<!-- END OF PART 3 -->
+    loadCounters();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "National Blueprint Architecture Lab",
+  "url": "https://lohrasbi.info/blueprints.html",
+  "description": "A collection of 30 national-scale healthcare architectures designed by Dr. Nader Lohrasbi.",
+  "creator": {
+    "@type": "Person",
+    "name": "Dr. Nader Lohrasbi",
+    "jobTitle": "Healthcare Transformation Architect & AI Strategist",
+    "url": "https://lohrasbi.info",
+    "affiliation": "Lohrasbi Architecture Lab"
+  },
+  "hasPart": [
+    {"@type":"CreativeWork","name":"BP-01 Health Nation OS","url":"https://lohrasbi.info/bp-01-health-nation-os.html"},
+    {"@type":"CreativeWork","name":"BP-02 Architecture Over Repair","url":"https://lohrasbi.info/bp-02-architecture-over-repair.html"},
+    {"@type":"CreativeWork","name":"BP-03 Crisis Architecture Framework","url":"https://lohrasbi.info/bp-03-crisis-architecture-framework.html"},
+    {"@type":"CreativeWork","name":"BP-04 Strategic Control Tower","url":"https://lohrasbi.info/bp-04-strategic-control-tower.html"},
+    {"@type":"CreativeWork","name":"BP-05 Clinical Efficiency Paradox","url":"https://lohrasbi.info/bp-05-clinical-efficiency-paradox.html"},
+    {"@type":"CreativeWork","name":"BP-06 AI Governance Model","url":"https://lohrasbi.info/bp-06-ai-governance-model.html"},
+    {"@type":"CreativeWork","name":"BP-07 Macro-Micro Alignment","url":"https://lohrasbi.info/bp-07-macro-micro-alignment.html"},
+    {"@type":"CreativeWork","name":"BP-08 Financial Nervous System","url":"https://lohrasbi.info/bp-08-financial-nervous-system.html"},
+    {"@type":"CreativeWork","name":"BP-09 Distributed Diagnostic Grid","url":"https://lohrasbi.info/bp-09-distributed-care-city.html"},
+    {"@type":"CreativeWork","name":"BP-10 Intelligent Workforce Orchestration","url":"https://lohrasbi.info/bp-10-intelligent-workforce-orchestration.html"},
+    {"@type":"CreativeWork","name":"BP-11 Artificial Soul Framework","url":"https://lohrasbi.info/bp-11-artificial-soul-framework.html"},
+    {"@type":"CreativeWork","name":"BP-12 Bespoke AI Assistant","url":"https://lohrasbi.info/bp-12-bespoke-ai-assistant.html"},
+    {"@type":"CreativeWork","name":"BP-13 Federated Clinical Reasoning Engine","url":"https://lohrasbi.info/bp-13-federated-clinical-reasoning-engine.html"},
+    {"@type":"CreativeWork","name":"BP-14 Multi-Agent Workflow AI","url":"https://lohrasbi.info/bp-14-multi-agent-care-workflow-ai.html"},
+    {"@type":"CreativeWork","name":"BP-15 Medical NLP Pipeline","url":"https://lohrasbi.info/bp-15-medical-nlp-pipeline-for-global-interoperability.html"},
+    {"@type":"CreativeWork","name":"BP-16 Clinical Simulation Lab","url":"https://lohrasbi.info/bp-16-ai-empowered-clinical-simulation-lab.html"},
+    {"@type":"CreativeWork","name":"BP-17 National Digital Twin","url":"https://lohrasbi.info/bp-17-national-digital-twin-for-healthcare.html"},
+    {"@type":"CreativeWork","name":"BP-18 Autonomous Health Monitoring","url":"https://lohrasbi.info/bp-18-autonomous-health-monitoring.html"},
+    {"@type":"CreativeWork","name":"BP-19 Clinical Cognition AI","url":"https://lohrasbi.info/bp-19-clinical-cognition-ai-layer.html"},
+    {"@type":"CreativeWork","name":"BP-20 National Learning Health Model","url":"https://lohrasbi.info/bp-20-continuous-national-learning-health-model.html"},
+    {"@type":"CreativeWork","name":"BP-21 Self-Healing Infrastructure","url":"https://lohrasbi.info/bp-21-self-healing-health-infrastructure.html"},
+    {"@type":"CreativeWork","name":"BP-22 Operational Neural Mesh","url":"https://lohrasbi.info/bp-22-health-system-operational-neural-mesh.html"},
+    {"@type":"CreativeWork","name":"BP-23 Autonomous Supply Chain Grid","url":"https://lohrasbi.info/bp-23-autonomous-health-supply-chain-grid.html"},
+    {"@type":"CreativeWork","name":"BP-24 Intelligent Health Transportation","url":"https://lohrasbi.info/bp-24-intelligent-health-transportation-network.html"},
+    {"@type":"CreativeWork","name":"BP-25 Health Resilience Index","url":"https://lohrasbi.info/bp-25-national-health-resilience-index.html"},
+    {"@type":"CreativeWork","name":"BP-26 Zero Waiting Room System","url":"https://lohrasbi.info/bp-26-dynamic-waiting-room-elimination-system.html"},
+    {"@type":"CreativeWork","name":"BP-27 Capacity Forecasting Grid","url":"https://lohrasbi.info/bp-27-clinical-capacity-forecasting-grid.html"},
+    {"@type":"CreativeWork","name":"BP-28 National Mission Control","url":"https://lohrasbi.info/bp-28-national-health-mission-control.html"},
+    {"@type":"CreativeWork","name":"BP-29 National OS Kernel","url":"https://lohrasbi.info/bp-29-national-health-operating-system-kernel.html"},
+    {"@type":"CreativeWork","name":"BP-30 Health Nation Digital Twin","url":"https://lohrasbi.info/bp-30-health-nation-digital-twin.html"}
+  ]
+}
+</script>
