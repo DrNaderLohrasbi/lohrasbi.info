@@ -1,262 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Health System Operational Neural Mesh — Blueprint 22</title>
-    <meta name="description" content="A sovereign operational neural mesh that interconnects national healthcare systems for real-time intelligence, synchronized operations, and multi-layer signal orchestration." />
-    <link rel="icon" type="image/png" href="favicon-96x96.png" />
+  <meta charset="UTF-8"/>
+  <title>Blueprint 22 – Health System Operational Neural Mesh | Lohrasbi Architecture Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background: #020617;
-            color: #e2e8f0;
-            line-height: 1.7;
-        }
-        header {
-            padding: 40px 20px;
-            background: #0f172a;
-            border-bottom: 1px solid #1e293b;
-        }
-        a { color: inherit; text-decoration: none; }
+  <meta name="description"
+        content="Blueprint 22: Health System Operational Neural Mesh — a distributed operational intelligence layer that synchronizes hospitals, clinics, diagnostics, logistics, and emergency systems through autonomous routing and dynamic load balancing."/>
+  <link rel="canonical" href="https://lohrasbi.info/bp-22-health-system-operational-neural-mesh.html"/>
 
-        .breadcrumb {
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-            color: #64748b;
-        }
-        .breadcrumb a { color: #94a3b8; }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-        .hero-title {
-            font-size: 2.45rem;
-            font-weight: 700;
-            color: #e0f2fe;
-            margin-bottom: 10px;
-        }
+  <style>
+    :root{
+      --bg:#000814;
+      --accent:#38bdf8;
+      --text-main:#e2e8f0;
+      --text-soft:#94a3b8;
+      --border:rgba(56,189,248,.25);
+      --radius-lg:18px;
+      --radius-xl:24px;
+    }
 
-        .hero-subtitle {
-            font-size: 1.05rem;
-            color: #38bdf8;
-            font-weight: 500;
-        }
+    body{
+      margin:0;background:var(--bg);color:var(--text-main);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
 
-        .hero-image {
-            width: 100%;
-            max-height: 380px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-top: 25px;
-            box-shadow: 0 8px 26px rgba(0,0,0,0.45);
-        }
+    a{text-decoration:none;color:#7dd3fc;}
+    a:hover{color:#e0f2fe;}
 
-        .container {
-            max-width: 1100px;
-            margin: 40px auto 70px;
-            padding: 0 20px;
-        }
+    header{
+      position:sticky;top:0;z-index:40;
+      padding:14px 26px;background:rgba(2,8,23,.9);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(15,23,42,.9);
+    }
 
-        .card {
-            background: #1e293b;
-            padding: 26px;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            margin-bottom: 32px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-        }
+    .nav-mini{
+      max-width:1180px;margin:auto;
+      display:flex;justify-content:space-between;align-items:center;
+    }
 
-        .section-title {
-            font-size: 1.3rem;
-            color: #22c55e;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
+    .nav-mini-left{
+      font-size:1.02rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.04em;
+      color:var(--accent);
+    }
 
-        ul.usecases {
-            list-style: none;
-            padding: 0;
-        }
-        ul.usecases li::before {
-            content: "• ";
-            color: #22c55e;
-        }
+    .nav-mini-right a{
+      margin-left:18px;font-size:.95rem;color:var(--text-soft);
+    }
 
-        .diagram-box {
-            border: 1px dashed #38bdf8;
-            padding: 20px;
-            border-radius: 12px;
-            background: rgba(56,189,248,0.07);
-            color: #38bdf8;
-            margin-top: 10px;
-        }
+    .nav-mini-right a.active{color:#e5f3ff;font-weight:600;}
 
-        .download-buttons a {
-            display: inline-block;
-            margin-right: 12px;
-            margin-top: 12px;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-        .btn-primary {
-            background: #22c55e;
-            color: #000;
-        }
-        .btn-outline {
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-        }
+    .shell{
+      max-width:1180px;margin:auto;
+      padding:34px 26px 80px;
+    }
 
-        .qa-item { margin-bottom: 22px; }
-        .qa-item h3 { color: #38bdf8; margin-bottom: 8px; }
+    .hero{
+      display:flex;gap:34px;flex-wrap:wrap;
+      align-items:center;margin-bottom:42px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 28px;
-            color: #64748b;
-            font-size: 0.85rem;
-            border-top: 1px solid #1e293b;
-        }
-    </style>
+    .hero img{
+      width:420px;border-radius:var(--radius-xl);
+      border:1px solid var(--border);
+      background:#020617;
+      box-shadow:0 26px 55px rgba(15,23,42,.85);
+    }
+
+    .bp-tag{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:6px 14px;margin-bottom:12px;border-radius:999px;
+      border:1px solid rgba(56,189,248,.35);
+      background:rgba(15,23,42,.85);
+      color:#7dd3fc;font-size:.8rem;
+      letter-spacing:.09em;text-transform:uppercase;
+    }
+
+    .bp-short{
+      max-width:580px;font-size:1rem;color:#cbd5e1;
+      line-height:1.6;
+    }
+
+    h2{
+      margin-top:40px;font-size:1.6rem;color:#f8fafc;
+    }
+
+    .section{
+      margin-top:10px;max-width:900px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.7;
+    }
+
+    ul{
+      margin-top:10px;margin-left:22px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.6;
+    }
+
+    .bp-pdf{
+      margin-top:46px;padding:22px;
+      background:radial-gradient(circle at top left,
+      rgba(56,189,248,.09),
+      rgba(15,23,42,.96));
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 26px 55px rgba(15,23,42,.9);
+    }
+
+    .bp-pdf-frame{
+      margin-top:18px;border-radius:var(--radius-lg);
+      overflow:hidden;border:1px solid rgba(148,163,184,.45);
+    }
+
+    .bp-pdf-note{
+      margin-top:10px;font-size:.85rem;color:var(--text-soft);
+    }
+
+    .qa-box{
+      margin-top:40px;padding:22px;
+      background:rgba(15,23,42,.9);
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(56,189,248,.25);
+    }
+
+    .qa-box h3{
+      margin:0 0 10px;font-size:1.35rem;
+    }
+
+    .nav-bottom{
+      margin-top:46px;display:flex;
+      justify-content:space-between;font-size:.95rem;
+    }
+
+    footer{
+      text-align:center;padding:20px;margin-top:20px;
+      color:#64748b;font-size:.85rem;
+      background:#020617;border-top:1px solid rgba(15,23,42,.9);
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <div class="breadcrumb">
-        <a href="index.html">Home</a> ›
-        <a href="blueprints.html">Blueprints</a> ›
-        bp-22
+  <div class="nav-mini">
+    <div class="nav-mini-left">Lohrasbi Architecture Lab</div>
+
+    <div class="nav-mini-right">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="blueprints.html" class="active">Blueprints</a>
+      <a href="os-map.html">OS Map</a>
+      <a href="contact.html">Contact</a>
     </div>
-
-    <h1 class="hero-title">Health System Operational Neural Mesh</h1>
-    <div class="hero-subtitle">Real-Time Multi-Layer Signal Fusion & National Operational Synchronization</div>
-
-    <img src="bp-22.png" alt="Health System Operational Neural Mesh" class="hero-image" />
+  </div>
 </header>
 
-<div class="container">
 
-    <!-- Executive Summary -->
-    <div class="card">
-        <div class="section-title">Executive Summary</div>
-        <p>
-            This blueprint defines the “Operational Neural Mesh” —  
-            a sovereign architecture that enables real-time synchronization  
-            across national healthcare systems.  
-            By merging clinical, logistical, financial, staffing, and crisis signals  
-            into a unified operational fabric, the neural mesh ensures  
-            continuous system awareness and coordinated national functioning.
-        </p>
+<div class="shell">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="bp-22.jpg" alt="Blueprint 22 – Health System Operational Neural Mesh">
+
+    <div>
+      <div class="bp-tag">
+        <i class="fa-solid fa-network-wired"></i>
+        Blueprint 22 · Operational Neural Mesh
+      </div>
+
+      <h1>Health System Operational Neural Mesh</h1>
+
+      <p class="bp-short">
+        A distributed operational intelligence mesh that synchronizes hospitals, clinics,
+        diagnostics, logistics, telehealth, and emergency systems — enabling autonomous load
+        balancing, adaptive routing, and national-scale operational coherence.
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <h2>Extended Architecture Overview</h2>
+  <div class="section">
+    The Operational Neural Mesh forms the real-time connective tissue of a modern national health
+    system. It coordinates operational signals across institutions, detects congestion, predicts
+    overloads, and autonomously re-routes patients, staff, diagnostics, and logistics to maintain
+    optimal system flow.
+  </div>
+
+  <h2>Core Components</h2>
+  <ul>
+    <li>Real-time operational signal fusion</li>
+    <li>Autonomous congestion sensing</li>
+    <li>Dynamic routing across institutions</li>
+    <li>National load-balancing engine</li>
+    <li>Mesh-level operational governance</li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <div class="section">
+    <strong>Upstream:</strong> Self-Healing Infrastructure, Continuous Learning Systems  
+    <br/>
+    <strong>Downstream:</strong> Autonomous Supply Chain, National Health Flow Optimization
+  </div>
+
+  <!-- PDF VIEWER -->
+  <section class="bp-pdf" id="blueprint-pdf">
+    <h2>Full Blueprint – Read-Only PDF</h2>
+    <p>The complete Operational Neural Mesh blueprint is provided as a secure read-only document.</p>
+
+    <div class="bp-pdf-frame">
+      <iframe
+        src="https://drive.google.com/file/d/1R_hfCMThiaUx52Ah4l3TjIgf0nLH5RCV/preview"
+        width="100%" height="880" allow="fullscreen" loading="lazy" style="border:0;"></iframe>
     </div>
 
-    <!-- Strategic Rationale -->
-    <div class="card">
-        <div class="section-title">Strategic Rationale</div>
-        <p>
-            National health systems remain fragmented because signals are isolated,  
-            delayed, or invisible across institutions.  
-            The result: uncontrolled cascades, inconsistent operations,  
-            and avoidable system failures.  
-            The Operational Neural Mesh eliminates this fragmentation  
-            by creating a high-speed, unified signal environment  
-            that supports predictive stabilization and strategic control.
-        </p>
-    </div>
+    <p class="bp-pdf-note">
+      If viewer fails:
+      <a href="https://drive.google.com/file/d/1R_hfCMThiaUx52Ah4l3TjIgf0nLH5RCV/view?usp=drive_link" target="_blank">
+        Open full PDF
+      </a>
+    </p>
+  </section>
 
-    <!-- System Architecture -->
-    <div class="card">
-        <div class="section-title">System Architecture</div>
+  <!-- Q&A -->
+  <div class="qa-box">
+    <h3>Questions & Architecture Support</h3>
+    <p>Support available for operational mesh design, routing logic, and national-scale optimization engines.</p>
+  </div>
 
-        <p><strong>1. Multimodal Signal Intake Layer</strong> — Collects real-time data from clinical systems, staffing, logistics, IoT, and finance.</p>
-        <p><strong>2. Neural Signal Processor</strong> — Normalizes signals and encodes them into machine-interpretable operational units.</p>
-        <p><strong>3. National Coordination Mesh</strong> — Shares signals between institutions to synchronize workflows and detect system-wide anomalies.</p>
-        <p><strong>4. Stabilization Intelligence Core</strong> — Generates corrective actions and orchestrates multi-hospital responses.</p>
-    </div>
-
-    <!-- Use Cases -->
-    <div class="card">
-        <div class="section-title">Key Use Cases</div>
-        <ul class="usecases">
-            <li>Real-time hospital load balancing</li>
-            <li>Predictive operational failure prevention</li>
-            <li>National logistics synchronization</li>
-            <li>Cross-institution workflow alignment</li>
-            <li>High-speed crisis propagation control</li>
-        </ul>
-    </div>
-
-    <!-- Diagram -->
-    <div class="card">
-        <div class="section-title">Technical Blueprint Diagram</div>
-        <div class="diagram-box">
-            Placeholder for operational neural mesh diagram
-        </div>
-    </div>
-
-    <!-- Downloads -->
-    <div class="card">
-        <div class="section-title">Downloads & Actions</div>
-        <div class="download-buttons">
-            <a class="btn-primary" href="#">Download Full PDF</a>
-            <a class="btn-outline" href="https://github.com/DrNaderLohrasbi/lohrasbi.info">View on GitHub</a>
-            <a class="btn-outline" href="#">Cite This Blueprint</a>
-        </div>
-    </div>
-
-    <!-- Q&A -->
-    <div class="card">
-        <div class="section-title">Q&A</div>
-
-        <div class="qa-item">
-            <h3>Core Problem</h3>
-            <p>
-                Health systems operate in disconnected silos,  
-                making national coordination, prediction,  
-                and stabilization nearly impossible.
-            </p>
-        </div>
-
-        <div class="qa-item">
-            <h3>Architectural Solution</h3>
-            <p>
-                A sovereign neural mesh that interconnects all operational layers  
-                and institutions, enabling synchronized national functioning  
-                and real-time intelligence.
-            </p>
-        </div>
-
-        <div class="qa-item">
-            <h3>Impact on Health Systems</h3>
-            <p>
-                Enables proactive national control, prevents cascading failures,  
-                and converts healthcare into an interconnected operational ecosystem.
-            </p>
-        </div>
-
-    </div>
+  <!-- NAVIGATION -->
+  <div class="nav-bottom">
+    <a href="bp-21-self-healing-health-infrastructure.html">
+      <i class="fa-solid fa-arrow-left-long"></i> Previous
+    </a>
+    <a href="bp-23-autonomous-health-supply-chain-grid.html">
+      Next <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+  </div>
 
 </div>
 
 <footer>
-    © 2025 Dr. Nader Lohrasbi — All Rights Reserved.
+  © 2025 Dr. Nader Lohrasbi · Lohrasbi Architecture Lab · Operational Neural Mesh Blueprint v1.0
 </footer>
 
-<!-- SCHEMA -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Health System Operational Neural Mesh — Blueprint 22",
-  "author": {
-    "@type": "Person",
-    "name": "Dr. Nader Lohrasbi",
-    "url": "https://lohrasbi.info"
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "@id":"https://lohrasbi.info/bp-22-health-system-operational-neural-mesh.html#blueprint",
+  "name":"Blueprint 22 – Health System Operational Neural Mesh",
+  "author":{
+    "@type":"Person",
+    "name":"Dr. Nader Lohrasbi",
+    "identifier":"https://orcid.org/0009-0004-4232-2953"
   },
-  "image": "https://lohrasbi.info/bp-22.png",
-  "description": "A sovereign operational neural mesh for real-time intelligence, synchronization, and national-scale stabilization.",
-  "url": "https://lohrasbi.info/bp-22-health-system-operational-neural-mesh.html"
+  "publisher":{
+    "@type":"Organization",
+    "name":"Lohrasbi Architecture Lab",
+    "url":"https://lohrasbi.info"
+  },
+  "inLanguage":"en",
+  "encoding":{
+    "@type":"MediaObject",
+    "contentUrl":"https://drive.google.com/file/d/1R_hfCMThiaUx52Ah4l3TjIgf0nLH5RCV/view?usp=drive_link",
+    "encodingFormat":"application/pdf"
+  },
+  "about":[
+    "Operational Neural Mesh",
+    "Autonomous Routing",
+    "Health System Optimization",
+    "Load Balancing"
+  ]
 }
 </script>
 
