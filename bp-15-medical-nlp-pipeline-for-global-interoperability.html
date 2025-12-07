@@ -1,262 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Medical NLP Pipeline for Global Interoperability — Blueprint 15</title>
-    <meta name="description" content="A sovereign medical NLP pipeline enabling cross-language interoperability, clinical text normalization, ontology mapping, and multinational healthcare alignment." />
-    <link rel="icon" type="image/png" href="favicon-96x96.png" />
+  <meta charset="UTF-8"/>
+  <title>Blueprint 15 – Medical NLP Interoperability Pipeline | Lohrasbi Architecture Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background: #020617;
-            color: #e2e8f0;
-            line-height: 1.7;
-        }
-        a { color: inherit; text-decoration: none; }
-        header {
-            padding: 40px 20px;
-            background: #0f172a;
-            border-bottom: 1px solid #1e293b;
-        }
-        .breadcrumb {
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-            color: #64748b;
-        }
-        .breadcrumb a { color: #94a3b8; }
+  <meta name="description"
+        content="Blueprint 15: Medical NLP Interoperability Pipeline — a universal semantic translation layer that converts unstructured clinical text into standardized, computable data across languages, hospitals, and software systems, forming a national semantic backbone."/>
+  <link rel="canonical" href="https://lohrasbi.info/bp-15-medical-nlp-pipeline-for-global-interoperability.html"/>
 
-        .hero-title {
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: #e0f2fe;
-            margin-bottom: 10px;
-        }
-        .hero-subtitle {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #38bdf8;
-            margin-bottom: 20px;
-        }
-        .hero-image {
-            width: 100%;
-            max-height: 380px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-top: 25px;
-            box-shadow: 0 8px 26px rgba(0,0,0,0.45);
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-        .container {
-            max-width: 1100px;
-            margin: 40px auto 70px;
-            padding: 0 20px;
-        }
+  <style>
+    :root{
+      --bg:#000814;
+      --accent:#38bdf8;
+      --text-main:#e2e8f0;
+      --text-soft:#94a3b8;
+      --border:rgba(56,189,248,.25);
+      --radius-lg:18px;
+      --radius-xl:24px;
+    }
 
-        .card {
-            background: #1e293b;
-            padding: 26px;
-            border-radius: 12px;
-            margin-bottom: 32px;
-            border: 1px solid #334155;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-        }
-        .section-title {
-            color: #22c55e;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 14px;
-        }
+    body{
+      margin:0;background:var(--bg);color:var(--text-main);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
 
-        ul.usecases {
-            list-style: none;
-            padding: 0;
-        }
-        ul.usecases li::before {
-            content: "• ";
-            color: #22c55e;
-        }
+    a{text-decoration:none;color:#7dd3fc;}
+    a:hover{color:#e0f2fe;}
 
-        .diagram-box {
-            border: 1px dashed #38bdf8;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 12px;
-            background: rgba(56,189,248,0.06);
-            color: #38bdf8;
-        }
+    header{
+      position:sticky;top:0;z-index:40;
+      padding:14px 26px;
+      background:rgba(2,8,23,.9);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(15,23,42,.9);
+    }
 
-        .download-buttons a {
-            display: inline-block;
-            margin-right: 12px;
-            margin-top: 10px;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .btn-primary {
-            background: #22c55e;
-            color: #000;
-        }
-        .btn-outline {
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-        }
+    .nav-mini{
+      max-width:1180px;margin:auto;
+      display:flex;justify-content:space-between;align-items:center;
+    }
 
-        .qa-item {
-            margin-bottom: 22px;
-        }
-        .qa-item h3 {
-            color: #38bdf8;
-            margin-bottom: 8px;
-        }
+    .nav-mini-left{
+      font-size:1.02rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.04em;
+      color:var(--accent);
+    }
 
-        footer {
-            text-align: center;
-            padding: 28px;
-            color: #64748b;
-            font-size: 0.85rem;
-            border-top: 1px solid #1e293b;
-        }
-    </style>
+    .nav-mini-right a{
+      margin-left:18px;font-size:.95rem;color:var(--text-soft);
+    }
+    .nav-mini-right a.active{
+      color:#e5f3ff;font-weight:600;
+    }
+
+    .shell{
+      max-width:1180px;margin:auto;
+      padding:34px 26px 80px;
+    }
+
+    .hero{
+      display:flex;gap:34px;flex-wrap:wrap;
+      align-items:center;margin-bottom:42px;
+    }
+
+    .hero img{
+      width:420px;border-radius:var(--radius-xl);
+      border:1px solid var(--border);
+      background:#020617;
+      box-shadow:0 26px 55px rgba(15,23,42,.85);
+    }
+
+    .bp-tag{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:6px 14px;margin-bottom:12px;
+      border-radius:999px;border:1px solid rgba(56,189,248,.35);
+      background:rgba(15,23,42,.85);
+      color:#7dd3fc;font-size:.8rem;
+      text-transform:uppercase;letter-spacing:.09em;
+    }
+
+    .bp-short{
+      max-width:580px;font-size:1rem;color:#cbd5e1;
+      line-height:1.6;
+    }
+
+    h2{
+      margin-top:40px;font-size:1.6rem;color:#f8fafc;
+    }
+
+    .section{
+      margin-top:10px;max-width:900px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.7;
+    }
+
+    ul{
+      margin-top:10px;margin-left:22px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.6;
+    }
+
+    .bp-pdf{
+      margin-top:46px;padding:22px;
+      background:radial-gradient(circle at top left,
+      rgba(56,189,248,.09),
+      rgba(15,23,42,.96));
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 26px 55px rgba(15,23,42,.9);
+    }
+
+    .bp-pdf-frame{
+      margin-top:18px;border-radius:var(--radius-lg);
+      overflow:hidden;border:1px solid rgba(148,163,184,.45);
+    }
+
+    .bp-pdf-note{
+      margin-top:10px;font-size:.85rem;color:var(--text-soft);
+    }
+
+    .qa-box{
+      margin-top:40px;padding:22px;
+      background:rgba(15,23,42,.9);
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(56,189,248,.25);
+    }
+
+    .qa-box h3{
+      margin:0 0 10px;font-size:1.35rem;
+    }
+
+    .nav-bottom{
+      margin-top:46px;display:flex;
+      justify-content:space-between;font-size:.95rem;
+    }
+
+    footer{
+      text-align:center;padding:20px;margin-top:20px;
+      color:#64748b;font-size:.85rem;
+      background:#020617;border-top:1px solid rgba(15,23,42,.9);
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <div class="breadcrumb">
-        <a href="index.html">Home</a> › 
-        <a href="blueprints.html">Blueprints</a> › 
-        bp-15
+  <div class="nav-mini">
+    <div class="nav-mini-left">Lohrasbi Architecture Lab</div>
+
+    <div class="nav-mini-right">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="blueprints.html" class="active">Blueprints</a>
+      <a href="os-map.html">OS Map</a>
+      <a href="contact.html">Contact</a>
     </div>
-
-    <h1 class="hero-title">Medical NLP Pipeline for Global Interoperability</h1>
-    <div class="hero-subtitle">Global Medical Interoperability through AI-NLP Architecture</div>
-
-    <img src="bp-15.png" alt="Medical NLP Pipeline for Global Interoperability" class="hero-image">
+  </div>
 </header>
 
-<div class="container">
 
-    <!-- Executive Summary -->
-    <div class="card">
-        <div class="section-title">Executive Summary</div>
-        <p>
-            This blueprint defines a sovereign medical NLP pipeline enabling global interoperability 
-            across languages, taxonomies, and national health documentation standards.  
-            Free-text clinical narratives are ingested, normalized, mapped to ontologies,  
-            and translated into unified structured representations.  
-            Through this architecture, multinational research, telemedicine,  
-            cross-border care, and global EHR alignment become operationally feasible.
-        </p>
+<div class="shell">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="bp-15.jpg" alt="Blueprint 15 – Medical NLP Interoperability Pipeline">
+
+    <div>
+      <div class="bp-tag">
+        <i class="fa-solid fa-language"></i>
+        Blueprint 15 · Semantic Interoperability
+      </div>
+
+      <h1>Medical NLP Interoperability Pipeline</h1>
+
+      <p class="bp-short">
+        A universal semantic translation layer that converts clinical text into standardized,
+        computable, multi-language medical data — dissolving documentation silos and forming
+        the national semantic backbone for analytics and AI reasoning.
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <h2>Extended Architecture Overview</h2>
+  <div class="section">
+    The Medical NLP Interoperability Pipeline unifies clinical documentation across languages,
+    institutions, EHR vendors, and legacy systems. It transforms unstructured narratives into
+    standardized representations such as FHIR, SNOMED CT, ICD-10, and custom national schemas —
+    enabling cross-system reasoning, analytics, and decision support at scale.
+  </div>
+
+  <h2>Core Components</h2>
+  <ul>
+    <li>Multi-language medical NLP engine</li>
+    <li>Structured output layer (FHIR, SNOMED, ontology graphs)</li>
+    <li>Semantic normalization algorithms</li>
+    <li>Cross-institution interoperability interface</li>
+    <li>National documentation intelligence registry</li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <div class="section">
+    <strong>Upstream:</strong> Statewide NLP inputs, physician documentation, diagnostic narratives  
+    <br/>
+    <strong>Downstream:</strong> Reasoning engines, continuity-of-care systems, national analytics
+  </div>
+
+  <!-- PDF VIEWER -->
+  <section class="bp-pdf" id="blueprint-pdf">
+    <h2>Full Blueprint – Read-Only PDF</h2>
+    <p>The complete Medical NLP Interoperability Pipeline blueprint is provided as a secure national document.</p>
+
+    <div class="bp-pdf-frame">
+      <iframe
+        src="https://drive.google.com/file/d/1T_M1AJnVZ6HC9rB5WvFOMePdbroc67r2/preview"
+        width="100%" height="880" allow="fullscreen" loading="lazy" style="border:0;"></iframe>
     </div>
 
-    <!-- Strategic Rationale -->
-    <div class="card">
-        <div class="section-title">Strategic Rationale</div>
-        <p>
-            Healthcare operates globally, but medical language remains fragmented,  
-            informal, and incompatible across regions.  
-            Without AI-driven normalization and ontology mapping,  
-            no nation can achieve interoperable health intelligence,  
-            shared analytics, or coordinated policy response.  
-            This blueprint establishes the linguistic backbone for a unified health ecosystem.
-        </p>
-    </div>
+    <p class="bp-pdf-note">
+      If viewer fails:
+      <a href="https://drive.google.com/file/d/10qii1atfIXpZAuRz2Vr2hfavJUl5HAeh/view?usp=drive_link" target="_blank">
+        Open full PDF
+      </a>
+    </p>
+  </section>
 
-    <!-- System Architecture -->
-    <div class="card">
-        <div class="section-title">System Architecture</div>
+  <!-- Q&A -->
+  <div class="qa-box">
+    <h3>Questions & Architecture Support</h3>
+    <p>Support for semantic interoperability, multilingual NLP deployments, and clinical data harmonization is available.</p>
+  </div>
 
-        <p><strong>1. Ingestion Layer</strong> — Captures multilingual clinical text, reports, imaging notes, claims, and EHR fields.</p>
-        <p><strong>2. Language Normalization</strong> — Converts raw text into structured linguistic units using domain-tuned NLP.</p>
-        <p><strong>3. Ontology Mapping</strong> — Aligns terminology with SNOMED CT, ICD-10, CPT, LOINC, and FHIR semantics.</p>
-        <p><strong>4. Clinical Interpretation Layer</strong> — Generates structured medical meaning, risk signals, and care pathways.</p>
-    </div>
-
-    <!-- Key Use Cases -->
-    <div class="card">
-        <div class="section-title">Key Use Cases</div>
-        <ul class="usecases">
-            <li>Cross-border telemedicine</li>
-            <li>International EHR synchronization</li>
-            <li>Global health tourism workflows</li>
-            <li>Multi-national clinical trials</li>
-            <li>Unified research datasets</li>
-        </ul>
-    </div>
-
-    <!-- Diagram -->
-    <div class="card">
-        <div class="section-title">Technical Blueprint Diagram</div>
-        <div class="diagram-box">
-            Placeholder for the architecture diagram (you will embed manually)
-        </div>
-    </div>
-
-    <!-- Downloads -->
-    <div class="card">
-        <div class="section-title">Downloads & Actions</div>
-        <div class="download-buttons">
-            <a class="btn-primary" href="#">Download Full PDF</a>
-            <a class="btn-outline" href="https://github.com/DrNaderLohrasbi/lohrasbi.info">View on GitHub</a>
-            <a class="btn-outline" href="#">Cite This Blueprint</a>
-        </div>
-    </div>
-
-    <!-- Q&A -->
-    <div class="card">
-        <div class="section-title">Q&A</div>
-
-        <div class="qa-item">
-            <h3>Core Problem</h3>
-            <p>
-                Global healthcare lacks a unified medical language infrastructure,  
-                preventing shared analytics, interoperability, and coordinated care.
-            </p>
-        </div>
-
-        <div class="qa-item">
-            <h3>Architectural Solution</h3>
-            <p>
-                A sovereign NLP pipeline that normalizes, maps, and interprets medical text  
-                across any language, producing unified semantic structures.
-            </p>
-        </div>
-
-        <div class="qa-item">
-            <h3>Impact on Health Systems</h3>
-            <p>
-                Enables international care continuity, global surveillance,  
-                multi-regional research, and harmonized digital health governance.
-            </p>
-        </div>
-
-    </div>
+  <!-- NAVIGATION -->
+  <div class="nav-bottom">
+    <a href="bp-14-multi-agent-care-workflow-ai.html"><i class="fa-solid fa-arrow-left-long"></i> Previous</a>
+    <a href="bp-16-predictive-patient-journey-engine.html">Next <i class="fa-solid fa-arrow-right-long"></i></a>
+  </div>
 
 </div>
 
 <footer>
-    © 2025 Dr. Nader Lohrasbi — All Rights Reserved.
+  © 2025 Dr. Nader Lohrasbi · Lohrasbi Architecture Lab · Semantic Architecture Blueprint v1.0
 </footer>
 
-<!-- Schema -->
+<!-- JSON-LD ----------------------------------------------------------- -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Medical NLP Pipeline for Global Interoperability — Blueprint 15",
-  "author": {
-    "@type": "Person",
-    "name": "Dr. Nader Lohrasbi",
-    "url": "https://lohrasbi.info"
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "@id":"https://lohrasbi.info/bp-15-medical-nlp-pipeline-for-global-interoperability.html#blueprint",
+  "name":"Blueprint 15 – Medical NLP Interoperability Pipeline",
+  "author":{
+    "@type":"Person",
+    "name":"Dr. Nader Lohrasbi",
+    "identifier":"https://orcid.org/0009-0004-4232-2953"
   },
-  "image": "https://lohrasbi.info/bp-15.png",
-  "description": "A sovereign medical NLP pipeline enabling cross-language interoperability and unified ontology mapping.",
-  "url": "https://lohrasbi.info/bp-15-medical-nlp-pipeline-for-global-interoperability.html"
+  "publisher":{
+    "@type":"Organization",
+    "name":"Lohrasbi Architecture Lab",
+    "url":"https://lohrasbi.info"
+  },
+  "inLanguage":"en",
+  "isPartOf":{
+    "@type":"CreativeWorkSeries",
+    "name":"Lohrasbi National Blueprint Series",
+    "url":"https://lohrasbi.info/blueprints.html"
+  },
+  "encoding":{
+    "@type":"MediaObject",
+    "contentUrl":"https://drive.google.com/file/d/10qii1atfIXpZAuRz2Vr2hfavJUl5HAeh/view?usp=drive_link",
+    "encodingFormat":"application/pdf"
+  },
+  "about":[
+    "Medical NLP Pipeline",
+    "Semantic Interoperability",
+    "Clinical Text Processing",
+    "Healthcare AI Systems"
+  ]
 }
 </script>
 
