@@ -1,154 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>BP-18 — Autonomous Health Monitoring | Lohrasbi Architecture Lab</title>
+  <meta charset="UTF-8"/>
+  <title>Blueprint 18 – Autonomous Health Monitoring | Lohrasbi Architecture Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<meta name="description" content="A national autonomous sensing and clinical deterioration detection system enabling continuous health monitoring through AI-driven national infrastructure."/>
+  <meta name="description"
+        content="Blueprint 18: Autonomous Health Monitoring — a national always-on sensing and health intelligence layer that detects anomalies, deterioration risks, and care needs before clinical escalation occurs."/>
+  <link rel="canonical" href="https://lohrasbi.info/bp-18-autonomous-health-monitoring.html"/>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-<style>
-body{margin:0;font-family:"Inter",sans-serif;background:#000814;color:#e2e8f0;line-height:1.7;}
-.nav{background:#0b1526;border-bottom:1px solid rgba(56,189,248,0.25);padding:14px 26px;display:flex;justify-content:space-between;align-items:center;}
-.nav-left{font-size:1.1rem;font-weight:700;color:#38bdf8;}
-.nav-right a{color:#cbd5e1;margin-left:22px;font-size:.92rem;transition:.25s;}
-.nav-right a:hover{color:#38bdf8;}
+  <style>
+    :root{
+      --bg:#000814;
+      --accent:#38bdf8;
+      --text-main:#e2e8f0;
+      --text-soft:#94a3b8;
+      --border:rgba(56,189,248,.25);
+      --radius-lg:18px;
+      --radius-xl:24px;
+    }
 
-.shell{max-width:1150px;margin:40px auto;padding:0 20px;}
-.bp-title{font-size:2.7rem;font-weight:800;color:#f1f5f9;margin-bottom:6px;}
-.bp-subtitle{font-size:1.15rem;font-weight:500;color:#38bdf8;margin-bottom:28px;}
+    body{
+      margin:0;background:var(--bg);color:var(--text-main);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
 
-.hero-box{border-radius:14px;overflow:hidden;margin-bottom:40px;border:1px solid rgba(56,189,248,0.25);}
-.hero-box img{width:100%;display:block;opacity:.92;}
+    a{text-decoration:none;color:#7dd3fc;}
+    a:hover{color:#e0f2fe;}
 
-.bp-section{background:#0f1a2f;border:1px solid rgba(148,163,184,0.2);padding:28px 34px;border-radius:16px;margin-bottom:40px;}
-.bp-section h2{color:#22c55e;font-size:1.4rem;margin-bottom:12px;font-weight:700;}
-.bp-list li{margin-bottom:10px;}
+    header{
+      position:sticky;top:0;z-index:40;
+      padding:14px 26px;background:rgba(2,8,23,.9);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(15,23,42,.9);
+    }
 
-.bp-diagram-box{border:1px dashed #38bdf8;padding:26px;border-radius:12px;text-align:center;color:#38bdf8;margin-top:10px;}
+    .nav-mini{
+      max-width:1180px;margin:auto;
+      display:flex;justify-content:space-between;align-items:center;
+    }
 
-.bp-action-row{margin-top:18px;display:flex;gap:14px;flex-wrap:wrap;}
-.bp-btn-green,.bp-btn-blue,.bp-btn-outline{padding:10px 18px;border-radius:8px;font-size:.9rem;display:inline-block;}
-.bp-btn-green{background:#22c55e;color:#001219;font-weight:600;}
-.bp-btn-blue{background:#38bdf8;color:#001219;font-weight:600;}
-.bp-btn-outline{border:1px solid #38bdf8;color:#38bdf8;}
+    .nav-mini-left{
+      font-size:1.02rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.04em;
+      color:var(--accent);
+    }
 
-.footer{margin-top:60px;padding:40px;text-align:center;color:#64748b;font-size:.85rem;}
+    .nav-mini-right a{
+      margin-left:18px;font-size:.95rem;color:var(--text-soft);
+    }
 
-.feedback-box{margin-top:50px;padding:28px;border-radius:14px;background:#0f1a2f;border:1px solid rgba(56,189,248,.25);}
-.feedback-box h3{color:#38bdf8;margin-bottom:10px;}
-.feedback-box input,.feedback-box textarea{width:100%;padding:12px;margin:8px 0;background:#000814;border:1px solid #334155;border-radius:8px;color:#e2e8f0;}
-.feedback-box button{padding:12px 20px;background:#38bdf8;color:#001219;border:none;border-radius:8px;font-weight:600;cursor:pointer;}
-</style>
+    .nav-mini-right a.active{color:#e5f3ff;font-weight:600;}
+
+    .shell{
+      max-width:1180px;margin:auto;
+      padding:34px 26px 80px;
+    }
+
+    .hero{
+      display:flex;gap:34px;flex-wrap:wrap;
+      align-items:center;margin-bottom:42px;
+    }
+
+    .hero img{
+      width:420px;border-radius:var(--radius-xl);
+      border:1px solid var(--border);
+      background:#020617;
+      box-shadow:0 26px 55px rgba(15,23,42,.85);
+    }
+
+    .bp-tag{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:6px 14px;margin-bottom:12px;border-radius:999px;
+      border:1px solid rgba(56,189,248,.35);
+      background:rgba(15,23,42,.85);
+      color:#7dd3fc;font-size:.8rem;
+      letter-spacing:.09em;text-transform:uppercase;
+    }
+
+    .bp-short{
+      max-width:580px;font-size:1rem;color:#cbd5e1;
+      line-height:1.6;
+    }
+
+    h2{
+      margin-top:40px;font-size:1.6rem;color:#f8fafc;
+    }
+
+    .section{
+      margin-top:10px;max-width:900px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.7;
+    }
+
+    ul{
+      margin-top:10px;margin-left:22px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.6;
+    }
+
+    .bp-pdf{
+      margin-top:46px;padding:22px;
+      background:radial-gradient(circle at top left,
+      rgba(56,189,248,.09),
+      rgba(15,23,42,.96));
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 26px 55px rgba(15,23,42,.9);
+    }
+
+    .bp-pdf-frame{
+      margin-top:18px;border-radius:var(--radius-lg);
+      overflow:hidden;border:1px solid rgba(148,163,184,.45);
+    }
+
+    .bp-pdf-note{
+      margin-top:10px;font-size:.85rem;color:var(--text-soft);
+    }
+
+    .qa-box{
+      margin-top:40px;padding:22px;
+      background:rgba(15,23,42,.9);
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(56,189,248,.25);
+    }
+
+    .qa-box h3{
+      margin:0 0 10px;font-size:1.35rem;
+    }
+
+    .nav-bottom{
+      margin-top:46px;display:flex;
+      justify-content:space-between;font-size:.95rem;
+    }
+
+    footer{
+      text-align:center;padding:20px;margin-top:20px;
+      color:#64748b;font-size:.85rem;
+      background:#020617;border-top:1px solid rgba(15,23,42,.9);
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="nav">
-  <div class="nav-left">Lohrasbi Architecture Lab</div>
-  <div class="nav-right">
-    <a href="index.html">Home</a>
-    <a href="blueprints.html">Blueprints</a>
-    <a href="research.html">Research</a>
-    <a href="contact.html">Contact</a>
+<header>
+  <div class="nav-mini">
+    <div class="nav-mini-left">Lohrasbi Architecture Lab</div>
+
+    <div class="nav-mini-right">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="blueprints.html" class="active">Blueprints</a>
+      <a href="os-map.html">OS Map</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
-</div>
+</header>
 
 <div class="shell">
 
-<h1 class="bp-title">Autonomous Health Monitoring</h1>
-<div class="bp-subtitle">BP-18 — National Autonomous Sensing Layer</div>
+  <!-- HERO -->
+  <div class="hero">
+    <img src="bp-18.jpg" alt="Blueprint 18 – Autonomous Health Monitoring">
 
-<div class="hero-box">
-  <img src="bp-18.jpg" alt="Autonomous Health Monitoring Blueprint"/>
-</div>
+    <div>
+      <div class="bp-tag">
+        <i class="fa-solid fa-heart-pulse"></i>
+        Blueprint 18 · Autonomous Monitoring Layer
+      </div>
 
-<section class="bp-section">
-  <h2>Executive Summary</h2>
-  <p>
-    BP-18 defines a sovereign autonomous sensing grid that continuously monitors population health,
-    detects early deterioration signals, and activates clinical or preventive interventions without
-    requiring manual follow-up. This layer forms the backbone of a self-correcting national health system.
-  </p>
-</section>
+      <h1>Autonomous Health Monitoring</h1>
 
-<section class="bp-section">
-  <h2>Strategic Rationale</h2>
-  <p>
-    Most clinical deterioration is detected late. Manual follow-up pipelines are fragmented and slow.
-    A national autonomous sensing layer eliminates silent deterioration by providing real-time,
-    continuous surveillance with AI-based escalation rules.
-  </p>
-</section>
-
-<section class="bp-section">
-  <h2>System Architecture</h2>
-  <ol class="bp-list">
-    <li><b>Ambient Sensing Network</b> — Wearables, home IoT, hospital devices, community data nodes.</li>
-    <li><b>Deterioration Detection Engine</b> — AI models predicting clinical destabilization.</li>
-    <li><b>Escalation Orchestrator</b> — Automated triage, alerts, routing, telehealth activation.</li>
-    <li><b>National Learning Loop</b> — Improves accuracy by ingesting outcomes & feedback signals.</li>
-  </ol>
-</section>
-
-<section class="bp-section">
-  <h2>Key Use Cases</h2>
-  <ul class="bp-list">
-    <li>AI-driven fall-risk and frailty detection</li>
-    <li>Oxygen saturation & cardiac rhythm early alerts</li>
-    <li>Behavioral and mental health degradation sensing</li>
-    <li>Real-time post-surgery remote monitoring</li>
-    <li>National chronic disease early-warning grid</li>
-  </ul>
-</section>
-
-<section class="bp-section">
-  <h2>Technical Blueprint Diagram</h2>
-  <div class="bp-diagram-box">Placeholder — Autonomous Health Monitoring Architecture Diagram</div>
-</section>
-
-<section class="bp-section">
-  <h2>Downloads & Actions</h2>
-  <div class="bp-action-row">
-    <a class="bp-btn-green" href="#">Download PDF</a>
-    <a class="bp-btn-blue" href="https://github.com/DrNaderLohrasbi">View on GitHub</a>
-    <a class="bp-btn-outline" href="#">Cite Blueprint</a>
+      <p class="bp-short">
+        A continuous, autonomous sensing architecture that detects physiological instability,
+        behavioral changes, environmental exposures, and early signals of deterioration long
+        before clinical escalation occurs.
+      </p>
+    </div>
   </div>
-</section>
 
-<section class="bp-section">
-  <h2>Q&A</h2>
-  <p><b>Core Problem:</b> Late detection of deterioration → costly downstream interventions.</p>
-  <p><b>Solution:</b> Autonomous sensing + AI escalation + national orchestration grid.</p>
-  <p><b>Impact:</b> Fewer hospitalizations, reduced mortality, improved population resilience.</p>
-</section>
+  <!-- CONTENT -->
+  <h2>Extended Architecture Overview</h2>
+  <div class="section">
+    The Autonomous Health Monitoring Layer establishes a national always-on sensing grid that integrates
+    clinical biomarkers, wearable streams, ambient data, behavioral indicators, and risk signatures.
+    It continuously evaluates patient trajectories and predicts when intervention is required.
+  </div>
 
-<div class="feedback-box">
-  <h3>Submit Feedback</h3>
-  <input id="fb-name" placeholder="Your Name"/>
-  <input id="fb-email" placeholder="Email"/>
-  <textarea id="fb-msg" rows="4" placeholder="Your Message"></textarea>
-  <button onclick="sendFB()">Send</button>
+  <h2>Core Components</h2>
+  <ul>
+    <li>Continuous physiologic data ingestion</li>
+    <li>Deterioration prediction models</li>
+    <li>Behavioral and environmental signal fusion</li>
+    <li>Real-time alerting and escalation pathways</li>
+    <li>Integration with national control loops</li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <div class="section">
+    <strong>Upstream:</strong> Digital Phenotyping Engines, Patient Journey Models  
+    <br/>
+    <strong>Downstream:</strong> Crisis Activation Systems, Hospital Autopilot Modules
+  </div>
+
+  <!-- PDF VIEWER -->
+  <section class="bp-pdf" id="blueprint-pdf">
+    <h2>Full Blueprint – Read-Only PDF</h2>
+    <p>The complete Autonomous Health Monitoring blueprint is provided as a secure national document.</p>
+
+    <div class="bp-pdf-frame">
+      <iframe
+        src="https://drive.google.com/file/d/1_1OEgTRMGzunvmRSG8SdspuiEkOZ5pxw/preview"
+        width="100%" height="880" allow="fullscreen" loading="lazy" style="border:0;"></iframe>
+    </div>
+
+    <p class="bp-pdf-note">
+      If viewer fails:
+      <a href="https://drive.google.com/file/d/1_1OEgTRMGzunvmRSG8SdspuiEkOZ5pxw/view?usp=drive_link" target="_blank">
+        Open full PDF
+      </a>
+    </p>
+  </section>
+
+  <!-- Q&A -->
+  <div class="qa-box">
+    <h3>Questions & Architecture Support</h3>
+    <p>Support is available for autonomous sensing deployment, signal fusion design, and deterioration prediction logic.</p>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="nav-bottom">
+    <a href="bp-17-national-digital-twin-for-healthcare.html">
+      <i class="fa-solid fa-arrow-left-long"></i> Previous
+    </a>
+    <a href="bp-19-clinical-cognition-ai-layer.html">
+      Next <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+  </div>
+
 </div>
 
-</div>
+<footer>
+  © 2025 Dr. Nader Lohrasbi · Lohrasbi Architecture Lab · Autonomous Monitoring Blueprint v1.0
+</footer>
 
-<footer class="footer">© 2025 Dr. Nader Lohrasbi — Lohrasbi Architecture Lab</footer>
-
-<script>
-function sendFB(){
-  fetch("https://script.google.com/macros/s/AKfycbzB246HYidcBhME9rY9mUAC7gQXC2BnIXIxAOdY8Q1fAV9UEDGbqULWhC5KS0owGxIl/exec",{
-    method:"POST",
-    body:JSON.stringify({
-      name:document.getElementById("fb-name").value,
-      email:document.getElementById("fb-email").value,
-      message:document.getElementById("fb-msg").value,
-      architecture_id:"BP-18"
-    })
-  });
-  alert("Feedback sent. Thank you.");
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "@id":"https://lohrasbi.info/bp-18-autonomous-health-monitoring.html#blueprint",
+  "name":"Blueprint 18 – Autonomous Health Monitoring",
+  "author":{
+    "@type":"Person",
+    "name":"Dr. Nader Lohrasbi",
+    "identifier":"https://orcid.org/0009-0004-4232-2953"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"Lohrasbi Architecture Lab",
+    "url":"https://lohrasbi.info"
+  },
+  "inLanguage":"en",
+  "encoding":{
+    "@type":"MediaObject",
+    "contentUrl":"https://drive.google.com/file/d/1_1OEgTRMGzunvmRSG8SdspuiEkOZ5pxw/view?usp=drive_link",
+    "encodingFormat":"application/pdf"
+  },
+  "about":[
+    "Autonomous Health Monitoring",
+    "Physiologic Signal Intelligence",
+    "Deterioration Prediction",
+    "Continuous Care Systems"
+  ]
 }
 </script>
 
