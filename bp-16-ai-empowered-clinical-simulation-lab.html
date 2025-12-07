@@ -1,251 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI-Empowered Clinical Simulation Lab — Blueprint 16</title>
-    <meta name="description" content="A sovereign AI-driven simulation architecture enabling predictive clinical training, crisis rehearsal, and adaptive competency development across national health systems." />
-    <link rel="icon" type="image/png" href="favicon-96x96.png" />
+  <meta charset="UTF-8"/>
+  <title>Blueprint 16 – Predictive Patient Journey Engine | Lohrasbi Architecture Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background: #020617;
-            color: #e2e8f0;
-            line-height: 1.7;
-        }
-        a { color: inherit; text-decoration: none; }
-        header {
-            padding: 40px 20px;
-            background: #0f172a;
-            border-bottom: 1px solid #1e293b;
-        }
-        .breadcrumb {
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-            color: #64748b;
-        }
-        .breadcrumb a { color: #94a3b8; }
-        .hero-title {
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: #e0f2fe;
-            margin-bottom: 10px;
-        }
-        .hero-subtitle {
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: #38bdf8;
-            margin-bottom: 20px;
-        }
-        .hero-image {
-            width: 100%;
-            max-height: 380px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-top: 25px;
-            box-shadow: 0 8px 26px rgba(0,0,0,0.45);
-        }
-        .container {
-            max-width: 1100px;
-            margin: 40px auto 70px;
-            padding: 0 20px;
-        }
-        .card {
-            background: #1e293b;
-            padding: 26px;
-            border-radius: 12px;
-            margin-bottom: 32px;
-            border: 1px solid #334155;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-        }
-        .section-title {
-            color: #22c55e;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 14px;
-        }
-        ul.usecases {
-            list-style: none;
-            padding: 0;
-        }
-        ul.usecases li::before {
-            content: "• ";
-            color: #22c55e;
-        }
-        .diagram-box {
-            border: 1px dashed #38bdf8;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 12px;
-            background: rgba(56,189,248,0.06);
-            color: #38bdf8;
-        }
-        .download-buttons a {
-            display: inline-block;
-            margin-right: 12px;
-            margin-top: 10px;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .btn-primary {
-            background: #22c55e;
-            color: #000;
-        }
-        .btn-outline {
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-        }
-        .qa-item { margin-bottom: 22px; }
-        .qa-item h3 {
-            color: #38bdf8;
-            margin-bottom: 8px;
-        }
-        footer {
-            text-align: center;
-            padding: 28px;
-            color: #64748b;
-            font-size: 0.85rem;
-            border-top: 1px solid #1e293b;
-        }
-    </style>
+  <meta name="description"
+        content="Blueprint 16: Predictive Patient Journey Engine — a timeline-oriented model that forecasts clinical trajectories, resource needs, risk events, and transitions, creating a unified predictive map across inpatient, outpatient, diagnostic, and post-care pathways."/>
+  <link rel="canonical" href="https://lohrasbi.info/bp-16-predictive-patient-journey-engine.html"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --bg:#000814;
+      --accent:#38bdf8;
+      --text-main:#e2e8f0;
+      --text-soft:#94a3b8;
+      --border:rgba(56,189,248,.25);
+      --radius-lg:18px;
+      --radius-xl:24px;
+    }
+
+    body{
+      margin:0;background:var(--bg);color:var(--text-main);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    a{text-decoration:none;color:#7dd3fc;}
+    a:hover{color:#e0f2fe;}
+
+    header{
+      position:sticky;top:0;z-index:40;
+      padding:14px 26px;background:rgba(2,8,23,.9);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(15,23,42,.9);
+    }
+
+    .nav-mini{
+      max-width:1180px;margin:auto;
+      display:flex;justify-content:space-between;align-items:center;
+    }
+
+    .nav-mini-left{
+      font-size:1.02rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.04em;
+      color:var(--accent);
+    }
+
+    .nav-mini-right a{
+      margin-left:18px;font-size:.95rem;color:var(--text-soft);
+    }
+    .nav-mini-right a.active{color:#e5f3ff;font-weight:600;}
+
+    .shell{
+      max-width:1180px;
+      margin:auto;
+      padding:34px 26px 80px;
+    }
+
+    .hero{
+      display:flex;
+      gap:34px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:42px;
+    }
+
+    .hero img{
+      width:420px;
+      border-radius:var(--radius-xl);
+      border:1px solid var(--border);
+      background:#020617;
+      box-shadow:0 26px 55px rgba(15,23,42,.85);
+    }
+
+    .bp-tag{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:6px 14px;margin-bottom:12px;
+      border-radius:999px;border:1px solid rgba(56,189,248,.35);
+      background:rgba(15,23,42,.85);
+      color:#7dd3fc;font-size:.8rem;letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+
+    .bp-short{
+      max-width:580px;font-size:1rem;color:#cbd5e1;line-height:1.6;
+    }
+
+    h2{
+      margin-top:40px;font-size:1.6rem;color:#f8fafc;
+    }
+
+    .section{
+      margin-top:10px;max-width:900px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.7;
+    }
+
+    ul{
+      margin-top:10px;margin-left:22px;
+      font-size:.98rem;color:#cbd5e1;line-height:1.6;
+    }
+
+    .bp-pdf{
+      margin-top:46px;padding:22px;
+      background:radial-gradient(circle at top left,
+      rgba(56,189,248,.09),
+      rgba(15,23,42,.96));
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 26px 55px rgba(15,23,42,.9);
+    }
+
+    .bp-pdf-frame{
+      margin-top:18px;border-radius:var(--radius-lg);
+      overflow:hidden;border:1px solid rgba(148,163,184,.45);
+    }
+
+    .bp-pdf-note{
+      margin-top:10px;font-size:.85rem;color:var(--text-soft);
+    }
+
+    .qa-box{
+      margin-top:40px;padding:22px;
+      background:rgba(15,23,42,.9);
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(56,189,248,.25);
+    }
+
+    .qa-box h3{
+      margin:0 0 10px;font-size:1.35rem;
+    }
+
+    .nav-bottom{
+      margin-top:46px;display:flex;
+      justify-content:space-between;font-size:.95rem;
+    }
+
+    footer{
+      text-align:center;padding:20px;margin-top:20px;
+      color:#64748b;font-size:.85rem;
+      background:#020617;border-top:1px solid rgba(15,23,42,.9);
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <div class="breadcrumb">
-        <a href="index.html">Home</a> › 
-        <a href="blueprints.html">Blueprints</a> › 
-        bp-16
+  <div class="nav-mini">
+    <div class="nav-mini-left">Lohrasbi Architecture Lab</div>
+
+    <div class="nav-mini-right">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="blueprints.html" class="active">Blueprints</a>
+      <a href="os-map.html">OS Map</a>
+      <a href="contact.html">Contact</a>
     </div>
-
-    <h1 class="hero-title">AI-Empowered Clinical Simulation Lab</h1>
-    <div class="hero-subtitle">Adaptive Clinical Training & Crisis Rehearsal via AI-Driven Simulation Architecture</div>
-
-    <img src="bp-16.png" alt="AI-Empowered Clinical Simulation Lab" class="hero-image">
+  </div>
 </header>
 
-<div class="container">
 
-    <!-- Executive Summary -->
-    <div class="card">
-        <div class="section-title">Executive Summary</div>
-        <p>
-            This blueprint defines a national-level AI-enabled clinical simulation infrastructure 
-            designed to accelerate workforce competency, crisis preparedness, and real-time skill calibration.  
-            Unlike traditional simulation labs, this architecture integrates predictive modeling, 
-            multi-agent AI behavior emulation, and scenario generation calibrated to live national datasets.  
-            It transforms simulation from a training accessory into a sovereign clinical intelligence engine.
-        </p>
+<div class="shell">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="bp-16.jpg" alt="Blueprint 16 – Predictive Patient Journey Engine">
+
+    <div>
+      <div class="bp-tag">
+        <i class="fa-solid fa-timeline"></i>
+        Blueprint 16 · Predictive Journey Layer
+      </div>
+
+      <h1>Predictive Patient Journey Engine</h1>
+
+      <p class="bp-short">
+        A timeline-oriented predictive system that forecasts each patient’s clinical trajectory,
+        resource needs, transition points, deterioration risks, and continuity-of-care requirements —
+        forming a unified predictive map across all phases of care.
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <h2>Extended Architecture Overview</h2>
+  <div class="section">
+    The Predictive Patient Journey Engine connects inpatient, outpatient, diagnostics, emergency,
+    and recovery phases into a longitudinal predictive chain. It transforms fragmented episodes
+    into a coherent, anticipatory care model by continuously updating probability curves for
+    deterioration, escalation, and resource requirements.
+  </div>
+
+  <h2>Core Components</h2>
+  <ul>
+    <li>Trajectory forecasting engine</li>
+    <li>Real-time risk scoring</li>
+    <li>Cross-phase transition intelligence</li>
+    <li>Resource prediction and readiness signals</li>
+    <li>Continuity-of-care mapping across institutions</li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <div class="section">
+    <strong>Upstream:</strong> Workflow AI Agents, Clinical Reasoning Engines  
+    <br/>
+    <strong>Downstream:</strong> Hospital Control Loops, Post-care Recovery Networks
+  </div>
+
+  <!-- PDF VIEWER -->
+  <section class="bp-pdf" id="blueprint-pdf">
+    <h2>Full Blueprint – Read-Only PDF</h2>
+    <p>The complete Predictive Patient Journey Engine blueprint is provided as a secure national document.</p>
+
+    <div class="bp-pdf-frame">
+      <iframe
+        src="https://drive.google.com/file/d/1H4RSeQz2nHj2lrfYOhu6_-mI-abPysQa/preview"
+        width="100%" height="880" allow="fullscreen" loading="lazy" style="border:0;"></iframe>
     </div>
 
-    <!-- Strategic Rationale -->
-    <div class="card">
-        <div class="section-title">Strategic Rationale</div>
-        <p>
-            Healthcare systems cannot rely on static or manually authored simulations.  
-            Workforce capacity, crisis volatility, and clinical risk demand environments 
-            where training evolves continuously with real-world conditions.  
-            An AI-empowered simulation lab becomes the backbone of national readiness,  
-            enabling policy rehearsal, disaster response modeling, 
-            and continuous skill optimization for clinicians.
-        </p>
-    </div>
+    <p class="bp-pdf-note">
+      If viewer fails:
+      <a href="https://drive.google.com/file/d/1H4RSeQz2nHj2lrfYOhu6_-mI-abPysQa/view?usp=drive_link" target="_blank">
+        Open full PDF
+      </a>
+    </p>
+  </section>
 
-    <!-- System Architecture -->
-    <div class="card">
-        <div class="section-title">System Architecture</div>
+  <!-- Q&A -->
+  <div class="qa-box">
+    <h3>Questions & Architecture Support</h3>
+    <p>Support available for trajectory modeling, predictive analytics deployment, and continuity-of-care design.</p>
+  </div>
 
-        <p><strong>1. Scenario Ingestion Engine</strong> — Pulls real-time national datasets to generate simulation conditions.</p>
-        <p><strong>2. AI Behavior Models</strong> — Multi-agent cognitive systems representing patients, staff, logistics, and crises.</p>
-        <p><strong>3. Competency Mapping Layer</strong> — Tracks clinician responses and maps them to risk, workflow, and governance indicators.</p>
-        <p><strong>4. Adaptive Learning Core</strong> — Adjusts difficulty and conditions dynamically based on skill progression.</p>
-    </div>
-
-    <!-- Use Cases -->
-    <div class="card">
-        <div class="section-title">Key Use Cases</div>
-        <ul class="usecases">
-            <li>National disaster response rehearsal</li>
-            <li>Skill-gap detection & AI-personalized training</li>
-            <li>Hospital capacity & surge simulations</li>
-            <li>Multi-disciplinary emergency coordination</li>
-            <li>AI-driven certification & competency validation</li>
-        </ul>
-    </div>
-
-    <!-- Diagram Placeholder -->
-    <div class="card">
-        <div class="section-title">Technical Blueprint Diagram</div>
-        <div class="diagram-box">
-            Placeholder for simulation architecture diagram (you will embed manually)
-        </div>
-    </div>
-
-    <!-- Downloads -->
-    <div class="card">
-        <div class="section-title">Downloads & Actions</div>
-        <div class="download-buttons">
-            <a class="btn-primary" href="#">Download Full PDF</a>
-            <a class="btn-outline" href="https://github.com/DrNaderLohrasbi/lohrasbi.info">View on GitHub</a>
-            <a class="btn-outline" href="#">Cite This Blueprint</a>
-        </div>
-    </div>
-
-    <!-- Q&A -->
-    <div class="card">
-        <div class="section-title">Q&A</div>
-
-        <div class="qa-item">
-            <h3>Core Problem</h3>
-            <p>
-                Traditional simulation lacks adaptability, real-time relevance, and cognitive modeling, 
-                limiting national readiness and clinical skill evolution.
-            </p>
-        </div>
-
-        <div class="qa-item">
-            <h3>Architectural Solution</h3>
-            <p>
-                A dynamic AI-driven simulation environment using live data, multi-agent models, 
-                and competency mapping to produce accurate and evolving scenarios.
-            </p>
-        </div>
-
-        <div class="qa-item">
-            <h3>Impact on Health Systems</h3>
-            <p>
-                Creates a continuously improving clinical workforce, strengthens crisis resilience, 
-                and reduces national risk exposure.
-            </p>
-        </div>
-
-    </div>
+  <!-- NAVIGATION -->
+  <div class="nav-bottom">
+    <a href="bp-15-medical-nlp-pipeline-for-global-interoperability.html">
+      <i class="fa-solid fa-arrow-left-long"></i> Previous
+    </a>
+    <a href="bp-17-national-digital-twin-for-healthcare.html">
+      Next <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+  </div>
 
 </div>
 
 <footer>
-    © 2025 Dr. Nader Lohrasbi — All Rights Reserved.
+  © 2025 Dr. Nader Lohrasbi · Lohrasbi Architecture Lab · Predictive Journey Blueprint v1.0
 </footer>
 
-<!-- SCHEMA -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "AI-Empowered Clinical Simulation Lab — Blueprint 16",
-  "author": {
-    "@type": "Person",
-    "name": "Dr. Nader Lohrasbi",
-    "url": "https://lohrasbi.info"
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "@id":"https://lohrasbi.info/bp-16-predictive-patient-journey-engine.html#blueprint",
+  "name":"Blueprint 16 – Predictive Patient Journey Engine",
+  "author":{
+    "@type":"Person",
+    "name":"Dr. Nader Lohrasbi",
+    "identifier":"https://orcid.org/0009-0004-4232-2953"
   },
-  "image": "https://lohrasbi.info/bp-16.png",
-  "description": "AI-driven adaptive clinical simulation architecture for national competency, crisis rehearsal, and real-time training evolution.",
-  "url": "https://lohrasbi.info/bp-16-ai-empowered-clinical-simulation-lab.html"
+  "publisher":{
+    "@type":"Organization",
+    "name":"Lohrasbi Architecture Lab",
+    "url":"https://lohrasbi.info"
+  },
+  "inLanguage":"en",
+  "encoding":{
+    "@type":"MediaObject",
+    "contentUrl":"https://drive.google.com/file/d/1H4RSeQz2nHj2lrfYOhu6_-mI-abPysQa/view?usp=drive_link",
+    "encodingFormat":"application/pdf"
+  },
+  "about":[
+    "Predictive Patient Journey",
+    "Clinical Trajectory Modeling",
+    "Continuity of Care",
+    "Healthcare AI Systems"
+  ]
 }
 </script>
 
