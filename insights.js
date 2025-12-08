@@ -17,7 +17,6 @@ const savesRef = db.collection("insights_saves");
 
 /* DOM Elements */
 const submitArticleBtn = document.getElementById("submitArticleBtn");
-const newArticleBtn = document.getElementById("newArticleBtn");
 const modal = document.getElementById("newArticleModal");
 const articlesContainer = document.getElementById("articlesContainer");
 
