@@ -1,5 +1,5 @@
 /* =========================================================
-   FIREBASE CONFIG — FINAL COMPAT VERSION FOR GITHUB PAGES
+   FIREBASE CONFIG — COMPAT VERSION (FOR GITHUB PAGES)
    ========================================================= */
 
 const firebaseConfig = {
@@ -8,13 +8,15 @@ const firebaseConfig = {
   projectId: "lohrasbi-insights",
   storageBucket: "lohrasbi-insights.firebasestorage.app",
   messagingSenderId: "735004863176",
-  appId: "1:735004863176:web:29ac8999232ab804ec53fd",
-  measurementId: "G-V6ZHZP6SJM"
+  appId: "1:735004863176:web:ef5f35a5c57cfd78ec53fd",
+  measurementId: "G-KM9V02L2BT"
 };
 
-// Initialize Firebase (only once)
-firebase.initializeApp(firebaseConfig);
+// initialize only once
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
-// Reusable Firebase services
+// Services
 const firebaseAuth = firebase.auth();
 const firebaseDB   = firebase.firestore();
