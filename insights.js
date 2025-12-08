@@ -17,6 +17,7 @@ const savesRef = db.collection("insights_saves");
 
 /* DOM Elements */
 const submitArticleBtn = document.getElementById("submitArticleBtn");
+// ⚠️ newArticleBtn عمداً اینجا تعریف نشده؛ در auth.js تعریف می‌شود
 const modal = document.getElementById("newArticleModal");
 const articlesContainer = document.getElementById("articlesContainer");
 
@@ -29,7 +30,6 @@ const contentInput = document.getElementById("articleContent");
    UTILITIES
    ========================================================================= */
 
-/* Convert timestamp → readable date */
 function formatDate(timestamp) {
     const date = new Date(timestamp);
     return date.toLocaleDateString("en-GB", {
@@ -39,7 +39,6 @@ function formatDate(timestamp) {
     });
 }
 
-/* Generate Share URL for a post */
 function generateShareURL(postId) {
     return `https://lohrasbi.info/article-view.html?id=${postId}`;
 }
@@ -49,6 +48,8 @@ function generateShareURL(postId) {
    ========================================================================= */
 
 submitArticleBtn?.addEventListener("click", async () => {
+
+    console.log("[INSIGHTS] Publish button clicked");
 
     const user = auth.currentUser;
     if (!user) {
@@ -78,22 +79,21 @@ submitArticleBtn?.addEventListener("click", async () => {
     };
 
     try {
-        const docRef = await postsRef.add(newPost);
+        await postsRef.add(newPost);
 
         alert("Insight Published Successfully!");
 
-        /* Reset Form */
         titleInput.value = "";
         excerptInput.value = "";
         linkedInInput.value = "";
         contentInput.value = "";
 
-        modal.style.display = "none";
+        if (modal) modal.style.display = "none";
 
         loadInsights();
 
     } catch (err) {
-        console.error("Error publishing:", err);
+        console.error("[INSIGHTS] Error publishing:", err);
         alert("Error publishing insight.");
     }
 });
@@ -103,6 +103,14 @@ submitArticleBtn?.addEventListener("click", async () => {
    ========================================================================= */
 
 async function loadInsights() {
+
+    console.log("[INSIGHTS] Loading insights...");
+
+    if (!articlesContainer) {
+        console.error("[INSIGHTS] articlesContainer not found");
+        return;
+    }
+
     articlesContainer.innerHTML = "";
 
     try {
@@ -124,14 +132,11 @@ async function loadInsights() {
         }
 
         snapshot.forEach((doc) => {
-            const post = doc.data();
-            const id = doc.id;
-
-            renderPostCard(id, post);
+            renderPostCard(doc.id, doc.data());
         });
 
     } catch (err) {
-        console.error("Error loading insights:", err);
+        console.error("[INSIGHTS] Error loading insights:", err);
     }
 }
 
@@ -141,13 +146,22 @@ async function loadInsights() {
 
 async function renderPostCard(postId, post) {
 
-    /* Fetch likes count */
-    const likesSnap = await likesRef.where("postId", "==", postId).get();
-    const likesCount = likesSnap.size;
+    let likesCount = 0;
+    let commentsCount = 0;
 
-    /* Fetch comments count */
-    const commentsSnap = await commentsRef.where("postId", "==", postId).get();
-    const commentsCount = commentsSnap.size;
+    try {
+        const likesSnap = await likesRef.where("postId", "==", postId).get();
+        likesCount = likesSnap.size;
+    } catch (e) {
+        console.warn("[INSIGHTS] Cannot load likes for", postId, e);
+    }
+
+    try {
+        const commentsSnap = await commentsRef.where("postId", "==", postId).get();
+        commentsCount = commentsSnap.size;
+    } catch (e) {
+        console.warn("[INSIGHTS] Cannot load comments for", postId, e);
+    }
 
     const card = document.createElement("div");
     card.className = "article-card";
@@ -167,7 +181,6 @@ async function renderPostCard(postId, post) {
         </div>
     `;
 
-    /* Clicking the card → open full article */
     card.addEventListener("click", () => {
         window.location.href = `article-view.html?id=${postId}`;
     });
@@ -176,7 +189,7 @@ async function renderPostCard(postId, post) {
 }
 
 /* =========================================================================
-   LIKE A POST
+   OPTIONAL: LIKE / SAVE / SHARE HELPERS (future use)
    ========================================================================= */
 
 async function likePost(postId) {
@@ -188,7 +201,7 @@ async function likePost(postId) {
         .where("uid", "==", user.uid)
         .get();
 
-    if (!existing.empty) return; // already liked
+    if (!existing.empty) return;
 
     await likesRef.add({
         postId,
@@ -198,10 +211,6 @@ async function likePost(postId) {
 
     loadInsights();
 }
-
-/* =========================================================================
-   SAVE POST
-   ========================================================================= */
 
 async function savePost(postId) {
     const user = auth.currentUser;
@@ -221,10 +230,6 @@ async function savePost(postId) {
     });
 }
 
-/* =========================================================================
-   SHARE POST
-   ========================================================================= */
-
 function sharePost(postId) {
     const url = generateShareURL(postId);
     navigator.clipboard.writeText(url);
@@ -234,4 +239,8 @@ function sharePost(postId) {
 /* =========================================================================
    INITIAL LOAD
    ========================================================================= */
-document.addEventListener("DOMContentLoaded", loadInsights);
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("[INSIGHTS] Script loaded, initializing…");
+    loadInsights();
+});
