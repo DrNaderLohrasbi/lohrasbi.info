@@ -7,68 +7,255 @@
 <meta name="theme-color" content="#000814"/>
 
 <meta name="description"
-      content="Executive insights, architectural essays, and strategic publications from Dr. Nader Lohrasbi & verified contributors."/>
+      content="Executive insights, architectural essays, and strategic commentary shaping national-scale Symbiotic Intelligence."/>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
+
 body{
     font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    background:#000814;color:#e2e8f0;line-height:1.7;
+    background:#000814;
+    color:#e2e8f0;
+    line-height:1.7;
 }
 
-/* NAV BAR */
+/* ===================== NAV BAR ===================== */
 header{
-    width:100%;padding:20px 30px;
+    width:100%;
+    padding:20px 30px;
     border-bottom:1px solid rgba(56,189,248,.22);
-    background:rgba(0,12,28,0.75);backdrop-filter:blur(10px);
-    position:sticky;top:0;z-index:100;
+    background:rgba(0,12,28,0.75);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 .nav{
-    max-width:1300px;margin:auto;
-    display:flex;justify-content:space-between;align-items:center;
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
-.nav-left{font-size:1.1rem;font-weight:700;color:#38bdf8;}
+.nav-left{
+    font-size:1.1rem;
+    font-weight:700;
+    color:#38bdf8;
+}
 .nav-right a{
-    margin-left:22px;font-size:.95rem;color:#cbd5e1;text-decoration:none;
+    margin-left:22px;
+    font-size:.95rem;
+    color:#cbd5e1;
+    text-decoration:none;
 }
-.nav-right a:hover{color:#7dd3fc;}
+.nav-right a:hover{
+    color:#7dd3fc;
+}
+.nav-right a.active{
+    color:#38bdf8;
+    font-weight:600;
+}
 
 /* LOGIN BUTTON */
 .login-btn{
-    padding:8px 18px;margin-left:20px;
-    border-radius:8px;border:1px solid #38bdf8;
-    color:#38bdf8;background:#001a2c;font-size:.85rem;
-    cursor:pointer;transition:.3s;
+    padding:8px 18px;
+    margin-left:20px;
+    border-radius:8px;
+    border:1px solid #38bdf8;
+    color:#38bdf8;
+    background:#001a2c;
+    font-size:.85rem;
+    cursor:pointer;
+    transition:.3s;
 }
-.login-btn:hover{background:#003047;}
+.login-btn:hover{
+    background:#003047;
+}
 
-/* HERO */
+/* ===================== HERO ===================== */
 .hero{
-    padding:70px 30px;text-align:center;
+    padding:70px 30px;
+    text-align:center;
     background:linear-gradient(to bottom,#001227,#000814);
     border-bottom:1px solid rgba(56,189,248,.15);
 }
-.hero-title{font-size:2.7rem;font-weight:800;color:#f1f5f9;margin-bottom:12px;}
+.hero-title{
+    font-size:2.7rem;
+    font-weight:800;
+    color:#f1f5f9;
+    margin-bottom:12px;
+}
 .hero-sub{
-    font-size:1.15rem;color:#94a3b8;max-width:850px;margin:14px auto 0;
+    font-size:1.15rem;
+    color:#94a3b8;
+    max-width:850px;
+    margin:14px auto 0;
+}
+
+/* ===================== ARTICLE LIST ===================== */
+.container{
+    max-width:1000px;
+    margin:40px auto;
+    padding:0 30px;
+}
+
+.article-card{
+    padding:26px;
+    border-radius:16px;
+    background:rgba(0,20,40,0.55);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(56,189,248,.22);
+    margin-bottom:26px;
+    cursor:pointer;
+    transition:.25s;
+}
+.article-card:hover{
+    border-color:#38bdf8;
+    transform:scale(1.01);
+}
+.article-title{
+    font-size:1.35rem;
+    font-weight:700;
+    color:#f8fafc;
+    margin-bottom:8px;
+}
+.article-meta{
+    font-size:.82rem;
+    color:#7dd3fc;
+    margin-bottom:12px;
+}
+.article-excerpt{
+    font-size:.95rem;
+    color:#cbd5e1;
+}
+
+/* ===================== NEW ARTICLE BUTTON ===================== */
+.button-wrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.new-article-btn{
+    display:none;
+    padding:12px 22px;
+    border-radius:10px;
+    border:1px solid #22c55e;
+    color:#22c55e;
+    background:#002b18;
+    font-size:.95rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+.new-article-btn:hover{
+    background:#004b2c;
+}
+
+/* ===================== MODAL ===================== */
+.modal-bg{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.65);
+    backdrop-filter:blur(6px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:500;
+}
+.modal-box{
+    width:90%;
+    max-width:600px;
+    background:#001324;
+    border:1px solid rgba(56,189,248,.25);
+    border-radius:14px;
+    padding:28px;
+}
+
+.modal-title{
+    font-size:1.4rem;
+    font-weight:700;
+    color:#38bdf8;
+    margin-bottom:14px;
+}
+.modal-label{
+    margin-top:14px;
+    font-size:.9rem;
+    color:#7dd3fc;
+    font-weight:600;
+}
+.modal-input,
+.modal-textarea{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #334155;
+    background:#0f172a;
+    color:#e2e8f0;
+    margin-top:6px;
+    font-size:.95rem;
+}
+.modal-textarea{
+    height:160px;
+    resize:vertical;
+}
+
+.modal-btn{
+    margin-top:22px;
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    background:#003047;
+    color:#7dd3fc;
+    border:1px solid #38bdf8;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+.modal-btn:hover{
+    background:#004d74;
+}
+
+.close-btn{
+    margin-top:10px;
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    background:#1e293b;
+    color:#94a3b8;
+    border:1px solid #475569;
+    cursor:pointer;
+    transition:.3s;
+    font-size:.9rem;
+}
+.close-btn:hover{
+    background:#334155;
 }
 </style>
 </head>
 
 <body>
 
+<!-- ===================== NAVIGATION ===================== -->
 <header>
   <div class="nav">
     <div class="nav-left">Lohrasbi Architecture Lab</div>
+
     <div class="nav-right">
       <a href="index.html">Home</a>
-      <a href="architecture.html">Architecture Lab</a>
+      <a href="architecture.html">Architecture</a>
       <a href="research.html">Research</a>
+      <a href="blueprints.html">Blueprints</a>
       <a href="os-map.html">OS Map</a>
-      <a href="insights.html" style="color:#38bdf8;">Insights</a>
+      <a href="contact.html">Contact</a>
+      <a href="insights.html" class="active">Insights</a>
+
       <button class="login-btn" id="loginBtn">
         <i class="fa-brands fa-google"></i> Sign in
       </button>
@@ -76,197 +263,97 @@ header{
   </div>
 </header>
 
+<!-- ===================== HERO ===================== -->
 <section class="hero">
   <h1 class="hero-title">Lohrasbi Insights</h1>
   <p class="hero-sub">
-    Executive essays, architectural commentary, national-scale AI models,  
-    and contributor publications shaping the future of Symbiotic Intelligence.
+    Executive essays, architectural commentary, national-scale AI frameworks,  
+    and contributor publications shaping Symbiotic Intelligence.
   </p>
 </section>
-<!-- ============= ARTICLE LIST SECTION ============= -->
 
+<!-- ===================== ARTICLE LIST ===================== -->
 <div class="container">
 
-<style>
-/* ARTICLE CARD */
-.article-card{
-    padding:26px;border-radius:16px;
-    background:rgba(0,20,40,0.55);backdrop-filter:blur(8px);
-    border:1px solid rgba(56,189,248,.22);
-    margin-bottom:26px;
-    cursor:pointer;transition:.3s;
-}
-.article-card:hover{
-    border-color:#38bdf8;transform:scale(1.01);
-}
-.article-title{
-    font-size:1.35rem;font-weight:700;color:#f8fafc;margin-bottom:8px;
-}
-.article-meta{
-    font-size:.82rem;color:#7dd3fc;margin-bottom:12px;
-}
-.article-excerpt{
-    font-size:.95rem;color:#cbd5e1;
-}
-
-/* NEW ARTICLE BUTTON */
-.new-article-btn{
-    display:inline-block;margin:30px auto;
-    padding:12px 22px;border-radius:10px;
-    border:1px solid #22c55e;color:#22c55e;background:#002b18;
-    font-size:.95rem;font-weight:600;cursor:pointer;
-    transition:.3s;
-}
-.new-article-btn:hover{
-    background:#004b2c;
-}
-
-/* CENTER BUTTON */
-.button-wrapper{
-    width:100%;display:flex;justify-content:center;align-items:center;
-}
-</style>
-
-<div id="articlesContainer">
-
-  <!-- DEFAULT PLACEHOLDER (until Firestore loads articles) -->
-  <div class="article-card">
+  <div id="articlesContainer">
+    <!-- Placeholder card -->
+    <div class="article-card">
       <div class="article-title">Sample Insight — Architecture in the Cognitive Age</div>
       <div class="article-meta">By System • Not published</div>
       <div class="article-excerpt">
         This placeholder shows how articles will appear once contributors sign in  
-        with Google and publish architectural insights.
+        and publish architectural insights.
       </div>
+    </div>
+  </div>
+
+  <div class="button-wrapper">
+    <button class="new-article-btn" id="newArticleBtn">
+      + Publish New Insight
+    </button>
   </div>
 
 </div>
 
-<!-- BUTTON APPEARS ONLY WHEN USER IS LOGGED IN -->
-<div class="button-wrapper">
-  <button class="new-article-btn" id="newArticleBtn" style="display:none;">
-    + Publish New Insight
-  </button>
-</div>
-
-</div> <!-- END CONTAINER -->
-<!-- ============= NEW ARTICLE MODAL ============= -->
-
-<style>
-.modal-bg{
-    position:fixed;top:0;left:0;width:100%;height:100%;
-    background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);
-    display:none;justify-content:center;align-items:center;
-    z-index:500;
-}
-.modal-box{
-    width:90%;max-width:600px;background:#001324;
-    border:1px solid rgba(56,189,248,.25);
-    border-radius:14px;padding:28px;
-}
-.modal-title{
-    font-size:1.4rem;font-weight:700;color:#38bdf8;margin-bottom:14px;
-}
-.modal-label{
-    margin-top:14px;font-size:.9rem;color:#7dd3fc;font-weight:600;
-}
-.modal-input, .modal-textarea{
-    width:100%;padding:12px;border-radius:8px;
-    border:1px solid #334155;background:#0f172a;color:#e2e8f0;
-    margin-top:6px;font-size:.95rem;
-}
-.modal-textarea{height:160px;resize:vertical;}
-
-.modal-btn{
-    margin-top:22px;width:100%;padding:12px;border-radius:10px;
-    background:#003047;color:#7dd3fc;border:1px solid #38bdf8;
-    font-size:1rem;font-weight:600;cursor:pointer;transition:.3s;
-}
-.modal-btn:hover{background:#004d74;}
-
-.close-btn{
-    margin-top:10px;width:100%;padding:10px;border-radius:8px;
-    background:#1e293b;color:#94a3b8;border:1px solid #475569;
-    cursor:pointer;transition:.3s;font-size:.9rem;
-}
-.close-btn:hover{background:#334155;}
-</style>
-
-<!-- Modal Structure -->
+<!-- ===================== MODAL ===================== -->
 <div class="modal-bg" id="newArticleModal">
   <div class="modal-box">
 
       <div class="modal-title">Publish New Insight</div>
 
       <label class="modal-label">Title</label>
-      <input id="articleTitle" class="modal-input" placeholder="Enter the article title">
+      <input id="articleTitle" class="modal-input" placeholder="Enter title...">
 
-      <label class="modal-label">Author Name</label>
-      <input id="articleAuthor" class="modal-input" placeholder="Your full name">
+      <label class="modal-label">Executive Excerpt</label>
+      <input id="articleExcerpt" class="modal-input" placeholder="2–3 line executive summary">
 
       <label class="modal-label">LinkedIn URL</label>
       <input id="articleLinkedIn" class="modal-input" placeholder="https://www.linkedin.com/in/...">
 
-      <label class="modal-label">Article Content</label>
+      <label class="modal-label">Full Article</label>
       <textarea id="articleContent" class="modal-textarea"
-      placeholder="Write your insight, essay, or analysis..."></textarea>
+      placeholder="Write your Insight, essay, or strategic commentary..."></textarea>
 
       <button class="modal-btn" id="submitArticleBtn">Publish Insight</button>
       <button class="close-btn" id="closeModalBtn">Cancel</button>
 
   </div>
 </div>
-<!-- ============= FIREBASE SDK ============= -->
-<script type="module">
-  // Firebase SDK imports
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
-    from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-  // Initialize Firebase
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "lohrasbi-insights.firebaseapp.com",
-    projectId: "lohrasbi-insights",
-    storageBucket: "lohrasbi-insights.appspot.com",
-    messagingSenderId: "000000000000",
-    appId: "YOUR_APP_ID",
-  };
-
-  // Make app/global variables accessible
-  window.firebaseApp = initializeApp(firebaseConfig);
-  window.firebaseAuth = getAuth(firebaseApp);
-  window.firebaseDb = getFirestore(firebaseApp);
-  window.firebaseProvider = new GoogleAuthProvider();
-</script>
-
-<!-- MAIN LOGIC FILES -->
-<script src="auth.js"></script>
-<script src="insights.js"></script>
+<!-- ===================== SCRIPTS WILL BE ADDED IN PART 2 ===================== -->
 
 </body>
 </html>
-/* =========================================================
-   AUTH.JS — Google Login + Modal Controls
-   ========================================================= */
+<!-- ===================== FIREBASE SDK (Compat Version) ===================== -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 
-const loginBtn = document.getElementById("loginBtn");
-const newArticleBtn = document.getElementById("newArticleBtn");
-const modal = document.getElementById("newArticleModal");
-const closeModalBtn = document.getElementById("closeModalBtn");
+<!-- ===================== PROJECT CONFIG ===================== -->
+<script src="firebase-config.js"></script>
 
-/* ========== LOGIN FLOW ========== */
+<!-- ===================== MAIN INSIGHTS LOGIC ===================== -->
+<script src="auth.js"></script>
+<script src="insights.js"></script>
+// ===================== AUTH.JS — Google Login & UI Controls =====================
 
+// UI ELEMENTS
+const loginBtn        = document.getElementById("loginBtn");
+const newArticleBtn   = document.getElementById("newArticleBtn");
+const modal           = document.getElementById("newArticleModal");
+const closeModalBtn   = document.getElementById("closeModalBtn");
+
+// ===================== LOGIN FLOW =====================
 loginBtn.addEventListener("click", async () => {
     try {
-        const result = await signInWithPopup(firebaseAuth, firebaseProvider);
-        const user = result.user;
+        const provider = new firebase.auth.GoogleAuthProvider();
+        const result   = await auth.signInWithPopup(provider);
+        const user     = result.user;
 
         loginBtn.innerHTML = `<i class="fa-solid fa-circle-user"></i> ${user.displayName}`;
         loginBtn.style.color = "#22c55e";
         loginBtn.style.borderColor = "#22c55e";
 
-        // Show publish button
         newArticleBtn.style.display = "inline-block";
 
     } catch (err) {
@@ -275,15 +362,13 @@ loginBtn.addEventListener("click", async () => {
     }
 });
 
-/* ========== AUTH STATE LISTENER ========== */
-
-onAuthStateChanged(firebaseAuth, (user) => {
-    if(user){
+// ===================== AUTH STATE LISTENER =====================
+auth.onAuthStateChanged((user) => {
+    if (user) {
         loginBtn.innerHTML = `<i class="fa-solid fa-circle-user"></i> ${user.displayName}`;
         loginBtn.style.color = "#22c55e";
         loginBtn.style.borderColor = "#22c55e";
 
-        // Enable publishing
         newArticleBtn.style.display = "inline-block";
 
     } else {
@@ -291,13 +376,11 @@ onAuthStateChanged(firebaseAuth, (user) => {
         loginBtn.style.color = "#38bdf8";
         loginBtn.style.borderColor = "#38bdf8";
 
-        // Hide publishing
         newArticleBtn.style.display = "none";
     }
 });
 
-/* ========== MODAL CONTROLS ========== */
-
+// ===================== MODAL CONTROLS =====================
 newArticleBtn.addEventListener("click", () => {
     modal.style.display = "flex";
 });
@@ -306,290 +389,21 @@ closeModalBtn.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-// Close modal by clicking outside box
+// Close modal if clicking outside the box
 window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
+    if (e.target === modal) modal.style.display = "none";
 });
-/* =========================================================
-   INSIGHTS.JS — Submit + Load Articles for Insights Page
-   ========================================================= */
+<!-- ===================== FIREBASE SDK (Compat Version) ===================== -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 
-// Firestore references
-const db = getFirestore(firebaseApp);
-const postsCollection = collection(db, "insights_posts");
+<!-- ===================== PROJECT CONFIG ===================== -->
+<script src="firebase-config.js"></script>
 
-// UI Elements
-const submitArticleBtn = document.getElementById("submitArticleBtn");
-const articleTitleInput = document.getElementById("articleTitle");
-const articleExcerptInput = document.getElementById("articleExcerpt");
-const articleContentInput = document.getElementById("articleContent");
-const articlesContainer = document.getElementById("articlesContainer");
-const modal = document.getElementById("newArticleModal");
-
-/* =========================================================
-   1) SUBMIT A NEW ARTICLE
-   ========================================================= */
-
-submitArticleBtn.addEventListener("click", async () => {
-
-    const user = firebaseAuth.currentUser;
-    if (!user){
-        alert("You must sign in with Google to publish.");
-        return;
-    }
-
-    const title = articleTitleInput.value.trim();
-    const excerpt = articleExcerptInput.value.trim();
-    const content = articleContentInput.value.trim();
-
-    if(!title || !excerpt || !content){
-        alert("Please fill all fields.");
-        return;
-    }
-
-    const postData = {
-        title: title,
-        excerpt: excerpt,
-        content: content,
-        authorName: user.displayName || "Unknown",
-        authorEmail: user.email || "hidden",
-        authorPhoto: user.photoURL || "",
-        createdAt: new Date().toISOString()
-    };
-
-    try {
-        await addDoc(postsCollection, postData);
-
-        alert("Article published successfully!");
-        modal.style.display = "none";
-
-        articleTitleInput.value = "";
-        articleExcerptInput.value = "";
-        articleContentInput.value = "";
-
-        loadArticles(); // Refresh list
-
-    } catch (err){
-        console.error("Error submitting article:", err);
-        alert("There was an issue submitting your article.");
-    }
-});
-
-
-/* =========================================================
-   2) LOAD ALL ARTICLES FROM FIRESTORE
-   ========================================================= */
-
-async function loadArticles(){
-
-    articlesContainer.innerHTML = ""; // Reset list
-
-    try {
-        const snapshot = await getDocs(postsCollection);
-
-        if(snapshot.empty){
-            articlesContainer.innerHTML = `
-              <div class="article-card">
-                <div class="article-title">No articles yet</div>
-                <div class="article-meta">The platform is ready for your first publication.</div>
-                <div class="article-excerpt">Sign in with Google and publish your first Insight.</div>
-              </div>
-            `;
-            return;
-        }
-
-        snapshot.forEach((doc) => {
-            const post = doc.data();
-
-            const card = document.createElement("div");
-            card.className = "article-card";
-
-            card.innerHTML = `
-                <div class="article-title">${post.title}</div>
-                <div class="article-meta">
-                    By ${post.authorName} • ${new Date(post.createdAt).toLocaleDateString()}
-                </div>
-                <div class="article-excerpt">
-                    ${post.excerpt}
-                </div>
-            `;
-
-            card.addEventListener("click", () => {
-                alert("Full article view coming next.");
-            });
-
-            articlesContainer.appendChild(card);
-        });
-
-    } catch (err){
-        console.error("Error loading articles:", err);
-    }
-}
-
-
-/* =========================================================
-   3) INITIAL LOAD
-   ========================================================= */
-document.addEventListener("DOMContentLoaded", loadArticles);
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<title>Article — Lohrasbi Insights</title>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="theme-color" content="#000814"/>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    background:#000814;color:#e2e8f0;line-height:1.7;
-}
-
-/* NAV */
-header{
-    width:100%;padding:20px 30px;
-    border-bottom:1px solid rgba(56,189,248,.22);
-    background:rgba(0,12,28,0.75);backdrop-filter:blur(10px);
-    position:sticky;top:0;z-index:100;
-}
-.nav{
-    max-width:1300px;margin:auto;
-    display:flex;justify-content:space-between;align-items:center;
-}
-.nav-left{font-size:1.1rem;font-weight:700;color:#38bdf8;}
-.nav-right a{
-    margin-left:22px;font-size:.95rem;color:#cbd5e1;text-decoration:none;
-}
-.nav-right a:hover{color:#7dd3fc;}
-
-/* HERO */
-.hero{
-    padding:60px 30px;text-align:center;
-    background:linear-gradient(to bottom,#001227,#000814);
-    border-bottom:1px solid rgba(56,189,248,.15);
-}
-.hero-title{
-    font-size:2.4rem;font-weight:800;color:#f1f5f9;margin-bottom:10px;
-}
-.hero-meta{
-    font-size:.95rem;color:#7dd3fc;margin-top:8px;
-}
-
-/* CONTENT */
-.container{
-    max-width:900px;margin:40px auto;padding:0 26px;
-}
-.article-content{
-    font-size:1.05rem;color:#cbd5e1;white-space:pre-line;
-    background:rgba(0,20,40,0.5);border:1px solid rgba(56,189,248,.25);
-    padding:30px;border-radius:16px;backdrop-filter:blur(8px);
-}
-
-/* BACK BUTTON */
-.back-btn{
-    display:inline-block;margin-top:35px;
-    padding:10px 18px;border-radius:8px;
-    border:1px solid #38bdf8;color:#38bdf8;background:#001a2c;
-    font-size:.9rem;cursor:pointer;transition:.3s;
-}
-.back-btn:hover{background:#003047;}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="nav">
-    <div class="nav-left">Lohrasbi Architecture Lab</div>
-    <div class="nav-right">
-      <a href="index.html">Home</a>
-      <a href="architecture.html">Architecture Lab</a>
-      <a href="research.html">Research</a>
-      <a href="os-map.html">OS Map</a>
-      <a href="insights.html">Insights</a>
-    </div>
-  </div>
-</header>
-
-<section class="hero">
-  <h1 class="hero-title" id="articleTitle">Loading…</h1>
-  <div class="hero-meta" id="articleMeta"></div>
-</section>
-
-<div class="container">
-  <div id="articleContent" class="article-content">Please wait…</div>
-
-  <button class="back-btn" onclick="window.location.href='insights.html'">
-    ← Back to Insights
-  </button>
-</div>
-
-<!-- FIREBASE + VIEW LOGIC -->
-<script type="module">
-
-/* =========================================================
-   FIREBASE CORE
-   ========================================================= */
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBic_xiGFSSyCvbwb8nQoHyWi8xtlTQGfs",
-  authDomain: "lohrasbi-insights.firebaseapp.com",
-  projectId: "lohrasbi-insights",
-  storageBucket: "lohrasbi-insights.appspot.com",
-  messagingSenderId: "680737322606",
-  appId: "1:680737322606:web:78a6fc16b89edc277f98f1"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-
-/* =========================================================
-   LOAD ARTICLE BASED ON URL ?id=
-   ========================================================= */
-
-async function loadArticle(){
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-
-    if(!id){
-        document.getElementById("articleTitle").innerText = "Article Not Found";
-        document.getElementById("articleContent").innerText =
-            "Missing article ID.";
-        return;
-    }
-
-    const ref = doc(db, "insights_posts", id);
-    const snap = await getDoc(ref);
-
-    if(!snap.exists()){
-        document.getElementById("articleTitle").innerText = "Article Not Found";
-        document.getElementById("articleContent").innerText =
-            "No article exists with this ID.";
-        return;
-    }
-
-    const post = snap.data();
-
-    document.getElementById("articleTitle").innerText = post.title;
-    document.getElementById("articleMeta").innerText =
-        `By ${post.authorName} • ${new Date(post.createdAt).toLocaleDateString()}`;
-
-    document.getElementById("articleContent").innerText = post.content;
-}
-
-loadArticle();
-
-</script>
+<!-- ===================== AUTH + INSIGHTS LOGIC ===================== -->
+<script src="auth.js"></script>
+<script src="insights.js"></script>
 
 </body>
 </html>
