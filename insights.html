@@ -7,29 +7,47 @@
 <meta name="theme-color" content="#000814"/>
 
 <meta name="description"
-      content="Executive insights, architectural essays, and strategic commentary shaping national-scale Symbiotic Intelligence."/>
+      content="Executive insights, architectural analysis, AI frameworks, and strategic publications from Dr. Nader Lohrasbi and verified contributors."/>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
-/* RESET */
+/* =========================================================
+   GLOBAL RESET + CORE THEME
+   ========================================================= */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     background:#000814;
     color:#e2e8f0;
-    line-height:1.7;
+    line-height:1.8;
+    overflow-x:hidden;
 }
 
-/* ===================== NAV BAR ===================== */
+/* soft background glows */
+body::before{
+    content:"";
+    position:fixed;
+    top:-10%;left:-10%;
+    width:150%;height:150%;
+    background:
+      radial-gradient(circle at 25% 20%,rgba(56,189,248,0.10),transparent 60%),
+      radial-gradient(circle at 75% 80%,rgba(34,197,94,0.10),transparent 60%);
+    filter:blur(45px);
+    z-index:-1;
+}
+
+/* =========================================================
+   NAVIGATION BAR — Unified System Navigation Layer
+   ========================================================= */
 header{
     width:100%;
     padding:20px 30px;
     border-bottom:1px solid rgba(56,189,248,.22);
     background:rgba(0,12,28,0.75);
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
     position:sticky;
     top:0;
     z-index:100;
@@ -42,41 +60,46 @@ header{
     align-items:center;
 }
 .nav-left{
-    font-size:1.1rem;
+    font-size:1.2rem;
     font-weight:700;
     color:#38bdf8;
+    letter-spacing:.4px;
 }
 .nav-right a{
     margin-left:22px;
     font-size:.95rem;
     color:#cbd5e1;
     text-decoration:none;
+    padding-bottom:3px;
+    transition:.25s;
 }
 .nav-right a:hover{
     color:#7dd3fc;
 }
 .nav-right a.active{
     color:#38bdf8;
-    font-weight:600;
+    border-bottom:2px solid #38bdf8;
 }
 
-/* LOGIN BUTTON */
+/* login button */
 .login-btn{
-    padding:8px 18px;
-    margin-left:20px;
-    border-radius:8px;
+    padding:8px 16px;
+    margin-left:18px;
+    background:#001a2c;
     border:1px solid #38bdf8;
     color:#38bdf8;
-    background:#001a2c;
+    border-radius:8px;
     font-size:.85rem;
     cursor:pointer;
-    transition:.3s;
+    transition:.25s;
 }
 .login-btn:hover{
     background:#003047;
 }
 
-/* ===================== HERO ===================== */
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
 .hero{
     padding:70px 30px;
     text-align:center;
@@ -87,31 +110,34 @@ header{
     font-size:2.7rem;
     font-weight:800;
     color:#f1f5f9;
-    margin-bottom:12px;
+    margin-bottom:14px;
+    text-shadow:0 0 10px rgba(56,189,248,0.25);
 }
 .hero-sub{
-    font-size:1.15rem;
-    color:#94a3b8;
     max-width:850px;
     margin:14px auto 0;
+    font-size:1.15rem;
+    color:#94a3b8;
 }
 
-/* ===================== ARTICLE LIST ===================== */
+/* =========================================================
+   ARTICLE LIST WRAPPER
+   ========================================================= */
 .container{
     max-width:1000px;
-    margin:40px auto;
-    padding:0 30px;
+    margin:40px auto 100px auto;
+    padding:0 28px;
 }
 
 .article-card{
     padding:26px;
     border-radius:16px;
     background:rgba(0,20,40,0.55);
-    backdrop-filter:blur(8px);
     border:1px solid rgba(56,189,248,.22);
-    margin-bottom:26px;
-    cursor:pointer;
+    backdrop-filter:blur(8px);
+    margin-bottom:28px;
     transition:.25s;
+    cursor:pointer;
 }
 .article-card:hover{
     border-color:#38bdf8;
@@ -120,8 +146,8 @@ header{
 .article-title{
     font-size:1.35rem;
     font-weight:700;
+    margin-bottom:10px;
     color:#f8fafc;
-    margin-bottom:8px;
 }
 .article-meta{
     font-size:.82rem;
@@ -133,12 +159,15 @@ header{
     color:#cbd5e1;
 }
 
-/* ===================== NEW ARTICLE BUTTON ===================== */
+/* =========================================================
+   NEW ARTICLE BUTTON
+   ========================================================= */
 .button-wrapper{
     width:100%;
     display:flex;
     justify-content:center;
     align-items:center;
+    margin-top:30px;
 }
 .new-article-btn{
     display:none;
@@ -148,24 +177,26 @@ header{
     color:#22c55e;
     background:#002b18;
     font-size:.95rem;
-    font-weight:600;
     cursor:pointer;
-    transition:.3s;
+    font-weight:600;
+    transition:.25s;
 }
 .new-article-btn:hover{
     background:#004b2c;
 }
 
-/* ===================== MODAL ===================== */
+/* =========================================================
+   MODAL — Publish Insight
+   ========================================================= */
 .modal-bg{
     position:fixed;
     top:0;left:0;
     width:100%;height:100%;
     background:rgba(0,0,0,0.65);
-    backdrop-filter:blur(6px);
     display:none;
     justify-content:center;
     align-items:center;
+    backdrop-filter:blur(6px);
     z-index:500;
 }
 .modal-box{
@@ -174,65 +205,61 @@ header{
     background:#001324;
     border:1px solid rgba(56,189,248,.25);
     border-radius:14px;
-    padding:28px;
+    padding:30px;
 }
 
 .modal-title{
     font-size:1.4rem;
     font-weight:700;
     color:#38bdf8;
-    margin-bottom:14px;
+    margin-bottom:16px;
 }
 .modal-label{
-    margin-top:14px;
     font-size:.9rem;
-    color:#7dd3fc;
     font-weight:600;
+    color:#7dd3fc;
+    margin-top:15px;
 }
 .modal-input,
 .modal-textarea{
     width:100%;
     padding:12px;
+    margin-top:6px;
     border-radius:8px;
     border:1px solid #334155;
     background:#0f172a;
     color:#e2e8f0;
-    margin-top:6px;
     font-size:.95rem;
 }
 .modal-textarea{
     height:160px;
     resize:vertical;
 }
-
 .modal-btn{
     margin-top:22px;
     width:100%;
     padding:12px;
     border-radius:10px;
     background:#003047;
-    color:#7dd3fc;
     border:1px solid #38bdf8;
+    color:#7dd3fc;
     font-size:1rem;
-    font-weight:600;
     cursor:pointer;
-    transition:.3s;
+    transition:.25s;
 }
 .modal-btn:hover{
     background:#004d74;
 }
-
 .close-btn{
-    margin-top:10px;
+    margin-top:12px;
     width:100%;
     padding:10px;
     border-radius:8px;
     background:#1e293b;
-    color:#94a3b8;
     border:1px solid #475569;
+    color:#94a3b8;
     cursor:pointer;
-    transition:.3s;
-    font-size:.9rem;
+    transition:.25s;
 }
 .close-btn:hover{
     background:#334155;
@@ -242,11 +269,12 @@ header{
 
 <body>
 
-<!-- ===================== NAVIGATION ===================== -->
+<!-- =========================================================
+     NAVIGATION SYSTEM
+     ========================================================= -->
 <header>
   <div class="nav">
     <div class="nav-left">Lohrasbi Architecture Lab</div>
-
     <div class="nav-right">
       <a href="index.html">Home</a>
       <a href="architecture.html">Architecture</a>
@@ -254,8 +282,7 @@ header{
       <a href="blueprints.html">Blueprints</a>
       <a href="os-map.html">OS Map</a>
       <a href="contact.html">Contact</a>
-      <a href="insights.html" class="active">Insights</a>
-
+      <a class="active" href="insights.html">Insights</a>
       <button class="login-btn" id="loginBtn">
         <i class="fa-brands fa-google"></i> Sign in
       </button>
@@ -263,145 +290,80 @@ header{
   </div>
 </header>
 
-<!-- ===================== HERO ===================== -->
+<!-- =========================================================
+     HERO
+     ========================================================= -->
 <section class="hero">
   <h1 class="hero-title">Lohrasbi Insights</h1>
   <p class="hero-sub">
-    Executive essays, architectural commentary, national-scale AI frameworks,  
-    and contributor publications shaping Symbiotic Intelligence.
+      Executive essays, national-scale AI frameworks, architectural commentary,  
+      and strategic publications from Dr. Nader Lohrasbi & verified contributors.
   </p>
 </section>
 
-<!-- ===================== ARTICLE LIST ===================== -->
+<!-- =========================================================
+     ARTICLE LIST
+     ========================================================= -->
 <div class="container">
 
-  <div id="articlesContainer">
-    <!-- Placeholder card -->
-    <div class="article-card">
+  <!-- Placeholder before Firestore loads -->
+  <div class="article-card">
       <div class="article-title">Sample Insight — Architecture in the Cognitive Age</div>
       <div class="article-meta">By System • Not published</div>
       <div class="article-excerpt">
-        This placeholder shows how articles will appear once contributors sign in  
-        and publish architectural insights.
+        This placeholder shows how insights will appear once contributors sign in  
+        and publish content.
       </div>
-    </div>
   </div>
 
+  <div id="articlesContainer"></div>
+
   <div class="button-wrapper">
-    <button class="new-article-btn" id="newArticleBtn">
-      + Publish New Insight
-    </button>
+    <button class="new-article-btn" id="newArticleBtn">+ Publish New Insight</button>
   </div>
 
 </div>
 
-<!-- ===================== MODAL ===================== -->
+<!-- =========================================================
+     MODAL — NEW ARTICLE
+     ========================================================= -->
 <div class="modal-bg" id="newArticleModal">
   <div class="modal-box">
 
       <div class="modal-title">Publish New Insight</div>
 
       <label class="modal-label">Title</label>
-      <input id="articleTitle" class="modal-input" placeholder="Enter title...">
+      <input id="articleTitle" class="modal-input" placeholder="Insight Title">
 
       <label class="modal-label">Executive Excerpt</label>
-      <input id="articleExcerpt" class="modal-input" placeholder="2–3 line executive summary">
+      <input id="articleExcerpt" class="modal-input" placeholder="2–3 line summary">
 
       <label class="modal-label">LinkedIn URL</label>
       <input id="articleLinkedIn" class="modal-input" placeholder="https://www.linkedin.com/in/...">
 
-      <label class="modal-label">Full Article</label>
-      <textarea id="articleContent" class="modal-textarea"
-      placeholder="Write your Insight, essay, or strategic commentary..."></textarea>
+      <label class="modal-label">Full Insight</label>
+      <textarea id="articleContent" class="modal-textarea" placeholder="Write your Insight..."></textarea>
 
       <button class="modal-btn" id="submitArticleBtn">Publish Insight</button>
       <button class="close-btn" id="closeModalBtn">Cancel</button>
 
   </div>
 </div>
-
-<!-- ===================== SCRIPTS WILL BE ADDED IN PART 2 ===================== -->
-
-</body>
-</html>
-<!-- ===================== FIREBASE SDK (Compat Version) ===================== -->
+<!-- =========================================================
+     FIREBASE SDK (Compat Version — Best for GitHub Pages)
+     ========================================================= -->
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 
-<!-- ===================== PROJECT CONFIG ===================== -->
+<!-- =========================================================
+     PROJECT CONFIG — contains firebase.initializeApp(...)
+     ========================================================= -->
 <script src="firebase-config.js"></script>
 
-<!-- ===================== MAIN INSIGHTS LOGIC ===================== -->
-<script src="auth.js"></script>
-<script src="insights.js"></script>
-// ===================== AUTH.JS — Google Login & UI Controls =====================
-
-// UI ELEMENTS
-const loginBtn        = document.getElementById("loginBtn");
-const newArticleBtn   = document.getElementById("newArticleBtn");
-const modal           = document.getElementById("newArticleModal");
-const closeModalBtn   = document.getElementById("closeModalBtn");
-
-// ===================== LOGIN FLOW =====================
-loginBtn.addEventListener("click", async () => {
-    try {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        const result   = await auth.signInWithPopup(provider);
-        const user     = result.user;
-
-        loginBtn.innerHTML = `<i class="fa-solid fa-circle-user"></i> ${user.displayName}`;
-        loginBtn.style.color = "#22c55e";
-        loginBtn.style.borderColor = "#22c55e";
-
-        newArticleBtn.style.display = "inline-block";
-
-    } catch (err) {
-        console.error("Login failed:", err);
-        alert("Login failed. Try again.");
-    }
-});
-
-// ===================== AUTH STATE LISTENER =====================
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        loginBtn.innerHTML = `<i class="fa-solid fa-circle-user"></i> ${user.displayName}`;
-        loginBtn.style.color = "#22c55e";
-        loginBtn.style.borderColor = "#22c55e";
-
-        newArticleBtn.style.display = "inline-block";
-
-    } else {
-        loginBtn.innerHTML = `<i class="fa-brands fa-google"></i> Sign in`;
-        loginBtn.style.color = "#38bdf8";
-        loginBtn.style.borderColor = "#38bdf8";
-
-        newArticleBtn.style.display = "none";
-    }
-});
-
-// ===================== MODAL CONTROLS =====================
-newArticleBtn.addEventListener("click", () => {
-    modal.style.display = "flex";
-});
-
-closeModalBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-});
-
-// Close modal if clicking outside the box
-window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
-});
-<!-- ===================== FIREBASE SDK (Compat Version) ===================== -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-
-<!-- ===================== PROJECT CONFIG ===================== -->
-<script src="firebase-config.js"></script>
-
-<!-- ===================== AUTH + INSIGHTS LOGIC ===================== -->
+<!-- =========================================================
+     MAIN LOGIC FILES (NO inline JS inside HTML)
+     ========================================================= -->
 <script src="auth.js"></script>
 <script src="insights.js"></script>
 
