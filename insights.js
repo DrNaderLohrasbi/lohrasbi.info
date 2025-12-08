@@ -1,68 +1,49 @@
-// insights.js
-import { db } from "./firebase-init.js";
-import { getActiveUser } from "./auth.js";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  query,
-  orderBy
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+/* =========================================================
+   2) LOAD ALL ARTICLES FROM FIRESTORE (WITH LINKS)
+   ========================================================= */
 
-const articlesContainer = document.getElementById("articlesContainer");
-const newArticleBtn = document.getElementById("newArticleBtn");
+async function loadArticles(){
 
-// LOAD ARTICLES
-async function loadArticles() {
-  const q = query(collection(db, "insights"), orderBy("timestamp", "desc"));
-  const snapshot = await getDocs(q);
+    articlesContainer.innerHTML = ""; // Reset list
 
-  articlesContainer.innerHTML = "";
+    try {
+        const snapshot = await getDocs(postsCollection);
 
-  snapshot.forEach((doc) => {
-    const data = doc.data();
+        if(snapshot.empty){
+            articlesContainer.innerHTML = `
+              <div class="article-card">
+                <div class="article-title">No articles yet</div>
+                <div class="article-meta">The platform is ready for your first publication.</div>
+                <div class="article-excerpt">Sign in with Google and publish your first Insight.</div>
+              </div>
+            `;
+            return;
+        }
 
-    const card = document.createElement("div");
-    card.className = "article-card";
+        snapshot.forEach((docItem) => {
+            const post = docItem.data();
+            const id = docItem.id;
 
-    card.innerHTML = `
-      <div class="article-title">${data.title}</div>
-      <div class="article-meta">By ${data.authorName} • ${data.authorLinkedIn}</div>
-      <div class="article-excerpt">${data.excerpt}</div>
-    `;
+            const card = document.createElement("div");
+            card.className = "article-card";
 
-    articlesContainer.appendChild(card);
-  });
+            card.innerHTML = `
+                <div class="article-title">${post.title}</div>
+                <div class="article-meta">
+                    By ${post.authorName} • ${new Date(post.createdAt).toLocaleDateString()}
+                </div>
+                <div class="article-excerpt">${post.excerpt}</div>
+            `;
+
+            // 🔥 CLICK → OPEN FULL ARTICLE PAGE
+            card.addEventListener("click", () => {
+                window.location.href = `article-view.html?id=${id}`;
+            });
+
+            articlesContainer.appendChild(card);
+        });
+
+    } catch (err){
+        console.error("Error loading articles:", err);
+    }
 }
-
-loadArticles();
-
-// SUBMIT NEW ARTICLE
-newArticleBtn.onclick = async () => {
-  const user = getActiveUser();
-  if (!user) return alert("Please sign in first.");
-
-  const name = user.displayName || prompt("Enter your name:");
-  const linkedin = localStorage.getItem("linkedin_" + user.uid);
-  const title = prompt("Article title:");
-  const excerpt = prompt("Short summary:");
-  const body = prompt("Full article content:");
-
-  if (!title || !excerpt || !body) {
-    alert("All fields are required.");
-    return;
-  }
-
-  await addDoc(collection(db, "insights"), {
-    title,
-    excerpt,
-    body,
-    authorName: name,
-    authorLinkedIn: linkedin,
-    email: user.email,
-    timestamp: Date.now()
-  });
-
-  alert("Article submitted!");
-  loadArticles();
-};
