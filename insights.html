@@ -9,12 +9,13 @@
 <meta name="description"
       content="Executive insights, architectural analysis, AI frameworks, and strategic publications from Dr. Nader Lohrasbi and verified contributors."/>
 
+<!-- FONTS + ICONS -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
 /* =========================================================
-   GLOBAL RESET + CORE THEME
+   RESET + GLOBAL THEME
    ========================================================= */
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -26,21 +27,21 @@ body{
     overflow-x:hidden;
 }
 
-/* soft background glows */
+/* Background glow */
 body::before{
     content:"";
     position:fixed;
     top:-10%;left:-10%;
     width:150%;height:150%;
     background:
-      radial-gradient(circle at 25% 20%,rgba(56,189,248,0.10),transparent 60%),
-      radial-gradient(circle at 75% 80%,rgba(34,197,94,0.10),transparent 60%);
+      radial-gradient(circle at 25% 20%,rgba(56,189,248,0.12),transparent 60%),
+      radial-gradient(circle at 75% 80%,rgba(34,197,94,0.12),transparent 60%);
     filter:blur(45px);
     z-index:-1;
 }
 
 /* =========================================================
-   NAVIGATION BAR — Unified System Navigation Layer
+   NAVIGATION
    ========================================================= */
 header{
     width:100%;
@@ -63,7 +64,6 @@ header{
     font-size:1.2rem;
     font-weight:700;
     color:#38bdf8;
-    letter-spacing:.4px;
 }
 .nav-right a{
     margin-left:22px;
@@ -81,10 +81,10 @@ header{
     border-bottom:2px solid #38bdf8;
 }
 
-/* login button */
+/* Login Button */
 .login-btn{
     padding:8px 16px;
-    margin-left:18px;
+    margin-left:20px;
     background:#001a2c;
     border:1px solid #38bdf8;
     color:#38bdf8;
@@ -98,84 +98,173 @@ header{
 }
 
 /* =========================================================
-   HERO SECTION
+   HERO
    ========================================================= */
 .hero{
-    padding:70px 30px;
+    padding:75px 30px;
     text-align:center;
     background:linear-gradient(to bottom,#001227,#000814);
-    border-bottom:1px solid rgba(56,189,248,.15);
+    border-bottom:1px solid rgba(56,189,248,.18);
 }
 .hero-title{
-    font-size:2.7rem;
+    font-size:2.9rem;
     font-weight:800;
     color:#f1f5f9;
     margin-bottom:14px;
 }
 .hero-sub{
-    max-width:850px;
+    max-width:900px;
     margin:14px auto 0;
-    font-size:1.15rem;
+    font-size:1.2rem;
     color:#94a3b8;
 }
 
 /* =========================================================
-   ARTICLE LIST WRAPPER
+   CONTAINER
    ========================================================= */
 .container{
-    max-width:1000px;
-    margin:40px auto 100px auto;
-    padding:0 28px;
+    max-width:1050px;
+    margin:40px auto 100px;
+    padding:0 30px;
 }
 
+/* Placeholder Intro Card */
+.placeholder-card{
+    padding:30px;
+    border-radius:16px;
+    background:rgba(0,20,40,0.55);
+    border:1px solid rgba(56,189,248,.22);
+    backdrop-filter:blur(10px);
+    margin-bottom:30px;
+}
+.placeholder-title{
+    font-size:1.4rem;
+    font-weight:700;
+    color:#f8fafc;
+    margin-bottom:10px;
+}
+.placeholder-meta{
+    font-size:.9rem;
+    color:#7dd3fc;
+    margin-bottom:12px;
+}
+.placeholder-text{
+    font-size:1rem;
+    color:#cbd5e1;
+}
+
+/* Article List Container */
+#articlesContainer{
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVIGATION BAR
+     ========================================================= -->
+<header>
+  <div class="nav">
+    <div class="nav-left">Lohrasbi Architecture Lab</div>
+
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="research.html">Research</a>
+      <a href="blueprints.html">Blueprints</a>
+      <a href="os-map.html">OS Map</a>
+      <a href="contact.html">Contact</a>
+      <a class="active" href="insights.html">Insights</a>
+
+      <button class="login-btn" id="loginBtn">
+        <i class="fa-brands fa-google"></i> Sign in
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- =========================================================
+     HERO SECTION
+     ========================================================= -->
+<section class="hero">
+  <h1 class="hero-title">Lohrasbi Insights</h1>
+  <p class="hero-sub">
+      Executive essays, national-scale AI frameworks, architectural commentary,  
+      and strategic publications from Dr. Nader Lohrasbi & verified contributors.
+  </p>
+</section>
+
+<!-- =========================================================
+     MAIN CONTENT CONTAINER
+     ========================================================= -->
+<div class="container">
+
+  <!-- Placeholder Card (before loading real posts) -->
+  <div class="placeholder-card">
+      <div class="placeholder-title">Sample Insight — Architecture in the Cognitive Age</div>
+      <div class="placeholder-meta">By System • Not published</div>
+      <div class="placeholder-text">
+        This placeholder shows how Insights will appear once contributors sign in  
+        and publish content using the Lohrasbi Insights Platform.
+      </div>
+  </div>
+
+  <!-- Dynamic Articles Will Load Here -->
+  <div id="articlesContainer"></div>
+<!-- =========================================================
+     ARTICLE CARD STYLES
+     ========================================================= -->
+<style>
 .article-card{
     padding:26px;
     border-radius:16px;
     background:rgba(0,20,40,0.55);
     border:1px solid rgba(56,189,248,.22);
-    backdrop-filter:blur(8px);
-    margin-bottom:28px;
-    transition:.25s;
+    backdrop-filter:blur(10px);
+    margin-bottom:32px;
     cursor:pointer;
+    transition:.25s;
 }
 .article-card:hover{
     border-color:#38bdf8;
-    transform:scale(1.01);
+    transform:translateY(-3px);
 }
 .article-title{
     font-size:1.35rem;
     font-weight:700;
-    margin-bottom:10px;
+    margin-bottom:8px;
     color:#f8fafc;
 }
 .article-meta{
-    font-size:.82rem;
+    font-size:.85rem;
     color:#7dd3fc;
     margin-bottom:12px;
 }
 .article-excerpt{
-    font-size:.95rem;
+    font-size:1rem;
     color:#cbd5e1;
 }
 
-/* =========================================================
-   NEW ARTICLE BUTTON
-   ========================================================= */
+/* Button Wrapper */
 .button-wrapper{
     width:100%;
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-top:30px;
+    margin-top:40px;
 }
+
+/* Publish Button */
 .new-article-btn{
     display:none;
-    padding:12px 22px;
+    padding:12px 28px;
     border-radius:10px;
     border:1px solid #22c55e;
     color:#22c55e;
     background:#002b18;
-    font-size:.95rem;
+    font-size:1rem;
     cursor:pointer;
     font-weight:600;
     transition:.25s;
@@ -185,7 +274,7 @@ header{
 }
 
 /* =========================================================
-   MODAL — Publish Insight
+   MODAL — PUBLISH INSIGHT
    ========================================================= */
 .modal-bg{
     position:fixed;
@@ -200,49 +289,48 @@ header{
 }
 .modal-box{
     width:90%;
-    max-width:600px;
+    max-width:650px;
     background:#001324;
     border:1px solid rgba(56,189,248,.25);
     border-radius:14px;
-    padding:30px;
+    padding:34px;
 }
-
 .modal-title{
-    font-size:1.4rem;
+    font-size:1.45rem;
     font-weight:700;
     color:#38bdf8;
-    margin-bottom:16px;
+    margin-bottom:20px;
 }
 .modal-label{
-    font-size:.9rem;
+    font-size:.95rem;
     font-weight:600;
     color:#7dd3fc;
-    margin-top:15px;
+    margin-top:16px;
 }
 .modal-input,
 .modal-textarea{
     width:100%;
-    padding:12px;
-    margin-top:6px;
+    padding:14px;
+    margin-top:8px;
     border-radius:8px;
     border:1px solid #334155;
     background:#0f172a;
     color:#e2e8f0;
-    font-size:.95rem;
+    font-size:1rem;
 }
 .modal-textarea{
-    height:160px;
+    height:180px;
     resize:vertical;
 }
 .modal-btn{
-    margin-top:22px;
+    margin-top:26px;
     width:100%;
-    padding:12px;
+    padding:14px;
     border-radius:10px;
     background:#003047;
     border:1px solid #38bdf8;
     color:#7dd3fc;
-    font-size:1rem;
+    font-size:1.1rem;
     cursor:pointer;
     transition:.25s;
 }
@@ -250,10 +338,10 @@ header{
     background:#004d74;
 }
 .close-btn{
-    margin-top:12px;
+    margin-top:14px;
     width:100%;
-    padding:10px;
-    border-radius:8px;
+    padding:12px;
+    border-radius:10px;
     background:#1e293b;
     border:1px solid #475569;
     color:#94a3b8;
@@ -264,75 +352,28 @@ header{
     background:#334155;
 }
 </style>
-</head>
 
-<body>
 
 <!-- =========================================================
-     NAVIGATION SYSTEM
+     NEW ARTICLE BUTTON
      ========================================================= -->
-<header>
-  <div class="nav">
-    <div class="nav-left">Lohrasbi Architecture Lab</div>
-    <div class="nav-right">
-      <a href="index.html">Home</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="research.html">Research</a>
-      <a href="blueprints.html">Blueprints</a>
-      <a href="os-map.html">OS Map</a>
-      <a href="contact.html">Contact</a>
-      <a class="active" href="insights.html">Insights</a>
-      <button class="login-btn" id="loginBtn">
-        <i class="fa-brands fa-google"></i> Sign in
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- =========================================================
-     HERO
-     ========================================================= -->
-<section class="hero">
-  <h1 class="hero-title">Lohrasbi Insights</h1>
-  <p class="hero-sub">
-      Executive essays, national-scale AI frameworks, architectural commentary,  
-      and strategic publications from Dr. Nader Lohrasbi & verified contributors.
-  </p>
-</section>
-
-<!-- =========================================================
-     ARTICLE LIST
-     ========================================================= -->
-<div class="container">
-
-  <!-- Placeholder before Firestore loads -->
-  <div class="article-card">
-      <div class="article-title">Sample Insight — Architecture in the Cognitive Age</div>
-      <div class="article-meta">By System • Not published</div>
-      <div class="article-excerpt">
-        This placeholder shows how insights will appear once contributors sign in  
-        and publish content.
-      </div>
-  </div>
-
-  <div id="articlesContainer"></div>
-
-  <div class="button-wrapper">
-    <button class="new-article-btn" id="newArticleBtn">+ Publish New Insight</button>
-  </div>
-
+<div class="button-wrapper">
+  <button class="new-article-btn" id="newArticleBtn">
+      + Publish New Insight
+  </button>
 </div>
 
+
 <!-- =========================================================
-     MODAL — NEW ARTICLE
+     MODAL STRUCTURE
      ========================================================= -->
 <div class="modal-bg" id="newArticleModal">
   <div class="modal-box">
 
       <div class="modal-title">Publish New Insight</div>
 
-      <label class="modal-label">Title</label>
-      <input id="articleTitle" class="modal-input" placeholder="Insight Title">
+      <label class="modal-label">Insight Title</label>
+      <input id="articleTitle" class="modal-input" placeholder="Enter title">
 
       <label class="modal-label">Executive Excerpt</label>
       <input id="articleExcerpt" class="modal-input" placeholder="2–3 line summary">
@@ -341,7 +382,8 @@ header{
       <input id="articleLinkedIn" class="modal-input" placeholder="https://www.linkedin.com/in/...">
 
       <label class="modal-label">Full Insight</label>
-      <textarea id="articleContent" class="modal-textarea" placeholder="Write your Insight..."></textarea>
+      <textarea id="articleContent" class="modal-textarea"
+                placeholder="Write your Insight..."></textarea>
 
       <button class="modal-btn" id="submitArticleBtn">Publish Insight</button>
       <button class="close-btn" id="closeModalBtn">Cancel</button>
@@ -349,17 +391,15 @@ header{
   </div>
 </div>
 
+
 <!-- =========================================================
-     FIREBASE SDK
+     FIREBASE + SCRIPT IMPORTS
      ========================================================= -->
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 
-<!-- PROJECT CONFIG -->
 <script src="firebase-config.js"></script>
-
-<!-- LOGIC FILES -->
 <script src="auth.js"></script>
 <script src="insights.js"></script>
 
