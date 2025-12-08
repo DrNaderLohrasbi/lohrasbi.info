@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lohrasbi Insights – Article</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Full article from Lohrasbi Insights platform." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #020617;
+      --bg-card: rgba(15,23,42,0.95);
+      --border-subtle: rgba(148,163,184,0.35);
+      --accent-blue: #38bdf8;
+      --accent-green: #22c55e;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.9), rgba(15,23,42,0.4), transparent);
+      border-bottom: 1px solid rgba(15,23,42,0.9);
+    }
+
+    .nav-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: radial-gradient(circle at 20% 20%, #38bdf8 0, #22c55e 40%, #020617 100%);
+      box-shadow: 0 0 25px rgba(56,189,248,0.5);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      text-decoration: none;
+      color: var(--text-muted);
+      margin-left: 1rem;
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    nav a:hover {
+      color: #e5e7eb;
+    }
+
+    nav a.active {
+      color: #e5e7eb;
+    }
+
+    nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.1rem;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, var(--accent-green), var(--accent-blue));
+    }
+
+    /* Main layout */
+    main {
+      max-width: 960px;
+      margin: 2.5rem auto 3rem auto;
+      padding: 0 1.5rem 3rem 1.5rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .back-link span {
+      font-size: 1rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .article-shell {
+      background: var(--bg-card);
+      border-radius: 1.5rem;
+      padding: 2rem 2.4rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow:
+        0 22px 45px rgba(0,0,0,0.6),
+        0 0 40px rgba(56,189,248,0.15);
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .article-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-green);
+      box-shadow: 0 0 8px rgba(34,197,94,0.8);
+    }
+
+    .article-title {
+      font-size: 1.9rem;
+      line-height: 1.25;
+      margin: 0 0 0.5rem 0;
+      color: #f9fafb;
+    }
+
+    .article-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+    }
+
+    .article-meta a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    .article-meta a:hover {
+      text-decoration: underline;
+    }
+
+    .article-divider {
+      height: 1px;
+      width: 100%;
+      margin: 1.5rem 0 1.8rem 0;
+      background: linear-gradient(to right, transparent, rgba(148,163,184,0.6), transparent);
+    }
+
+    .article-content {
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: var(--text-main);
+      white-space: pre-wrap;
+    }
+
+    .article-footer-note {
+      margin-top: 2.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(148,163,184,0.4);
+      padding-top: 1rem;
+    }
+
+    .article-footer-note strong {
+      color: var(--accent-green);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .nav-shell {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 0.4rem;
+      }
+      main {
+        margin-top: 1.4rem;
+      }
+      .article-shell {
+        padding: 1.5rem 1.4rem;
+        border-radius: 1.1rem;
+      }
+      .article-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAV -->
+  <header>
+    <div class="nav-shell">
+      <div class="nav-left">
+        <div class="brand-mark"></div>
+        <div class="brand-text">
+          <div class="brand-title">Lohrasbi Architecture Lab</div>
+          <div class="brand-sub">Healthcare Transformation • Symbiotic Intelligence</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="research.html">Research</a>
+        <a href="blueprints.html">Blueprints</a>
+        <a href="os-map.html">OS Map</a>
+        <a href="contact.html">Contact</a>
+        <a href="insights.html" class="active">Insights</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <a href="insights.html" class="back-link">
+      <span>←</span> Back to Insights
+    </a>
+
+    <section class="article-shell">
+      <div class="article-tag">
+        <div class="article-tag-dot"></div>
+        LOHRASBI INSIGHTS · EXECUTIVE BRIEFING
+      </div>
+
+      <h1 id="article-title" class="article-title">Loading article...</h1>
+
+      <div id="article-meta" class="article-meta">
+        Fetching metadata...
+      </div>
+
+      <div class="article-divider"></div>
+
+      <article id="article-content" class="article-content">
+        Loading content...
+      </article>
+
+      <div class="article-footer-note">
+        This insight is part of the <strong>Lohrasbi Digital Fortress</strong> —
+        the symbiotic intelligence layer connecting research, blueprints, and national health operating systems.
+      </div>
+    </section>
+  </main>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <!-- Project Config -->
+  <script src="firebase-config.js"></script>
+
+  <script>
+    function getArticleIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("id");
+    }
+
+    async function loadArticle() {
+      const id = getArticleIdFromUrl();
+      const titleEl   = document.getElementById("article-title");
+      const metaEl    = document.getElementById("article-meta");
+      const contentEl = document.getElementById("article-content");
+
+      if (!id) {
+        titleEl.textContent = "Article not found";
+        metaEl.textContent = "";
+        contentEl.textContent = "Missing article ID in URL.";
+        return;
+      }
+
+      try {
+        const doc = await db.collection("insights").doc(id).get();
+        if (!doc.exists) {
+          titleEl.textContent = "Article not found";
+          metaEl.textContent = "";
+          contentEl.textContent = "This article does not exist or was removed.";
+          return;
+        }
+
+        const data = doc.data();
+
+        titleEl.textContent = data.title || "Untitled Insight";
+
+        const created = data.createdAt
+          ? data.createdAt.toDate().toLocaleString()
+          : "";
+
+        const authorName = data.authorName || "Unknown Author";
+        const authorLinkedIn = data.authorLinkedIn || "";
+
+        let metaHtml = `By ${authorName}`;
+        if (authorLinkedIn) {
+          metaHtml += ` · <a href="${authorLinkedIn}" target="_blank" rel="noopener">LinkedIn</a>`;
+        }
+        if (created) {
+          metaHtml += ` · <span>${created}</span>`;
+        }
+        metaEl.innerHTML = metaHtml;
+
+        contentEl.textContent = data.content || "";
+
+      } catch (err) {
+        console.error("Error loading article:", err);
+        titleEl.textContent = "Error loading article";
+        metaEl.textContent = "";
+        contentEl.textContent = "Check console for technical details.";
+      }
+    }
+
+    loadArticle();
+  </script>
+</body>
+</html>
